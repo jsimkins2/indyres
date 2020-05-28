@@ -32,7 +32,7 @@ fields::image.plot(x=lon, y=lat, z=sstC, legend.lab="Celsius")
 title("GOES-R SST Product 7/25/2019 19:00 UTC")
 ```
 
-![](02-Details_files/figure-epub3/unnamed-chunk-1-1.png)<!-- -->
+<img src="02-Details_files/figure-html/unnamed-chunk-1-1.png" width="672" />
 
 ## Now Let's Break Down This Script
 
@@ -197,7 +197,7 @@ fields::image.plot(x=lon, y=lat, z=sstC, legend.lab="Celsius")
 title("GOES-R SST Product 7/25/2019 19:00 UTC")
 ```
 
-![](02-Details_files/figure-epub3/unnamed-chunk-10-1.png)<!-- -->
+<img src="02-Details_files/figure-html/unnamed-chunk-10-1.png" width="672" />
 
 
 Now we plot this up using the 'image.plot()' function from the 'fields' library. We just tell it to plot the sstC but notice that I didn't place an argument in here. If you don't tell image.plot() what an argument actually is, it assumes you're following the order that the function was written in. If you declare arguments, such as 'z=sstC' or like 'varid="SST"' from above, you can place the arguments in whatever order you want in that function. Notice that for this kind of plot, the 'title()' function is a separate function rather than an argument of 'image.plot()'. This goes for a lot of plot aesthetics that we'll get into later. Remember, if you're ever confused about something like this just tell R you need 'help()'. 
@@ -212,7 +212,7 @@ Now we plot this up using the 'image.plot()' function from the 'fields' library.
 -Hint: You may have to use 'install.packages' in your console first 
 
 Aim for something like this:
-![](02-Details_files/figure-epub3/unnamed-chunk-11-1.png)<!-- -->
+<img src="02-Details_files/figure-html/unnamed-chunk-11-1.png" width="672" />
 
 
 ## DataTypes
