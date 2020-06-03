@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>A Shiny Document</title>
+  <meta name="description" content="A Shiny Document" />
+  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="A Shiny Document" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="A Shiny Document" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Tech Trainings: Excel to R for Businesses</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path=""><a href="#section-technical-definitions-rules"><i class="fa fa-check"></i><b>1</b> Technical Definitions &amp; Rules</a><ul>
+<li class="chapter" data-level="1.1" data-path=""><a href="#section-important-r-programming-definitions"><i class="fa fa-check"></i><b>1.1</b> Important R Programming Definitions</a></li>
+<li class="chapter" data-level="1.2" data-path=""><a href="#section-definitions-in-action---tv-data-example"><i class="fa fa-check"></i><b>1.2</b> Definitions in Action - TV Data Example</a><ul>
+<li class="chapter" data-level="1.2.1" data-path=""><a href="#section-line-by-line-discussion"><i class="fa fa-check"></i><b>1.2.1</b> Line by Line Discussion</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">James Simkins</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A Shiny Document</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="section-header">
+<h1 class="title">A Shiny Document</h1>
+</div>
+<div id="section-technical-definitions-rules" class="section level1">
+<h1><span class="header-section-number">1</span> Technical Definitions &amp; Rules</h1>
+<div id="section-important-r-programming-definitions" class="section level2">
+<h2><span class="header-section-number">1.1</span> Important R Programming Definitions</h2>
+<table style="width:69%;">
+<colgroup>
+<col width="12%" />
+<col width="19%" />
+<col width="37%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Coding Name</th>
+<th>Example</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>syntax</td>
+<td>R code</td>
+<td>the nomenclature and structure of a programming language</td>
+</tr>
+<tr class="even">
+<td>variable</td>
+<td><code>names</code></td>
+<td>Variables are used to store data, whose value can be changed according to our need. Variables can be declared using <code>&lt;-</code> (tradiational way) <strong>or</strong> by <code>=</code> (conventional way)</td>
+</tr>
+<tr class="odd">
+<td>package</td>
+<td><code>library(ggplot2)</code></td>
+<td>A collection of functions prewritten in R</td>
+</tr>
+<tr class="even">
+<td>function</td>
+<td><code>print()</code></td>
+<td>A function is a set of statements organized together to perform a specific task. R has a set of preloaded functions that are part of the <code>base</code> package. If a function cannot be found as part of the <code>base</code> package, the function has likely already been built under another package that needs to be loaded in. <strong>Functions can be identified due to their enclosing parantheses ()</strong></td>
+</tr>
+<tr class="odd">
+<td>arguments</td>
+<td><code>read.csv(file = &quot;datasets/tv_shows.csv&quot;, header = FALSE)</code></td>
+<td>Components of a function that are separated by commas and declared using the <code>=</code> sign.</td>
+</tr>
+<tr class="even">
+<td>index</td>
+<td><code>tv_data[3,55]</code></td>
+<td>The position of data within a data frame, matrix, list, vector, etc. In R, data is <strong>indexed as [row,column] and indexing is done via brackets []</strong></td>
+</tr>
+<tr class="odd">
+<td>loop</td>
+<td><code>for (n in names){print(n)}</code></td>
+<td>Repeats a task for a specified number of times. Saves a programmer from repeating codelines with different parameters.</td>
+</tr>
+<tr class="even">
+<td>logical</td>
+<td><code>TRUE, FALSE</code></td>
+<td>TRUE and FALSE logical operators are declared using all caps</td>
+</tr>
+<tr class="odd">
+<td>arithmetic operators</td>
+<td><code>+,-,*,/,^</code></td>
+<td>Math operators used for addition, subtraction, multiplication, division, exponent, respectively.</td>
+</tr>
+<tr class="even">
+<td>comparison operators</td>
+<td><code>==, &lt;, &gt;, &lt;=, &gt;=, !=</code></td>
+<td>Is equal to, less than, greater than, less than or equal to, greater than or equal to, is NOT equal to, respectively</td>
+</tr>
+<tr class="odd">
+<td>and/or operators</td>
+<td><code>&amp;, |</code></td>
+<td>AND, OR</td>
+</tr>
+<tr class="even">
+<td>string</td>
+<td><code>a_string = &quot;anythign within quotes, single or double&quot;</code></td>
+<td>Any value written within a pair of single quote or double quotes in R is treated as a string.</td>
+</tr>
+<tr class="odd">
+<td>numeric</td>
+<td><code>1</code></td>
+<td>Any number - integer, float, etc.</td>
+</tr>
+<tr class="even">
+<td>vector</td>
+<td><code>as.vector(x = c(1,2,3,4))</code></td>
+<td>Vectors are the most basic R data objects and there are six types of atomic vectors. They are logical, integer, double, complex, character and raw.</td>
+</tr>
+<tr class="odd">
+<td>lists</td>
+<td><code>list('Peter', 'Sarah', 'Tom', 'Helen')</code></td>
+<td>Lists are the R objects which contain elements of different types like − numbers, strings, vectors and another list inside it</td>
+</tr>
+<tr class="even">
+<td>matrix</td>
+<td><code>matrix(c(1:5), nrow = 3, byrow = TRUE)</code></td>
+<td>Matrices are the R objects in which the elements are arranged in a two-dimensional rectangular layout.</td>
+</tr>
+<tr class="odd">
+<td>array</td>
+<td><code>array(data = c(1,2,3))</code></td>
+<td>Arrays are the R data objects which can store data in more than two dimensions. For example − If we create an array of dimension (1, 2, 3) then it creates 3 rectangular matrices each with 1 rows and 2 columns. Arrays can store only one data type.</td>
+</tr>
+<tr class="even">
+<td>data frame</td>
+<td><code>data.frame(tv_data)</code></td>
+<td>R version of Excel Spreadsheet. A data frame is a table or a two-dimensional array-like structure in which each column contains values of one variable and each row contains one set of values from each column.</td>
+</tr>
+<tr class="odd">
+<td>factor</td>
+<td><code>factor()</code></td>
+<td>Factors are the data objects which are used to categorize the data and store it as levels. They can store both strings and integers. They are useful in the columns which have a limited number of unique values. Like “Male,”Female&quot; and True, False etc. They are useful in data analysis for statistical modeling.</td>
+</tr>
+<tr class="even">
+<td>help</td>
+<td><code>help(read.csv)</code></td>
+<td>Default helper function in R. Opens up documentation on a particular function in the lower right quadrant of R.</td>
+</tr>
+<tr class="odd">
+<td>class</td>
+<td><code>class(tv_data)</code></td>
+<td>Tells us what R is recognizing something as</td>
+</tr>
+<tr class="even">
+<td>concatenate (<code>c</code>)</td>
+<td>c(“a”, “b”, “c”)</td>
+<td>A quick utility for concatenating strings together</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://www.tutorialspoint.com/r/index.htm">Additional examples can be found here</a></p>
+</div>
+<div id="section-definitions-in-action---tv-data-example" class="section level2">
+<h2><span class="header-section-number">1.2</span> Definitions in Action - TV Data Example</h2>
+<p>Now that we’re comfortable with R Studio and have some definitions under our belt, let’s dive in a little into some R code and discuss it. Here is a script that loads a dataset about TV shows and examines their IMDb rating.</p>
+<p>First, let’s just show the script without running it.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Load in the dataset using the read.csv() function</span>
+tv_data =<span class="st"> </span><span class="kw">read.csv</span>(<span class="dt">file =</span> <span class="st">&quot;datasets/tv_shows.csv&quot;</span>, <span class="dt">header =</span> <span class="ot">FALSE</span>)
+
+<span class="co"># have R tell us what class tv_data is</span>
+<span class="kw">class</span>(tv_data)
+
+<span class="co"># find the number of rows</span>
+<span class="kw">nrow</span>(tv_data)
+
+<span class="co"># print the top 5 rows of the dataset using the head() function</span>
+<span class="kw">head</span>(tv_data)
+
+<span class="co"># another way to print out the first 5 rows</span>
+<span class="kw">print</span>(tv_data[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, ])
+
+<span class="co"># print out the first 5 rows of the tv_data Title column</span>
+<span class="kw">head</span>(tv_data<span class="op">$</span>Title)
+
+<span class="co"># print out the first 5 rows of the tv_data Title Column</span>
+<span class="kw">head</span>(tv_data[<span class="st">&#39;Title&#39;</span>])
+
+<span class="co"># print out the first 7 rows of the tv_data Title Column</span>
+<span class="kw">print</span>(tv_data[<span class="st">&#39;Title&#39;</span>][<span class="dv">1</span><span class="op">:</span><span class="dv">7</span>,])
+
+<span class="co"># sort the tv_data dataframe by the IMDb column from High values to Low values</span>
+sorted_tv_data =<span class="st"> </span>tv_data[<span class="kw">order</span>(tv_data<span class="op">$</span>IMDb, <span class="dt">decreasing =</span> <span class="ot">TRUE</span>), ]
+
+<span class="co"># print the top 5 rows of the dataset</span>
+<span class="kw">head</span>(sorted_tv_data)
+
+<span class="co"># a column X is bugging me and shouldn&#39;t be there - let&#39;s NULL it out to remove it from our dataframe</span>
+sorted_tv_data<span class="op">$</span>X =<span class="st"> </span><span class="ot">NULL</span>
+
+<span class="co"># print the first 10 rows of the sorted_tv_data column</span>
+<span class="kw">print</span>(sorted_tv_data[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>,])</code></pre></div>
+<p>Now, let’s run the script. Note that this will run line by line, so below each snippet of code R will return what we ask it to print.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Load in the dataset using the read.csv() function</span>
+tv_data =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;datasets/tv_shows.csv&quot;</span>)
+
+<span class="co"># have R tell us what class tv_data is</span>
+<span class="kw">class</span>(tv_data)</code></pre></div>
+<pre><code>## [1] &quot;data.frame&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># print the top 5 rows of the dataset using the head() function</span>
+<span class="kw">head</span>(tv_data)</code></pre></div>
+<pre><code>##   X            Title Year Age IMDb Rotten.Tomatoes Netflix Hulu
+## 1 0     Breaking Bad 2008 18+  9.5             96%       1    0
+## 2 1  Stranger Things 2016 16+  8.8             93%       1    0
+## 3 2      Money Heist 2017 18+  8.4             91%       1    0
+## 4 3         Sherlock 2010 16+  9.1             78%       1    0
+## 5 4 Better Call Saul 2015 18+  8.7             97%       1    0
+## 6 5       The Office 2005 16+  8.9             81%       1    0
+##   Prime.Video Disney. type
+## 1           0       0    1
+## 2           0       0    1
+## 3           0       0    1
+## 4           0       0    1
+## 5           0       0    1
+## 6           0       0    1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># another way to print out the first 5 rows</span>
+<span class="kw">print</span>(tv_data[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, ])</code></pre></div>
+<pre><code>##   X            Title Year Age IMDb Rotten.Tomatoes Netflix Hulu
+## 1 0     Breaking Bad 2008 18+  9.5             96%       1    0
+## 2 1  Stranger Things 2016 16+  8.8             93%       1    0
+## 3 2      Money Heist 2017 18+  8.4             91%       1    0
+## 4 3         Sherlock 2010 16+  9.1             78%       1    0
+## 5 4 Better Call Saul 2015 18+  8.7             97%       1    0
+##   Prime.Video Disney. type
+## 1           0       0    1
+## 2           0       0    1
+## 3           0       0    1
+## 4           0       0    1
+## 5           0       0    1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># print out the first 5 rows of the tv_data Title column</span>
+<span class="kw">head</span>(tv_data<span class="op">$</span>Title)</code></pre></div>
+<pre><code>## [1] Breaking Bad     Stranger Things  Money Heist      Sherlock        
+## [5] Better Call Saul The Office      
+## 5564 Levels: .hack (The Hook Up Plan) #blackAF ... 頭文字D First Stage</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># print out the first 5 rows of the tv_data Title Column</span>
+<span class="kw">head</span>(tv_data[<span class="st">&#39;Title&#39;</span>])</code></pre></div>
+<pre><code>##              Title
+## 1     Breaking Bad
+## 2  Stranger Things
+## 3      Money Heist
+## 4         Sherlock
+## 5 Better Call Saul
+## 6       The Office</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># print out the first 7 rows of the tv_data Title Column</span>
+<span class="kw">print</span>(tv_data[<span class="st">&#39;Title&#39;</span>][<span class="dv">1</span><span class="op">:</span><span class="dv">7</span>,])</code></pre></div>
+<pre><code>## [1] Breaking Bad     Stranger Things  Money Heist      Sherlock        
+## [5] Better Call Saul The Office       Black Mirror    
+## 5564 Levels: .hack (The Hook Up Plan) #blackAF ... 頭文字D First Stage</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># sort the tv_data dataframe by the IMDb column from High values to Low values</span>
+sorted_tv_data =<span class="st"> </span>tv_data[<span class="kw">order</span>(tv_data<span class="op">$</span>IMDb, <span class="dt">decreasing =</span> <span class="ot">TRUE</span>), ]
+
+<span class="co"># print the top 5 rows of the dataset</span>
+<span class="kw">head</span>(sorted_tv_data)</code></pre></div>
+<pre><code>##         X               Title Year Age IMDb Rotten.Tomatoes Netflix Hulu
+## 3024 3023             Destiny 2014      9.6                       0    1
+## 1       0        Breaking Bad 2008 18+  9.5             96%       1    0
+## 3178 3177        Hungry Henry 2014      9.5                       0    1
+## 3748 3747        Malgudi Days 1987 all  9.5                       0    0
+## 2366 2365 The Joy of Painting 1983 all  9.4                       0    1
+## 3568 3567    Band of Brothers 2001 18+  9.4             94%       0    0
+##      Prime.Video Disney. type
+## 3024           0       0    1
+## 1              0       0    1
+## 3178           0       0    1
+## 3748           1       0    1
+## 2366           1       0    1
+## 3568           1       0    1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># a column X is bugging me and shouldn&#39;t be there - let&#39;s NULL it out to remove it from our dataframe</span>
+sorted_tv_data<span class="op">$</span>X =<span class="st"> </span><span class="ot">NULL</span>
+
+<span class="co"># print the first 10 rows of the sorted_tv_data column</span>
+<span class="kw">print</span>(sorted_tv_data[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>,])</code></pre></div>
+<pre><code>##                    Title Year Age IMDb Rotten.Tomatoes Netflix Hulu
+## 3024             Destiny 2014      9.6                       0    1
+## 1           Breaking Bad 2008 18+  9.5             96%       1    0
+## 3178        Hungry Henry 2014      9.5                       0    1
+## 3748        Malgudi Days 1987 all  9.5                       0    0
+## 2366 The Joy of Painting 1983 all  9.4                       0    1
+## 3568    Band of Brothers 2001 18+  9.4             94%       0    0
+## 92            Our Planet 2019  7+  9.3             93%       1    0
+## 326              Ramayan 1987 all  9.3                       1    0
+## 3567            The Wire 2002 18+  9.3             94%       0    0
+## 4129      Green Paradise 2011 all  9.3                       0    0
+##      Prime.Video Disney. type
+## 3024           0       0    1
+## 1              0       0    1
+## 3178           0       0    1
+## 3748           1       0    1
+## 2366           1       0    1
+## 3568           1       0    1
+## 92             0       0    1
+## 326            0       0    1
+## 3567           1       0    1
+## 4129           1       0    1</code></pre>
+<div id="section-line-by-line-discussion" class="section level3">
+<h3><span class="header-section-number">1.2.1</span> Line by Line Discussion</h3>
+<table style="width:67%;">
+<colgroup>
+<col width="18%" />
+<col width="48%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Code</th>
+<th>Discussion</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>tv_data = read.csv(file = &quot;datasets/tv_shows.csv&quot;)</code></td>
+<td>We open our dataset <code>tv_shows.csv</code> which is located in our “datasets/” folder. We open the file using the <code>read.csv()</code> function. Within the <code>read.csv()</code> function, we used the <code>file =</code> argument to state which file we wanted to open - note that within functions, arguments can <strong>only</strong> be specified via the <code>=</code> sign. We name our dataset as <code>tv_data</code>. Notice that we used the <code>=</code> operator to declare our dataset as <code>tv_data</code>, but we also could’ve used the traditional way of <code>&lt;-</code></td>
+</tr>
+<tr class="even">
+<td><code>class(tv_data)</code></td>
+<td>have R tell us the class of our <code>tv_data</code></td>
+</tr>
+<tr class="odd">
+<td><code>nrow(tv_data)</code></td>
+<td>have R tell us the number of rows in <code>tv_data</code></td>
+</tr>
+<tr class="even">
+<td><code>head(tv_data)</code></td>
+<td>The <code>head()</code> function prints out the first 5 rows of an R dataframe. This is the same as viewing the first 5 rows in Microsoft Excel</td>
+</tr>
+<tr class="odd">
+<td><code>print(tv_data[1:5, ])</code></td>
+<td>We use indexing to print out the first 5 rows of the <code>tv_data</code> dataframe <code>tv_data[row 1 to row 5, all columns]</code>. In R, the rows and columns are separated by a comma and the colon symbol can be interpreted as <code>to</code>. So, when we have <code>[1:5,]</code> we’re telling R to print row 1 to row 5. By leaving the column part blank (aka part after the comma), we’re telling R to print all columns from the specified rows.</td>
+</tr>
+<tr class="even">
+<td><code>head(tv_data$Title)</code></td>
+<td>We print out the first 5 rows of the <code>Title</code> column of the <code>tv_data</code> dataframe. We query the <code>Title</code> column using the <code>$</code> key. If we type <code>tv_data$</code> and hit the <code>Tab</code> key on our keyboard, R presents us with autocomplete options which are the column names within the <code>tv_data</code> dataset</td>
+</tr>
+<tr class="odd">
+<td><code>print(tv_data['Title'][1:7,])</code></td>
+<td>We print out the first 7 rows of the <code>Title</code> column using the index method. When querying a column/variable from a dataframe, we can either use the <code>tv_data$Title</code> or we can use the <code>tv_data['Title']</code>. The additional brackets showing <code>[1:7,]</code> print the first 7 rows.</td>
+</tr>
+<tr class="even">
+<td><code>sorted_tv_data = tv_data[order(tv_data$IMDb, decreasing = TRUE), ]</code></td>
+<td>Here we create a new dataframe called <code>sorted_tv_data</code> where we order the <code>tv_data</code> dataframe by each rows <code>IMDb</code> score. This can be read as <code>from the tv_data dataframe, order the all of the rows based on the tv_data$IMDB column with decreasing order</code>. <code>order()</code> is a function and <code>decreasing = TRUE</code> is an argument of that function. Since the columns are remaining the same, we leave the space after the <code>,</code> blank.</td>
+</tr>
+<tr class="odd">
+<td><code>head(sorted_tv_data)</code></td>
+<td>Print the first 5 lines of our new <code>sorted_tv_data</code> dataframe.</td>
+</tr>
+<tr class="even">
+<td><code>sorted_tv_data$X = NULL</code></td>
+<td>We notice a column named <code>X</code> and see that it has no meaning since we have a default row number within the R dataframe. We want to delete this column without disturbing the rest of the dataframe. We do so by telling R that the <code>X</code> column shall be converted to <code>NULL</code>, thus removing the column</td>
+</tr>
+<tr class="odd">
+<td><code>print(sorted_tv_data[1:10,])</code></td>
+<td>Print out the top 10 IMDb rated shows</td>
+</tr>
+</tbody>
+</table>
+<div class="panel panel-default">
+<div data-label="letter-a" class="tutorial-question panel-body">
+<div id="letter-a-answer_container" class="shiny-html-output"></div>
+<div id="letter-a-message_container" class="shiny-html-output"></div>
+<div id="letter-a-action_button_container" class="shiny-html-output"></div>
+<script>if (Tutorial.triggerMathJax) Tutorial.triggerMathJax()</script>
+</div>
+</div>
+You are not expected to fully grasp everything at this point. As we progress through the tutorials, these concepts will make more sense. 
+<script type="application/shiny-prerendered" data-context="server">
+learnr:::register_http_handlers(session, metadata = NULL)
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+session$onSessionEnded(function() {
+        learnr:::session_stop_event(session)
+      })
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "letter-a", question = structure("What number is the letter A in the English alphabet?", html = TRUE, class = c("html", "character")), answers = list(structure(list(id = "lnr_ans_6f8e885",     option = "8", value = "8", label = structure("8", html = TRUE, class = c("html",     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", "tutorial_quiz_answer")), structure(list(id = "lnr_ans_ca213cb",     option = "14", value = "14", label = structure("14", html = TRUE, class = c("html",     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", "tutorial_quiz_answer")), structure(list(id = "lnr_ans_4ca4f73",     option = "1", value = "1", label = structure("1", html = TRUE, class = c("html",     "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", "tutorial_quiz_answer")), structure(list(id = "lnr_ans_bf21766",     option = "23", value = "23", label = structure("23", html = TRUE, class = c("html",     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", "tutorial_quiz_answer"))), button_labels = list(submit = structure("Submit Answer", html = TRUE, class = c("html", "character")), try_again = structure("Try Again", html = TRUE, class = c("html", "character"))), messages = list(correct = structure("Correct!", html = TRUE, class = c("html", "character")), try_again = structure("Incorrect", html = TRUE, class = c("html", "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", "character")), message = NULL, post_message = NULL), ids = list(    answer = "letter-a-answer", question = "letter-a"), loading = structure("<strong>Loading:<\u002fstrong> \nWhat number is the letter A in the English alphabet?\n<br/><br/><br/>", html = TRUE, class = c("html", "character")), random_answer_order = FALSE, allow_retry = FALSE,     seed = 476744128.777999, options = list()), class = c("learnr_radio", "tutorial_question")))
+</script>
+ <!--html_preserve-->
+<script type="application/shiny-prerendered" data-context="dependencies">
+{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["jquery"]},{"type":"character","attributes":{},"value":["2.2.3"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["resources/jquery"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["jquery.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["bookdown"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.19"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["gitbook"]},{"type":"character","attributes":{},"value":["2.6.7"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["resources/gitbook"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["js/app.min.js","js/lunr.js","js/clipboard.min.js","js/plugin-search.js","js/plugin-sharing.js","js/plugin-fontsettings.js","js/plugin-bookdown.js","js/jquery.highlight.js","js/plugin-clipboard.js"]},{"type":"character","attributes":{},"value":["css/style.css","css/plugin-table.css","css/plugin-bookdown.css","css/plugin-highlight.css","css/plugin-search.css","css/plugin-fontsettings.css","css/plugin-clipboard.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["bookdown"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.19"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["jquery"]},{"type":"character","attributes":{},"value":["1.11.3"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/jquery"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["jquery.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["2.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["font-awesome"]},{"type":"character","attributes":{},"value":["5.1.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/fontawesome"]}]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["css/all.css","css/v4-shims.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["2.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["bootbox"]},{"type":"character","attributes":{},"value":["4.4.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/bootbox"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["bootbox.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["idb-keyvalue"]},{"type":"character","attributes":{},"value":["3.2.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/idb-keyval"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["idb-keyval-iife-compat.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[false]},{"type":"character","attributes":{},"value":["0.10.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial"]},{"type":"character","attributes":{},"value":["0.10.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial.js"]},{"type":"character","attributes":{},"value":["tutorial.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial-autocompletion"]},{"type":"character","attributes":{},"value":["0.10.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial-autocompletion.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial-diagnostics"]},{"type":"character","attributes":{},"value":["0.10.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial-diagnostics.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1"]}]}]}
+</script>
+<!--/html_preserve-->
+<!--html_preserve-->
+<script type="application/shiny-prerendered" data-context="execution_dependencies">
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["packages"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["packages","version"]},"class":{"type":"character","attributes":{},"value":["data.frame"]},"row.names":{"type":"integer","attributes":{},"value":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38]}},"value":[{"type":"character","attributes":{},"value":["backports","base","bookdown","checkmate","compiler","datasets","digest","ellipsis","evaluate","graphics","grDevices","htmltools","htmlwidgets","httpuv","jsonlite","knitr","later","learnr","magrittr","markdown","methods","mime","promises","R6","Rcpp","rlang","rmarkdown","rprojroot","shiny","stats","stringi","stringr","tools","utils","withr","xfun","xtable","yaml"]},{"type":"character","attributes":{},"value":["1.1.5","3.6.1","0.19","2.0.0","3.6.1","3.6.1","0.6.21","0.3.0","0.14","3.6.1","3.6.1","0.4.0","1.5.1","1.5.2","1.6","1.25","1.0.0","0.10.1","1.5","1.1","3.6.1","0.7","1.1.0","2.4.0","1.0.2","0.4.0","2.1","1.3-2","1.3.2","3.6.1","1.4.3","1.4.0","3.6.1","3.6.1","2.1.2","0.10","1.8-4","2.2.0"]}]}]}
+</script>
+<!--/html_preserve-->
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+},
+"search": false
+});
+});
+</script>
+
+</body>
+
+</html>

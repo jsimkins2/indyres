@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>4 Installing and Using Packages | Tech Trainings - From Excel to R</title>
+  <meta name="description" content="Tutorial based introduction to R for Excel users" />
+  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="4 Installing and Using Packages | Tech Trainings - From Excel to R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Tutorial based introduction to R for Excel users" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="4 Installing and Using Packages | Tech Trainings - From Excel to R" />
+  
+  <meta name="twitter:description" content="Tutorial based introduction to R for Excel users" />
+  
+
+<meta name="author" content="James Simkins" />
+
+
+<meta name="date" content="2020-06-03" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="r-rstudio.html"/>
+<link rel="next" href="technical-definitions-rules.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.9/datatables.js"></script>
+<link href="libs/dt-core-1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.19/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.19/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Tech Trainings: Excel to R for Businesses</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="welcome.html"><a href="welcome.html"><i class="fa fa-check"></i><b>1</b> Welcome</a><ul>
+<li class="chapter" data-level="1.1" data-path="welcome.html"><a href="welcome.html#agenda"><i class="fa fa-check"></i><b>1.1</b> Agenda</a></li>
+<li class="chapter" data-level="1.2" data-path="welcome.html"><a href="welcome.html#prerequisites"><i class="fa fa-check"></i><b>1.2</b> Prerequisites</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="overview.html"><a href="overview.html"><i class="fa fa-check"></i><b>2</b> Overview</a><ul>
+<li class="chapter" data-level="2.1" data-path="overview.html"><a href="overview.html#what-is-r"><i class="fa fa-check"></i><b>2.1</b> What is R?</a></li>
+<li class="chapter" data-level="2.2" data-path="overview.html"><a href="overview.html#reasons-to-love-r"><i class="fa fa-check"></i><b>2.2</b> Reasons to love R</a></li>
+<li class="chapter" data-level="2.3" data-path="overview.html"><a href="overview.html#guiding-principles"><i class="fa fa-check"></i><b>2.3</b> Guiding Principles</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="r-rstudio.html"><a href="r-rstudio.html"><i class="fa fa-check"></i><b>3</b> R &amp; RStudio</a><ul>
+<li class="chapter" data-level="3.1" data-path="r-rstudio.html"><a href="r-rstudio.html#open-rstudio"><i class="fa fa-check"></i><b>3.1</b> Open RStudio</a></li>
+<li class="chapter" data-level="3.2" data-path="r-rstudio.html"><a href="r-rstudio.html#r-studio-layout"><i class="fa fa-check"></i><b>3.2</b> R Studio Layout</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="installing-and-using-packages.html"><a href="installing-and-using-packages.html"><i class="fa fa-check"></i><b>4</b> Installing and Using Packages</a><ul>
+<li class="chapter" data-level="4.1" data-path="installing-and-using-packages.html"><a href="installing-and-using-packages.html#checkpoint---writing-your-first-r-code"><i class="fa fa-check"></i><b>4.1</b> Checkpoint - Writing your first R code</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="technical-definitions-rules.html"><a href="technical-definitions-rules.html"><i class="fa fa-check"></i><b>5</b> Technical Definitions &amp; Rules</a><ul>
+<li class="chapter" data-level="5.1" data-path="technical-definitions-rules.html"><a href="technical-definitions-rules.html#important-r-programming-definitions"><i class="fa fa-check"></i><b>5.1</b> Important R Programming Definitions</a></li>
+<li class="chapter" data-level="5.2" data-path="technical-definitions-rules.html"><a href="technical-definitions-rules.html#definitions-in-action---tv-data-example"><i class="fa fa-check"></i><b>5.2</b> Definitions in Action - TV Data Example</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="technical-definitions-rules.html"><a href="technical-definitions-rules.html#line-by-line-discussion"><i class="fa fa-check"></i><b>5.2.1</b> Line by Line Discussion</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="avacados-tutorial.html"><a href="avacados-tutorial.html"><i class="fa fa-check"></i><b>6</b> Avacados Tutorial</a><ul>
+<li class="chapter" data-level="6.1" data-path="avacados-tutorial.html"><a href="avacados-tutorial.html#load-the-avacados-dataset"><i class="fa fa-check"></i><b>6.1</b> Load the Avacados Dataset</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">James Simkins</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Tech Trainings - From Excel to R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="installing-and-using-packages" class="section level1">
+<h1><span class="header-section-number">4</span> Installing and Using Packages</h1>
+<p>To use a function in R that performs a task (such as plotting, statistical analysis, etc.), we must first load the package into our R session. When we use Microsoft Excel, nearly all the functions you can use with it are available in the toolbar at the top of the page. In R, however, you’ll need to load in the packages you’d like to use. Once the package is loaded, R will recognize any functions you call that are part of that package.</p>
+<p>Here’s the code we use to load a package:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">library</span>(base)</a></code></pre></div>
+<p>In R, the package is the toolbox; the function is the tool. We need to load the woodworking toolbox in order to use the hammer.</p>
+<p>Most of the packages you’ll want to use are not previously installed on R. You’ll need to install them onto your local machine. Once they are installed once, you shouldn’t have to worry about installing them again. Here’s how you install the <code>ggplot2</code> package.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>)</a></code></pre></div>
+<p>You may be wondering, why do I need to load in the packages I want to use? R is designed to be <em>fast</em>. If you were to pre-load every package available in R, you’d be loading thousands of packages. We can keep R light and fast by only loading the specific “toolboxes” we need.</p>
+<p>Now that the <code>ggplot2</code> package is installed, we can use any function that is within that package. If you’re curious about what functions are in a particular package, <a href="https://ggplot2.tidyverse.org/reference/">most packages have thorough documentation and examples online</a>.</p>
+<div id="checkpoint---writing-your-first-r-code" class="section level2">
+<h2><span class="header-section-number">4.1</span> Checkpoint - Writing your first R code</h2>
+<p>Let’s write an R script that prints out names, run the code to make sure it works properly, and then save it.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co"># load the base package</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw">library</span>(base)</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="co"># let&#39;s create a list with our names </span></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5">names =<span class="st"> </span><span class="kw">list</span>(<span class="st">&#39;Peter&#39;</span>, <span class="st">&#39;Sarah&#39;</span>, <span class="st">&#39;Tom&#39;</span>, <span class="st">&#39;Helen&#39;</span>)</a>
+<a class="sourceLine" id="cb3-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="co"># now let&#39;s use the print function to print out those names</span></a>
+<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="kw">print</span>(names)</a></code></pre></div>
+<pre><code>## [[1]]
+## [1] &quot;Peter&quot;
+## 
+## [[2]]
+## [1] &quot;Sarah&quot;
+## 
+## [[3]]
+## [1] &quot;Tom&quot;
+## 
+## [[4]]
+## [1] &quot;Helen&quot;</code></pre>
+<p>In this example, we created a variable called <code>names</code>. We used the <code>list()</code> function to populate a list of names. Then we used the <code>print()</code> function to print out the <code>names</code> variable. Once the script has been written, we simply navigate to <strong>File -&gt; Save As…-&gt; <code>print_names.R</code> </strong>. Remember, <strong>no spaces</strong> in the filename and it must be saved as <strong>.R</strong>.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="r-rstudio.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="technical-definitions-rules.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

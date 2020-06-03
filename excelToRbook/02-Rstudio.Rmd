@@ -1,0 +1,114 @@
+# R & RStudio
+
+By now you've downloaded R and RStudio and you're probably wondering, why do I need to download both? R is that programming language that is running on your computer. RStudio is what we call an Indegrated Development Environment (IDE) - this is a technical term for a human-interface app. RStudio is the application we'll be using. It is our Microsoft Excel. RStudio runs R in the background for us and gives us information and a nice, user-friendly layout. Let's open RStudio and get familiar with it.
+
+
+## Open RStudio
+Navigate to your applications folder on your computer. Launch RStudio. When you open it for the first time, you should see this.
+
+
+```{r, echo=FALSE, out.width="100%", fig.align="center"}
+knitr::include_graphics("images/openR_1.png")  
+```
+
+
+This is RStudio. When you open it for the first time, we'll need to open a new RScript to begin coding. 
+
+
+**Open new R Script**
+
+
+To open a new R Script, we select the blankpage with green plus icon and select R Script from the menu. 
+
+
+```{r, echo=FALSE, out.width="100%", fig.align="center"}
+knitr::include_graphics("images/new_script2.png")  
+```
+
+
+This opens up the new R script and we can begin coding in R. Now that we have the R Script open, you'll notice 4 quadrants. Let's run through what those quadrants are.
+
+
+## R Studio Layout
+
+
+```{r, echo=FALSE, out.width="100%", fig.align="center"}
+knitr::include_graphics("images/Full_image_3.png")  
+```
+
+
+Now let's describe what's going on here in a little more detail.
+
+
+**R Script** - This is your canvas. This is where we write and edit our code. A lot of trial and error goes on here. 
+
+
+```{r, echo=FALSE, out.width="100%", fig.align="center"}
+knitr::include_graphics("images/script4.png")  
+```
+
+
+**R Console** - This is where you run your code. When we talk about running code, we mean we're telling R to execute the code we've written in the R Script. R Console is the place inside RStudio where we are using the R programming language. 
+
+
+```{r, echo=FALSE, out.width="100%", fig.align="center"}
+knitr::include_graphics("images/console5.png")  
+```
+
+
+**Variable Environment** - This area keeps track of your variables, data tables, filenames, etc. We can select data tables to view from this list here.
+
+
+```{r, echo=FALSE, out.width="100%", fig.align="center"}
+knitr::include_graphics("images/environment6.png")  
+```
+
+
+**Files/Plots/Help** - In this quadrant, we can toggle through files on our computer, view plots that we're creating in R, search for help and descriptions of R functions, and more.
+
+
+```{r, echo=FALSE, out.width="100%", fig.align="center"}
+knitr::include_graphics("images/files7.png")  
+```
+
+# Installing and Using Packages
+
+To use a function in R that performs a task (such as plotting, statistical analysis, etc.), we must first load the package into our R session. When we use Microsoft Excel, nearly all the functions you can use with it are available in the toolbar at the top of the page. In R, however, you'll need to load in the packages you'd like to use. Once the package is loaded, R will recognize any functions you call that are part of that package. 
+
+Here's the code we use to load a package:
+
+```{r, eval=FALSE}
+library(base)
+```
+
+In R, the package is the toolbox; the function is the tool. We need to load the woodworking toolbox in order to use the hammer.
+
+Most of the packages you'll want to use are not previously installed on R. You'll need to install them onto your local machine. Once they are installed once, you shouldn't have to worry about installing them again. Here's how you install the `ggplot2` package.
+
+```{r, eval=FALSE}
+install.packages("ggplot2")
+```
+
+You may be wondering, why do I need to load in the packages I want to use? R is designed to be *fast*. If you were to pre-load every package available in R, you'd be loading thousands of packages. We can keep R light and fast by only loading the specific "toolboxes" we need. 
+
+Now that the `ggplot2` package is installed, we can use any function that is within that package. If you're curious about what functions are in a particular package, [most packages have thorough documentation and examples online](https://ggplot2.tidyverse.org/reference/). 
+
+## Checkpoint - Writing your first R code
+
+Let's write an R script that prints out names, run the code to make sure it works properly, and then save it.
+
+```{r}
+# load the base package
+library(base)
+
+# let's create a list with our names 
+names = list('Peter', 'Sarah', 'Tom', 'Helen')
+
+# now let's use the print function to print out those names
+print(names)
+```
+
+In this example, we created a variable called `names`. We used the `list()` function to populate a list of names. Then we used the `print()` function to print out the `names` variable. Once the script has been written, we simply navigate to **File -> Save As...-> `print_names.R` **. Remember, **no spaces** in the filename and it must be saved as **.R**. 
+
+
+

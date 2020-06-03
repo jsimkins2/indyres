@@ -1,0 +1,52 @@
+---
+title: "Exploratory Analysis Zillow"
+output:
+  html_document:
+    fig_height: 4
+    fig_width: 7
+    theme: cosmo
+---
+# Avacados Tutorial
+
+```{r, echo=FALSE, out.width="100%", fig.align="center"}
+knitr::include_graphics("images/avacado.jpeg")  
+```
+
+For this tutorial, we'll pretend we work for a supermarket chain interested in avacado pricing. Understanding price changes and the drivers behind those changes can help us forecast future shifts that enable us to stay ahead of the market and create appropriate pricing given the economic environment. 
+
+**Goals of this tutorial**
+
+**Datasets used**
+
+## Load the Avacados Dataset
+
+First we'll load in the packages and the avacados dataset. 
+
+```{r}
+# first let's load in the packages we need
+library(data.table)
+library(dplyr)
+library(ggplot2)
+library(stringr)
+library(DT)
+library(tidyr)
+library(corrplot)
+library(leaflet)
+library(lubridate)
+
+# now let's load in our dataset using read.csv
+original_df <- read.csv("datasets/avocado.csv")
+
+```
+
+```{r include=FALSE}
+options(tibble.width = Inf)
+```
+
+```{r, echo=FALSE}
+datatable(head(original_df,30), style="default", class="table-condensed", options = list(dom = 'tp',scrollX = TRUE))
+
+```
+```{r}
+ggplot(original_df, aes(x=AveragePrice, fill=type)) + geom_density()
+```
