@@ -1,20 +1,15 @@
----
-title: "A Shiny Document"
-output: html_document
-runtime: shiny_prerendered
----
-
 # Technical Definitions & Rules
 
 ## Important R Programming Definitions
 
 | Coding Name | Example | Definition |
-|--------|-------------|--------------------------|
+|--------|------------------|--------------------------|
 | syntax | R code | the nomenclature and structure of a programming language| 
+| debugging | Failed R run | debugging involves fixing R code that is written incorrectly and doesn't run |
 | variable | `names` | Variables are used to store data, whose value can be changed according to our need. Variables can be declared using `<-` (tradiational way) **or** by `=` (conventional way) |
 | package | `library(ggplot2)` | A collection of functions prewritten in R| 
 | function | `print()` | A function is a set of statements organized together to perform a specific task. R has a set of preloaded functions that are part of the `base` package. If a function cannot be found as part of the `base` package, the function has likely already been built under another package that needs to be loaded in. **Functions can be identified due to their enclosing parantheses ()**|
-| arguments | `read.csv(file = "datasets/tv_shows.csv", header = FALSE)`| Components of a function that are separated by commas and declared using the `=` sign. |
+| arguments | `read.csv(file = "datasets/tv_shows.csv", header = FALSE)`| Components of a function that are separated by commas and declared using the `=` sign. Arguments in this example are `file = ` and `header = `|
 | index | `tv_data[3,55]` | The position of data within a data frame, matrix, list, vector, etc. In R, data is **indexed as [row,column] and indexing is done via brackets []** | 
 | loop | `for (n in names){print(n)}`| Repeats a task for a specified number of times. Saves a programmer from repeating codelines with different parameters. |
 | logical | `TRUE, FALSE` | TRUE and FALSE logical operators are declared using all caps  | 
@@ -80,6 +75,9 @@ sorted_tv_data$X = NULL
 
 # print the first 10 rows of the sorted_tv_data column
 print(sorted_tv_data[1:10,])
+
+# Barplot the first 16 rows of tv data 
+ggplot(data = sorted_tv_data[1:16,], mapping = aes(x=Title, y=IMDb)) + geom_bar(stat = "identity") + theme(axis.text.x=element_text(angle=45, hjust=1))
 ```
 
 
@@ -87,7 +85,7 @@ Now, let's run the script. Note that this will run line by line, so below each s
 
 
 
-```{r}
+```{r, out.width="100%", fig.align="center"}
 library(ggplot2)
 
 # Load in the dataset using the read.csv() function
@@ -123,15 +121,15 @@ sorted_tv_data$X = NULL
 # print the first 10 rows of the sorted_tv_data column
 print(sorted_tv_data[1:10,])
 
-# Barplot the first 10 rows of tv data 
-ggplot(sorted_tv_data[1:10,], aes(x=Title, y=IMDb)) + geom_bar(stat = "identity")
+# Barplot the first 16 rows of tv data 
+ggplot(data = sorted_tv_data[1:16,], mapping = aes(x=Title, y=IMDb)) + geom_bar(stat = "identity") + theme(axis.text.x=element_text(angle=45, hjust=1))
 
 ```
 
 ### Line by Line Discussion
 
 | Code | Discussion |
-|------------|----------------------------------|
+|--------------------------|----------------------------------|
 |`tv_data = read.csv(file = "datasets/tv_shows.csv")`| We open our dataset `tv_shows.csv` which is located in our "datasets/" folder. We open the file using the `read.csv()` function. Within the `read.csv()` function, we used the `file = ` argument to state which file we wanted to open - note that within functions, arguments can **only** be specified via the `=` sign. We name our dataset as `tv_data`. Notice that we used the `=` operator to declare our dataset as `tv_data`, but we also could've used the traditional way of `<-` |
 | `class(tv_data)` | have R tell us the class of our `tv_data` |
 | `nrow(tv_data)` | have R tell us the number of rows in `tv_data` |
@@ -142,9 +140,14 @@ ggplot(sorted_tv_data[1:10,], aes(x=Title, y=IMDb)) + geom_bar(stat = "identity"
 |`sorted_tv_data = tv_data[order(tv_data$IMDb, decreasing = TRUE), ]` | Here we create a new dataframe called `sorted_tv_data` where we order the `tv_data` dataframe by each rows `IMDb` score. This can be read as `from the tv_data dataframe, order the all of the rows based on the tv_data$IMDB column with decreasing order`. `order()` is a function and `decreasing = TRUE` is an argument of that function. Since the columns are remaining the same, we leave the space after the `,` blank. | 
 | `head(sorted_tv_data)`| Print the first 5 lines of our new `sorted_tv_data` dataframe. | 
 | `sorted_tv_data$X = NULL` | We notice a column named `X` and see that it has no meaning since we have a default row number within the R dataframe. We want to delete this column without disturbing the rest of the dataframe. We do so by telling R that the `X` column shall be converted to `NULL`, thus removing the column| 
-| `print(sorted_tv_data[1:10,])` | Print out the top 10 IMDb rated shows | 
+| `ggplot(data = sorted_tv_data[1:16,], mapping = aes(x=Title, y=IMDb)) + geom_bar(stat = "identity") + theme(axis.text.x=element_text(angle=45, hjust=1))` | Create a `ggplot` instance from the `ggplot2` package. We first create the `ggplot` instance, declare the `data` as the first 16 rows of the `sorted_tv_data`, declare the `mapping` aesthetics (`aes`) where we set the `x` axis of the plot equal to the `sorted_tv_data` `Title`, and the `y` axis equal to the `sorted_tv_data` `IMDB` rating. Once `ggplot` understands the dataset we want to plot and what goes to each axis, we `+` add a `geom_bar` to the code, telling `ggplot` that we want a barplot. We do need to add one argument within the `geom_bar` function and that is `stat = "identity"`. `stat` is the statistical transformation to use on the data for this layer. It's a fancy way of saying "what should the bars represent?". In our case, we set `stat = "identity"` so that the heights of the bars to represent values in the data. `ggplot2` is the most popular plotting package in R and creates some beautiful plots. We'll learn more about `ggplot2` in the next section.   | 
 
 
+Need a little more help on a function used above? Use the `help` feature by running the following in your console!
+
+```{r, eval=FALSE}
+help(ggplot)
+```
 
 
 

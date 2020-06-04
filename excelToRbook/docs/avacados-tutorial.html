@@ -24,7 +24,7 @@
 <meta name="author" content="James Simkins" />
 
 
-<meta name="date" content="2020-06-03" />
+<meta name="date" content="2020-06-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -162,7 +162,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="avacados-tutorial.html"><a href="avacados-tutorial.html"><i class="fa fa-check"></i><b>6</b> Avacados Tutorial</a><ul>
-<li class="chapter" data-level="6.1" data-path="avacados-tutorial.html"><a href="avacados-tutorial.html#load-the-avacados-dataset"><i class="fa fa-check"></i><b>6.1</b> Load the Avacados Dataset</a></li>
+<li class="chapter" data-level="6.1" data-path="avacados-tutorial.html"><a href="avacados-tutorial.html#ggplot2-crash-course"><i class="fa fa-check"></i><b>6.1</b> ggplot2 crash course</a></li>
+<li class="chapter" data-level="6.2" data-path="avacados-tutorial.html"><a href="avacados-tutorial.html#load-the-avacados-dataset"><i class="fa fa-check"></i><b>6.2</b> Load the Avacados Dataset</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">James Simkins</a></li>
@@ -188,28 +189,177 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">6</span> Avacados Tutorial</h1>
 <p><img src="images/avacado.jpeg" width="100%" style="display: block; margin: auto;" /></p>
 <p>For this tutorial, we’ll pretend we work for a supermarket chain interested in avacado pricing. Understanding price changes and the drivers behind those changes can help us forecast future shifts that enable us to stay ahead of the market and create appropriate pricing given the economic environment.</p>
-<p><strong>Goals of this tutorial</strong></p>
-<p><strong>Datasets used</strong></p>
-<div id="load-the-avacados-dataset" class="section level2">
-<h2><span class="header-section-number">6.1</span> Load the Avacados Dataset</h2>
-<p>First we’ll load in the packages and the avacados dataset.</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1"><span class="co"># first let&#39;s load in the packages we need</span></a>
-<a class="sourceLine" id="cb22-2" data-line-number="2"><span class="kw">library</span>(data.table)</a>
-<a class="sourceLine" id="cb22-3" data-line-number="3"><span class="kw">library</span>(dplyr)</a>
-<a class="sourceLine" id="cb22-4" data-line-number="4"><span class="kw">library</span>(ggplot2)</a>
-<a class="sourceLine" id="cb22-5" data-line-number="5"><span class="kw">library</span>(stringr)</a>
-<a class="sourceLine" id="cb22-6" data-line-number="6"><span class="kw">library</span>(DT)</a>
-<a class="sourceLine" id="cb22-7" data-line-number="7"><span class="kw">library</span>(tidyr)</a>
-<a class="sourceLine" id="cb22-8" data-line-number="8"><span class="kw">library</span>(corrplot)</a>
-<a class="sourceLine" id="cb22-9" data-line-number="9"><span class="kw">library</span>(leaflet)</a>
-<a class="sourceLine" id="cb22-10" data-line-number="10"><span class="kw">library</span>(lubridate)</a>
-<a class="sourceLine" id="cb22-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb22-12" data-line-number="12"><span class="co"># now let&#39;s load in our dataset using read.csv</span></a>
-<a class="sourceLine" id="cb22-13" data-line-number="13">original_df &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;datasets/avocado.csv&quot;</span>)</a></code></pre></div>
-<div id="htmlwidget-0081afb834d4ed9db4ad" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-0081afb834d4ed9db4ad">{"x":{"filter":"none","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30"],[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29],["2015-12-27","2015-12-20","2015-12-13","2015-12-06","2015-11-29","2015-11-22","2015-11-15","2015-11-08","2015-11-01","2015-10-25","2015-10-18","2015-10-11","2015-10-04","2015-09-27","2015-09-20","2015-09-13","2015-09-06","2015-08-30","2015-08-23","2015-08-16","2015-08-09","2015-08-02","2015-07-26","2015-07-19","2015-07-12","2015-07-05","2015-06-28","2015-06-21","2015-06-14","2015-06-07"],[1.33,1.35,0.93,1.08,1.28,1.26,0.99,0.98,1.02,1.07,1.12,1.28,1.31,0.99,1.33,1.28,1.11,1.07,1.34,1.33,1.12,1.45,1.11,1.26,1.05,1.35,1.37,1.27,1.32,1.07],[64236.62,54876.98,118220.22,78992.15,51039.6,55979.78,83453.76,109428.33,99811.42,74338.76,84843.44,64489.17,61007.1,106803.39,69759.01,76111.27,99172.96,105693.84,79992.09,80043.78,111140.93,75133.1,106757.1,96617,124055.31,109252.12,89534.81,104849.39,89631.3,122743.06],[1036.74,674.28,794.7,1132,941.48,1184.27,1368.92,703.75,1022.15,842.4,924.86,1582.03,2268.32,1204.88,1028.03,985.73,879.45,689.01,733.16,539.65,584.63,509.94,648.75,1042.1,672.25,869.45,664.23,804.01,850.58,656.71],[54454.85,44638.81,109149.67,71976.41,43838.39,48067.99,73672.72,101815.36,87315.57,64757.44,75595.85,52677.92,49880.67,99409.21,59313.12,65696.86,90062.62,94362.67,67933.79,68666.01,100961.46,62035.06,91949.05,82049.4,94693.52,72600.55,57545.79,76688.55,55400.94,99220.82],[48.16,58.33,130.5,72.58,75.78,43.61,93.26,80,85.34,113,117.07,105.32,101.36,154.84,150.5,142,240.79,335.43,444.78,394.9,368.95,741.08,966.61,2238.02,4257.64,5883.16,4662.71,5481.18,4377.19,90.32],[8696.87,9505.56,8145.35,5811.16,6183.95,6683.91,8318.86,6829.22,11388.36,8625.92,8205.66,10123.9,8756.75,6034.46,9267.36,9286.68,7990.1,10306.73,10880.36,10443.22,9225.89,11847.02,13192.69,11287.48,24431.9,29898.96,26662.08,21875.65,29002.59,22775.21],[8603.62,9408.07,8042.21,5677.4,5986.26,6556.47,8196.81,6266.85,11104.53,8061.47,7877.86,9866.27,8379.98,5888.87,8489.1,8665.19,7762.87,10218.93,10745.79,10297.68,9116.34,11768.52,13061.53,11103.49,24290.08,29663.19,26311.76,21662,28343.14,22314.99],[93.25,97.49,103.14,133.76,197.69,127.44,122.05,562.37,283.83,564.45,327.8,257.63,376.77,145.59,778.26,621.49,227.23,87.8,134.57,145.54,109.55,78.5,131.16,183.99,108.49,235.77,350.32,213.65,659.45,460.22],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,33.33,0,0,0,0,0],["conventional","conventional","conventional","conventional","conventional","conventional","conventional","conventional","conventional","conventional","conventional","conventional","conventional","conventional","conventional","conventional","conventional","conventional","conventional","conventional","conventional","conventional","conventional","conventional","conventional","conventional","conventional","conventional","conventional","conventional"],[2015,2015,2015,2015,2015,2015,2015,2015,2015,2015,2015,2015,2015,2015,2015,2015,2015,2015,2015,2015,2015,2015,2015,2015,2015,2015,2015,2015,2015,2015],["Albany","Albany","Albany","Albany","Albany","Albany","Albany","Albany","Albany","Albany","Albany","Albany","Albany","Albany","Albany","Albany","Albany","Albany","Albany","Albany","Albany","Albany","Albany","Albany","Albany","Albany","Albany","Albany","Albany","Albany"]],"container":"<table class=\"table-condensed\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>X<\/th>\n      <th>Date<\/th>\n      <th>AveragePrice<\/th>\n      <th>Total.Volume<\/th>\n      <th>X4046<\/th>\n      <th>X4225<\/th>\n      <th>X4770<\/th>\n      <th>Total.Bags<\/th>\n      <th>Small.Bags<\/th>\n      <th>Large.Bags<\/th>\n      <th>XLarge.Bags<\/th>\n      <th>type<\/th>\n      <th>year<\/th>\n      <th>region<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"tp","scrollX":true,"columnDefs":[{"className":"dt-right","targets":[1,3,4,5,6,7,8,9,10,11,13]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" data-line-number="1"><span class="kw">ggplot</span>(original_df, <span class="kw">aes</span>(<span class="dt">x=</span>AveragePrice, <span class="dt">fill=</span>type)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_density</span>()</a></code></pre></div>
+<p><strong>Goals of this tutorial</strong>
+- Introduce <code>ggplot2</code> in more detail
+- Install and Load Packages
+- Load and interact with large dataset
+- Forecast future pricing and volume of product</p>
+<p><strong>Datasets used</strong>
+- <code>avacado.csv</code></p>
+<div id="ggplot2-crash-course" class="section level2">
+<h2><span class="header-section-number">6.1</span> ggplot2 crash course</h2>
+<p><code>ggplot2</code> is the most popular plotting package in R. It’s regarded as one of the best visualization packages of any open-source programming language and has been refactored to work within other languages such as Python. The advantage of <code>ggplot2</code> is how optimized it is to work with big data. We can create <code>ggplots</code> for thousands of data points in less than a second. Customization options are also endless with <code>ggplot2</code>. <code>ggplot2</code> can create the following types of plots:</p>
+<p><strong>1) Correlation</strong></p>
+<ul>
+<li>Scatterplot</li>
+<li>Scatterplot With Encircling</li>
+<li>Jitter Plot</li>
+<li>Counts Chart</li>
+<li>Bubble Plot</li>
+<li>Animated Bubble Plot</li>
+<li>Marginal Histogram / Boxplot</li>
+<li>Correlogram</li>
+</ul>
+<p><strong>2) Deviation</strong></p>
+<ul>
+<li>Diverging Bars</li>
+<li>Diverging Lollipop Chart</li>
+<li>Diverging Dot Plot</li>
+<li>Area Chart</li>
+</ul>
+<p><strong>3) Ranking</strong></p>
+<ul>
+<li>Ordered Bar Chart</li>
+<li>Lollipop Chart</li>
+<li>Dot Plot</li>
+<li>Slope Chart</li>
+<li>Dumbbell Plot</li>
+</ul>
+<p><strong>4) Distribution</strong></p>
+<ul>
+<li>Histogram</li>
+<li>Density Plot</li>
+<li>Box Plot</li>
+<li>Dot + Box Plot</li>
+<li>Tufte Boxplot</li>
+<li>Violin Plot</li>
+<li>Population Pyramid</li>
+</ul>
+<p><strong>5) Composition</strong></p>
+<ul>
+<li>Waffle Chart</li>
+<li>Pie Chart</li>
+<li>Treemap</li>
+<li>Bar Chart</li>
+</ul>
+<p><strong>6) Change</strong></p>
+<ul>
+<li>Time Series Plots
+<ul>
+<li>From a Data Frame</li>
+<li>Format to Monthly X Axis</li>
+<li>Format to Yearly X Axis</li>
+<li>From Long Data Format</li>
+<li>From Wide Data Format</li>
+</ul></li>
+<li>Stacked Area Chart</li>
+<li>Calendar Heat Map</li>
+<li>Slope Chart</li>
+<li>Seasonal Plot</li>
+</ul>
+<p><strong>7) Groups</strong></p>
+<ul>
+<li>Dendrogram</li>
+<li>Clusters</li>
+</ul>
+<p><strong>8) Spatial</strong></p>
+<ul>
+<li>Open Street Map</li>
+<li>Google Road Map</li>
+<li>Google Hybrid Map</li>
+</ul>
+<p>Additional information on these plots can be found at the following links:
+* <a href="http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html" class="uri">http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html</a>
+* <a href="https://tutorials.iq.harvard.edu/R/Rgraphics/Rgraphics.html" class="uri">https://tutorials.iq.harvard.edu/R/Rgraphics/Rgraphics.html</a>
+* <a href="https://ggplot2.tidyverse.org/" class="uri">https://ggplot2.tidyverse.org/</a></p>
+<p>All <code>ggplot</code> instances follow the same basic format: first calling <code>ggplot</code> and then a plot type. <code>ggplot</code> takes two arguments: the first is a dataset (a data.frame object) and the second is a call to aes(), where you assign variables in the dataset to components of the graph called aesthetics. The specific type of plot you’d like to make with it is the <code>ggplot2</code> function for the general type of plot you want: for example, a barplot is called <code>geom_bar</code> as we saw in the last example. Let’s quickly explore these:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1">var1 =<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from=</span><span class="dv">1</span>, <span class="dt">to=</span><span class="dv">30</span>, <span class="dt">by=</span><span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb24-2" data-line-number="2">var2 =<span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n=</span><span class="dv">30</span>, <span class="dt">mean =</span> <span class="dv">10</span>, <span class="dt">sd =</span> <span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb24-3" data-line-number="3">df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x =</span> var1, <span class="dt">y =</span> var2)</a>
+<a class="sourceLine" id="cb24-4" data-line-number="4"><span class="kw">head</span>(df)</a></code></pre></div>
+<pre><code>##   x         y
+## 1 1 10.948766
+## 2 2 10.244841
+## 3 3 10.546876
+## 4 4  9.092941
+## 5 5 11.196098
+## 6 6  9.965547</code></pre>
+<p>Now that we have a data frame with variables <code>var1</code> and <code>var2</code>, we can create a ggplot. Let’s start by creating the background of our ggplot by using the first calling <code>ggplot</code>.</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" data-line-number="1"><span class="kw">library</span>(ggplot2)</a>
+<a class="sourceLine" id="cb26-2" data-line-number="2"><span class="kw">ggplot</span>(<span class="dt">data =</span> df, <span class="kw">aes</span>(<span class="dt">x =</span> var1, <span class="dt">y =</span> y))</a></code></pre></div>
+<p><img src="Tech-Trainings--R-for-Excel-Users_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<p>The data argument is declared as our <code>df</code> data.frame. Our x axis and y axis are specified by the <code>var1</code> and <code>var2</code> variables within the <code>df</code> dataframe. R understands what <code>var1</code> and <code>var2</code> are because it assumes the aesthetics are <em>variables within</em> the <code>data</code> dataframe. Now we can plot a <code>ggplot2</code> instance using this.</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" data-line-number="1"><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> var1, <span class="dt">y =</span> var2)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()</a></code></pre></div>
 <p><img src="Tech-Trainings--R-for-Excel-Users_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<p>The <code>geom</code> in <code>geom_point</code> stands for geometry. All geometrical plots in <code>ggplot2</code> begin with <code>geom</code>.</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" data-line-number="1"><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> var1, <span class="dt">y =</span> var2)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>()</a></code></pre></div>
+<p><img src="Tech-Trainings--R-for-Excel-Users_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<p>Within the plot type we can specify additional arguments to enhance the plot in a way we’d like.</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" data-line-number="1"><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> var1, <span class="dt">y =</span> var2)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb29-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">color =</span> <span class="st">&quot;darkblue&quot;</span>, <span class="dt">linetype =</span> <span class="dv">2</span>, <span class="dt">size =</span> <span class="dv">1</span>)</a></code></pre></div>
+<p><img src="Tech-Trainings--R-for-Excel-Users_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+<p>We can also add linear regression lines to our plots easily</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" data-line-number="1"><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> var1, <span class="dt">y =</span> var2)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb30-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>)</a></code></pre></div>
+<p><img src="Tech-Trainings--R-for-Excel-Users_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
+<p>We can have multiple geometry plots on one <code>ggplot</code> instance…</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" data-line-number="1"><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> var1, <span class="dt">y =</span> var2)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb31-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_smooth</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb31-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_point</span>()</a></code></pre></div>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
+<p><img src="Tech-Trainings--R-for-Excel-Users_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
+<p>Histograms can be done within 1 line.</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb33-1" data-line-number="1"><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> var2)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb33-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_histogram</span>()</a></code></pre></div>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="Tech-Trainings--R-for-Excel-Users_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
+<p>Density plots are easy too!</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" data-line-number="1"><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> var2)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb35-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_density</span>()</a></code></pre></div>
+<p><img src="Tech-Trainings--R-for-Excel-Users_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
+<p>Now that we’ve gone through some example plots with <code>ggplot2</code>, let’s use <code>ggplot2</code> to plot some real data!</p>
+</div>
+<div id="load-the-avacados-dataset" class="section level2">
+<h2><span class="header-section-number">6.2</span> Load the Avacados Dataset</h2>
+<p>First we’ll load in the packages and the avacados dataset.</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" data-line-number="1"><span class="co"># first let&#39;s load in the packages we need</span></a>
+<a class="sourceLine" id="cb36-2" data-line-number="2"><span class="kw">library</span>(data.table)</a>
+<a class="sourceLine" id="cb36-3" data-line-number="3"><span class="kw">library</span>(dplyr)</a>
+<a class="sourceLine" id="cb36-4" data-line-number="4"><span class="kw">library</span>(ggplot2)</a>
+<a class="sourceLine" id="cb36-5" data-line-number="5"><span class="kw">library</span>(stringr)</a>
+<a class="sourceLine" id="cb36-6" data-line-number="6"><span class="kw">library</span>(DT)</a>
+<a class="sourceLine" id="cb36-7" data-line-number="7"><span class="kw">library</span>(tidyr)</a>
+<a class="sourceLine" id="cb36-8" data-line-number="8"><span class="kw">library</span>(corrplot)</a>
+<a class="sourceLine" id="cb36-9" data-line-number="9"><span class="kw">library</span>(leaflet)</a>
+<a class="sourceLine" id="cb36-10" data-line-number="10"><span class="kw">library</span>(lubridate)</a>
+<a class="sourceLine" id="cb36-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb36-12" data-line-number="12"><span class="co"># now let&#39;s load in our dataset using read.csv</span></a>
+<a class="sourceLine" id="cb36-13" data-line-number="13">avacado_df &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;datasets/avocado.csv&quot;</span>)</a></code></pre></div>
+<p>Let’s check out what the avacados dataframe (<code>avacado_df</code>) looks like.</p>
+<div id="htmlwidget-ec8713e3a6f960bab707" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-ec8713e3a6f960bab707">{"x":{"filter":"none","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30"],[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29],["2015-12-27","2015-12-20","2015-12-13","2015-12-06","2015-11-29","2015-11-22","2015-11-15","2015-11-08","2015-11-01","2015-10-25","2015-10-18","2015-10-11","2015-10-04","2015-09-27","2015-09-20","2015-09-13","2015-09-06","2015-08-30","2015-08-23","2015-08-16","2015-08-09","2015-08-02","2015-07-26","2015-07-19","2015-07-12","2015-07-05","2015-06-28","2015-06-21","2015-06-14","2015-06-07"],[1.33,1.35,0.93,1.08,1.28,1.26,0.99,0.98,1.02,1.07,1.12,1.28,1.31,0.99,1.33,1.28,1.11,1.07,1.34,1.33,1.12,1.45,1.11,1.26,1.05,1.35,1.37,1.27,1.32,1.07],[64236.62,54876.98,118220.22,78992.15,51039.6,55979.78,83453.76,109428.33,99811.42,74338.76,84843.44,64489.17,61007.1,106803.39,69759.01,76111.27,99172.96,105693.84,79992.09,80043.78,111140.93,75133.1,106757.1,96617,124055.31,109252.12,89534.81,104849.39,89631.3,122743.06],[1036.74,674.28,794.7,1132,941.48,1184.27,1368.92,703.75,1022.15,842.4,924.86,1582.03,2268.32,1204.88,1028.03,985.73,879.45,689.01,733.16,539.65,584.63,509.94,648.75,1042.1,672.25,869.45,664.23,804.01,850.58,656.71],[54454.85,44638.81,109149.67,71976.41,43838.39,48067.99,73672.72,101815.36,87315.57,64757.44,75595.85,52677.92,49880.67,99409.21,59313.12,65696.86,90062.62,94362.67,67933.79,68666.01,100961.46,62035.06,91949.05,82049.4,94693.52,72600.55,57545.79,76688.55,55400.94,99220.82],[48.16,58.33,130.5,72.58,75.78,43.61,93.26,80,85.34,113,117.07,105.32,101.36,154.84,150.5,142,240.79,335.43,444.78,394.9,368.95,741.08,966.61,2238.02,4257.64,5883.16,4662.71,5481.18,4377.19,90.32],[8696.87,9505.56,8145.35,5811.16,6183.95,6683.91,8318.86,6829.22,11388.36,8625.92,8205.66,10123.9,8756.75,6034.46,9267.36,9286.68,7990.1,10306.73,10880.36,10443.22,9225.89,11847.02,13192.69,11287.48,24431.9,29898.96,26662.08,21875.65,29002.59,22775.21],[8603.62,9408.07,8042.21,5677.4,5986.26,6556.47,8196.81,6266.85,11104.53,8061.47,7877.86,9866.27,8379.98,5888.87,8489.1,8665.19,7762.87,10218.93,10745.79,10297.68,9116.34,11768.52,13061.53,11103.49,24290.08,29663.19,26311.76,21662,28343.14,22314.99],[93.25,97.49,103.14,133.76,197.69,127.44,122.05,562.37,283.83,564.45,327.8,257.63,376.77,145.59,778.26,621.49,227.23,87.8,134.57,145.54,109.55,78.5,131.16,183.99,108.49,235.77,350.32,213.65,659.45,460.22],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,33.33,0,0,0,0,0],["conventional","conventional","conventional","conventional","conventional","conventional","conventional","conventional","conventional","conventional","conventional","conventional","conventional","conventional","conventional","conventional","conventional","conventional","conventional","conventional","conventional","conventional","conventional","conventional","conventional","conventional","conventional","conventional","conventional","conventional"],[2015,2015,2015,2015,2015,2015,2015,2015,2015,2015,2015,2015,2015,2015,2015,2015,2015,2015,2015,2015,2015,2015,2015,2015,2015,2015,2015,2015,2015,2015],["Albany","Albany","Albany","Albany","Albany","Albany","Albany","Albany","Albany","Albany","Albany","Albany","Albany","Albany","Albany","Albany","Albany","Albany","Albany","Albany","Albany","Albany","Albany","Albany","Albany","Albany","Albany","Albany","Albany","Albany"]],"container":"<table class=\"table-condensed\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>X<\/th>\n      <th>Date<\/th>\n      <th>AveragePrice<\/th>\n      <th>Total.Volume<\/th>\n      <th>X4046<\/th>\n      <th>X4225<\/th>\n      <th>X4770<\/th>\n      <th>Total.Bags<\/th>\n      <th>Small.Bags<\/th>\n      <th>Large.Bags<\/th>\n      <th>XLarge.Bags<\/th>\n      <th>type<\/th>\n      <th>year<\/th>\n      <th>region<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"tp","scrollX":true,"columnDefs":[{"className":"dt-right","targets":[1,3,4,5,6,7,8,9,10,11,13]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<ul>
+<li>Is there null data ?</li>
+<li>What are various columns ?</li>
+<li>Drop any columns that are not necessary for now.</li>
+<li>Data in days/weeks ?. How many years ?</li>
+<li>How many regions and what are they ?</li>
+<li>How many unique type and what are they ?</li>
+</ul>
+<p>There are 2 types of Avacados in this dataset - conventional and organic. How can we figure this out without seeing more of the dataset? Use the <code>unique</code> function which returns a list of each character string, number, or whatever is in a <code>vector</code> or <code>list</code>.</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" data-line-number="1"><span class="co"># understand what classes R recognizes our data as</span></a>
+<a class="sourceLine" id="cb37-2" data-line-number="2"><span class="kw">class</span>(avacado_df)</a></code></pre></div>
+<pre><code>## [1] &quot;data.frame&quot;</code></pre>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" data-line-number="1"><span class="kw">class</span>(avacado_df<span class="op">$</span>type)</a></code></pre></div>
+<pre><code>## [1] &quot;factor&quot;</code></pre>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb41-1" data-line-number="1"><span class="co"># use the unique function to print out unique values within the </span></a>
+<a class="sourceLine" id="cb41-2" data-line-number="2"><span class="kw">unique</span>(avacado_df[<span class="st">&#39;type&#39;</span>])</a></code></pre></div>
+<pre><code>##              type
+## 1    conventional
+## 9127      organic</code></pre>
+<p>Now we’re going to use <code>ggplot2</code> to plot a density plot of the avacados based on the type,</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb43-1" data-line-number="1"><span class="kw">ggplot</span>(avacado_df, <span class="kw">aes</span>(<span class="dt">x=</span>AveragePrice, <span class="dt">fill=</span>type)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_density</span>() </a></code></pre></div>
+<p><img src="Tech-Trainings--R-for-Excel-Users_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
 
 </div>
 </div>
