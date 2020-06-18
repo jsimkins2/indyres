@@ -71,7 +71,7 @@ knitr::include_graphics("images/environment6.png")
 knitr::include_graphics("images/files7.png")  
 ```
 
-# Installing and Using Packages
+## Installing and Using Packages
 
 To use a function in R that performs a task (such as plotting, statistical analysis, etc.), we must first load the package into our R session. When we use Microsoft Excel, nearly all the functions you can use with it are available in the toolbar at the top of the page. In R, however, you'll need to load in the packages you'd like to use. Once the package is loaded, R will recognize any functions you call that are part of that package. 
 
@@ -92,6 +92,28 @@ install.packages("ggplot2")
 You may be wondering, why do I need to load in the packages I want to use? R is designed to be *fast*. If you were to pre-load every package available in R, you'd be loading thousands of packages. We can keep R light and fast by only loading the specific "toolboxes" we need. 
 
 Now that the `ggplot2` package is installed, we can use any function that is within that package. If you're curious about what functions are in a particular package, [most packages have thorough documentation and examples online](https://ggplot2.tidyverse.org/reference/). 
+
+## Running Code
+
+In R, there are multiple ways to run code. Remember that we write code in an R Script and run that code in the console. We can execute code in the following ways:
+
+1) Click 'Run' at the top of the R script. 
+
+
+```{r, echo=FALSE, out.width="100%", fig.align="center"}
+knitr::include_graphics("images/runRcode.png")  
+```
+
+  - This option allows you to run sections of your code, line by line, or the whole script.
+
+2) While the cursor is on a line of code you want to run in the R script, Hit `Ctrl + Enter` on Windows, `Cmd + Enter` on Mac. This will run that line of code.
+
+3) Select and highlight the section of code you want to run in the R script, Hit `Ctrl + Enter` on Windows, `Cmd + Enter` on Mac.This will run that selected section of code.
+
+4) As you become more advanced, you'll be able to write a script in RStudio and then run the entire script on your computer without opening it again. We won't touch this in this workshop, but it's straight-forward once you get the hang of it.
+
+
+
 
 ## Checkpoint - Writing your first R code
 

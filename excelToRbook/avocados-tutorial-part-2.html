@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>avocados Tutorial - Part 2</title>
+  <meta name="description" content="avocados Tutorial - Part 2" />
+  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="avocados Tutorial - Part 2" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="avocados Tutorial - Part 2" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.9/datatables.js"></script>
+<link href="libs/dt-core-1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.19/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.19/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Tech Trainings: Excel to R for Businesses</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path=""><a href="#avocados-tutorial---part-2"><i class="fa fa-check"></i><b>1</b> Avocados Tutorial - Part 2</a><ul>
+<li class="chapter" data-level="1.1" data-path=""><a href="#tidyverse-dplyr-crash-course"><i class="fa fa-check"></i><b>1.1</b> Tidyverse : dplyr crash course</a><ul>
+<li class="chapter" data-level="1.1.1" data-path=""><a href="#dplyr"><i class="fa fa-check"></i><b>1.1.1</b> Dplyr</a></li>
+<li class="chapter" data-level="1.1.2" data-path=""><a href="#exploring-dplyr"><i class="fa fa-check"></i><b>1.1.2</b> Exploring Dplyr</a></li>
+<li class="chapter" data-level="1.1.3" data-path=""><a href="#nested-functions"><i class="fa fa-check"></i><b>1.1.3</b> Nested Functions</a></li>
+<li class="chapter" data-level="1.1.4" data-path=""><a href="#pipes"><i class="fa fa-check"></i><b>1.1.4</b> Pipes <code>%&gt;%</code></a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path=""><a href="#avocados-dataframe-with-dplyr"><i class="fa fa-check"></i><b>1.2</b> Avocados Dataframe with <code>dplyr</code></a><ul>
+<li class="chapter" data-level="1.2.1" data-path=""><a href="#price-trends"><i class="fa fa-check"></i><b>1.2.1</b> Price Trends</a></li>
+<li class="chapter" data-level="1.2.2" data-path=""><a href="#price-and-total-volume"><i class="fa fa-check"></i><b>1.2.2</b> Price and Total Volume</a></li>
+<li class="chapter" data-level="1.2.3" data-path=""><a href="#yearly-and-monthly-patterns"><i class="fa fa-check"></i><b>1.2.3</b> Yearly and Monthly Patterns</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path=""><a href="#recap"><i class="fa fa-check"></i><b>1.3</b> Recap</a></li>
+<li class="chapter" data-level="1.4" data-path=""><a href="#avocados-2-assignment"><i class="fa fa-check"></i><b>1.4</b> Avocados 2 Assignment</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">James Simkins</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">avocados Tutorial - Part 2</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">avocados Tutorial - Part 2</h1>
+</div>
+<div id="avocados-tutorial---part-2" class="section level1">
+<h1><span class="header-section-number">1</span> Avocados Tutorial - Part 2</h1>
+<p><img src="images/avocado2.jpeg" width="100%" style="display: block; margin: auto;" /></p>
+<p>We're going to continue our exploration of the avocados dataset for this tutorial. We're going to introduce <code>dplyr</code>, an R package with tremendous power that was built with Excel users in mind.</p>
+<p><strong>Goals of this tutorial</strong> - Introduce Tidyverse and <code>dplyr</code> - Practice exploring the avocados dataset using <code>dplyr</code> - Create more advanced <code>ggplot</code> plots - Investigate Avocado price trends</p>
+<p><strong>Datasets used</strong> - <code>avocado.csv</code></p>
+<div id="tidyverse-dplyr-crash-course" class="section level2">
+<h2><span class="header-section-number">1.1</span> Tidyverse : dplyr crash course</h2>
+<p>The tidyverse is a collection of R packages for data manipulation, exploration and visualization that share a common design philosophy. The advantages of the tidyverse include consistent functions, workflow coverage, a path to data science education, a parsimonious approach to the development of data science tools, and the possibility of greater productivity. The tidyverse packages can be used in conjunction with any R packages but they are designed to work seamlessly with each other. The basic set of packages are:</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-2"></span>
+<img src="images/tidyverse1.png" alt="Image courtesy of https://rviews.rstudio.com/2017/06/08/what-is-the-tidyverse/)" width="100%" />
+<p class="caption">
+Figure 1.1: Image courtesy of <a href="https://rviews.rstudio.com/2017/06/08/what-is-the-tidyverse/" class="uri">https://rviews.rstudio.com/2017/06/08/what-is-the-tidyverse/</a>)
+</p>
+</div>
+<p>As we see from the image, we're already familiar with the visualization package of tidyverse - <code>ggplot2</code> ! As stated in the introductory material, there are thousands of packages in R, many of which solve the same problem. Tidyverse is just a specific set of packages that are enhanced to work together, so from here on we're going to stick to this set of R packages for consistency. Tidyverse data science forms what we refer to as <code>tidy datasets</code>, which just refers to specific datasets in tidy format. You can use any R package with <code>tidy datasets</code> and can also use tidyverse packages on a regular <code>data.frame</code>. When you use the set of tidyverse packages together, however, you have some <em>extra</em> functionality which will come in handy. You can read more about tidyverse in <a href="https://rviews.rstudio.com/2017/06/08/what-is-the-tidyverse/">this R blog post</a></p>
+<div id="dplyr" class="section level3">
+<h3><span class="header-section-number">1.1.1</span> Dplyr</h3>
+<p><code>dplyr</code> is an R package for data manipulation, providing a consistent set of functions that help you solve the most common data manipulation challenges. <code>dplyr</code> is part of the Tidyverse family of packages, thus allowing a user to create tidy datasets. &quot;Tidy datasets are easy to manipulate, model and visualise, and have a specific structure: each variable is a column, each observation is a row, and each type of observational unit is a table.&quot; <a href="https://www.jstatsoft.org/article/view/v059i10">(From Wickham, H. (2014): Tidy Data)</a>)</p>
+<ul>
+<li><code>select()</code> picks variables based on their names.</li>
+<li><code>filter()</code> picks cases based on their values.</li>
+<li><code>mutate()</code> adds new variables that are functions of existing variables</li>
+<li><code>summarise()</code> reduces multiple values down to a single summary.</li>
+<li><code>arrange()</code> changes the ordering of the rows.</li>
+</ul>
+<p>These all combine naturally with <code>group_by()</code> which allows you to perform any operation by group.</p>
+</div>
+<div id="exploring-dplyr" class="section level3">
+<h3><span class="header-section-number">1.1.2</span> Exploring Dplyr</h3>
+<p>Let's begin by loading our packages and opening the avocados dataset back up.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># first let&#39;s load in the packages we need</span>
+<span class="kw">library</span>(data.table)
+<span class="kw">library</span>(dplyr)</code></pre></div>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:data.table&#39;:
+## 
+##     between, first, last</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
+<span class="kw">library</span>(stringr)
+<span class="kw">library</span>(DT)
+<span class="kw">library</span>(tidyr)
+<span class="kw">library</span>(corrplot)</code></pre></div>
+<pre><code>## corrplot 0.84 loaded</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(leaflet)
+<span class="kw">library</span>(lubridate)</code></pre></div>
+<pre><code>## 
+## Attaching package: &#39;lubridate&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:data.table&#39;:
+## 
+##     hour, isoweek, mday, minute, month, quarter, second, wday, week,
+##     yday, year</code></pre>
+<pre><code>## The following object is masked from &#39;package:base&#39;:
+## 
+##     date</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(cowplot)</code></pre></div>
+<pre><code>## 
+## ********************************************************</code></pre>
+<pre><code>## Note: As of version 1.0.0, cowplot does not change the</code></pre>
+<pre><code>##   default ggplot2 theme anymore. To recover the previous</code></pre>
+<pre><code>##   behavior, execute:
+##   theme_set(theme_cowplot())</code></pre>
+<pre><code>## ********************************************************</code></pre>
+<pre><code>## 
+## Attaching package: &#39;cowplot&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:lubridate&#39;:
+## 
+##     stamp</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># now let&#39;s load in our dataset using read.csv</span>
+avocado_df &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;datasets/avocado.csv&quot;</span>)</code></pre></div>
+<div id="htmlwidget-7de7b800889614621a25" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-7de7b800889614621a25">{"x":{"filter":"none","data":[["1","2","3","4","5","6","7","8","9","10"],[0,1,2,3,4,5,6,7,8,9],["2015-12-27","2015-12-20","2015-12-13","2015-12-06","2015-11-29","2015-11-22","2015-11-15","2015-11-08","2015-11-01","2015-10-25"],[1.33,1.35,0.93,1.08,1.28,1.26,0.99,0.98,1.02,1.07],[64236.62,54876.98,118220.22,78992.15,51039.6,55979.78,83453.76,109428.33,99811.42,74338.76],[1036.74,674.28,794.7,1132,941.48,1184.27,1368.92,703.75,1022.15,842.4],[54454.85,44638.81,109149.67,71976.41,43838.39,48067.99,73672.72,101815.36,87315.57,64757.44],[48.16,58.33,130.5,72.58,75.78,43.61,93.26,80,85.34,113],[8696.87,9505.56,8145.35,5811.16,6183.95,6683.91,8318.86,6829.22,11388.36,8625.92],[8603.62,9408.07,8042.21,5677.4,5986.26,6556.47,8196.81,6266.85,11104.53,8061.47],[93.25,97.49,103.14,133.76,197.69,127.44,122.05,562.37,283.83,564.45],[0,0,0,0,0,0,0,0,0,0],["conventional","conventional","conventional","conventional","conventional","conventional","conventional","conventional","conventional","conventional"],[2015,2015,2015,2015,2015,2015,2015,2015,2015,2015],["Albany","Albany","Albany","Albany","Albany","Albany","Albany","Albany","Albany","Albany"]],"container":"<table class=\"table-condensed\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>X<\/th>\n      <th>Date<\/th>\n      <th>AveragePrice<\/th>\n      <th>Total.Volume<\/th>\n      <th>X4046<\/th>\n      <th>X4225<\/th>\n      <th>X4770<\/th>\n      <th>Total.Bags<\/th>\n      <th>Small.Bags<\/th>\n      <th>Large.Bags<\/th>\n      <th>XLarge.Bags<\/th>\n      <th>type<\/th>\n      <th>year<\/th>\n      <th>region<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"tp","scrollX":true,"columnDefs":[{"className":"dt-right","targets":[1,3,4,5,6,7,8,9,10,11,13]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<p>Now, let's use <code>dplyr</code> with this dataset. First, let's select a subset of this dataset using the <code>select()</code> function</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># subselect the Average Price, Total Volume, and type from our original dataset</span>
+select_df &lt;-<span class="st"> </span><span class="kw">select</span>(<span class="dt">.data =</span> avocado_df, AveragePrice, Total.Volume, type)</code></pre></div>
+<div id="htmlwidget-0eb36dcc2ededc666823" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-0eb36dcc2ededc666823">{"x":{"filter":"none","data":[["1","2","3","4","5","6","7","8","9","10"],[1.33,1.35,0.93,1.08,1.28,1.26,0.99,0.98,1.02,1.07],[64236.62,54876.98,118220.22,78992.15,51039.6,55979.78,83453.76,109428.33,99811.42,74338.76],["conventional","conventional","conventional","conventional","conventional","conventional","conventional","conventional","conventional","conventional"]],"container":"<table class=\"table-condensed\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>AveragePrice<\/th>\n      <th>Total.Volume<\/th>\n      <th>type<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"tp","scrollX":true,"columnDefs":[{"className":"dt-right","targets":[1,2]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<p>A key thing to notice here is the arguments after the <code>.data</code> argument. If we use the <code>help()</code> function to learn more about <code>select()</code>, we see that the arguments are <code>.data.</code> and <code>...</code>. The <code>...</code> is another way to describe ambiguous arguments - meaning you can add as many or as few as you want. In this case, we want the variable names we want to select here. Note that even though it's good practice to always use the convention of <code>argument = my_specific_argument_condition</code>, you don't <em>have to</em> add the <code>argument =</code> part so long as the arguments are written <strong>in the same order</strong> the function expects. For example, in the code above, we don't need to write <code>select(.data = avocado_df, AveragePrice, Total.Volume, type)</code>, we can simply write <code>select(avocado_df, AveragePrice, Total.Volume, type)</code>. This is true for ALL functions, but you'll need to keep the order of your arguments straight.</p>
+<p>Now let's filter the original <code>avocado_df</code> to extract cases where avocados are organic</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># filter the dataset when the type is organic</span>
+filter_df &lt;-<span class="st"> </span><span class="kw">filter</span>(<span class="dt">.data =</span> avocado_df, type<span class="op">==</span><span class="st">&#39;organic&#39;</span>)</code></pre></div>
+<div id="htmlwidget-274600608f5ad679f4ea" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-274600608f5ad679f4ea">{"x":{"filter":"none","data":[["1","2","3","4","5","6","7","8","9","10"],[0,1,2,3,4,5,6,7,8,9],["2015-12-27","2015-12-20","2015-12-13","2015-12-06","2015-11-29","2015-11-22","2015-11-15","2015-11-08","2015-11-01","2015-10-25"],[1.83,1.89,1.85,1.84,1.94,1.94,1.89,1.88,1.88,1.83],[989.55,1163.03,995.96,1158.42,831.69,858.83,1208.54,1332.27,1021.68,1161.9],[8.16,30.24,10.44,90.29,0,13.84,20.71,20.08,11.47,49.27],[88.59,172.14,178.7,104.18,94.73,84.18,238.16,351.4,137.58,148.96],[0,0,0,0,0,0,0,0,0,0],[892.8,960.65,806.82,963.95,736.96,760.81,949.67,960.79,872.63,963.67],[892.8,960.65,806.82,948.52,736.96,755.69,949.67,960.79,872.63,963.67],[0,0,0,15.43,0,5.12,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],["organic","organic","organic","organic","organic","organic","organic","organic","organic","organic"],[2015,2015,2015,2015,2015,2015,2015,2015,2015,2015],["Albany","Albany","Albany","Albany","Albany","Albany","Albany","Albany","Albany","Albany"]],"container":"<table class=\"table-condensed\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>X<\/th>\n      <th>Date<\/th>\n      <th>AveragePrice<\/th>\n      <th>Total.Volume<\/th>\n      <th>X4046<\/th>\n      <th>X4225<\/th>\n      <th>X4770<\/th>\n      <th>Total.Bags<\/th>\n      <th>Small.Bags<\/th>\n      <th>Large.Bags<\/th>\n      <th>XLarge.Bags<\/th>\n      <th>type<\/th>\n      <th>year<\/th>\n      <th>region<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"tp","scrollX":true,"columnDefs":[{"className":"dt-right","targets":[1,3,4,5,6,7,8,9,10,11,13]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<p>Now let's <code>mutate</code> the dataset and add our revenue and profit columns.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># filter the dataset when the type is organic</span>
+mutate_df =<span class="st"> </span><span class="kw">mutate</span>(avocado_df, <span class="dt">revenue =</span> AveragePrice <span class="op">*</span>Total.Volume)</code></pre></div>
+<div id="htmlwidget-e9d28e6f1f89783b8086" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-e9d28e6f1f89783b8086">{"x":{"filter":"none","data":[["1","2","3","4","5","6","7","8","9","10"],[0,1,2,3,4,5,6,7,8,9],["2015-12-27","2015-12-20","2015-12-13","2015-12-06","2015-11-29","2015-11-22","2015-11-15","2015-11-08","2015-11-01","2015-10-25"],[1.33,1.35,0.93,1.08,1.28,1.26,0.99,0.98,1.02,1.07],[64236.62,54876.98,118220.22,78992.15,51039.6,55979.78,83453.76,109428.33,99811.42,74338.76],[1036.74,674.28,794.7,1132,941.48,1184.27,1368.92,703.75,1022.15,842.4],[54454.85,44638.81,109149.67,71976.41,43838.39,48067.99,73672.72,101815.36,87315.57,64757.44],[48.16,58.33,130.5,72.58,75.78,43.61,93.26,80,85.34,113],[8696.87,9505.56,8145.35,5811.16,6183.95,6683.91,8318.86,6829.22,11388.36,8625.92],[8603.62,9408.07,8042.21,5677.4,5986.26,6556.47,8196.81,6266.85,11104.53,8061.47],[93.25,97.49,103.14,133.76,197.69,127.44,122.05,562.37,283.83,564.45],[0,0,0,0,0,0,0,0,0,0],["conventional","conventional","conventional","conventional","conventional","conventional","conventional","conventional","conventional","conventional"],[2015,2015,2015,2015,2015,2015,2015,2015,2015,2015],["Albany","Albany","Albany","Albany","Albany","Albany","Albany","Albany","Albany","Albany"],[85434.7046,74083.923,109944.8046,85311.522,65330.688,70534.5228,82619.2224,107239.7634,101807.6484,79542.4732]],"container":"<table class=\"table-condensed\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>X<\/th>\n      <th>Date<\/th>\n      <th>AveragePrice<\/th>\n      <th>Total.Volume<\/th>\n      <th>X4046<\/th>\n      <th>X4225<\/th>\n      <th>X4770<\/th>\n      <th>Total.Bags<\/th>\n      <th>Small.Bags<\/th>\n      <th>Large.Bags<\/th>\n      <th>XLarge.Bags<\/th>\n      <th>type<\/th>\n      <th>year<\/th>\n      <th>region<\/th>\n      <th>revenue<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"tp","scrollX":true,"columnDefs":[{"className":"dt-right","targets":[1,3,4,5,6,7,8,9,10,11,13,15]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="nested-functions" class="section level3">
+<h3><span class="header-section-number">1.1.3</span> Nested Functions</h3>
+<p>Let's say we want to create a sub-selected dataset of <code>AveragePrice</code>, <code>Total.Volume</code>, and <code>type</code> where the region is <code>Northeast</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">nested_df =<span class="st"> </span><span class="kw">select</span>(<span class="dt">.data =</span> <span class="kw">filter</span>(<span class="dt">.data =</span> avocado_df, region<span class="op">==</span><span class="st">&#39;Northeast&#39;</span>), AveragePrice, Total.Volume, type)</code></pre></div>
+<p>Notice how our <code>.data</code> is the <strong>result</strong> of the <code>filter()</code> function where we select only the <code>Northeast</code> region. Here's what the <code>nested_df</code> looks like now.</p>
+<div id="htmlwidget-8f033f4cf640cf9c4fdd" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-8f033f4cf640cf9c4fdd">{"x":{"filter":"none","data":[["1","2","3","4","5","6","7","8","9","10"],[1.2,1.2,1.09,1.14,1.22,1.16,1.09,1.1,1.09,1.15],[3156360.2,3190120.04,3696551.52,3218494.55,2593780.51,3026217.24,3538946.22,4205775.44,4801621.08,3306614.18],["conventional","conventional","conventional","conventional","conventional","conventional","conventional","conventional","conventional","conventional"]],"container":"<table class=\"table-condensed\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>AveragePrice<\/th>\n      <th>Total.Volume<\/th>\n      <th>type<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"tp","scrollX":true,"columnDefs":[{"className":"dt-right","targets":[1,2]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="pipes" class="section level3">
+<h3><span class="header-section-number">1.1.4</span> Pipes <code>%&gt;%</code></h3>
+<p>The last option for handling data with <code>dplyr</code>, pipes, are a fairly recent addition to R. Pipes let you take the output of one function and send it directly to the next, which is useful when you need to do many things to the same dataset. You'll see more advanced code make use of this. We'll show a quick example here so you can see how it works, but we won't use it for the rest of the tutorial after this.</p>
+<p>Let's do the exact same thing above only this time let's use pipes.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pipe_df &lt;-<span class="st"> </span>avocado_df <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">filter</span>(region<span class="op">==</span><span class="st">&#39;Northeast&#39;</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">select</span>(AveragePrice, Total.Volume, type)</code></pre></div>
+<p>Above code reads like so to create the <code>pipe_df</code> dataframe. Begin with <code>avocado_df</code> and send that to the <code>filter()</code> function where we grab the <code>Northeast</code> region from the <code>avocado_df</code> dataset, then immediately send the result of the <code>filter</code> to the <code>select</code> function where we sub-select the <code>AveragePrice, Total.Volume, type</code> variables. As we'll see, the output is the same - it's just another way of coding!</p>
+<div id="htmlwidget-e2d64fc1bc581f5900d3" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-e2d64fc1bc581f5900d3">{"x":{"filter":"none","data":[["1","2","3","4","5","6","7","8","9","10"],[1.2,1.2,1.09,1.14,1.22,1.16,1.09,1.1,1.09,1.15],[3156360.2,3190120.04,3696551.52,3218494.55,2593780.51,3026217.24,3538946.22,4205775.44,4801621.08,3306614.18],["conventional","conventional","conventional","conventional","conventional","conventional","conventional","conventional","conventional","conventional"]],"container":"<table class=\"table-condensed\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>AveragePrice<\/th>\n      <th>Total.Volume<\/th>\n      <th>type<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"tp","scrollX":true,"columnDefs":[{"className":"dt-right","targets":[1,2]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div id="avocados-dataframe-with-dplyr" class="section level2">
+<h2><span class="header-section-number">1.2</span> Avocados Dataframe with <code>dplyr</code></h2>
+<p>In this tutorial we're going to accomplish the following:</p>
+<ul>
+<li>Plot Price Trends over time for both types of avocados</li>
+</ul>
+<div id="price-trends" class="section level3">
+<h3><span class="header-section-number">1.2.1</span> Price Trends</h3>
+<p>First, let's check out our date column.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># first let&#39;s load in the packages we need</span>
+<span class="kw">library</span>(data.table)
+<span class="kw">library</span>(dplyr)
+<span class="kw">library</span>(ggplot2)
+<span class="kw">library</span>(tibbletime)</code></pre></div>
+<pre><code>## Warning: package &#39;tibbletime&#39; was built under R version 3.6.2</code></pre>
+<pre><code>## 
+## Attaching package: &#39;tibbletime&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:stats&#39;:
+## 
+##     filter</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># now let&#39;s load in our dataset using read.csv</span>
+avocado_df &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;datasets/avocado.csv&quot;</span>)
+<span class="kw">class</span>(avocado_df<span class="op">$</span>Date)</code></pre></div>
+<pre><code>## [1] &quot;factor&quot;</code></pre>
+<p>We need to change the <code>class</code> of the <code>avocado_df$Date</code> column. We can do this using <code>as.Date</code> function that can reclassify a variable as a <code>date</code> class in R. We know that the date is stored as Year-Month-Day, so we relay this to R which uses the following format for classifying datestrings <code>&quot;%Y-%m-%d&quot;</code> . <code>%Y</code> is a 4 digit year, <code>%m</code> is a 2 digit month, and <code>%d</code> is a 2 digit day. <a href="https://www.r-bloggers.com/date-formats-in-r/">More can be read on this here</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Change the date column from factor to date</span>
+avocado_df<span class="op">$</span>Date &lt;-<span class="st"> </span><span class="kw">as.Date</span>(avocado_df<span class="op">$</span>Date, <span class="st">&quot;%Y-%m-%d&quot;</span>)
+<span class="kw">class</span>(avocado_df<span class="op">$</span>Date)</code></pre></div>
+<pre><code>## [1] &quot;Date&quot;</code></pre>
+<p>Now let's sort the dates via the <code>order</code> function so we can analyze the price trends over time.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Sort the dates</span>
+avocado_df &lt;-<span class="st"> </span>avocado_df[<span class="kw">order</span>(avocado_df<span class="op">$</span>Date),]
+<span class="kw">head</span>(avocado_df<span class="op">$</span>Date)</code></pre></div>
+<pre><code>## [1] &quot;2015-01-04&quot; &quot;2015-01-04&quot; &quot;2015-01-04&quot; &quot;2015-01-04&quot; &quot;2015-01-04&quot;
+## [6] &quot;2015-01-04&quot;</code></pre>
+<p>Now let's select the columns we want using <code>dplyr</code> and plot them using <code>ggplot</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">price_trend &lt;-<span class="st"> </span><span class="kw">select</span>(<span class="dt">.data =</span> avocado_df, Date, AveragePrice, type)
+
+<span class="kw">ggplot</span>(<span class="dt">data =</span> price_trend, <span class="kw">aes</span>(<span class="dt">x =</span> Date, <span class="dt">y =</span> AveragePrice, <span class="dt">col=</span>type)) <span class="op">+</span>
+<span class="st">     </span><span class="kw">geom_line</span>() <span class="op">+</span>
+<span class="st">     </span><span class="kw">facet_wrap</span>(<span class="op">~</span>type) <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.position=</span><span class="st">&quot;bottom&quot;</span>)</code></pre></div>
+<p><img src="05-Avocados2_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<p>Notice that we had the following arguments in the <code>aes</code> parameter - <code>x, y, col</code>. Our x axis is the date, y axis is the AveragePrice, and we color the data based on the type of avocado. Can we spice this plot up a bit by customizing the colors? Sure!</p>
+<p><strong>Altering the colors of the plots using <code>scale_color_manual</code></strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Create a Facet Wrap for each product</span>
+<span class="kw">ggplot</span>(<span class="dt">data =</span> price_trend, <span class="kw">aes</span>(<span class="dt">x =</span> Date, <span class="dt">y =</span> AveragePrice, <span class="dt">col=</span>type)) <span class="op">+</span>
+<span class="st">     </span><span class="kw">geom_line</span>() <span class="op">+</span>
+<span class="st">     </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>type) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.position=</span><span class="st">&quot;bottom&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">scale_color_manual</span>(<span class="dt">values=</span><span class="kw">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;green&quot;</span>))</code></pre></div>
+<p><img src="05-Avocados2_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Create a Facet Wrap for each product</span>
+<span class="kw">ggplot</span>(<span class="dt">data =</span> price_trend, <span class="kw">aes</span>(<span class="dt">x =</span> Date, <span class="dt">y =</span> AveragePrice, <span class="dt">col=</span>type)) <span class="op">+</span>
+<span class="st">     </span><span class="kw">geom_line</span>() <span class="op">+</span>
+<span class="st">     </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>type) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.position=</span><span class="st">&quot;bottom&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">scale_color_manual</span>(<span class="dt">values=</span><span class="kw">c</span>(<span class="st">&quot;dodgerblue4&quot;</span>, <span class="st">&quot;darkgreen&quot;</span>))</code></pre></div>
+<p><img src="05-Avocados2_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<p>We used the function <code>scale_color_manual</code> because we defined the coloring via the <code>col</code> argument in the <code>aes</code> function. Had we chosen another function that requires a <code>fill</code> instead of a <code>col</code>, we would have had to use <code>scale_fill_manual</code>. Notice that the argument for the <code>scale_color_manual</code> is <code>values=</code>, which takes a list that <strong>must be the same length as the input parameters</strong>. R has a wide range of colors to choose from - <a href="http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf">a list can be found here</a>.</p>
+<ul>
+<li>we see that the average price of organic avocados is higher than conventional avocados.</li>
+</ul>
+</div>
+<div id="price-and-total-volume" class="section level3">
+<h3><span class="header-section-number">1.2.2</span> Price and Total Volume</h3>
+<p>Supply and demand is key component of pricing. Let's examine the relationship between the price and total volume. We begin by creating separate dataframes for organic and conventional.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Filter by type - our input data for selected variabls is teh filtered organic/conventional data</span>
+organic &lt;-<span class="st"> </span><span class="kw">select</span>(<span class="dt">.data =</span> <span class="kw">filter</span>(<span class="dt">.data =</span> avocado_df,type <span class="op">==</span><span class="st"> &quot;organic&quot;</span>), Date, AveragePrice, type, Total.Volume)
+conventional &lt;-<span class="st"> </span><span class="kw">select</span>(<span class="dt">.data =</span> <span class="kw">filter</span>(<span class="dt">.data =</span> avocado_df,type <span class="op">==</span><span class="st"> &quot;conventional&quot;</span>), Date, AveragePrice, type, Total.Volume)</code></pre></div>
+<p>We've created our two new datasets. Let's say we want to average the data by month to make it easier to work with and analyze. This is easy once we convert our <code>data.frame</code> to a <code>tibbletime</code> <code>tbl_df</code>. <code>tibbletime</code> is a separate <code>tibble</code> package that obeys the nomenclature associated with the greater R Tidyverse. <code>tibbletime</code> is an advanced R package that is great when working with dataframes. It also allows us to convert our standard R <code>data.frame</code> to a <code>tibbletime data.frame</code>. This allows us to do fancy things with the dataframe like average the data by each month of the datetime.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># organize the organic dataframe as a tbl_time object where the index is the Date</span>
+organic &lt;-<span class="st"> </span><span class="kw">as_tbl_time</span>(organic, <span class="dt">index=</span>Date)
+<span class="kw">class</span>(organic)</code></pre></div>
+<pre><code>## [1] &quot;tbl_time&quot;   &quot;tbl_df&quot;     &quot;tbl&quot;        &quot;data.frame&quot;</code></pre>
+<div id="htmlwidget-28eaef72e50bb0dce583" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-28eaef72e50bb0dce583">{"x":{"filter":"none","data":[["1","2","3","4","5","6","7","8","9","10"],["2015-01-04","2015-01-04","2015-01-04","2015-01-04","2015-01-04","2015-01-04","2015-01-04","2015-01-04","2015-01-04","2015-01-04"],[1.79,1.76,1.29,1.64,1.83,1.73,1.24,2.13,1.49,1.34],["organic","organic","organic","organic","organic","organic","organic","organic","organic","organic"],[1373.95,3846.69,19137.28,1505.12,2192.13,379.82,142349.77,2965.62,17723.17,8764.33]],"container":"<table class=\"table-condensed\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Date<\/th>\n      <th>AveragePrice<\/th>\n      <th>type<\/th>\n      <th>Total.Volume<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"tp","scrollX":true,"columnDefs":[{"className":"dt-right","targets":[2,4]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<p>We can use the <code>as_period</code> function to average this data into a monthly dataset.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">organic &lt;-<span class="st"> </span><span class="kw">as_period</span>(organic, <span class="st">&#39;1 month&#39;</span>)</code></pre></div>
+<div id="htmlwidget-597053bd9206a7acd420" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-597053bd9206a7acd420">{"x":{"filter":"none","data":[["1","2","3","4","5","6","7","8","9","10"],["2015-01-04","2015-02-01","2015-03-01","2015-04-05","2015-05-03","2015-06-07","2015-07-05","2015-08-02","2015-09-06","2015-10-04"],[1.79,1.83,1.76,1.93,2.03,1.93,2.04,2,1.86,1.98],["organic","organic","organic","organic","organic","organic","organic","organic","organic","organic"],[1373.95,1228.51,1663.35,1526.1,1798.99,1547.03,1573.19,1223.94,1168.86,1145.88]],"container":"<table class=\"table-condensed\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Date<\/th>\n      <th>AveragePrice<\/th>\n      <th>type<\/th>\n      <th>Total.Volume<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"tp","scrollX":true,"columnDefs":[{"className":"dt-right","targets":[2,4]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<p>Let's do the same for conventional avocados</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Conventional Avocadoes</span>
+conventional &lt;-<span class="st"> </span><span class="kw">as_tbl_time</span>(conventional, <span class="dt">index=</span>Date)
+conventional &lt;-<span class="st"> </span><span class="kw">as_period</span>(conventional, <span class="st">&#39;1 month&#39;</span>)</code></pre></div>
+<p>Now let's plot up the the price trends with the volume trends of both types of avocados. We'll be creating a total of 4 plots and we'll want them in the same window. In order to achieve this, we will use a package called <code>cowplot</code> which has a function called <code>plot_grid</code>. <code>plot_grid</code> allows us to plot any number of <code>ggplot</code> instances in the same window.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Let&#39;s create a conventional average price chart</span>
+conventional_price &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> conventional, <span class="kw">aes</span>(<span class="dt">x=</span>Date, <span class="dt">y=</span>AveragePrice)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">color=</span><span class="st">&quot;dodgerblue2&quot;</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title=</span><span class="st">&quot;Conventional Avocados&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_hline</span>(<span class="dt">yintercept=</span><span class="kw">max</span>(conventional<span class="op">$</span>AveragePrice), <span class="dt">linetype=</span><span class="st">&quot;dashed&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_hline</span>(<span class="dt">yintercept=</span><span class="kw">min</span>(conventional<span class="op">$</span>AveragePrice), <span class="dt">linetype=</span><span class="st">&quot;dashed&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>)
+
+<span class="co"># Let&#39;s create a conventional volume chart</span>
+conventional_volume &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> conventional, <span class="kw">aes</span>(<span class="dt">x=</span>Date, <span class="dt">y=</span>Total.Volume)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_bar</span>(<span class="dt">stat=</span><span class="st">&#39;identity&#39;</span>, <span class="dt">fill=</span><span class="st">&quot;dodgerblue2&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span><span class="st">&quot;loess&quot;</span>, <span class="dt">color=</span><span class="st">&quot;red&quot;</span>)
+
+<span class="co"># Let&#39;s create an organic average price chart</span>
+organic_price =<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> organic, <span class="kw">aes</span>(<span class="dt">x=</span>Date, <span class="dt">y=</span>AveragePrice)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">color=</span><span class="st">&quot;darkgreen&quot;</span>) 
+  <span class="kw">labs</span>(<span class="dt">title=</span><span class="st">&quot;Organic Avocados&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_hline</span>(<span class="dt">yintercept=</span><span class="kw">max</span>(organic<span class="op">$</span>AveragePrice), <span class="dt">linetype=</span><span class="st">&quot;dashed&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_hline</span>(<span class="dt">yintercept=</span><span class="kw">min</span>(organic<span class="op">$</span>AveragePrice), <span class="dt">linetype=</span><span class="st">&quot;dashed&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>)</code></pre></div>
+<pre><code>## NULL</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Let&#39;s create a organic volume chart</span>
+organic_volume &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> organic, <span class="kw">aes</span>(<span class="dt">x=</span>Date, <span class="dt">y=</span>Total.Volume)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_bar</span>(<span class="dt">stat=</span><span class="st">&#39;identity&#39;</span>, <span class="dt">fill=</span><span class="st">&quot;darkgreen&quot;</span>,<span class="dt">color=</span><span class="st">&quot;black&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span><span class="st">&quot;loess&quot;</span>, <span class="dt">color=</span><span class="st">&quot;yellow&quot;</span>)
+
+<span class="co">#now use cowplot plot_grid to plot all 4 plots in the same window</span>
+<span class="kw">plot_grid</span>(conventional_price, organic_price,conventional_volume, organic_volume, <span class="dt">nrow=</span><span class="dv">2</span>, <span class="dt">ncol=</span><span class="dv">2</span>)</code></pre></div>
+<p><img src="05-Avocados2_files/figure-html/unnamed-chunk-27-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Notice that we created 4 separate <code>ggplots</code> and saved them as objects. Once we had all of the objects created, we placed them in <code>plot_grid</code> as the plots we wanted to add to the <code>plot_grid</code> window. Then we specified the number of rows and columns we wanted the grid to have via <code>nrow</code> and <code>ncol</code>, respectively.</p>
+<p>Summary: - 2015 prices were in the $1.00 range for conventional avocados. In 2016 and 2017, the density of the prices were a little bit higher. - It looks that most price peaks occur for both conventional and organic avocados between the months of September and October. I wonder why this is? Could it have to do with fall sport viewing which is often accompanied by guacamole? - Major price drop at the end of each year. Why is demand dropping so much?</p>
+</div>
+<div id="yearly-and-monthly-patterns" class="section level3">
+<h3><span class="header-section-number">1.2.3</span> Yearly and Monthly Patterns</h3>
+<p>We have 4 years of data in this dataset, so we have 4 values for each month when it comes to Average Price. Let's reorganize our data to include a <code>month</code> variable and then average the 4 values for each month together to create a monthly price point average.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create a separate dataframe by first copying the original avocado_df</span>
+seasonal_df &lt;-<span class="st"> </span>avocado_df
+
+<span class="co"># create 3 new variables, just expanding on the date using the format function </span>
+<span class="co"># let&#39;s test out the format function to see what it does </span>
+avocado_df<span class="op">$</span>Date[<span class="dv">1</span>]</code></pre></div>
+<pre><code>## [1] &quot;2015-01-04&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">format</span>(<span class="kw">as.Date</span>(avocado_df<span class="op">$</span>Date[<span class="dv">1</span>]), <span class="st">&quot;%Y-%m&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;2015-01&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create the variables - notice the structure of the format</span>
+seasonal_df<span class="op">$</span>month_year &lt;-<span class="st"> </span><span class="kw">format</span>(<span class="kw">as.Date</span>(avocado_df<span class="op">$</span>Date), <span class="st">&quot;%Y-%m&quot;</span>)
+seasonal_df<span class="op">$</span>month &lt;-<span class="st"> </span><span class="kw">format</span>(<span class="kw">as.Date</span>(avocado_df<span class="op">$</span>Date), <span class="st">&quot;%m&quot;</span>)
+seasonal_df<span class="op">$</span>year &lt;-<span class="st"> </span><span class="kw">format</span>(<span class="kw">as.Date</span>(avocado_df<span class="op">$</span>Date), <span class="st">&quot;%Y&quot;</span>)
+
+<span class="co"># print out the first 10 values</span>
+seasonal_df<span class="op">$</span>month[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>]</code></pre></div>
+<pre><code>##  [1] &quot;01&quot; &quot;01&quot; &quot;01&quot; &quot;01&quot; &quot;01&quot; &quot;01&quot; &quot;01&quot; &quot;01&quot; &quot;01&quot; &quot;01&quot;</code></pre>
+<p>Let's take this one step further and let's convert our <code>month</code> variable to an Abbreviated Month (aka month &quot;01&quot;&quot; is Jan). We can do this by using the <code>month.abb</code> function (which requires the input to be a numeric, so we convert the <code>seasonal_df$month</code> to numeric within the funciton)</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">seasonal_df<span class="op">$</span>monthchr &lt;-<span class="st"> </span>month.abb[<span class="kw">as.numeric</span>(seasonal_df<span class="op">$</span>month)]
+seasonal_df<span class="op">$</span>monthchr[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>]</code></pre></div>
+<pre><code>##  [1] &quot;Jan&quot; &quot;Jan&quot; &quot;Jan&quot; &quot;Jan&quot; &quot;Jan&quot; &quot;Jan&quot; &quot;Jan&quot; &quot;Jan&quot; &quot;Jan&quot; &quot;Jan&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(seasonal_df<span class="op">$</span>monthchr)</code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<p>This is a character, so let's change this to a factor where the levels available are R's abbreviated months - aka <code>month.abb</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">seasonal_df<span class="op">$</span>monthabb =<span class="st"> </span><span class="kw">factor</span>(seasonal_df<span class="op">$</span>monthchr, <span class="dt">levels =</span> month.abb)
+seasonal_df<span class="op">$</span>monthabb[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>]</code></pre></div>
+<pre><code>##  [1] Jan Jan Jan Jan Jan Jan Jan Jan Jan Jan
+## Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
+<p>Our dataset is now organized - let's plot it up to learn more about the avocados! First let's plot a density plot of the distribution of prices by year.</p>
+<p>** Distribution of Average Prices by year for both avocado types **</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(seasonal_df, <span class="kw">aes</span>(<span class="dt">x =</span> AveragePrice, <span class="dt">fill =</span> <span class="kw">as.factor</span>(year))) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">alpha =</span> .<span class="dv">5</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>year) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">title=</span><span class="st">&quot;Distribution of Prices by year&quot;</span>, <span class="dt">x =</span> <span class="st">&#39;Average Price&#39;</span>, <span class="dt">y =</span> <span class="st">&#39;Density&#39;</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values=</span><span class="kw">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;orange&quot;</span>, <span class="st">&quot;red&quot;</span>))</code></pre></div>
+<p><img src="05-Avocados2_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
+<p>Notice that we used the <code>scale_fill_manual</code> argument here because the <code>geom_density</code> argument requires a <code>fill</code> value in the <code>ggplot</code> components <code>aes</code> function.</p>
+<p>** Distribution of Average Prices by month for the Conventional Avocado **</p>
+<p>Let's select the conventional avocados using <code>select</code> and <code>filter</code> from <code>dplyr</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">conventional =<span class="st"> </span><span class="kw">select</span>(<span class="dt">.data =</span> <span class="kw">filter</span>(<span class="dt">.data =</span> seasonal_df,type <span class="op">==</span><span class="st"> &#39;conventional&#39;</span>), monthabb, AveragePrice, type)</code></pre></div>
+<p>Now, let's group this dataframe by the <code>monthabb</code> variable</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">month_df =<span class="st"> </span><span class="kw">group_by</span>(<span class="dt">.data =</span> conventional, monthabb)</code></pre></div>
+<div id="htmlwidget-11e4fcf3ac441c7c0591" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-11e4fcf3ac441c7c0591">{"x":{"filter":"none","data":[["1","2","3","4","5","6","7","8","9","10"],["Jan","Jan","Jan","Jan","Jan","Jan","Jan","Jan","Jan","Jan"],[1.22,1,1.08,1.01,1.02,1.4,0.93,1.19,1.11,0.88],["conventional","conventional","conventional","conventional","conventional","conventional","conventional","conventional","conventional","conventional"]],"container":"<table class=\"table-condensed\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>monthabb<\/th>\n      <th>AveragePrice<\/th>\n      <th>type<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"tp","scrollX":true,"columnDefs":[{"className":"dt-right","targets":2},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<p>Now, we can summzarize this data by taking the <code>mean()</code> of the <code>AveragePrice</code> variable and creating a new variable named <code>avg</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">month_df =<span class="st"> </span><span class="kw">summarize</span>(<span class="dt">.data =</span> month_df, <span class="dt">avg=</span><span class="kw">mean</span>(AveragePrice))</code></pre></div>
+<div id="htmlwidget-7000938144b6a261977b" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-7000938144b6a261977b">{"x":{"filter":"none","data":[["1","2","3","4","5","6","7","8","9","10"],["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct"],[1.06909465020576,1.01731481481481,1.1262091503268,1.14235042735043,1.08957671957672,1.1491975308642,1.21248677248677,1.23539886039886,1.29473765432099,1.34933862433862]],"container":"<table class=\"table-condensed\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>monthabb<\/th>\n      <th>avg<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"tp","scrollX":true,"columnDefs":[{"className":"dt-right","targets":2},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<p>Plot the price distrubion by month!</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> month_df, <span class="kw">aes</span>(<span class="dt">x=</span>monthabb, <span class="dt">y=</span>avg)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">color=</span><span class="st">&quot;red&quot;</span>, <span class="kw">aes</span>(<span class="dt">size=</span>avg)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">group=</span><span class="dv">1</span>, <span class="dt">color=</span><span class="st">&quot;blue&quot;</span>) <span class="op">+</span><span class="st"> </span>
+<span class="kw">labs</span>(<span class="dt">title=</span><span class="st">&quot;Conventional Avocados&quot;</span>, <span class="dt">x=</span><span class="st">&quot;Month&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Average Price&quot;</span>)</code></pre></div>
+<p><img src="05-Avocados2_files/figure-html/unnamed-chunk-37-1.png" width="672" /></p>
+<p>Summary: - October is the best month for Conventional Avocados for the entire dataset with average prices above $1.30 - February is the worst month for Conventional Avocados with average prices barely above $1.00</p>
+</div>
+</div>
+<div id="recap" class="section level2">
+<h2><span class="header-section-number">1.3</span> Recap</h2>
+<ul>
+<li>Tidyverse is a set of R packages designed with consistent framework and usability - <code>dplyr</code> and <code>tibbletime</code> are very useful when dealing with spreadsheet data</li>
+<li>Subselecting, grouping, averaging can all be accomplished with <code>dplyr</code> and <code>tibbletime</code></li>
+<li><code>plot_grid</code> from the <code>cowplot</code> package is useful for plotting multiple <code>ggplot2</code> plots in the same window</li>
+<li><code>ggplot2</code> plots are extremely customizable - we used <code>scale_color_manual</code> as one example of how customizable they are here.</li>
+</ul>
+</div>
+<div id="avocados-2-assignment" class="section level2">
+<h2><span class="header-section-number">1.4</span> Avocados 2 Assignment</h2>
+<p>Perform the same analysis onthe price distribution by month that we did for Conventional Avocados only this time explor the Organic type of avocados. Combine both plots to be part of the same window. Use custom colors <a href="http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf">selected from the R color guide</a>. Create proper labels with <code>ggplot2</code>s <code>lab()</code> function. Submit final plot.</p>
+<p>Your final plot should look something like this...</p>
+<p><img src="05-Avocados2_files/figure-html/unnamed-chunk-38-1.png" width="672" /></p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+},
+"search": false
+});
+});
+</script>
+
+</body>
+
+</html>

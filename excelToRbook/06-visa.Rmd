@@ -1,0 +1,310 @@
+---
+title: "US Work Visas - Part 1"
+output:
+  html_document:
+    fig_height: 4
+    fig_width: 7
+    theme: cosmo
+---
+# US Work Visas
+
+```{r, echo=FALSE, out.width="100%", fig.align="center"}
+knitr::include_graphics("images/passport.jpeg")  
+```
+
+In this tutorial, we'll be exploring the H1-B Visa. The H-1B is a visa in the United States which allows U.S. employers to employ foreign workers in specialty occupations. We'll examine what kind of foreign workers are most often employed. 
+
+**Goals of this tutorial**
+ - Introduce the `for` loop
+ - Practice using `dplyr` and `tibble` on the visa dataset
+ - Expand on plot types
+ - Investigate H1-B visa trends
+ 
+**Datasets used**
+ - `h1bvisa_part1.csv`
+ - `h1bvisa_part2.csv`
+ - `h1bvisa_part3.csv`
+
+## The For Loop - Quick Introduction
+
+For loops & conditional statements are a key skill in programming. They allow you to process through large datasets or multiple datasets thus minimizing the amount of manual work you need to do. The basic for loop looks like this...
+
+```{r}
+# Generate sequence of numbers from 1 to 10 using the seq() function (seq for sequence)
+numbersList = seq(from=1,to=10,by=1)
+# Multiply each number in the numbersList by 8 and print the result
+for (i in numbersList){
+  temNumber = i * 8
+  print(temNumber)
+}
+```
+
+Notice the general structure of R for loops. 'for' signals to R you're beginning a for loop, which requires the general structure to look like:
+
+for (something in something inside these parentheses){
+  do something within these curly brackets
+}
+
+Yes, you must have these parentheses and curly brackets present and surrounding the appropriate code. If you forget a parentheses or curly bracket you'll have errors pop up...this happens to me all the time still. 
+
+While these must be present, R doesn't care where they are in your code (****which is very unique amongst programming languages). For example, notice how this ugly code is different but still runs...
+
+```{r}
+# Generate sequence of numbers from 1 to 10 using the seq() function (seq for sequence)
+numbersList = seq(from=1,to=10,by=1)
+# Multiply each number in the numbersList by 8 and print the result
+for (        i in numbersList       
+      ){
+  temNumber = i * 8
+  print(temNumber)
+        }
+```
+
+
+The general structure is still: for(condition){do something}. If statements are set up the same way
+
+```{r}
+# Generate sequence of numbers from 1 to 10 using the seq() function (seq for sequence)
+numbersList = seq(from=1,to=10,by=1)
+# Multiply each number in the numbersList by 8 and print the result
+for (i in numbersList){
+  if (i==4){
+    temNumber = i * 8
+    print(temNumber)
+  }
+}
+```
+
+This is referred to as a 'nested loop', because there is a conditional statement within another one. Key takeaway here: in programming languages, '=' is an assignment (i.e. x = 4), whereas '==' is an equality test (i == 4). To put this loop in layman's terms: for i in numbersList, if i is equal to 4, multiply i by 8 and then print temNumber. 
+
+We can also have nested for loops. 
+
+```{r}
+# Generate sequence of numbers from 1 to 3 this time using the seq() function (seq for sequence)
+numbersList = seq(from=1,to=3,by=1)
+lettersList = list("A", "B", "C")
+
+for (num in numbersList){
+  for (let in lettersList){
+    print(c(num,let))
+  }
+}
+```
+
+You can name the object within the list whatever you want (i, j, num, let, etc.). Reminder, c() is the concatenate functin that combines values into a vector or list. The order doesn't matter in this for loop...
+
+```{r}
+# Generate sequence of numbers from 1 to 3 this time using the seq() function (seq for sequence)
+numbersList = seq(from=1,to=3,by=1)
+lettersList = list("A", "B", "C")
+
+for (let in lettersList){
+  for (num in numbersList){
+    print(c(num,let))
+  }
+}
+```
+
+But it does in this one...
+
+```{r}
+# Generate sequence of numbers from 1 to 10 using the seq() function (seq for sequence)
+numbersList = seq(from=1,to=10,by=1)
+# Multiply each number in the numbersList by 8 and print the result
+if (i==4){
+  for (i in numbersList){
+    temNumber = i * 8
+    print(temNumber)
+  }
+}
+```
+
+Here's one more example for multi conditional statement with an else...
+
+```{r}
+# Generate sequence of numbers from 1 to 3 this time using the seq() function (seq for sequence)
+numbersList = seq(from=1,to=3,by=1)
+lettersList = list("A", "B", "C")
+
+for (num in numbersList){
+  for (let in lettersList){
+    if (num == 3 && let == "B"){
+      print(c(num,let))
+    } else{
+      print("Not what we want")
+    }
+  }
+}
+```
+
+&& means "and" ... || means "or"...these are useful in multi conditional statements. The 'else' statement is an appendage of the 'if' statement. It basically means if num == 3 and let == B is false, print "not what we want". Notice that the 'else' statement is outside of the 'if' statement but immediately after it. 
+
+## `paste()` and `paste0()` - Quick Introduction
+
+`paste()` `paste0()` are some of the most commonly used functions in R. These allow you concatenate a series of strings together into 1. This is very handy when it comes ot writing filepaths to read/write data files. 
+
+
+``` {r, warning=FALSE}
+# Paste Example 1 - default sep (aka separation) is space
+paste("file", "number", "32")
+
+# Paste Example 2 - set sep to "_"
+paste("file", "number", "32", sep = "_")
+
+# Paste0 Example 1 - 0 for 0 separating characters
+paste0("file", "number", "32")
+
+# Notice that paste() is limiting because the separating character is not always present between
+# each string you're concatenating
+# Let's use paste0 here
+fileList <- c('filename1', 'filename2', 'filename3', 'filename4')
+dateFolder <- c('0813', '0814', '0815', '0816')
+homeDir <- "~/Documents/"
+pathList <- list()
+
+for (i in 1:length(fileList)){
+  print(i)
+  tempString <- paste0(homeDir, dateFolder[i], '/', fileList[i])
+  pathList[i] <- tempString
+}
+
+pathList
+
+pathList[[1]]
+
+```
+
+
+## Exploring the Data
+
+### Reading in multiple datasets and combining them
+```{r}
+# first let's load in the packages we need
+library(data.table)
+library(dplyr)
+library(ggplot2)
+library(stringr)
+library(DT)
+library(tidyr)
+library(corrplot)
+library(leaflet)
+library(lubridate)
+library(cowplot)
+```
+
+For this tutorial, we have 3 separate CSV files. Let's show a few different ways to load all 3 and merge them together into a single `data.frame` instance. The first way we'll show loading in multiple datasets is the `for` loop!
+
+```{r}
+# create a list of the CSVs
+
+csv_list = c("h1bvisa_part1.csv", "h1bvisa_part2.csv", "h1bvisa_part3.csv")
+path = "~/Documents/Github/indyres/excelToRbook/datasets/visa_data/"
+
+for (c in 1:length(csv_list)){
+  if (c == 1){
+    visa_df = read.csv(paste0(path, csv_list[c]))
+  } else {
+    nextPart = read.csv(paste0(path, csv_list[c]), skip = 1)
+    visa_df = rbind(visa_df, nextPart)
+  }
+}
+
+# check out the class
+class(visa_df)
+# check out the dimensions
+dim(visa_df)
+# check out the dimensions if our `nextPart` that's being overwritten
+dim(nextPart)
+```
+
+
+Let's break down this code. First we declare our list of CSV names and the Path that they're located at. Then, we begin the for loop. We state that for `c` in 1 to the `length` of the `csv_list` (i.e. - 1 to 3), do what's in the loop. Inside the loop, our first clause states that `if c==1` we want to create a `data.frame` called `visa_df`. We use our `read.csv()` function and direct that function to the `path` and `filename` of our csv. If it's the 2nd or 3rd iteration of the loop, the `visa_df` is already created and thus we want to append our additional data to this `data.frame`. We do this by loading in the CSV files to our temporary `nextPart` variable. Notice that we use the `skip` argument within the `read.csv` function to tell R to skip over the 1st row of data. If we took a look at `nextPart`, it would be the data without the column name row. Once `nextPart` is loaded, we then use the `rbind()` function which stands for **row bind**. We bind together the two dataframes (`visa_df` and `nextPart`) by their *rows*. In other words, we just add in the additional data as additional rows since the datasets share the same column names. The end product is our single dataframe that we created from 3 separate csv files.
+
+```{r, echo=FALSE}
+datatable(head(visa_df,10), style="default", class="table-condensed", options = list(dom = 'tp',scrollX = TRUE))
+```
+
+As with many things in R, there are multiple ways to achieve the same goal. Here's a more advanced (yet simpler) way to read in and merge these files.
+
+```{r}
+library(dplyr)
+library(readr)
+
+# set the path 
+csv_path = "~/Documents/Github/indyres/excelToRbook/datasets/visa_data/"
+
+# list all files within that path 
+csv_list = list.files(path=csv_path, full.names = TRUE)
+
+csv_list
+
+# Read all csv files in the folder and create a list of dataframes
+ldf <- lapply(csv_list , read.csv)
+
+# Combine each dataframe in the list into a single dataframe
+visa_df <- do.call("rbind", ldf)
+```
+
+In this more advanced example, we load in the packages that contain the following functions (this is already done above, but I'm doing it again to show you where these functions come from). After setting the `csv_path`, we then use the function `list.files()` which lists all files within a give path. In our case, all of our Visa CSV data is located within `/datasets/visa_data`. Then we use the `lapply` function which is a function useful for performing operations on list objects and returns a list object of same length of original set. We give `lapply` a list (`csv_list`) and a function (`read.csv`) to do on that list. This creates a larger list of the output of `read_csv` from our `csv_list`. Finally, we create our `visa_df` via the `do.call` function (which behaves very similar to `lapply`). The `do.call` function is given a function (`rbind`) and then a list to perform that function on (`ldf`). `lapply` and `do.call` are similar but here's the difference: 
+
+* lapply() applies a given function for each element in a list,so there will be several function calls.
+* do.call() applies a given function to the list as a whole,so there is only one function call.
+
+Once again, here's our `visa_df`
+
+```{r, echo=FALSE}
+datatable(head(visa_df,10), style="default", class="table-condensed", options = list(dom = 'tp',scrollX = TRUE))
+```
+
+Now that we have our dataset, let's explore it!
+
+### Manipulating our Data Frame
+
+* X1,X2,X - not named column, it is the id of the row;
+* CASE_STATUS - status of the application;
+* EMPLOYER_NAME - the name of the employer as registered in the H-1B Visa application;
+* SOC_NAME - the occupation code for the employment;
+* JOB_TITLE - the job title for the employment;
+* FULL_TIME_POSITION - whether the application is for a full-time position of for a part-time position;
+* PREVAILING_WAGE - the most frequent wage for the corresponding role as filled in the Visa application;
+* YEAR - the application year;
+* WORKSITE - the address of the employer worksite;
+* lon - longitude of the employer worksite;
+* lat - latitude of the employer worksite;
+
+First, let's get rid of columns we don't need like `X.2`, `X.1`, and `X`.
+
+```{r}
+visa_df$X.2 = NULL
+visa_df$X.1 = NULL
+visa_df$X = NULL
+```
+
+Next, we notice that the `WORKSITE` variable contains a City, State type string. Let's break this out and create a new column with just states.
+
+```{r}
+library(stringr)
+# str_split or string split is a great function to use. It breaks up a string based on a character. In this case we want to split our string into a list of cities and states which are split by a comma
+worksites = str_split(df$WORKSITE, ",", simplify = TRUE)
+head(worksites)
+
+# grab the second column which is just the states
+states = worksites[,2]
+head(states)
+
+# Now we can use the trimws() function to trim the whitespace and get rid of the leading spaces
+states = trimws(states)
+head(states)
+# now add it to the dataframe
+df$state <- states
+```
+
+Next we notice that our Latitudes and Longitude columns are very specific, let's round these to make them easier on the eye.
+
+```{r}
+visa_df$lat = round(df$lat,1)
+visa_df$lon = round(df$lon,1)
+```
+
+
+

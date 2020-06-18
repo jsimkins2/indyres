@@ -142,13 +142,49 @@ ggplot(data = sorted_tv_data[1:16,], mapping = aes(x=Title, y=IMDb)) + geom_bar(
 | `sorted_tv_data$X = NULL` | We notice a column named `X` and see that it has no meaning since we have a default row number within the R dataframe. We want to delete this column without disturbing the rest of the dataframe. We do so by telling R that the `X` column shall be converted to `NULL`, thus removing the column| 
 | `ggplot(data = sorted_tv_data[1:16,], mapping = aes(x=Title, y=IMDb)) + geom_bar(stat = "identity") + theme(axis.text.x=element_text(angle=45, hjust=1))` | Create a `ggplot` instance from the `ggplot2` package. We first create the `ggplot` instance, declare the `data` as the first 16 rows of the `sorted_tv_data`, declare the `mapping` aesthetics (`aes`) where we set the `x` axis of the plot equal to the `sorted_tv_data` `Title`, and the `y` axis equal to the `sorted_tv_data` `IMDB` rating. Once `ggplot` understands the dataset we want to plot and what goes to each axis, we `+` add a `geom_bar` to the code, telling `ggplot` that we want a barplot. We do need to add one argument within the `geom_bar` function and that is `stat = "identity"`. `stat` is the statistical transformation to use on the data for this layer. It's a fancy way of saying "what should the bars represent?". In our case, we set `stat = "identity"` so that the heights of the bars to represent values in the data. `ggplot2` is the most popular plotting package in R and creates some beautiful plots. We'll learn more about `ggplot2` in the next section.   | 
 
-
 Need a little more help on a function used above? Use the `help` feature by running the following in your console!
 
 ```{r, eval=FALSE}
 help(ggplot)
 ```
 
+## Parantheses (), Brackets [], and Curly brackets {}
 
+A **very important** aspect to pay attention to are the parantheses, brackets, and curly brackets. Each time we use one of these, the brackets **must be opened, then must be closed**. What I mean by this is the following: Notice how when we use the `head()` function, we do so like this `head(sorted_tv_data)`. `sorted_tv_data` goes **inside** the enclosed parantheses and thus is an *argument* of the `head()` function. 
+
+Now let's look at a more complicated example. Similar to the rules of PEMDAS that we learned in algebra, the start and ending of parantheses work in the same way. For example:
+
+`ggplot(data = sorted_tv_data[1:16,], mapping = aes(x=Title, y=IMDb))`
+
+The `ggplot` function encloses *another* function by the name of `aes` (stands for aesthetics). Before we *close* the `ggplot` function, we *open* the `aes` function. This is because the `aes` function is declared **within** the `ggplot` function. We must **close** the `aes` function *before* we close the `ggplot` function. In other words, follow along with this example:
+
+  `function(inside_function(inside_inside_function()))`
+
+The inside_inside_function is here:
+
+  function(inside_function(**inside_inside_function()**))
+
+The inside_function is here:
+
+  function(**inside_function(inside_inside_function())**)
+
+The first functions parantheses are enclosing the bolded above. Placing functions within one another is referred to as **nested functions**. This is handy, but can be difficult to read if too many functions are nested as things are evaluated from the inside out. If you're ever confused about where a functions parentheses begins and ends, simply place your cursor *to the right* of a parenthesis.
+
+```{r, echo=FALSE, out.width="100%", fig.align="center"}
+knitr::include_graphics("images/hover_parantheses.png")  
+```
+
+  Rule: Always close your parantheses in the right place. The same applies to quotes ( both `""` and `''` )
 
 You are not expected to fully grasp everything at this point. As we progress through the tutorials, these concepts will make more sense. 
+
+
+
+
+
+
+
+
+
+ggplot(data = sorted_tv_data[1:16,], mapping = aes(x=Title, y=IMDb))
+

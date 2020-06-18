@@ -5,10 +5,11 @@ language:
     chapter_name: ""
 rmd_files: [
   "/Users/james/Documents/Github/indyres/excelToRbook/Index.Rmd",
-  "/Users/james/Documents/Github/indyres/excelToRbook/01-Overview.Rmd", # session 1
-  "/Users/james/Documents/Github/indyres/excelToRbook/02-Rstudio.Rmd", # session 1
+  "/Users/james/Documents/Github/indyres/excelToRbook/01-Overview.Rmd", 
+  "/Users/james/Documents/Github/indyres/excelToRbook/02-Rstudio.Rmd", 
   "/Users/james/Documents/Github/indyres/excelToRbook/03-Technical.Rmd",
-  "/Users/james/Documents/Github/indyres/excelToRbook/04-Avacados.Rmd",# session 2
+  "/Users/james/Documents/Github/indyres/excelToRbook/04-Avocados.Rmd",
+  "/Users/james/Documents/Github/indyres/excelToRbook/05-Avocados2.Rmd",
  ]
 delete_merged_file: true
 output_dir: "docs"
