@@ -4,12 +4,14 @@ language:
   ui:
     chapter_name: ""
 rmd_files: [
-  "/Users/james/Documents/Github/indyres/excelToRbook/Index.Rmd",
-  "/Users/james/Documents/Github/indyres/excelToRbook/01-Overview.Rmd", 
-  "/Users/james/Documents/Github/indyres/excelToRbook/02-Rstudio.Rmd", 
-  "/Users/james/Documents/Github/indyres/excelToRbook/03-Technical.Rmd",
-  "/Users/james/Documents/Github/indyres/excelToRbook/04-Avocados.Rmd",
-  "/Users/james/Documents/Github/indyres/excelToRbook/05-Avocados2.Rmd",
+  "/Users/james/Documents/Github/pubforge/excelToRbook/Index.Rmd",
+  "/Users/james/Documents/Github/pubforge/excelToRbook/01-Overview.Rmd", 
+  "/Users/james/Documents/Github/pubforge/excelToRbook/02-Rstudio.Rmd", 
+  "/Users/james/Documents/Github/pubforge/excelToRbook/03-Technical.Rmd",
+  "/Users/james/Documents/Github/pubforge/excelToRbook/04-Avocados.Rmd",
+  "/Users/james/Documents/Github/pubforge/excelToRbook/05-Avocados2.Rmd",
+  "/Users/james/Documents/Github/pubforge/excelToRbook/06-visa.Rmd",
+  
  ]
 delete_merged_file: true
 output_dir: "docs"

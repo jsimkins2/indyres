@@ -185,6 +185,3 @@ You are not expected to fully grasp everything at this point. As we progress thr
 
 
 
-
-ggplot(data = sorted_tv_data[1:16,], mapping = aes(x=Title, y=IMDb))
-

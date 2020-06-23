@@ -2,8 +2,8 @@
 title: "avocados Tutorial - Part 2"
 output:
   html_document:
-    fig_height: 4
-    fig_width: 7
+    fig_height: 8
+    fig_width: 12
     theme: cosmo
 ---
 # Avocados Tutorial - Part 2
@@ -15,13 +15,13 @@ knitr::include_graphics("images/avocado2.jpeg")
 We're going to continue our exploration of the avocados dataset for this tutorial. We're going to introduce `dplyr`, an R package with tremendous power that was built with Excel users in mind. 
 
 **Goals of this tutorial**
- - Introduce Tidyverse and `dplyr` 
- - Practice exploring the avocados dataset using `dplyr`
- - Create more advanced `ggplot` plots
- - Investigate Avocado price trends
+* Introduce Tidyverse and `dplyr` 
+* Practice exploring the avocados dataset using `dplyr`
+* Create more advanced `ggplot` plots
+* Investigate Avocado price trends
  
 **Datasets used**
- - `avocado.csv`
+* `avocado.csv`
  
 ## Tidyverse : dplyr crash course
 
@@ -37,11 +37,11 @@ As we see from the image, we're already familiar with the visualization package 
 
 `dplyr` is an R package for data manipulation, providing a consistent set of functions that help you solve the most common data manipulation challenges. `dplyr` is part of the Tidyverse family of packages, thus allowing a user to create tidy datasets. "Tidy datasets are easy to manipulate, model and visualise, and have a specific structure: each variable is a column, each observation is a row, and each type of observational unit is a table." [(From Wickham, H. (2014): Tidy Data)](https://www.jstatsoft.org/article/view/v059i10))
 
-  - `select()` picks variables based on their names.
-  - `filter()` picks cases based on their values.
-  - `mutate()` adds new variables that are functions of existing variables
-  - `summarise()` reduces multiple values down to a single summary.
-  - `arrange()` changes the ordering of the rows.
+* `select()` picks variables based on their names.
+* `filter()` picks cases based on their values.
+* `mutate()` adds new variables that are functions of existing variables
+* `summarise()` reduces multiple values down to a single summary.
+* `arrange()` changes the ordering of the rows.
 
 These all combine naturally with `group_by()` which allows you to perform any operation by group.
 
@@ -281,9 +281,9 @@ plot_grid(conventional_price, organic_price,conventional_volume, organic_volume,
 Notice that we created 4 separate `ggplots` and saved them as objects. Once we had all of the objects created, we placed them in `plot_grid` as the plots we wanted to add to the `plot_grid` window. Then we specified the number of rows and columns we wanted the grid to have via `nrow` and `ncol`, respectively. 
 
 Summary:
-  - 2015 prices were in the $1.00 range for conventional avocados. In 2016 and 2017, the density of the prices were a little bit higher.
-  - It looks that most price peaks occur for both conventional and organic avocados between the months of September and October. I wonder why this is? Could it have to do with fall sport viewing which is often accompanied by guacamole? 
-  - Major price drop at the end of each year. Why is demand dropping so much?
+* 2015 prices were in the $1.00 range for conventional avocados. In 2016 and 2017, the density of the prices were a little bit higher.
+* It looks that most price peaks occur for both conventional and organic avocados between the months of September and October. I wonder why this is? Could it have to do with fall sport viewing which is often accompanied by guacamole? 
+* Major price drop at the end of each year. Why is demand dropping so much?
 
 ### Yearly and Monthly Patterns
 

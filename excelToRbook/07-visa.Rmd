@@ -1,0 +1,260 @@
+---
+title: "US Work Visas - Part 2"
+output:
+  html_document:
+    fig_height: 8
+    fig_width: 12
+    theme: cosmo
+---
+# US Work Visas - Part 2
+
+```{r, echo=FALSE, out.width="100%", fig.align="center"}
+knitr::include_graphics("images/teamwork_visa.jpg")  
+```
+
+In this tutorial, we'll be exploring the H1-B Visa. The H-1B is a visa in the United States which allows U.S. employers to employ foreign workers in specialty occupations. We'll examine what kind of foreign workers are most often employed. 
+
+**Goals of this tutorial**
+* Introduce advanced plotting routines
+* Further explore the H1-B visa dataset
+* Focus on spatial distribution of applications
+* Practice `dplyr` and `tibble`
+ 
+**Datasets used**
+* `h1bvisa_part1.csv`
+* `h1bvisa_part2.csv`
+* `h1bvisa_part3.csv`
+* `h1bvisa_part4.csv`
+* `h1bvisa_part5.csv`
+* `h1bvisa_part6.csv`
+* `h1bvisa_part7.csv`
+
+
+## Revisiting the H1-B Visa Dataset
+
+We're already familiar with this dataset from last week, so let's dive right in from where we left off.
+
+```{r}
+# first let's load in the packages we need
+library(data.table)
+library(dplyr)
+library(ggplot2)
+library(stringr)
+library(DT)
+library(tidyr)
+library(corrplot)
+library(leaflet)
+library(lubridate)
+library(cowplot)
+library(dplyr)
+library(readr)
+library(stringr)
+
+# set the path 
+csv_path = "datasets/visa_data/"
+
+# list all files within that path 
+csv_list = list.files(path=csv_path, full.names = TRUE)
+
+csv_list
+
+# Read all csv files in the folder and create a list of dataframes
+ldf <- lapply(csv_list , read.csv)
+
+# Combine each dataframe in the list into a single dataframe
+visa_df <- do.call("rbind", ldf)
+
+
+# str_split or string split is a great function to use. It breaks up a string based on a character. In this case we want to split our string into a list of cities and states which are split by a comma
+worksites = str_split(visa_df$WORKSITE, ",", simplify = TRUE)
+head(worksites)
+
+# grab the second column which is just the states
+states = worksites[,2]
+head(states)
+
+# Now we can use the trimws() function to trim the whitespace and get rid of the leading spaces
+states = trimws(states)
+# now add it to the dataframe
+visa_df$states <- states
+```
+
+```{r, echo=FALSE}
+datatable(head(visa_df,10), style="default", class="table-condensed", options = list(dom = 'tp',scrollX = TRUE))
+```
+
+## Full Time Positions
+
+What percentage is full time vs part time? 
+
+```{r}
+# filter the data where there is data under FULL_TIME_POSITION (i.e. get rid of values that are NA)
+pos_df = filter(.data = visa_df, !is.na(FULL_TIME_POSITION))
+# group the data by the FULL_TIME_POSITION
+pos_df = group_by(.data=pos_df, FULL_TIME_POSITION)
+# summarize the data based on the total number of recrods 
+pos_df = summarise(.data = pos_df,total_records = length(lat))
+
+# what does pos_df look like
+pos_df
+```
+
+Alright, we have the total number of records for both Full time and Part Time position. What's the percentage breakdown between the two? To answer this specific question, a pie chart might be useful. Luckily, a package called `plotrix` has a function called `pie3D` which can be used to accomplish this task.
+
+```{r}
+library(plotrix)
+
+# create a list of our unique labels - Part time is first because it's the first row in pos_df (aka where the answer to full time position is N)
+lbls = c("Part time","Full time")
+
+# calculte the perdentage
+pcts = round(pos_df$total_records / sum(pos_df$total_records) * 100)
+
+# note that we use paste here and not paste0, remember that the 0 means 0 spaces between
+lbls = paste(lbls, pcts)
+
+lbls
+
+# now let's add a % sign in
+lbls = paste(lbls,"%", sep="")
+
+lbls
+
+# create a list of the colors we want here 
+cols = c("aquamarine3", "indianred")
+
+pie3D(x=pos_df$total_records, labels=lbls, col = cols, explode=0, main = "H1-B Visa Positions type")
+```
+
+There are more part time positions rather than fulltime for this dataset. `pie3D` can be a useful, quick way to create a piechart.
+
+## Applications by State
+
+**How does the number of total applications vary by state? What's a good way to visualize this?**
+
+We can use `dplyr` to separate out the total applications by state. We'll have to use our `states` variable that we included with teh dataset above. 
+
+```{r}
+# filter out the NA data
+state_df = filter(.data = visa_df, !is.na(states))
+
+# group the dataframe by states
+state_df = group_by(.data = state_df, states)
+
+# create a summary per state by counting the total number of cases for each state
+state_df = summarise(.data = state_df, total_records = length(CASE_STATUS))
+
+# Normalize the data by dividing by 1000
+state_df$total_records <- state_df$total_records/1000
+
+#remember we can change the name of our columns if we want to
+colnames(state_df) <- c("state","value")
+
+# use the treemap function from the treemap package to create the plot
+library(treemap)
+treemap(state_df, 
+        index=c("state"), 
+        type="value",
+        vSize = "value",  
+        vColor="value",
+        palette = "RdBu",  
+        title="H1-B Visa Applications per State(thousands)", 
+        fontsize.title = 14 
+    )
+```
+
+`treemap`s are great for visualizing data like this. Both the color and the total amount of space taken up in the image are correlated to the total amount of applications by state. Notice that the arguments for the `treemap` are a little different than `ggplot2`. `treemap` is not part of tidyverse, but still can be used with any data frame (as with most things in R).
+
+
+## Prevailing Wage by Location
+
+Let's investigate another type of plot that R is capable of creating - a leaflet interactive plot. We'll dive into this but first we'll need to manipulate the data. Remember the lat/lon rounding we did? Let's do that again only let's round it down to 1/1000th decimal place.
+
+```{r}
+visa_df$lat = round(visa_df$lat,3)
+visa_df$lon = round(visa_df$lon,3)
+```
+
+Now let's filter our dataset, group it by `lat` and `lon`, and then take the mean of the `PREVAILING WAGE` variable.
+```{r}
+# filter out the NA values of the `lat` variable
+wage_df = filter(.data = visa_df, !is.na(lat))
+
+# filter out the NA values of the `lon` variable
+wage_df = filter(.data = wage_df, !is.na(lon))
+
+# filter for cases where the CASE_STATUS is CERTIFIED
+wage_df = filter(.data = wage_df, CASE_STATUS == "CERTIFIED")
+
+# group by the lat AND lons (for times when the same company (aka same lat/lon) has multiple applications)
+wage_df = group_by(.data = wage_df, lat,lon)
+
+# summarize the data by taking the average PREVAILING WAGE
+wage_df = summarise(.data = wage_df, avg = mean(PREVAILING_WAGE))
+
+# create the bins in which our color palette will have corresponding values 
+bins <- c(min(wage_df$avg),50000, 100000, 150000, 200000 ,max(wage_df$avg))
+
+# create a custom color palette using pre-exisitng paletes and then coloring in the values based on the bins above
+# note that we use the premade color palette "RdYlGn" in R. 
+pal <- colorBin("RdYlGn", domain = wage_df$avg, bins = bins)
+
+# using leaflet which involves PIPING
+leaflet(data = wage_df) %>%
+  addTiles() %>% setView(-99, 35, zoom = 4) %>%
+  addCircleMarkers(
+    lat=wage_df$lat, lng=wage_df$lon, radius=sqrt(wage_df$avg)/20, color = ~pal(wage_df$avg), weight=1.5, opacity=0.8,
+    popup= paste("Average Wage $", round(wage_df$avg/1000), "k")
+    )
+
+```
+
+There we have it, a beautiful and interactive map showing average wage for by location. `leaflet` is a powerful tool to visualize spatial data. The key here with `leaflet` is that with `ggplot` we can use the `+` sign to add additional arguments/functionality to a plot. With `leaflet`, we need to use the pipe operator - `%>%`. Remember, the pipe operator can be though of as *sending* or *passing* along information. In this case we create a `leaflet` instance with `leaflet(data=wage_df)`. We pipe that over to the `leaflet` function `addTiles()`. This creates the map. Then we set the view of the image as `setView` and then pipe that to the `leaflet` function as `addCircleMarkers`. This is the most advanced function with the `leaflet` package as we can add in a ton of functionality. An important note here is that for the `color` argument, we are using our pre-made color palette `pal`. 
+
+## Recap
+
+* Although we've spent a good bit of time with the most popular plotting package (`ggplot2`), there are other plotting packages in R that can be very useful
+* The `treemap` package is useful for showing concentrations and distributions of a particular variable
+* `leaflet` is a powerful interactive plotting package that's great for spatial maps
+* R has many premade color palettes that are useful - [more can be found here](https://www.nceas.ucsb.edu/sites/default/files/2020-04/colorPaletteCheatsheet.pdf)
+
+## Assignment
+
+1) What state is offering the highest average wage? What about the lowest? Create a `treemap` of the average prevailing wage by state. 
+
+2) Where are the applications primarily coming from? Create a `leaflet` plot of the applications by location. First, round the lat/lon values to the 2nd decimal place. Then, plot your leaflet!
+
+You'll want your resulting plots to look something like...
+
+```{r, echo = FALSE}
+visa_df %>% filter(!is.na(PREVAILING_WAGE)) %>% filter(PREVAILING_WAGE>0) %>% 
+  filter(CASE_STATUS == "CERTIFIED") %>%
+  group_by(states) %>% summarise(avg = mean(PREVAILING_WAGE)) %>% ungroup() -> dws
+
+dws$avg <- dws$avg/1000
+colnames(dws) <- c("region","value")
+ treemap(dws, 
+        index=c("region"), 
+        type="value",
+        vSize = "value",  
+        vColor="value",
+        palette = "RdBu",  
+        title="Average prevailing wage per state", 
+        title.legend="Annual wage (thousands USD)",
+        fontsize.title = 14 
+    )
+
+visa_df %>% filter(!is.na(lat)) %>% filter(!is.na(lon)) %>% group_by(lat,lon) %>%
+  summarise(nr = length(lat)) %>% ungroup() -> dl
+
+colnames(dl) <- c("lat","lon","value")
+bins <- c(max(dl$value),150000,100000,50000,min(dl$value))
+pal <- colorBin("RdYlGn", domain = dl$value, bins = bins)
+
+leaflet(data = dl) %>%
+  addTiles() %>% setView(-99, 35, zoom = 4) %>%
+  addCircleMarkers(
+    lat=dl$lat, lng=dl$lon, radius=sqrt(dl$value)/10, color = ~pal(dl$value), weight=1.5, opacity=0.8,
+    popup= paste("<br><strong>Applications: </strong>", dl$value
+    ))
+```

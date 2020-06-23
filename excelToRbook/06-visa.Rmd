@@ -2,11 +2,11 @@
 title: "US Work Visas - Part 1"
 output:
   html_document:
-    fig_height: 4
-    fig_width: 7
+    fig_height: 8
+    fig_width: 12
     theme: cosmo
 ---
-# US Work Visas
+# US Work Visas - Part 1
 
 ```{r, echo=FALSE, out.width="100%", fig.align="center"}
 knitr::include_graphics("images/passport.jpeg")  
@@ -15,15 +15,20 @@ knitr::include_graphics("images/passport.jpeg")
 In this tutorial, we'll be exploring the H1-B Visa. The H-1B is a visa in the United States which allows U.S. employers to employ foreign workers in specialty occupations. We'll examine what kind of foreign workers are most often employed. 
 
 **Goals of this tutorial**
- - Introduce the `for` loop
- - Practice using `dplyr` and `tibble` on the visa dataset
- - Expand on plot types
- - Investigate H1-B visa trends
+* Introduce the `for` loop and `paste0`
+* Use R to load in big data
+* Practice using `dplyr` and `tibble` on the visa dataset
+* Investigate H1-B visa trends
  
 **Datasets used**
- - `h1bvisa_part1.csv`
- - `h1bvisa_part2.csv`
- - `h1bvisa_part3.csv`
+* `h1bvisa_part1.csv`
+* `h1bvisa_part2.csv`
+* `h1bvisa_part3.csv`
+* `h1bvisa_part4.csv`
+* `h1bvisa_part5.csv`
+* `h1bvisa_part6.csv`
+* `h1bvisa_part7.csv`
+
 
 ## The For Loop - Quick Introduction
 
@@ -41,9 +46,9 @@ for (i in numbersList){
 
 Notice the general structure of R for loops. 'for' signals to R you're beginning a for loop, which requires the general structure to look like:
 
-for (something in something inside these parentheses){
-  do something within these curly brackets
-}
+`for (numbers/values to loop through){`
+  `condition for the looping using the numbers/values above`
+`}`
 
 Yes, you must have these parentheses and curly brackets present and surrounding the appropriate code. If you forget a parentheses or curly bracket you'll have errors pop up...this happens to me all the time still. 
 
@@ -192,19 +197,27 @@ library(lubridate)
 library(cowplot)
 ```
 
-For this tutorial, we have 3 separate CSV files. Let's show a few different ways to load all 3 and merge them together into a single `data.frame` instance. The first way we'll show loading in multiple datasets is the `for` loop!
+For this tutorial, we have 7 separate CSV files. Let's show a few different ways to load all 7 and merge them together into a single `data.frame` instance. The first way we'll show loading in multiple datasets is the `for` loop!
 
 ```{r}
-# create a list of the CSVs
+# define our path
+path = "datasets/visa_data/"
 
-csv_list = c("h1bvisa_part1.csv", "h1bvisa_part2.csv", "h1bvisa_part3.csv")
-path = "~/Documents/Github/indyres/excelToRbook/datasets/visa_data/"
+# first, create a sequence of numbers 1:7
+nseq = seq(1,7)
+csv_list = list()
 
+# create a list of all the filenames
+for (n in nseq){
+  csv_list[n] = paste0('h1bvisa_part', n, '.csv')
+}
+
+# now using that list above, let's read in all files and then append them to the original dataframe
 for (c in 1:length(csv_list)){
   if (c == 1){
     visa_df = read.csv(paste0(path, csv_list[c]))
   } else {
-    nextPart = read.csv(paste0(path, csv_list[c]), skip = 1)
+    nextPart = read.csv(paste0(path, csv_list[c]))
     visa_df = rbind(visa_df, nextPart)
   }
 }
@@ -218,7 +231,7 @@ dim(nextPart)
 ```
 
 
-Let's break down this code. First we declare our list of CSV names and the Path that they're located at. Then, we begin the for loop. We state that for `c` in 1 to the `length` of the `csv_list` (i.e. - 1 to 3), do what's in the loop. Inside the loop, our first clause states that `if c==1` we want to create a `data.frame` called `visa_df`. We use our `read.csv()` function and direct that function to the `path` and `filename` of our csv. If it's the 2nd or 3rd iteration of the loop, the `visa_df` is already created and thus we want to append our additional data to this `data.frame`. We do this by loading in the CSV files to our temporary `nextPart` variable. Notice that we use the `skip` argument within the `read.csv` function to tell R to skip over the 1st row of data. If we took a look at `nextPart`, it would be the data without the column name row. Once `nextPart` is loaded, we then use the `rbind()` function which stands for **row bind**. We bind together the two dataframes (`visa_df` and `nextPart`) by their *rows*. In other words, we just add in the additional data as additional rows since the datasets share the same column names. The end product is our single dataframe that we created from 3 separate csv files.
+Let's break down this code. First we declare our list of CSV names and the Path that they're located at. Then, we begin the for loop. We state that for `c` in 1 to the `length` of the `csv_list` (i.e. - 1 to 3), do what's in the loop. Inside the loop, our first clause states that `if c==1` we want to create a `data.frame` called `visa_df`. We use our `read.csv()` function and direct that function to the `path` and `filename` of our csv. If it's the 2nd or 3rd iteration of the loop, the `visa_df` is already created and thus we want to append our additional data to this `data.frame`. We do this by loading in the CSV files to our temporary `nextPart` variable. Once `nextPart` is loaded, we then use the `rbind()` function which stands for **row bind**. We bind together the two dataframes (`visa_df` and `nextPart`) by their *rows*. In other words, we just add in the additional data as additional rows since the datasets share the same column names. The end product is our single dataframe that we created from 3 separate csv files.
 
 ```{r, echo=FALSE}
 datatable(head(visa_df,10), style="default", class="table-condensed", options = list(dom = 'tp',scrollX = TRUE))
@@ -231,7 +244,7 @@ library(dplyr)
 library(readr)
 
 # set the path 
-csv_path = "~/Documents/Github/indyres/excelToRbook/datasets/visa_data/"
+csv_path = "datasets/visa_data/"
 
 # list all files within that path 
 csv_list = list.files(path=csv_path, full.names = TRUE)
@@ -285,7 +298,7 @@ Next, we notice that the `WORKSITE` variable contains a City, State type string.
 ```{r}
 library(stringr)
 # str_split or string split is a great function to use. It breaks up a string based on a character. In this case we want to split our string into a list of cities and states which are split by a comma
-worksites = str_split(df$WORKSITE, ",", simplify = TRUE)
+worksites = str_split(visa_df$WORKSITE, ",", simplify = TRUE)
 head(worksites)
 
 # grab the second column which is just the states
@@ -296,15 +309,123 @@ head(states)
 states = trimws(states)
 head(states)
 # now add it to the dataframe
-df$state <- states
+visa_df$states <- states
 ```
 
 Next we notice that our Latitudes and Longitude columns are very specific, let's round these to make them easier on the eye.
 
 ```{r}
-visa_df$lat = round(df$lat,1)
-visa_df$lon = round(df$lon,1)
+visa_df$lat = round(visa_df$lat,3)
+visa_df$lon = round(visa_df$lon,3)
 ```
 
 
+### Case Status Investigation
+One of the key metrics of this dataset is the Case Status. Let's filter out the `NA` values in the dataset and plot this up. 
+
+```{r,fig.height=8, fig.width=12}
+# use the filter function from dplyr to filter the visa_df for all cases where CASE_STATUS is NOT NA (!is.na)
+case_df = filter(.data = visa_df, !is.na(CASE_STATUS))
+head(case_df)
+# Now let's group the data by Case_status
+case_df = group_by(.data = case_df, CASE_STATUS)
+head(case_df)
+
+# Now let's summarize the data based on total number of cases which would be the length of any variable within each sub-group. Here we choose the `lat` variable but it could be any variable here
+case_df = summarise(.data = case_df, total_cases = length(lat))
+head(case_df)
+
+# plot it up!
+ggplot(data = case_df, aes(x = reorder(CASE_STATUS,total_cases), y = total_cases/1000)) +  
+  geom_bar(stat="identity", fill="coral", colour="dodgerblue4") + 
+  labs(title="H1-B Visa Applications", x ="Case Status", y = "Number of applications (thousands)")
+```
+
+Something to notice with this `ggplot` instance is the `aes` edits for `x` and `y` arguments. Notice that we reorder the CASE_STATUS based on the `total_cases` metric. Also see that we divide teh `total_cases` by 1000 in order to make the graph more general.
+
+Over 100,000 cases are Certified. Less than 5,000 cases are denied.
+
+### Job Titles
+
+What's the most common type of job for these visa requests? To find out, we'll have to look at the `JOB_TITLE` variable. Let's organize the data based on this variable
+
+```{r}
+# group the data based on the JOB_TITLE variable
+job_df =  group_by(.data = visa_df, JOB_TITLE)
+# summarize the data based on the total number of each JOB TITLE, here we aggregate the total number of latitude values for each JOB TITLE
+job_df = summarise(.data = job_df, total_records = length(lat))
+# trim our dataset down so that we only keep the top 50 JOB_TITLE values
+job_df = top_n(x= job_df, n=50)
+# arrange the data based on the total number of records (before this it was organized alphabetically)
+job_df = arrange(.data = job_df, -total_records)
+
+# print out the head of job_df
+head(job_df)
+```
+
+Now, let's use ggplot2 to show us what the most popular job titles these visa's had.
+
+```{r,fig.height=8, fig.width=12}
+ggplot(data = job_df, aes(x = JOB_TITLE, y = total_records)) +  
+  geom_bar(stat="identity", fill="aquamarine3", colour="black") +
+  labs(title="", x ="Job title (top 50)", y = "Number of applications")
+```
+
+Hmm...that doesn't look great. What if we want to swap the X and Y axis? Simple! we just add in a `coord_flip()`
+
+```{r, fig.height=8, fig.width=12}
+ggplot(data = job_df, aes(x = JOB_TITLE, y = total_records)) +  
+  geom_bar(stat="identity", fill="aquamarine3", colour="black") +
+  coord_flip() + 
+  labs(title="", x ="Job title (top 50)", y = "Number of applications")
+```
+
+Looks better, but how about we reorder it all based on the `total_records` column. Just use the `reorder` function!
+
+```{r, fig.height=8, fig.width=12}
+ggplot(data = job_df, aes(x = reorder(JOB_TITLE,total_records), y = total_records)) +  
+  geom_bar(stat="identity", fill="aquamarine3", colour="black") +
+  coord_flip() + 
+  labs(title="2016 H1-B Visa Applications", x ="Job title (top 50)", y = "Number of applications")
+
+```
+
+The most frequent titles are BUSINESS ANALYST, PROGRAMMER ANALYST, and SYSTEMS ANALYST. 
+  
+## Recap
+
+  - For loops are a popular coding practice and can be very useful. In R, for loops are designed to look like
+```{r, eval=FALSE}
+for (numbers or values to loop over){
+    condition where numbers/values is looping
+}
+```
+  - `paste0()` is great for combining character strings and numbers together
+  - R is great for big data (`visa_df` is ultimately 647,000 rows of data)
+  - `dplyr` and `tibble` are once again great R packages for handling big data
+
+
+## Visa 1 Assignment
+
+1) List the top 10 states who apply for this H1-B Visa Application.
+
+2) In the last example above, we examined the `JOB_TITLE` variable and discovered the most popular jobs. For this assignment, examine the most popular **employers**. In other words, create a `ggplot` instance of the top 50 repeat **employers** who apply for the H1-B Visa. Try and make it similar to the plot below
+
+
+```{r, echo = FALSE, warning=FALSE, fig.height=8, fig.width=12}
+# group the data based on the JOB_TITLE variable
+emp_df =  group_by(.data = visa_df, EMPLOYER_NAME)
+# summarize the data based on the total number of each JOB TITLE, here we aggregate the total number of latitude values for each JOB TITLE
+emp_df = summarise(.data = emp_df, total_records = length(lat))
+# trim our dataset down so that we only keep the top 50 JOB_TITLE values
+emp_df = top_n(x= emp_df, n=50)
+# arrange the data based on the total number of records (before this it was organized alphabetically)
+emp_df = arrange(.data = emp_df, -total_records)
+
+ggplot(data = emp_df, aes(x = reorder(EMPLOYER_NAME,total_records), y = total_records)) +  
+  geom_bar(stat="identity", fill="deepskyblue", colour="black") +
+  coord_flip() + 
+  labs(title="2016 H1-B Visa Applications", x ="Employer Name (top 50)", y = "Number of Applications")
+
+```
 

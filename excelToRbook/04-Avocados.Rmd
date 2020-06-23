@@ -2,8 +2,8 @@
 title: "Avocados Tutorial - Part 1"
 output:
   html_document:
-    fig_height: 4
-    fig_width: 7
+    fig_height: 8
+    fig_width: 12
     theme: cosmo
 ---
 # Avocados Tutorial - Part 1
@@ -15,13 +15,13 @@ knitr::include_graphics("images/avocado.jpeg")
 For this tutorial, we'll pretend we work for a supermarket chain interested in avocado pricing. Understanding price changes and the drivers behind those changes can help us forecast future shifts that enable us to stay ahead of the market and create appropriate pricing given the economic environment. 
 
 **Goals of this tutorial**
- - Introduce `ggplot2` in more detail
- - Install and Load Packages 
- - Load and interact with large dataset
- - Practice `ggplot2` plots 
+* Introduce `ggplot2` in more detail
+* Install and Load Packages 
+* Load and interact with large dataset
+* Practice `ggplot2` plots 
  
 **Datasets used**
- - `avocado.csv`
+* `avocado.csv`
 
 ## ggplot2 crash course
 
@@ -353,10 +353,10 @@ write.csv(x = avocado_df, file = "/Users/james/Downloads/updated_avocado.csv")
 
 ## Recap
 
-  - `ggplot2` is a powerful visualization package
-  - `ggplot2` takes two objects to create a plot: First, a `ggplot` instance that creates the x & y axes and second, `geom_line` or whatever type of plot you want to create. `ggplot` is *unique* in that it's components are *added* via the `+` sign
-  - Adding and removing columns in our `data.frame` can be done easily
-  - We can save our `data.frame` to a csv file
+* `ggplot2` is a powerful visualization package
+* `ggplot2` takes two objects to create a plot: First, a `ggplot` instance that creates the x & y axes and second, `geom_line` or whatever type of plot you want to create. `ggplot` is *unique* in that it's components are *added* via the `+` sign
+* Adding and removing columns in our `data.frame` can be done easily
+* We can save our `data.frame` to a csv file
 
 
 ## Avocado Assignment 
