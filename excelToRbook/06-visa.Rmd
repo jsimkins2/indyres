@@ -15,12 +15,14 @@ knitr::include_graphics("images/passport.jpeg")
 In this tutorial, we'll be exploring the H1-B Visa. The H-1B is a visa in the United States which allows U.S. employers to employ foreign workers in specialty occupations. We'll examine what kind of foreign workers are most often employed. 
 
 **Goals of this tutorial**
+
 * Introduce the `for` loop and `paste0`
 * Use R to load in big data
 * Practice using `dplyr` and `tibble` on the visa dataset
 * Investigate H1-B visa trends
  
 **Datasets used**
+
 * `h1bvisa_part1.csv`
 * `h1bvisa_part2.csv`
 * `h1bvisa_part3.csv`
@@ -394,15 +396,15 @@ The most frequent titles are BUSINESS ANALYST, PROGRAMMER ANALYST, and SYSTEMS A
   
 ## Recap
 
-  - For loops are a popular coding practice and can be very useful. In R, for loops are designed to look like
+* For loops are a popular coding practice and can be very useful. In R, for loops are designed to look like
 ```{r, eval=FALSE}
 for (numbers or values to loop over){
     condition where numbers/values is looping
 }
 ```
-  - `paste0()` is great for combining character strings and numbers together
-  - R is great for big data (`visa_df` is ultimately 647,000 rows of data)
-  - `dplyr` and `tibble` are once again great R packages for handling big data
+* `paste0()` is great for combining character strings and numbers together
+* R is great for big data (`visa_df` is ultimately 647,000 rows of data)
+* `dplyr` and `tibble` are once again great R packages for handling big data
 
 
 ## Visa 1 Assignment

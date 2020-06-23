@@ -15,12 +15,14 @@ knitr::include_graphics("images/teamwork_visa.jpg")
 In this tutorial, we'll be exploring the H1-B Visa. The H-1B is a visa in the United States which allows U.S. employers to employ foreign workers in specialty occupations. We'll examine what kind of foreign workers are most often employed. 
 
 **Goals of this tutorial**
+
 * Introduce advanced plotting routines
 * Further explore the H1-B visa dataset
 * Focus on spatial distribution of applications
 * Practice `dplyr` and `tibble`
  
 **Datasets used**
+
 * `h1bvisa_part1.csv`
 * `h1bvisa_part2.csv`
 * `h1bvisa_part3.csv`
@@ -215,7 +217,7 @@ There we have it, a beautiful and interactive map showing average wage for by lo
 
 * Although we've spent a good bit of time with the most popular plotting package (`ggplot2`), there are other plotting packages in R that can be very useful
 * The `treemap` package is useful for showing concentrations and distributions of a particular variable
-* `leaflet` is a powerful interactive plotting package that's great for spatial maps
+* `leaflet` is a powerful interactive plotting package that's great for spatial maps - `leaflet` uses the pipe operator `%>%`
 * R has many premade color palettes that are useful - [more can be found here](https://www.nceas.ucsb.edu/sites/default/files/2020-04/colorPaletteCheatsheet.pdf)
 
 ## Assignment
@@ -229,7 +231,7 @@ You'll want your resulting plots to look something like...
 ```{r, echo = FALSE}
 visa_df %>% filter(!is.na(PREVAILING_WAGE)) %>% filter(PREVAILING_WAGE>0) %>% 
   filter(CASE_STATUS == "CERTIFIED") %>%
-  group_by(states) %>% summarise(avg = mean(PREVAILING_WAGE)) %>% ungroup() -> dws
+  group_by(states) %>% summarise(avg = mean(PREVAILING_WAGE)) -> dws
 
 dws$avg <- dws$avg/1000
 colnames(dws) <- c("region","value")

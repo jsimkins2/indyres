@@ -281,6 +281,7 @@ plot_grid(conventional_price, organic_price,conventional_volume, organic_volume,
 Notice that we created 4 separate `ggplots` and saved them as objects. Once we had all of the objects created, we placed them in `plot_grid` as the plots we wanted to add to the `plot_grid` window. Then we specified the number of rows and columns we wanted the grid to have via `nrow` and `ncol`, respectively. 
 
 Summary:
+
 * 2015 prices were in the $1.00 range for conventional avocados. In 2016 and 2017, the density of the prices were a little bit higher.
 * It looks that most price peaks occur for both conventional and organic avocados between the months of September and October. I wonder why this is? Could it have to do with fall sport viewing which is often accompanied by guacamole? 
 * Major price drop at the end of each year. Why is demand dropping so much?
@@ -380,10 +381,10 @@ Summary:
   
 ## Recap
 
-  - Tidyverse is a set of R packages designed with consistent framework and usability - `dplyr` and `tibbletime` are very useful when dealing with spreadsheet data 
-  - Subselecting, grouping, averaging can all be accomplished with `dplyr` and `tibbletime`
-  - `plot_grid` from the `cowplot` package is useful for plotting multiple `ggplot2` plots in the same window
-  - `ggplot2` plots are extremely customizable - we used `scale_color_manual` as one example of how customizable they are here. 
+* Tidyverse is a set of R packages designed with consistent framework and usability - `dplyr` and `tibbletime` are very useful when dealing with spreadsheet data 
+* Subselecting, grouping, averaging can all be accomplished with `dplyr` and `tibbletime`
+* `plot_grid` from the `cowplot` package is useful for plotting multiple `ggplot2` plots in the same window
+* `ggplot2` plots are extremely customizable - we used `scale_color_manual` as one example of how customizable they are here. 
 
 
 ## Avocados 2 Assignment

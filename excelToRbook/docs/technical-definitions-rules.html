@@ -24,7 +24,7 @@
 <meta name="author" content="James Simkins" />
 
 
-<meta name="date" content="2020-06-18" />
+<meta name="date" content="2020-06-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -58,6 +58,13 @@
 <script src="libs/dt-core-1.10.19/js/jquery.dataTables.min.js"></script>
 <link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
 <script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.0.3/leaflet.js"></script>
 
 
 <style type="text/css">
@@ -185,14 +192,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.3" data-path="avocados-tutorial-part-2.html"><a href="avocados-tutorial-part-2.html#recap-1"><i class="fa fa-check"></i><b>6.3</b> Recap</a></li>
 <li class="chapter" data-level="6.4" data-path="avocados-tutorial-part-2.html"><a href="avocados-tutorial-part-2.html#avocados-2-assignment"><i class="fa fa-check"></i><b>6.4</b> Avocados 2 Assignment</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="us-work-visas.html"><a href="us-work-visas.html"><i class="fa fa-check"></i><b>7</b> US Work Visas</a><ul>
-<li class="chapter" data-level="7.1" data-path="us-work-visas.html"><a href="us-work-visas.html#the-for-loop---quick-introduction"><i class="fa fa-check"></i><b>7.1</b> The For Loop - Quick Introduction</a></li>
-<li class="chapter" data-level="7.2" data-path="us-work-visas.html"><a href="us-work-visas.html#paste-and-paste0---quick-introduction"><i class="fa fa-check"></i><b>7.2</b> <code>paste()</code> and <code>paste0()</code> - Quick Introduction</a></li>
-<li class="chapter" data-level="7.3" data-path="us-work-visas.html"><a href="us-work-visas.html#exploring-the-data"><i class="fa fa-check"></i><b>7.3</b> Exploring the Data</a><ul>
-<li class="chapter" data-level="7.3.1" data-path="us-work-visas.html"><a href="us-work-visas.html#reading-in-multiple-datasets-and-combining-them"><i class="fa fa-check"></i><b>7.3.1</b> Reading in multiple datasets and combining them</a></li>
-<li class="chapter" data-level="7.3.2" data-path="us-work-visas.html"><a href="us-work-visas.html#manipulating-our-data-frame"><i class="fa fa-check"></i><b>7.3.2</b> Manipulating our Data Frame</a></li>
-<li class="chapter" data-level="7.3.3" data-path="us-work-visas.html"><a href="us-work-visas.html#case-status-investigation"><i class="fa fa-check"></i><b>7.3.3</b> Case Status Investigation</a></li>
+<li class="chapter" data-level="7" data-path="us-work-visas-part-1.html"><a href="us-work-visas-part-1.html"><i class="fa fa-check"></i><b>7</b> US Work Visas - Part 1</a><ul>
+<li class="chapter" data-level="7.1" data-path="us-work-visas-part-1.html"><a href="us-work-visas-part-1.html#the-for-loop---quick-introduction"><i class="fa fa-check"></i><b>7.1</b> The For Loop - Quick Introduction</a></li>
+<li class="chapter" data-level="7.2" data-path="us-work-visas-part-1.html"><a href="us-work-visas-part-1.html#paste-and-paste0---quick-introduction"><i class="fa fa-check"></i><b>7.2</b> <code>paste()</code> and <code>paste0()</code> - Quick Introduction</a></li>
+<li class="chapter" data-level="7.3" data-path="us-work-visas-part-1.html"><a href="us-work-visas-part-1.html#exploring-the-data"><i class="fa fa-check"></i><b>7.3</b> Exploring the Data</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="us-work-visas-part-1.html"><a href="us-work-visas-part-1.html#reading-in-multiple-datasets-and-combining-them"><i class="fa fa-check"></i><b>7.3.1</b> Reading in multiple datasets and combining them</a></li>
+<li class="chapter" data-level="7.3.2" data-path="us-work-visas-part-1.html"><a href="us-work-visas-part-1.html#manipulating-our-data-frame"><i class="fa fa-check"></i><b>7.3.2</b> Manipulating our Data Frame</a></li>
+<li class="chapter" data-level="7.3.3" data-path="us-work-visas-part-1.html"><a href="us-work-visas-part-1.html#case-status-investigation"><i class="fa fa-check"></i><b>7.3.3</b> Case Status Investigation</a></li>
+<li class="chapter" data-level="7.3.4" data-path="us-work-visas-part-1.html"><a href="us-work-visas-part-1.html#job-titles"><i class="fa fa-check"></i><b>7.3.4</b> Job Titles</a></li>
 </ul></li>
+<li class="chapter" data-level="7.4" data-path="us-work-visas-part-1.html"><a href="us-work-visas-part-1.html#recap-2"><i class="fa fa-check"></i><b>7.4</b> Recap</a></li>
+<li class="chapter" data-level="7.5" data-path="us-work-visas-part-1.html"><a href="us-work-visas-part-1.html#visa-1-assignment"><i class="fa fa-check"></i><b>7.5</b> Visa 1 Assignment</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="us-work-visas-part-2.html"><a href="us-work-visas-part-2.html"><i class="fa fa-check"></i><b>8</b> US Work Visas - Part 2</a><ul>
+<li class="chapter" data-level="8.1" data-path="us-work-visas-part-2.html"><a href="us-work-visas-part-2.html#revisiting-the-h1-b-visa-dataset"><i class="fa fa-check"></i><b>8.1</b> Revisiting the H1-B Visa Dataset</a></li>
+<li class="chapter" data-level="8.2" data-path="us-work-visas-part-2.html"><a href="us-work-visas-part-2.html#full-time-positions"><i class="fa fa-check"></i><b>8.2</b> Full Time Positions</a></li>
+<li class="chapter" data-level="8.3" data-path="us-work-visas-part-2.html"><a href="us-work-visas-part-2.html#applications-by-state"><i class="fa fa-check"></i><b>8.3</b> Applications by State</a></li>
+<li class="chapter" data-level="8.4" data-path="us-work-visas-part-2.html"><a href="us-work-visas-part-2.html#prevailing-wage-by-location"><i class="fa fa-check"></i><b>8.4</b> Prevailing Wage by Location</a></li>
+<li class="chapter" data-level="8.5" data-path="us-work-visas-part-2.html"><a href="us-work-visas-part-2.html#recap-3"><i class="fa fa-check"></i><b>8.5</b> Recap</a></li>
+<li class="chapter" data-level="8.6" data-path="us-work-visas-part-2.html"><a href="us-work-visas-part-2.html#assignment"><i class="fa fa-check"></i><b>8.6</b> Assignment</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">James Simkins</a></li>
@@ -579,7 +597,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="images/hover_parantheses.png" width="100%" style="display: block; margin: auto;" /></p>
 <p>Rule: Always close your parantheses in the right place. The same applies to quotes ( both <code>&quot;&quot;</code> and <code>''</code> )</p>
 <p>You are not expected to fully grasp everything at this point. As we progress through the tutorials, these concepts will make more sense.</p>
-<p>ggplot(data = sorted_tv_data[1:16,], mapping = aes(x=Title, y=IMDb))</p>
 
 </div>
 </div>

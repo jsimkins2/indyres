@@ -15,12 +15,14 @@ knitr::include_graphics("images/avocado.jpeg")
 For this tutorial, we'll pretend we work for a supermarket chain interested in avocado pricing. Understanding price changes and the drivers behind those changes can help us forecast future shifts that enable us to stay ahead of the market and create appropriate pricing given the economic environment. 
 
 **Goals of this tutorial**
+
 * Introduce `ggplot2` in more detail
 * Install and Load Packages 
 * Load and interact with large dataset
 * Practice `ggplot2` plots 
  
 **Datasets used**
+
 * `avocado.csv`
 
 ## ggplot2 crash course

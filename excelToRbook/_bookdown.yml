@@ -11,6 +11,7 @@ rmd_files: [
   "/Users/james/Documents/Github/pubforge/excelToRbook/04-Avocados.Rmd",
   "/Users/james/Documents/Github/pubforge/excelToRbook/05-Avocados2.Rmd",
   "/Users/james/Documents/Github/pubforge/excelToRbook/06-visa.Rmd",
+  "/Users/james/Documents/Github/pubforge/excelToRbook/07-visa.Rmd"
   
  ]
 delete_merged_file: true

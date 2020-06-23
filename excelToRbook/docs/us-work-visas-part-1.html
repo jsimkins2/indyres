@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>7 US Work Visas - Part 1 | Tech Trainings - From Excel to R</title>
+  <meta name="description" content="Tutorial based introduction to R for Excel users" />
+  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="7 US Work Visas - Part 1 | Tech Trainings - From Excel to R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Tutorial based introduction to R for Excel users" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="7 US Work Visas - Part 1 | Tech Trainings - From Excel to R" />
+  
+  <meta name="twitter:description" content="Tutorial based introduction to R for Excel users" />
+  
+
+<meta name="author" content="James Simkins" />
+
+
+<meta name="date" content="2020-06-23" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="avocados-tutorial-part-2.html"/>
+<link rel="next" href="us-work-visas-part-2.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.9/datatables.js"></script>
+<link href="libs/dt-core-1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.19/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.19/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.0.3/leaflet.js"></script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Tech Trainings: Excel to R for Businesses</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="welcome.html"><a href="welcome.html"><i class="fa fa-check"></i><b>1</b> Welcome</a><ul>
+<li class="chapter" data-level="1.1" data-path="welcome.html"><a href="welcome.html#agenda"><i class="fa fa-check"></i><b>1.1</b> Agenda</a></li>
+<li class="chapter" data-level="1.2" data-path="welcome.html"><a href="welcome.html#prerequisites"><i class="fa fa-check"></i><b>1.2</b> Prerequisites</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="overview.html"><a href="overview.html"><i class="fa fa-check"></i><b>2</b> Overview</a><ul>
+<li class="chapter" data-level="2.1" data-path="overview.html"><a href="overview.html#what-is-r"><i class="fa fa-check"></i><b>2.1</b> What is R?</a></li>
+<li class="chapter" data-level="2.2" data-path="overview.html"><a href="overview.html#reasons-to-love-r"><i class="fa fa-check"></i><b>2.2</b> Reasons to love R</a></li>
+<li class="chapter" data-level="2.3" data-path="overview.html"><a href="overview.html#guiding-principles"><i class="fa fa-check"></i><b>2.3</b> Guiding Principles</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="r-rstudio.html"><a href="r-rstudio.html"><i class="fa fa-check"></i><b>3</b> R &amp; RStudio</a><ul>
+<li class="chapter" data-level="3.1" data-path="r-rstudio.html"><a href="r-rstudio.html#open-rstudio"><i class="fa fa-check"></i><b>3.1</b> Open RStudio</a></li>
+<li class="chapter" data-level="3.2" data-path="r-rstudio.html"><a href="r-rstudio.html#r-studio-layout"><i class="fa fa-check"></i><b>3.2</b> R Studio Layout</a></li>
+<li class="chapter" data-level="3.3" data-path="r-rstudio.html"><a href="r-rstudio.html#installing-and-using-packages"><i class="fa fa-check"></i><b>3.3</b> Installing and Using Packages</a></li>
+<li class="chapter" data-level="3.4" data-path="r-rstudio.html"><a href="r-rstudio.html#running-code"><i class="fa fa-check"></i><b>3.4</b> Running Code</a></li>
+<li class="chapter" data-level="3.5" data-path="r-rstudio.html"><a href="r-rstudio.html#checkpoint---writing-your-first-r-code"><i class="fa fa-check"></i><b>3.5</b> Checkpoint - Writing your first R code</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="technical-definitions-rules.html"><a href="technical-definitions-rules.html"><i class="fa fa-check"></i><b>4</b> Technical Definitions &amp; Rules</a><ul>
+<li class="chapter" data-level="4.1" data-path="technical-definitions-rules.html"><a href="technical-definitions-rules.html#important-r-programming-definitions"><i class="fa fa-check"></i><b>4.1</b> Important R Programming Definitions</a></li>
+<li class="chapter" data-level="4.2" data-path="technical-definitions-rules.html"><a href="technical-definitions-rules.html#definitions-in-action---tv-data-example"><i class="fa fa-check"></i><b>4.2</b> Definitions in Action - TV Data Example</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="technical-definitions-rules.html"><a href="technical-definitions-rules.html#line-by-line-discussion"><i class="fa fa-check"></i><b>4.2.1</b> Line by Line Discussion</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="technical-definitions-rules.html"><a href="technical-definitions-rules.html#parantheses-brackets-and-curly-brackets"><i class="fa fa-check"></i><b>4.3</b> Parantheses (), Brackets [], and Curly brackets</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="avocados-tutorial-part-1.html"><a href="avocados-tutorial-part-1.html"><i class="fa fa-check"></i><b>5</b> Avocados Tutorial - Part 1</a><ul>
+<li class="chapter" data-level="5.1" data-path="avocados-tutorial-part-1.html"><a href="avocados-tutorial-part-1.html#ggplot2-crash-course"><i class="fa fa-check"></i><b>5.1</b> ggplot2 crash course</a></li>
+<li class="chapter" data-level="5.2" data-path="avocados-tutorial-part-1.html"><a href="avocados-tutorial-part-1.html#load-the-avocados-dataset"><i class="fa fa-check"></i><b>5.2</b> Load the avocados Dataset</a></li>
+<li class="chapter" data-level="5.3" data-path="avocados-tutorial-part-1.html"><a href="avocados-tutorial-part-1.html#exploring-the-dataset"><i class="fa fa-check"></i><b>5.3</b> Exploring the Dataset</a></li>
+<li class="chapter" data-level="5.4" data-path="avocados-tutorial-part-1.html"><a href="avocados-tutorial-part-1.html#expanding-the-dataset"><i class="fa fa-check"></i><b>5.4</b> Expanding the dataset</a></li>
+<li class="chapter" data-level="5.5" data-path="avocados-tutorial-part-1.html"><a href="avocados-tutorial-part-1.html#recap"><i class="fa fa-check"></i><b>5.5</b> Recap</a></li>
+<li class="chapter" data-level="5.6" data-path="avocados-tutorial-part-1.html"><a href="avocados-tutorial-part-1.html#avocado-assignment"><i class="fa fa-check"></i><b>5.6</b> Avocado Assignment</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="avocados-tutorial-part-2.html"><a href="avocados-tutorial-part-2.html"><i class="fa fa-check"></i><b>6</b> Avocados Tutorial - Part 2</a><ul>
+<li class="chapter" data-level="6.1" data-path="avocados-tutorial-part-2.html"><a href="avocados-tutorial-part-2.html#tidyverse-dplyr-crash-course"><i class="fa fa-check"></i><b>6.1</b> Tidyverse : dplyr crash course</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="avocados-tutorial-part-2.html"><a href="avocados-tutorial-part-2.html#dplyr"><i class="fa fa-check"></i><b>6.1.1</b> Dplyr</a></li>
+<li class="chapter" data-level="6.1.2" data-path="avocados-tutorial-part-2.html"><a href="avocados-tutorial-part-2.html#exploring-dplyr"><i class="fa fa-check"></i><b>6.1.2</b> Exploring Dplyr</a></li>
+<li class="chapter" data-level="6.1.3" data-path="avocados-tutorial-part-2.html"><a href="avocados-tutorial-part-2.html#nested-functions"><i class="fa fa-check"></i><b>6.1.3</b> Nested Functions</a></li>
+<li class="chapter" data-level="6.1.4" data-path="avocados-tutorial-part-2.html"><a href="avocados-tutorial-part-2.html#pipes"><i class="fa fa-check"></i><b>6.1.4</b> Pipes <code>%&gt;%</code></a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="avocados-tutorial-part-2.html"><a href="avocados-tutorial-part-2.html#avocados-dataframe-with-dplyr"><i class="fa fa-check"></i><b>6.2</b> Avocados Dataframe with <code>dplyr</code></a><ul>
+<li class="chapter" data-level="6.2.1" data-path="avocados-tutorial-part-2.html"><a href="avocados-tutorial-part-2.html#price-trends"><i class="fa fa-check"></i><b>6.2.1</b> Price Trends</a></li>
+<li class="chapter" data-level="6.2.2" data-path="avocados-tutorial-part-2.html"><a href="avocados-tutorial-part-2.html#price-and-total-volume"><i class="fa fa-check"></i><b>6.2.2</b> Price and Total Volume</a></li>
+<li class="chapter" data-level="6.2.3" data-path="avocados-tutorial-part-2.html"><a href="avocados-tutorial-part-2.html#yearly-and-monthly-patterns"><i class="fa fa-check"></i><b>6.2.3</b> Yearly and Monthly Patterns</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="avocados-tutorial-part-2.html"><a href="avocados-tutorial-part-2.html#recap-1"><i class="fa fa-check"></i><b>6.3</b> Recap</a></li>
+<li class="chapter" data-level="6.4" data-path="avocados-tutorial-part-2.html"><a href="avocados-tutorial-part-2.html#avocados-2-assignment"><i class="fa fa-check"></i><b>6.4</b> Avocados 2 Assignment</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="us-work-visas-part-1.html"><a href="us-work-visas-part-1.html"><i class="fa fa-check"></i><b>7</b> US Work Visas - Part 1</a><ul>
+<li class="chapter" data-level="7.1" data-path="us-work-visas-part-1.html"><a href="us-work-visas-part-1.html#the-for-loop---quick-introduction"><i class="fa fa-check"></i><b>7.1</b> The For Loop - Quick Introduction</a></li>
+<li class="chapter" data-level="7.2" data-path="us-work-visas-part-1.html"><a href="us-work-visas-part-1.html#paste-and-paste0---quick-introduction"><i class="fa fa-check"></i><b>7.2</b> <code>paste()</code> and <code>paste0()</code> - Quick Introduction</a></li>
+<li class="chapter" data-level="7.3" data-path="us-work-visas-part-1.html"><a href="us-work-visas-part-1.html#exploring-the-data"><i class="fa fa-check"></i><b>7.3</b> Exploring the Data</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="us-work-visas-part-1.html"><a href="us-work-visas-part-1.html#reading-in-multiple-datasets-and-combining-them"><i class="fa fa-check"></i><b>7.3.1</b> Reading in multiple datasets and combining them</a></li>
+<li class="chapter" data-level="7.3.2" data-path="us-work-visas-part-1.html"><a href="us-work-visas-part-1.html#manipulating-our-data-frame"><i class="fa fa-check"></i><b>7.3.2</b> Manipulating our Data Frame</a></li>
+<li class="chapter" data-level="7.3.3" data-path="us-work-visas-part-1.html"><a href="us-work-visas-part-1.html#case-status-investigation"><i class="fa fa-check"></i><b>7.3.3</b> Case Status Investigation</a></li>
+<li class="chapter" data-level="7.3.4" data-path="us-work-visas-part-1.html"><a href="us-work-visas-part-1.html#job-titles"><i class="fa fa-check"></i><b>7.3.4</b> Job Titles</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="us-work-visas-part-1.html"><a href="us-work-visas-part-1.html#recap-2"><i class="fa fa-check"></i><b>7.4</b> Recap</a></li>
+<li class="chapter" data-level="7.5" data-path="us-work-visas-part-1.html"><a href="us-work-visas-part-1.html#visa-1-assignment"><i class="fa fa-check"></i><b>7.5</b> Visa 1 Assignment</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="us-work-visas-part-2.html"><a href="us-work-visas-part-2.html"><i class="fa fa-check"></i><b>8</b> US Work Visas - Part 2</a><ul>
+<li class="chapter" data-level="8.1" data-path="us-work-visas-part-2.html"><a href="us-work-visas-part-2.html#revisiting-the-h1-b-visa-dataset"><i class="fa fa-check"></i><b>8.1</b> Revisiting the H1-B Visa Dataset</a></li>
+<li class="chapter" data-level="8.2" data-path="us-work-visas-part-2.html"><a href="us-work-visas-part-2.html#full-time-positions"><i class="fa fa-check"></i><b>8.2</b> Full Time Positions</a></li>
+<li class="chapter" data-level="8.3" data-path="us-work-visas-part-2.html"><a href="us-work-visas-part-2.html#applications-by-state"><i class="fa fa-check"></i><b>8.3</b> Applications by State</a></li>
+<li class="chapter" data-level="8.4" data-path="us-work-visas-part-2.html"><a href="us-work-visas-part-2.html#prevailing-wage-by-location"><i class="fa fa-check"></i><b>8.4</b> Prevailing Wage by Location</a></li>
+<li class="chapter" data-level="8.5" data-path="us-work-visas-part-2.html"><a href="us-work-visas-part-2.html#recap-3"><i class="fa fa-check"></i><b>8.5</b> Recap</a></li>
+<li class="chapter" data-level="8.6" data-path="us-work-visas-part-2.html"><a href="us-work-visas-part-2.html#assignment"><i class="fa fa-check"></i><b>8.6</b> Assignment</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">James Simkins</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Tech Trainings - From Excel to R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="us-work-visas---part-1" class="section level1">
+<h1><span class="header-section-number">7</span> US Work Visas - Part 1</h1>
+<p><img src="images/passport.jpeg" width="100%" style="display: block; margin: auto;" /></p>
+<p>In this tutorial, we’ll be exploring the H1-B Visa. The H-1B is a visa in the United States which allows U.S. employers to employ foreign workers in specialty occupations. We’ll examine what kind of foreign workers are most often employed.</p>
+<p><strong>Goals of this tutorial</strong></p>
+<ul>
+<li>Introduce the <code>for</code> loop and <code>paste0</code></li>
+<li>Use R to load in big data</li>
+<li>Practice using <code>dplyr</code> and <code>tibble</code> on the visa dataset</li>
+<li>Investigate H1-B visa trends</li>
+</ul>
+<p><strong>Datasets used</strong></p>
+<ul>
+<li><code>h1bvisa_part1.csv</code></li>
+<li><code>h1bvisa_part2.csv</code></li>
+<li><code>h1bvisa_part3.csv</code></li>
+<li><code>h1bvisa_part4.csv</code></li>
+<li><code>h1bvisa_part5.csv</code></li>
+<li><code>h1bvisa_part6.csv</code></li>
+<li><code>h1bvisa_part7.csv</code></li>
+</ul>
+<div id="the-for-loop---quick-introduction" class="section level2">
+<h2><span class="header-section-number">7.1</span> The For Loop - Quick Introduction</h2>
+<p>For loops &amp; conditional statements are a key skill in programming. They allow you to process through large datasets or multiple datasets thus minimizing the amount of manual work you need to do. The basic for loop looks like this…</p>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb107-1" data-line-number="1"><span class="co"># Generate sequence of numbers from 1 to 10 using the seq() function (seq for sequence)</span></a>
+<a class="sourceLine" id="cb107-2" data-line-number="2">numbersList =<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from=</span><span class="dv">1</span>,<span class="dt">to=</span><span class="dv">10</span>,<span class="dt">by=</span><span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb107-3" data-line-number="3"><span class="co"># Multiply each number in the numbersList by 8 and print the result</span></a>
+<a class="sourceLine" id="cb107-4" data-line-number="4"><span class="cf">for</span> (i <span class="cf">in</span> numbersList){</a>
+<a class="sourceLine" id="cb107-5" data-line-number="5">  temNumber =<span class="st"> </span>i <span class="op">*</span><span class="st"> </span><span class="dv">8</span></a>
+<a class="sourceLine" id="cb107-6" data-line-number="6">  <span class="kw">print</span>(temNumber)</a>
+<a class="sourceLine" id="cb107-7" data-line-number="7">}</a></code></pre></div>
+<pre><code>## [1] 8
+## [1] 16
+## [1] 24
+## [1] 32
+## [1] 40
+## [1] 48
+## [1] 56
+## [1] 64
+## [1] 72
+## [1] 80</code></pre>
+<p>Notice the general structure of R for loops. ‘for’ signals to R you’re beginning a for loop, which requires the general structure to look like:</p>
+<p><code>for (numbers/values to loop through){</code>
+<code>condition for the looping using the numbers/values above</code>
+<code>}</code></p>
+<p>Yes, you must have these parentheses and curly brackets present and surrounding the appropriate code. If you forget a parentheses or curly bracket you’ll have errors pop up…this happens to me all the time still.</p>
+<p>While these must be present, R doesn’t care where they are in your code (****which is very unique amongst programming languages). For example, notice how this ugly code is different but still runs…</p>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb109-1" data-line-number="1"><span class="co"># Generate sequence of numbers from 1 to 10 using the seq() function (seq for sequence)</span></a>
+<a class="sourceLine" id="cb109-2" data-line-number="2">numbersList =<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from=</span><span class="dv">1</span>,<span class="dt">to=</span><span class="dv">10</span>,<span class="dt">by=</span><span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb109-3" data-line-number="3"><span class="co"># Multiply each number in the numbersList by 8 and print the result</span></a>
+<a class="sourceLine" id="cb109-4" data-line-number="4"><span class="cf">for</span> (        i <span class="cf">in</span> numbersList       </a>
+<a class="sourceLine" id="cb109-5" data-line-number="5">      ){</a>
+<a class="sourceLine" id="cb109-6" data-line-number="6">  temNumber =<span class="st"> </span>i <span class="op">*</span><span class="st"> </span><span class="dv">8</span></a>
+<a class="sourceLine" id="cb109-7" data-line-number="7">  <span class="kw">print</span>(temNumber)</a>
+<a class="sourceLine" id="cb109-8" data-line-number="8">        }</a></code></pre></div>
+<pre><code>## [1] 8
+## [1] 16
+## [1] 24
+## [1] 32
+## [1] 40
+## [1] 48
+## [1] 56
+## [1] 64
+## [1] 72
+## [1] 80</code></pre>
+<p>The general structure is still: for(condition){do something}. If statements are set up the same way</p>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb111-1" data-line-number="1"><span class="co"># Generate sequence of numbers from 1 to 10 using the seq() function (seq for sequence)</span></a>
+<a class="sourceLine" id="cb111-2" data-line-number="2">numbersList =<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from=</span><span class="dv">1</span>,<span class="dt">to=</span><span class="dv">10</span>,<span class="dt">by=</span><span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb111-3" data-line-number="3"><span class="co"># Multiply each number in the numbersList by 8 and print the result</span></a>
+<a class="sourceLine" id="cb111-4" data-line-number="4"><span class="cf">for</span> (i <span class="cf">in</span> numbersList){</a>
+<a class="sourceLine" id="cb111-5" data-line-number="5">  <span class="cf">if</span> (i<span class="op">==</span><span class="dv">4</span>){</a>
+<a class="sourceLine" id="cb111-6" data-line-number="6">    temNumber =<span class="st"> </span>i <span class="op">*</span><span class="st"> </span><span class="dv">8</span></a>
+<a class="sourceLine" id="cb111-7" data-line-number="7">    <span class="kw">print</span>(temNumber)</a>
+<a class="sourceLine" id="cb111-8" data-line-number="8">  }</a>
+<a class="sourceLine" id="cb111-9" data-line-number="9">}</a></code></pre></div>
+<pre><code>## [1] 32</code></pre>
+<p>This is referred to as a ‘nested loop’, because there is a conditional statement within another one. Key takeaway here: in programming languages, ‘=’ is an assignment (i.e. x = 4), whereas ‘==’ is an equality test (i == 4). To put this loop in layman’s terms: for i in numbersList, if i is equal to 4, multiply i by 8 and then print temNumber.</p>
+<p>We can also have nested for loops.</p>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb113-1" data-line-number="1"><span class="co"># Generate sequence of numbers from 1 to 3 this time using the seq() function (seq for sequence)</span></a>
+<a class="sourceLine" id="cb113-2" data-line-number="2">numbersList =<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from=</span><span class="dv">1</span>,<span class="dt">to=</span><span class="dv">3</span>,<span class="dt">by=</span><span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb113-3" data-line-number="3">lettersList =<span class="st"> </span><span class="kw">list</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>)</a>
+<a class="sourceLine" id="cb113-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb113-5" data-line-number="5"><span class="cf">for</span> (num <span class="cf">in</span> numbersList){</a>
+<a class="sourceLine" id="cb113-6" data-line-number="6">  <span class="cf">for</span> (let <span class="cf">in</span> lettersList){</a>
+<a class="sourceLine" id="cb113-7" data-line-number="7">    <span class="kw">print</span>(<span class="kw">c</span>(num,let))</a>
+<a class="sourceLine" id="cb113-8" data-line-number="8">  }</a>
+<a class="sourceLine" id="cb113-9" data-line-number="9">}</a></code></pre></div>
+<pre><code>## [1] &quot;1&quot; &quot;A&quot;
+## [1] &quot;1&quot; &quot;B&quot;
+## [1] &quot;1&quot; &quot;C&quot;
+## [1] &quot;2&quot; &quot;A&quot;
+## [1] &quot;2&quot; &quot;B&quot;
+## [1] &quot;2&quot; &quot;C&quot;
+## [1] &quot;3&quot; &quot;A&quot;
+## [1] &quot;3&quot; &quot;B&quot;
+## [1] &quot;3&quot; &quot;C&quot;</code></pre>
+<p>You can name the object within the list whatever you want (i, j, num, let, etc.). Reminder, c() is the concatenate functin that combines values into a vector or list. The order doesn’t matter in this for loop…</p>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb115-1" data-line-number="1"><span class="co"># Generate sequence of numbers from 1 to 3 this time using the seq() function (seq for sequence)</span></a>
+<a class="sourceLine" id="cb115-2" data-line-number="2">numbersList =<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from=</span><span class="dv">1</span>,<span class="dt">to=</span><span class="dv">3</span>,<span class="dt">by=</span><span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb115-3" data-line-number="3">lettersList =<span class="st"> </span><span class="kw">list</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>)</a>
+<a class="sourceLine" id="cb115-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb115-5" data-line-number="5"><span class="cf">for</span> (let <span class="cf">in</span> lettersList){</a>
+<a class="sourceLine" id="cb115-6" data-line-number="6">  <span class="cf">for</span> (num <span class="cf">in</span> numbersList){</a>
+<a class="sourceLine" id="cb115-7" data-line-number="7">    <span class="kw">print</span>(<span class="kw">c</span>(num,let))</a>
+<a class="sourceLine" id="cb115-8" data-line-number="8">  }</a>
+<a class="sourceLine" id="cb115-9" data-line-number="9">}</a></code></pre></div>
+<pre><code>## [1] &quot;1&quot; &quot;A&quot;
+## [1] &quot;2&quot; &quot;A&quot;
+## [1] &quot;3&quot; &quot;A&quot;
+## [1] &quot;1&quot; &quot;B&quot;
+## [1] &quot;2&quot; &quot;B&quot;
+## [1] &quot;3&quot; &quot;B&quot;
+## [1] &quot;1&quot; &quot;C&quot;
+## [1] &quot;2&quot; &quot;C&quot;
+## [1] &quot;3&quot; &quot;C&quot;</code></pre>
+<p>But it does in this one…</p>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb117-1" data-line-number="1"><span class="co"># Generate sequence of numbers from 1 to 10 using the seq() function (seq for sequence)</span></a>
+<a class="sourceLine" id="cb117-2" data-line-number="2">numbersList =<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from=</span><span class="dv">1</span>,<span class="dt">to=</span><span class="dv">10</span>,<span class="dt">by=</span><span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb117-3" data-line-number="3"><span class="co"># Multiply each number in the numbersList by 8 and print the result</span></a>
+<a class="sourceLine" id="cb117-4" data-line-number="4"><span class="cf">if</span> (i<span class="op">==</span><span class="dv">4</span>){</a>
+<a class="sourceLine" id="cb117-5" data-line-number="5">  <span class="cf">for</span> (i <span class="cf">in</span> numbersList){</a>
+<a class="sourceLine" id="cb117-6" data-line-number="6">    temNumber =<span class="st"> </span>i <span class="op">*</span><span class="st"> </span><span class="dv">8</span></a>
+<a class="sourceLine" id="cb117-7" data-line-number="7">    <span class="kw">print</span>(temNumber)</a>
+<a class="sourceLine" id="cb117-8" data-line-number="8">  }</a>
+<a class="sourceLine" id="cb117-9" data-line-number="9">}</a></code></pre></div>
+<p>Here’s one more example for multi conditional statement with an else…</p>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb118-1" data-line-number="1"><span class="co"># Generate sequence of numbers from 1 to 3 this time using the seq() function (seq for sequence)</span></a>
+<a class="sourceLine" id="cb118-2" data-line-number="2">numbersList =<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from=</span><span class="dv">1</span>,<span class="dt">to=</span><span class="dv">3</span>,<span class="dt">by=</span><span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb118-3" data-line-number="3">lettersList =<span class="st"> </span><span class="kw">list</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>)</a>
+<a class="sourceLine" id="cb118-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb118-5" data-line-number="5"><span class="cf">for</span> (num <span class="cf">in</span> numbersList){</a>
+<a class="sourceLine" id="cb118-6" data-line-number="6">  <span class="cf">for</span> (let <span class="cf">in</span> lettersList){</a>
+<a class="sourceLine" id="cb118-7" data-line-number="7">    <span class="cf">if</span> (num <span class="op">==</span><span class="st"> </span><span class="dv">3</span> <span class="op">&amp;&amp;</span><span class="st"> </span>let <span class="op">==</span><span class="st"> &quot;B&quot;</span>){</a>
+<a class="sourceLine" id="cb118-8" data-line-number="8">      <span class="kw">print</span>(<span class="kw">c</span>(num,let))</a>
+<a class="sourceLine" id="cb118-9" data-line-number="9">    } <span class="cf">else</span>{</a>
+<a class="sourceLine" id="cb118-10" data-line-number="10">      <span class="kw">print</span>(<span class="st">&quot;Not what we want&quot;</span>)</a>
+<a class="sourceLine" id="cb118-11" data-line-number="11">    }</a>
+<a class="sourceLine" id="cb118-12" data-line-number="12">  }</a>
+<a class="sourceLine" id="cb118-13" data-line-number="13">}</a></code></pre></div>
+<pre><code>## [1] &quot;Not what we want&quot;
+## [1] &quot;Not what we want&quot;
+## [1] &quot;Not what we want&quot;
+## [1] &quot;Not what we want&quot;
+## [1] &quot;Not what we want&quot;
+## [1] &quot;Not what we want&quot;
+## [1] &quot;Not what we want&quot;
+## [1] &quot;3&quot; &quot;B&quot;
+## [1] &quot;Not what we want&quot;</code></pre>
+<p>&amp;&amp; means “and” … || means “or”…these are useful in multi conditional statements. The ‘else’ statement is an appendage of the ‘if’ statement. It basically means if num == 3 and let == B is false, print “not what we want”. Notice that the ‘else’ statement is outside of the ‘if’ statement but immediately after it.</p>
+</div>
+<div id="paste-and-paste0---quick-introduction" class="section level2">
+<h2><span class="header-section-number">7.2</span> <code>paste()</code> and <code>paste0()</code> - Quick Introduction</h2>
+<p><code>paste()</code> <code>paste0()</code> are some of the most commonly used functions in R. These allow you concatenate a series of strings together into 1. This is very handy when it comes ot writing filepaths to read/write data files.</p>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb120-1" data-line-number="1"><span class="co"># Paste Example 1 - default sep (aka separation) is space</span></a>
+<a class="sourceLine" id="cb120-2" data-line-number="2"><span class="kw">paste</span>(<span class="st">&quot;file&quot;</span>, <span class="st">&quot;number&quot;</span>, <span class="st">&quot;32&quot;</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;file number 32&quot;</code></pre>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb122-1" data-line-number="1"><span class="co"># Paste Example 2 - set sep to &quot;_&quot;</span></a>
+<a class="sourceLine" id="cb122-2" data-line-number="2"><span class="kw">paste</span>(<span class="st">&quot;file&quot;</span>, <span class="st">&quot;number&quot;</span>, <span class="st">&quot;32&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;_&quot;</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;file_number_32&quot;</code></pre>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb124-1" data-line-number="1"><span class="co"># Paste0 Example 1 - 0 for 0 separating characters</span></a>
+<a class="sourceLine" id="cb124-2" data-line-number="2"><span class="kw">paste0</span>(<span class="st">&quot;file&quot;</span>, <span class="st">&quot;number&quot;</span>, <span class="st">&quot;32&quot;</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;filenumber32&quot;</code></pre>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb126-1" data-line-number="1"><span class="co"># Notice that paste() is limiting because the separating character is not always present between</span></a>
+<a class="sourceLine" id="cb126-2" data-line-number="2"><span class="co"># each string you&#39;re concatenating</span></a>
+<a class="sourceLine" id="cb126-3" data-line-number="3"><span class="co"># Let&#39;s use paste0 here</span></a>
+<a class="sourceLine" id="cb126-4" data-line-number="4">fileList &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;filename1&#39;</span>, <span class="st">&#39;filename2&#39;</span>, <span class="st">&#39;filename3&#39;</span>, <span class="st">&#39;filename4&#39;</span>)</a>
+<a class="sourceLine" id="cb126-5" data-line-number="5">dateFolder &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;0813&#39;</span>, <span class="st">&#39;0814&#39;</span>, <span class="st">&#39;0815&#39;</span>, <span class="st">&#39;0816&#39;</span>)</a>
+<a class="sourceLine" id="cb126-6" data-line-number="6">homeDir &lt;-<span class="st"> &quot;~/Documents/&quot;</span></a>
+<a class="sourceLine" id="cb126-7" data-line-number="7">pathList &lt;-<span class="st"> </span><span class="kw">list</span>()</a>
+<a class="sourceLine" id="cb126-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb126-9" data-line-number="9"><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(fileList)){</a>
+<a class="sourceLine" id="cb126-10" data-line-number="10">  <span class="kw">print</span>(i)</a>
+<a class="sourceLine" id="cb126-11" data-line-number="11">  tempString &lt;-<span class="st"> </span><span class="kw">paste0</span>(homeDir, dateFolder[i], <span class="st">&#39;/&#39;</span>, fileList[i])</a>
+<a class="sourceLine" id="cb126-12" data-line-number="12">  pathList[i] &lt;-<span class="st"> </span>tempString</a>
+<a class="sourceLine" id="cb126-13" data-line-number="13">}</a></code></pre></div>
+<pre><code>## [1] 1
+## [1] 2
+## [1] 3
+## [1] 4</code></pre>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb128-1" data-line-number="1">pathList</a></code></pre></div>
+<pre><code>## [[1]]
+## [1] &quot;~/Documents/0813/filename1&quot;
+## 
+## [[2]]
+## [1] &quot;~/Documents/0814/filename2&quot;
+## 
+## [[3]]
+## [1] &quot;~/Documents/0815/filename3&quot;
+## 
+## [[4]]
+## [1] &quot;~/Documents/0816/filename4&quot;</code></pre>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb130-1" data-line-number="1">pathList[[<span class="dv">1</span>]]</a></code></pre></div>
+<pre><code>## [1] &quot;~/Documents/0813/filename1&quot;</code></pre>
+</div>
+<div id="exploring-the-data" class="section level2">
+<h2><span class="header-section-number">7.3</span> Exploring the Data</h2>
+<div id="reading-in-multiple-datasets-and-combining-them" class="section level3">
+<h3><span class="header-section-number">7.3.1</span> Reading in multiple datasets and combining them</h3>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb132-1" data-line-number="1"><span class="co"># first let&#39;s load in the packages we need</span></a>
+<a class="sourceLine" id="cb132-2" data-line-number="2"><span class="kw">library</span>(data.table)</a>
+<a class="sourceLine" id="cb132-3" data-line-number="3"><span class="kw">library</span>(dplyr)</a>
+<a class="sourceLine" id="cb132-4" data-line-number="4"><span class="kw">library</span>(ggplot2)</a>
+<a class="sourceLine" id="cb132-5" data-line-number="5"><span class="kw">library</span>(stringr)</a>
+<a class="sourceLine" id="cb132-6" data-line-number="6"><span class="kw">library</span>(DT)</a>
+<a class="sourceLine" id="cb132-7" data-line-number="7"><span class="kw">library</span>(tidyr)</a>
+<a class="sourceLine" id="cb132-8" data-line-number="8"><span class="kw">library</span>(corrplot)</a>
+<a class="sourceLine" id="cb132-9" data-line-number="9"><span class="kw">library</span>(leaflet)</a>
+<a class="sourceLine" id="cb132-10" data-line-number="10"><span class="kw">library</span>(lubridate)</a>
+<a class="sourceLine" id="cb132-11" data-line-number="11"><span class="kw">library</span>(cowplot)</a></code></pre></div>
+<p>For this tutorial, we have 7 separate CSV files. Let’s show a few different ways to load all 7 and merge them together into a single <code>data.frame</code> instance. The first way we’ll show loading in multiple datasets is the <code>for</code> loop!</p>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb133-1" data-line-number="1"><span class="co"># define our path</span></a>
+<a class="sourceLine" id="cb133-2" data-line-number="2">path =<span class="st"> &quot;datasets/visa_data/&quot;</span></a>
+<a class="sourceLine" id="cb133-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb133-4" data-line-number="4"><span class="co"># first, create a sequence of numbers 1:7</span></a>
+<a class="sourceLine" id="cb133-5" data-line-number="5">nseq =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span>,<span class="dv">7</span>)</a>
+<a class="sourceLine" id="cb133-6" data-line-number="6">csv_list =<span class="st"> </span><span class="kw">list</span>()</a>
+<a class="sourceLine" id="cb133-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb133-8" data-line-number="8"><span class="co"># create a list of all the filenames</span></a>
+<a class="sourceLine" id="cb133-9" data-line-number="9"><span class="cf">for</span> (n <span class="cf">in</span> nseq){</a>
+<a class="sourceLine" id="cb133-10" data-line-number="10">  csv_list[n] =<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&#39;h1bvisa_part&#39;</span>, n, <span class="st">&#39;.csv&#39;</span>)</a>
+<a class="sourceLine" id="cb133-11" data-line-number="11">}</a>
+<a class="sourceLine" id="cb133-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb133-13" data-line-number="13"><span class="co"># now using that list above, let&#39;s read in all files and then append them to the original dataframe</span></a>
+<a class="sourceLine" id="cb133-14" data-line-number="14"><span class="cf">for</span> (c <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(csv_list)){</a>
+<a class="sourceLine" id="cb133-15" data-line-number="15">  <span class="cf">if</span> (c <span class="op">==</span><span class="st"> </span><span class="dv">1</span>){</a>
+<a class="sourceLine" id="cb133-16" data-line-number="16">    visa_df =<span class="st"> </span><span class="kw">read.csv</span>(<span class="kw">paste0</span>(path, csv_list[c]))</a>
+<a class="sourceLine" id="cb133-17" data-line-number="17">  } <span class="cf">else</span> {</a>
+<a class="sourceLine" id="cb133-18" data-line-number="18">    nextPart =<span class="st"> </span><span class="kw">read.csv</span>(<span class="kw">paste0</span>(path, csv_list[c]))</a>
+<a class="sourceLine" id="cb133-19" data-line-number="19">    visa_df =<span class="st"> </span><span class="kw">rbind</span>(visa_df, nextPart)</a>
+<a class="sourceLine" id="cb133-20" data-line-number="20">  }</a>
+<a class="sourceLine" id="cb133-21" data-line-number="21">}</a>
+<a class="sourceLine" id="cb133-22" data-line-number="22"></a>
+<a class="sourceLine" id="cb133-23" data-line-number="23"><span class="co"># check out the class</span></a>
+<a class="sourceLine" id="cb133-24" data-line-number="24"><span class="kw">class</span>(visa_df)</a></code></pre></div>
+<pre><code>## [1] &quot;data.frame&quot;</code></pre>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb135-1" data-line-number="1"><span class="co"># check out the dimensions</span></a>
+<a class="sourceLine" id="cb135-2" data-line-number="2"><span class="kw">dim</span>(visa_df)</a></code></pre></div>
+<pre><code>## [1] 647809     12</code></pre>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb137-1" data-line-number="1"><span class="co"># check out the dimensions if our `nextPart` that&#39;s being overwritten</span></a>
+<a class="sourceLine" id="cb137-2" data-line-number="2"><span class="kw">dim</span>(nextPart)</a></code></pre></div>
+<pre><code>## [1] 47804    12</code></pre>
+<p>Let’s break down this code. First we declare our list of CSV names and the Path that they’re located at. Then, we begin the for loop. We state that for <code>c</code> in 1 to the <code>length</code> of the <code>csv_list</code> (i.e. - 1 to 3), do what’s in the loop. Inside the loop, our first clause states that <code>if c==1</code> we want to create a <code>data.frame</code> called <code>visa_df</code>. We use our <code>read.csv()</code> function and direct that function to the <code>path</code> and <code>filename</code> of our csv. If it’s the 2nd or 3rd iteration of the loop, the <code>visa_df</code> is already created and thus we want to append our additional data to this <code>data.frame</code>. We do this by loading in the CSV files to our temporary <code>nextPart</code> variable. Once <code>nextPart</code> is loaded, we then use the <code>rbind()</code> function which stands for <strong>row bind</strong>. We bind together the two dataframes (<code>visa_df</code> and <code>nextPart</code>) by their <em>rows</em>. In other words, we just add in the additional data as additional rows since the datasets share the same column names. The end product is our single dataframe that we created from 3 separate csv files.</p>
+<pre><code>## Warning in instance$preRenderHook(instance): It seems your data is too big
+## for client-side DataTables. You may consider server-side processing: https://
+## rstudio.github.io/DT/server.html</code></pre>
+<div id="htmlwidget-bf1ce9d43412e139303c" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-bf1ce9d43412e139303c">{"x":{"filter":"none","data":[["1","2","3","4","5","6","7","8","9","10"],[1,2,3,4,5,6,7,8,9,10],[1,2,3,4,5,6,7,8,9,10],["CERTIFIED-WITHDRAWN","CERTIFIED-WITHDRAWN","CERTIFIED-WITHDRAWN","CERTIFIED-WITHDRAWN","WITHDRAWN","CERTIFIED-WITHDRAWN","CERTIFIED-WITHDRAWN","CERTIFIED-WITHDRAWN","CERTIFIED-WITHDRAWN","WITHDRAWN"],["UNIVERSITY OF MICHIGAN","GOODMAN NETWORKS, INC.","PORTS AMERICA GROUP, INC.","GATES CORPORATION, A WHOLLY-OWNED SUBSIDIARY OF TOMKINS PLC","PEABODY INVESTMENTS CORP.","BURGER KING CORPORATION","BT AND MK ENERGY AND COMMODITIES","GLOBO MOBILE TECHNOLOGIES, INC.","ESI COMPANIES INC.","LESSARD INTERNATIONAL LLC"],["BIOCHEMISTS AND BIOPHYSICISTS","CHIEF EXECUTIVES","CHIEF EXECUTIVES","CHIEF EXECUTIVES","CHIEF EXECUTIVES","CHIEF EXECUTIVES","CHIEF EXECUTIVES","CHIEF EXECUTIVES","CHIEF EXECUTIVES","CHIEF EXECUTIVES"],["POSTDOCTORAL RESEARCH FELLOW","CHIEF OPERATING OFFICER","CHIEF PROCESS OFFICER","REGIONAL PRESIDEN, AMERICAS","PRESIDENT MONGOLIA AND INDIA","EXECUTIVE V P, GLOBAL DEVELOPMENT AND PRESIDENT, LATIN AMERI","CHIEF OPERATING OFFICER","CHIEF OPERATIONS OFFICER","PRESIDENT","PRESIDENT"],["N","Y","Y","Y","Y","Y","Y","Y","Y","Y"],[36067,242674,193066,220314,157518.4,225000,91021,150000,127546,154648],[2016,2016,2016,2016,2016,2016,2016,2016,2016,2016],["ANN ARBOR, MICHIGAN","PLANO, TEXAS","JERSEY CITY, NEW JERSEY","DENVER, COLORADO","ST. LOUIS, MISSOURI","MIAMI, FLORIDA","HOUSTON, TEXAS","SAN JOSE, CALIFORNIA","MEMPHIS, TEXAS","VIENNA, VIRGINIA"],[-83.7430378,-96.6988856,-74.0776417,-104.990251,-90.1994042,-80.1917902,-95.3698028,-121.8863286,null,-77.2652604],[42.2808256,33.0198431,40.7281575,39.7392358,38.6270025,25.7616798,29.7604267,37.3382082,null,38.9012225]],"container":"<table class=\"table-condensed\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>X.1<\/th>\n      <th>X<\/th>\n      <th>CASE_STATUS<\/th>\n      <th>EMPLOYER_NAME<\/th>\n      <th>SOC_NAME<\/th>\n      <th>JOB_TITLE<\/th>\n      <th>FULL_TIME_POSITION<\/th>\n      <th>PREVAILING_WAGE<\/th>\n      <th>YEAR<\/th>\n      <th>WORKSITE<\/th>\n      <th>lon<\/th>\n      <th>lat<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"tp","scrollX":true,"columnDefs":[{"className":"dt-right","targets":[1,2,8,9,11,12]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<p>As with many things in R, there are multiple ways to achieve the same goal. Here’s a more advanced (yet simpler) way to read in and merge these files.</p>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb140-1" data-line-number="1"><span class="kw">library</span>(dplyr)</a>
+<a class="sourceLine" id="cb140-2" data-line-number="2"><span class="kw">library</span>(readr)</a>
+<a class="sourceLine" id="cb140-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb140-4" data-line-number="4"><span class="co"># set the path </span></a>
+<a class="sourceLine" id="cb140-5" data-line-number="5">csv_path =<span class="st"> &quot;datasets/visa_data/&quot;</span></a>
+<a class="sourceLine" id="cb140-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb140-7" data-line-number="7"><span class="co"># list all files within that path </span></a>
+<a class="sourceLine" id="cb140-8" data-line-number="8">csv_list =<span class="st"> </span><span class="kw">list.files</span>(<span class="dt">path=</span>csv_path, <span class="dt">full.names =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb140-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb140-10" data-line-number="10">csv_list</a></code></pre></div>
+<pre><code>## [1] &quot;datasets/visa_data//h1bvisa_part1.csv&quot;
+## [2] &quot;datasets/visa_data//h1bvisa_part2.csv&quot;
+## [3] &quot;datasets/visa_data//h1bvisa_part3.csv&quot;
+## [4] &quot;datasets/visa_data//h1bvisa_part4.csv&quot;
+## [5] &quot;datasets/visa_data//h1bvisa_part5.csv&quot;
+## [6] &quot;datasets/visa_data//h1bvisa_part6.csv&quot;
+## [7] &quot;datasets/visa_data//h1bvisa_part7.csv&quot;</code></pre>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb142-1" data-line-number="1"><span class="co"># Read all csv files in the folder and create a list of dataframes</span></a>
+<a class="sourceLine" id="cb142-2" data-line-number="2">ldf &lt;-<span class="st"> </span><span class="kw">lapply</span>(csv_list , read.csv)</a>
+<a class="sourceLine" id="cb142-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb142-4" data-line-number="4"><span class="co"># Combine each dataframe in the list into a single dataframe</span></a>
+<a class="sourceLine" id="cb142-5" data-line-number="5">visa_df &lt;-<span class="st"> </span><span class="kw">do.call</span>(<span class="st">&quot;rbind&quot;</span>, ldf)</a></code></pre></div>
+<p>In this more advanced example, we load in the packages that contain the following functions (this is already done above, but I’m doing it again to show you where these functions come from). After setting the <code>csv_path</code>, we then use the function <code>list.files()</code> which lists all files within a give path. In our case, all of our Visa CSV data is located within <code>/datasets/visa_data</code>. Then we use the <code>lapply</code> function which is a function useful for performing operations on list objects and returns a list object of same length of original set. We give <code>lapply</code> a list (<code>csv_list</code>) and a function (<code>read.csv</code>) to do on that list. This creates a larger list of the output of <code>read_csv</code> from our <code>csv_list</code>. Finally, we create our <code>visa_df</code> via the <code>do.call</code> function (which behaves very similar to <code>lapply</code>). The <code>do.call</code> function is given a function (<code>rbind</code>) and then a list to perform that function on (<code>ldf</code>). <code>lapply</code> and <code>do.call</code> are similar but here’s the difference:</p>
+<ul>
+<li>lapply() applies a given function for each element in a list,so there will be several function calls.</li>
+<li>do.call() applies a given function to the list as a whole,so there is only one function call.</li>
+</ul>
+<p>Once again, here’s our <code>visa_df</code></p>
+<pre><code>## Warning in instance$preRenderHook(instance): It seems your data is too big
+## for client-side DataTables. You may consider server-side processing: https://
+## rstudio.github.io/DT/server.html</code></pre>
+<div id="htmlwidget-2a20e22bf3c8c6b02563" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2a20e22bf3c8c6b02563">{"x":{"filter":"none","data":[["1","2","3","4","5","6","7","8","9","10"],[1,2,3,4,5,6,7,8,9,10],[1,2,3,4,5,6,7,8,9,10],["CERTIFIED-WITHDRAWN","CERTIFIED-WITHDRAWN","CERTIFIED-WITHDRAWN","CERTIFIED-WITHDRAWN","WITHDRAWN","CERTIFIED-WITHDRAWN","CERTIFIED-WITHDRAWN","CERTIFIED-WITHDRAWN","CERTIFIED-WITHDRAWN","WITHDRAWN"],["UNIVERSITY OF MICHIGAN","GOODMAN NETWORKS, INC.","PORTS AMERICA GROUP, INC.","GATES CORPORATION, A WHOLLY-OWNED SUBSIDIARY OF TOMKINS PLC","PEABODY INVESTMENTS CORP.","BURGER KING CORPORATION","BT AND MK ENERGY AND COMMODITIES","GLOBO MOBILE TECHNOLOGIES, INC.","ESI COMPANIES INC.","LESSARD INTERNATIONAL LLC"],["BIOCHEMISTS AND BIOPHYSICISTS","CHIEF EXECUTIVES","CHIEF EXECUTIVES","CHIEF EXECUTIVES","CHIEF EXECUTIVES","CHIEF EXECUTIVES","CHIEF EXECUTIVES","CHIEF EXECUTIVES","CHIEF EXECUTIVES","CHIEF EXECUTIVES"],["POSTDOCTORAL RESEARCH FELLOW","CHIEF OPERATING OFFICER","CHIEF PROCESS OFFICER","REGIONAL PRESIDEN, AMERICAS","PRESIDENT MONGOLIA AND INDIA","EXECUTIVE V P, GLOBAL DEVELOPMENT AND PRESIDENT, LATIN AMERI","CHIEF OPERATING OFFICER","CHIEF OPERATIONS OFFICER","PRESIDENT","PRESIDENT"],["N","Y","Y","Y","Y","Y","Y","Y","Y","Y"],[36067,242674,193066,220314,157518.4,225000,91021,150000,127546,154648],[2016,2016,2016,2016,2016,2016,2016,2016,2016,2016],["ANN ARBOR, MICHIGAN","PLANO, TEXAS","JERSEY CITY, NEW JERSEY","DENVER, COLORADO","ST. LOUIS, MISSOURI","MIAMI, FLORIDA","HOUSTON, TEXAS","SAN JOSE, CALIFORNIA","MEMPHIS, TEXAS","VIENNA, VIRGINIA"],[-83.7430378,-96.6988856,-74.0776417,-104.990251,-90.1994042,-80.1917902,-95.3698028,-121.8863286,null,-77.2652604],[42.2808256,33.0198431,40.7281575,39.7392358,38.6270025,25.7616798,29.7604267,37.3382082,null,38.9012225]],"container":"<table class=\"table-condensed\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>X.1<\/th>\n      <th>X<\/th>\n      <th>CASE_STATUS<\/th>\n      <th>EMPLOYER_NAME<\/th>\n      <th>SOC_NAME<\/th>\n      <th>JOB_TITLE<\/th>\n      <th>FULL_TIME_POSITION<\/th>\n      <th>PREVAILING_WAGE<\/th>\n      <th>YEAR<\/th>\n      <th>WORKSITE<\/th>\n      <th>lon<\/th>\n      <th>lat<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"tp","scrollX":true,"columnDefs":[{"className":"dt-right","targets":[1,2,8,9,11,12]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<p>Now that we have our dataset, let’s explore it!</p>
+</div>
+<div id="manipulating-our-data-frame" class="section level3">
+<h3><span class="header-section-number">7.3.2</span> Manipulating our Data Frame</h3>
+<ul>
+<li>X1,X2,X - not named column, it is the id of the row;</li>
+<li>CASE_STATUS - status of the application;</li>
+<li>EMPLOYER_NAME - the name of the employer as registered in the H-1B Visa application;</li>
+<li>SOC_NAME - the occupation code for the employment;</li>
+<li>JOB_TITLE - the job title for the employment;</li>
+<li>FULL_TIME_POSITION - whether the application is for a full-time position of for a part-time position;</li>
+<li>PREVAILING_WAGE - the most frequent wage for the corresponding role as filled in the Visa application;</li>
+<li>YEAR - the application year;</li>
+<li>WORKSITE - the address of the employer worksite;</li>
+<li>lon - longitude of the employer worksite;</li>
+<li>lat - latitude of the employer worksite;</li>
+</ul>
+<p>First, let’s get rid of columns we don’t need like <code>X.2</code>, <code>X.1</code>, and <code>X</code>.</p>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb144-1" data-line-number="1">visa_df<span class="op">$</span>X<span class="fl">.2</span> =<span class="st"> </span><span class="ot">NULL</span></a>
+<a class="sourceLine" id="cb144-2" data-line-number="2">visa_df<span class="op">$</span>X<span class="fl">.1</span> =<span class="st"> </span><span class="ot">NULL</span></a>
+<a class="sourceLine" id="cb144-3" data-line-number="3">visa_df<span class="op">$</span>X =<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
+<p>Next, we notice that the <code>WORKSITE</code> variable contains a City, State type string. Let’s break this out and create a new column with just states.</p>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb145-1" data-line-number="1"><span class="kw">library</span>(stringr)</a>
+<a class="sourceLine" id="cb145-2" data-line-number="2"><span class="co"># str_split or string split is a great function to use. It breaks up a string based on a character. In this case we want to split our string into a list of cities and states which are split by a comma</span></a>
+<a class="sourceLine" id="cb145-3" data-line-number="3">worksites =<span class="st"> </span><span class="kw">str_split</span>(visa_df<span class="op">$</span>WORKSITE, <span class="st">&quot;,&quot;</span>, <span class="dt">simplify =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb145-4" data-line-number="4"><span class="kw">head</span>(worksites)</a></code></pre></div>
+<pre><code>##      [,1]          [,2]         
+## [1,] &quot;ANN ARBOR&quot;   &quot; MICHIGAN&quot;  
+## [2,] &quot;PLANO&quot;       &quot; TEXAS&quot;     
+## [3,] &quot;JERSEY CITY&quot; &quot; NEW JERSEY&quot;
+## [4,] &quot;DENVER&quot;      &quot; COLORADO&quot;  
+## [5,] &quot;ST. LOUIS&quot;   &quot; MISSOURI&quot;  
+## [6,] &quot;MIAMI&quot;       &quot; FLORIDA&quot;</code></pre>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb147-1" data-line-number="1"><span class="co"># grab the second column which is just the states</span></a>
+<a class="sourceLine" id="cb147-2" data-line-number="2">states =<span class="st"> </span>worksites[,<span class="dv">2</span>]</a>
+<a class="sourceLine" id="cb147-3" data-line-number="3"><span class="kw">head</span>(states)</a></code></pre></div>
+<pre><code>## [1] &quot; MICHIGAN&quot;   &quot; TEXAS&quot;      &quot; NEW JERSEY&quot; &quot; COLORADO&quot;   &quot; MISSOURI&quot;  
+## [6] &quot; FLORIDA&quot;</code></pre>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb149-1" data-line-number="1"><span class="co"># Now we can use the trimws() function to trim the whitespace and get rid of the leading spaces</span></a>
+<a class="sourceLine" id="cb149-2" data-line-number="2">states =<span class="st"> </span><span class="kw">trimws</span>(states)</a>
+<a class="sourceLine" id="cb149-3" data-line-number="3"><span class="kw">head</span>(states)</a></code></pre></div>
+<pre><code>## [1] &quot;MICHIGAN&quot;   &quot;TEXAS&quot;      &quot;NEW JERSEY&quot; &quot;COLORADO&quot;   &quot;MISSOURI&quot;  
+## [6] &quot;FLORIDA&quot;</code></pre>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb151-1" data-line-number="1"><span class="co"># now add it to the dataframe</span></a>
+<a class="sourceLine" id="cb151-2" data-line-number="2">visa_df<span class="op">$</span>states &lt;-<span class="st"> </span>states</a></code></pre></div>
+<p>Next we notice that our Latitudes and Longitude columns are very specific, let’s round these to make them easier on the eye.</p>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb152-1" data-line-number="1">visa_df<span class="op">$</span>lat =<span class="st"> </span><span class="kw">round</span>(visa_df<span class="op">$</span>lat,<span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb152-2" data-line-number="2">visa_df<span class="op">$</span>lon =<span class="st"> </span><span class="kw">round</span>(visa_df<span class="op">$</span>lon,<span class="dv">3</span>)</a></code></pre></div>
+</div>
+<div id="case-status-investigation" class="section level3">
+<h3><span class="header-section-number">7.3.3</span> Case Status Investigation</h3>
+<p>One of the key metrics of this dataset is the Case Status. Let’s filter out the <code>NA</code> values in the dataset and plot this up.</p>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb153-1" data-line-number="1"><span class="co"># use the filter function from dplyr to filter the visa_df for all cases where CASE_STATUS is NOT NA (!is.na)</span></a>
+<a class="sourceLine" id="cb153-2" data-line-number="2">case_df =<span class="st"> </span><span class="kw">filter</span>(<span class="dt">.data =</span> visa_df, <span class="op">!</span><span class="kw">is.na</span>(CASE_STATUS))</a>
+<a class="sourceLine" id="cb153-3" data-line-number="3"><span class="kw">head</span>(case_df)</a></code></pre></div>
+<pre><code>##           CASE_STATUS
+## 1 CERTIFIED-WITHDRAWN
+## 2 CERTIFIED-WITHDRAWN
+## 3 CERTIFIED-WITHDRAWN
+## 4 CERTIFIED-WITHDRAWN
+## 5           WITHDRAWN
+## 6 CERTIFIED-WITHDRAWN
+##                                                 EMPLOYER_NAME
+## 1                                      UNIVERSITY OF MICHIGAN
+## 2                                      GOODMAN NETWORKS, INC.
+## 3                                   PORTS AMERICA GROUP, INC.
+## 4 GATES CORPORATION, A WHOLLY-OWNED SUBSIDIARY OF TOMKINS PLC
+## 5                                   PEABODY INVESTMENTS CORP.
+## 6                                     BURGER KING CORPORATION
+##                        SOC_NAME
+## 1 BIOCHEMISTS AND BIOPHYSICISTS
+## 2              CHIEF EXECUTIVES
+## 3              CHIEF EXECUTIVES
+## 4              CHIEF EXECUTIVES
+## 5              CHIEF EXECUTIVES
+## 6              CHIEF EXECUTIVES
+##                                                      JOB_TITLE
+## 1                                 POSTDOCTORAL RESEARCH FELLOW
+## 2                                      CHIEF OPERATING OFFICER
+## 3                                        CHIEF PROCESS OFFICER
+## 4                                  REGIONAL PRESIDEN, AMERICAS
+## 5                                 PRESIDENT MONGOLIA AND INDIA
+## 6 EXECUTIVE V P, GLOBAL DEVELOPMENT AND PRESIDENT, LATIN AMERI
+##   FULL_TIME_POSITION PREVAILING_WAGE YEAR                WORKSITE      lon
+## 1                  N         36067.0 2016     ANN ARBOR, MICHIGAN  -83.743
+## 2                  Y        242674.0 2016            PLANO, TEXAS  -96.699
+## 3                  Y        193066.0 2016 JERSEY CITY, NEW JERSEY  -74.078
+## 4                  Y        220314.0 2016        DENVER, COLORADO -104.990
+## 5                  Y        157518.4 2016     ST. LOUIS, MISSOURI  -90.199
+## 6                  Y        225000.0 2016          MIAMI, FLORIDA  -80.192
+##      lat     states
+## 1 42.281   MICHIGAN
+## 2 33.020      TEXAS
+## 3 40.728 NEW JERSEY
+## 4 39.739   COLORADO
+## 5 38.627   MISSOURI
+## 6 25.762    FLORIDA</code></pre>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb155-1" data-line-number="1"><span class="co"># Now let&#39;s group the data by Case_status</span></a>
+<a class="sourceLine" id="cb155-2" data-line-number="2">case_df =<span class="st"> </span><span class="kw">group_by</span>(<span class="dt">.data =</span> case_df, CASE_STATUS)</a>
+<a class="sourceLine" id="cb155-3" data-line-number="3"><span class="kw">head</span>(case_df)</a></code></pre></div>
+<pre><code>## # A tibble: 6 x 11
+## # Groups:   CASE_STATUS [2]
+##   CASE_STATUS        
+##   &lt;fct&gt;              
+## 1 CERTIFIED-WITHDRAWN
+## 2 CERTIFIED-WITHDRAWN
+## 3 CERTIFIED-WITHDRAWN
+## 4 CERTIFIED-WITHDRAWN
+## 5 WITHDRAWN          
+## 6 CERTIFIED-WITHDRAWN
+##   EMPLOYER_NAME                                              
+##   &lt;fct&gt;                                                      
+## 1 UNIVERSITY OF MICHIGAN                                     
+## 2 GOODMAN NETWORKS, INC.                                     
+## 3 PORTS AMERICA GROUP, INC.                                  
+## 4 GATES CORPORATION, A WHOLLY-OWNED SUBSIDIARY OF TOMKINS PLC
+## 5 PEABODY INVESTMENTS CORP.                                  
+## 6 BURGER KING CORPORATION                                    
+##   SOC_NAME                     
+##   &lt;fct&gt;                        
+## 1 BIOCHEMISTS AND BIOPHYSICISTS
+## 2 CHIEF EXECUTIVES             
+## 3 CHIEF EXECUTIVES             
+## 4 CHIEF EXECUTIVES             
+## 5 CHIEF EXECUTIVES             
+## 6 CHIEF EXECUTIVES             
+##   JOB_TITLE                                                   
+##   &lt;fct&gt;                                                       
+## 1 POSTDOCTORAL RESEARCH FELLOW                                
+## 2 CHIEF OPERATING OFFICER                                     
+## 3 CHIEF PROCESS OFFICER                                       
+## 4 REGIONAL PRESIDEN, AMERICAS                                 
+## 5 PRESIDENT MONGOLIA AND INDIA                                
+## 6 EXECUTIVE V P, GLOBAL DEVELOPMENT AND PRESIDENT, LATIN AMERI
+##   FULL_TIME_POSITION PREVAILING_WAGE  YEAR WORKSITE                   lon   lat
+##   &lt;fct&gt;                        &lt;dbl&gt; &lt;int&gt; &lt;fct&gt;                    &lt;dbl&gt; &lt;dbl&gt;
+## 1 N                           36067   2016 ANN ARBOR, MICHIGAN      -83.7  42.3
+## 2 Y                          242674   2016 PLANO, TEXAS             -96.7  33.0
+## 3 Y                          193066   2016 JERSEY CITY, NEW JERSEY  -74.1  40.7
+## 4 Y                          220314   2016 DENVER, COLORADO        -105.   39.7
+## 5 Y                          157518.  2016 ST. LOUIS, MISSOURI      -90.2  38.6
+## 6 Y                          225000   2016 MIAMI, FLORIDA           -80.2  25.8
+##   states    
+##   &lt;chr&gt;     
+## 1 MICHIGAN  
+## 2 TEXAS     
+## 3 NEW JERSEY
+## 4 COLORADO  
+## 5 MISSOURI  
+## 6 FLORIDA</code></pre>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb157-1" data-line-number="1"><span class="co"># Now let&#39;s summarize the data based on total number of cases which would be the length of any variable within each sub-group. Here we choose the `lat` variable but it could be any variable here</span></a>
+<a class="sourceLine" id="cb157-2" data-line-number="2">case_df =<span class="st"> </span><span class="kw">summarise</span>(<span class="dt">.data =</span> case_df, <span class="dt">total_cases =</span> <span class="kw">length</span>(lat))</a>
+<a class="sourceLine" id="cb157-3" data-line-number="3"><span class="kw">head</span>(case_df)</a></code></pre></div>
+<pre><code>## # A tibble: 4 x 2
+##   CASE_STATUS         total_cases
+##   &lt;fct&gt;                     &lt;int&gt;
+## 1 CERTIFIED                569650
+## 2 CERTIFIED-WITHDRAWN       47094
+## 3 DENIED                     9175
+## 4 WITHDRAWN                 21890</code></pre>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb159-1" data-line-number="1"><span class="co"># plot it up!</span></a>
+<a class="sourceLine" id="cb159-2" data-line-number="2"><span class="kw">ggplot</span>(<span class="dt">data =</span> case_df, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">reorder</span>(CASE_STATUS,total_cases), <span class="dt">y =</span> total_cases<span class="op">/</span><span class="dv">1000</span>)) <span class="op">+</span><span class="st">  </span></a>
+<a class="sourceLine" id="cb159-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat=</span><span class="st">&quot;identity&quot;</span>, <span class="dt">fill=</span><span class="st">&quot;coral&quot;</span>, <span class="dt">colour=</span><span class="st">&quot;dodgerblue4&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb159-4" data-line-number="4"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title=</span><span class="st">&quot;H1-B Visa Applications&quot;</span>, <span class="dt">x =</span><span class="st">&quot;Case Status&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Number of applications (thousands)&quot;</span>)</a></code></pre></div>
+<p><img src="Tech-Trainings--R-for-Excel-Users_files/figure-html/unnamed-chunk-105-1.png" width="1152" /></p>
+<p>Something to notice with this <code>ggplot</code> instance is the <code>aes</code> edits for <code>x</code> and <code>y</code> arguments. Notice that we reorder the CASE_STATUS based on the <code>total_cases</code> metric. Also see that we divide teh <code>total_cases</code> by 1000 in order to make the graph more general.</p>
+<p>Over 100,000 cases are Certified. Less than 5,000 cases are denied.</p>
+</div>
+<div id="job-titles" class="section level3">
+<h3><span class="header-section-number">7.3.4</span> Job Titles</h3>
+<p>What’s the most common type of job for these visa requests? To find out, we’ll have to look at the <code>JOB_TITLE</code> variable. Let’s organize the data based on this variable</p>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb160-1" data-line-number="1"><span class="co"># group the data based on the JOB_TITLE variable</span></a>
+<a class="sourceLine" id="cb160-2" data-line-number="2">job_df =<span class="st">  </span><span class="kw">group_by</span>(<span class="dt">.data =</span> visa_df, JOB_TITLE)</a></code></pre></div>
+<pre><code>## Warning: Factor `JOB_TITLE` contains implicit NA, consider using
+## `forcats::fct_explicit_na`</code></pre>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb162-1" data-line-number="1"><span class="co"># summarize the data based on the total number of each JOB TITLE, here we aggregate the total number of latitude values for each JOB TITLE</span></a>
+<a class="sourceLine" id="cb162-2" data-line-number="2">job_df =<span class="st"> </span><span class="kw">summarise</span>(<span class="dt">.data =</span> job_df, <span class="dt">total_records =</span> <span class="kw">length</span>(lat))</a>
+<a class="sourceLine" id="cb162-3" data-line-number="3"><span class="co"># trim our dataset down so that we only keep the top 50 JOB_TITLE values</span></a>
+<a class="sourceLine" id="cb162-4" data-line-number="4">job_df =<span class="st"> </span><span class="kw">top_n</span>(<span class="dt">x=</span> job_df, <span class="dt">n=</span><span class="dv">50</span>)</a></code></pre></div>
+<pre><code>## Selecting by total_records</code></pre>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb164-1" data-line-number="1"><span class="co"># arrange the data based on the total number of records (before this it was organized alphabetically)</span></a>
+<a class="sourceLine" id="cb164-2" data-line-number="2">job_df =<span class="st"> </span><span class="kw">arrange</span>(<span class="dt">.data =</span> job_df, <span class="op">-</span>total_records)</a>
+<a class="sourceLine" id="cb164-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb164-4" data-line-number="4"><span class="co"># print out the head of job_df</span></a>
+<a class="sourceLine" id="cb164-5" data-line-number="5"><span class="kw">head</span>(job_df)</a></code></pre></div>
+<pre><code>## # A tibble: 6 x 2
+##   JOB_TITLE           total_records
+##   &lt;fct&gt;                       &lt;int&gt;
+## 1 PROGRAMMER ANALYST          53745
+## 2 SOFTWARE ENGINEER           30669
+## 3 SOFTWARE DEVELOPER          14042
+## 4 SYSTEMS ANALYST             12314
+## 5 COMPUTER PROGRAMMER         11668
+## 6 BUSINESS ANALYST             9167</code></pre>
+<p>Now, let’s use ggplot2 to show us what the most popular job titles these visa’s had.</p>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb166-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> job_df, <span class="kw">aes</span>(<span class="dt">x =</span> JOB_TITLE, <span class="dt">y =</span> total_records)) <span class="op">+</span><span class="st">  </span></a>
+<a class="sourceLine" id="cb166-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat=</span><span class="st">&quot;identity&quot;</span>, <span class="dt">fill=</span><span class="st">&quot;aquamarine3&quot;</span>, <span class="dt">colour=</span><span class="st">&quot;black&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb166-3" data-line-number="3"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title=</span><span class="st">&quot;&quot;</span>, <span class="dt">x =</span><span class="st">&quot;Job title (top 50)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Number of applications&quot;</span>)</a></code></pre></div>
+<p><img src="Tech-Trainings--R-for-Excel-Users_files/figure-html/unnamed-chunk-107-1.png" width="1152" /></p>
+<p>Hmm…that doesn’t look great. What if we want to swap the X and Y axis? Simple! we just add in a <code>coord_flip()</code></p>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb167-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> job_df, <span class="kw">aes</span>(<span class="dt">x =</span> JOB_TITLE, <span class="dt">y =</span> total_records)) <span class="op">+</span><span class="st">  </span></a>
+<a class="sourceLine" id="cb167-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat=</span><span class="st">&quot;identity&quot;</span>, <span class="dt">fill=</span><span class="st">&quot;aquamarine3&quot;</span>, <span class="dt">colour=</span><span class="st">&quot;black&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb167-3" data-line-number="3"><span class="st">  </span><span class="kw">coord_flip</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb167-4" data-line-number="4"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title=</span><span class="st">&quot;&quot;</span>, <span class="dt">x =</span><span class="st">&quot;Job title (top 50)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Number of applications&quot;</span>)</a></code></pre></div>
+<p><img src="Tech-Trainings--R-for-Excel-Users_files/figure-html/unnamed-chunk-108-1.png" width="1152" /></p>
+<p>Looks better, but how about we reorder it all based on the <code>total_records</code> column. Just use the <code>reorder</code> function!</p>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb168-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> job_df, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">reorder</span>(JOB_TITLE,total_records), <span class="dt">y =</span> total_records)) <span class="op">+</span><span class="st">  </span></a>
+<a class="sourceLine" id="cb168-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat=</span><span class="st">&quot;identity&quot;</span>, <span class="dt">fill=</span><span class="st">&quot;aquamarine3&quot;</span>, <span class="dt">colour=</span><span class="st">&quot;black&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb168-3" data-line-number="3"><span class="st">  </span><span class="kw">coord_flip</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb168-4" data-line-number="4"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title=</span><span class="st">&quot;2016 H1-B Visa Applications&quot;</span>, <span class="dt">x =</span><span class="st">&quot;Job title (top 50)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Number of applications&quot;</span>)</a></code></pre></div>
+<p><img src="Tech-Trainings--R-for-Excel-Users_files/figure-html/unnamed-chunk-109-1.png" width="1152" /></p>
+<p>The most frequent titles are BUSINESS ANALYST, PROGRAMMER ANALYST, and SYSTEMS ANALYST.</p>
+</div>
+</div>
+<div id="recap-2" class="section level2">
+<h2><span class="header-section-number">7.4</span> Recap</h2>
+<ul>
+<li>For loops are a popular coding practice and can be very useful. In R, for loops are designed to look like</li>
+</ul>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb169-1" data-line-number="1"><span class="cf">for</span> (numbers or values to loop over){</a>
+<a class="sourceLine" id="cb169-2" data-line-number="2">    condition where numbers<span class="op">/</span>values is looping</a>
+<a class="sourceLine" id="cb169-3" data-line-number="3">}</a></code></pre></div>
+<ul>
+<li><code>paste0()</code> is great for combining character strings and numbers together</li>
+<li>R is great for big data (<code>visa_df</code> is ultimately 647,000 rows of data)</li>
+<li><code>dplyr</code> and <code>tibble</code> are once again great R packages for handling big data</li>
+</ul>
+</div>
+<div id="visa-1-assignment" class="section level2">
+<h2><span class="header-section-number">7.5</span> Visa 1 Assignment</h2>
+<ol style="list-style-type: decimal">
+<li><p>List the top 10 states who apply for this H1-B Visa Application.</p></li>
+<li><p>In the last example above, we examined the <code>JOB_TITLE</code> variable and discovered the most popular jobs. For this assignment, examine the most popular <strong>employers</strong>. In other words, create a <code>ggplot</code> instance of the top 50 repeat <strong>employers</strong> who apply for the H1-B Visa. Try and make it similar to the plot below</p></li>
+</ol>
+<pre><code>## Selecting by total_records</code></pre>
+<p><img src="Tech-Trainings--R-for-Excel-Users_files/figure-html/unnamed-chunk-111-1.png" width="1152" /></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="avocados-tutorial-part-2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="us-work-visas-part-2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
