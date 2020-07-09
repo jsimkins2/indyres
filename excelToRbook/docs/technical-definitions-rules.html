@@ -24,7 +24,7 @@
 <meta name="author" content="James Simkins" />
 
 
-<meta name="date" content="2020-06-23" />
+<meta name="date" content="2020-07-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -148,7 +148,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="welcome.html"><a href="welcome.html"><i class="fa fa-check"></i><b>1</b> Welcome</a><ul>
 <li class="chapter" data-level="1.1" data-path="welcome.html"><a href="welcome.html#agenda"><i class="fa fa-check"></i><b>1.1</b> Agenda</a></li>
-<li class="chapter" data-level="1.2" data-path="welcome.html"><a href="welcome.html#prerequisites"><i class="fa fa-check"></i><b>1.2</b> Prerequisites</a></li>
+<li class="chapter" data-level="1.2" data-path="welcome.html"><a href="welcome.html#download-and-install-r"><i class="fa fa-check"></i><b>1.2</b> Download and Install R</a></li>
+<li class="chapter" data-level="1.3" data-path="welcome.html"><a href="welcome.html#download-and-install-rstudio"><i class="fa fa-check"></i><b>1.3</b> Download and Install RStudio</a></li>
+<li class="chapter" data-level="1.4" data-path="welcome.html"><a href="welcome.html#download-workshop-data"><i class="fa fa-check"></i><b>1.4</b> Download workshop data</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="overview.html"><a href="overview.html"><i class="fa fa-check"></i><b>2</b> Overview</a><ul>
 <li class="chapter" data-level="2.1" data-path="overview.html"><a href="overview.html#what-is-r"><i class="fa fa-check"></i><b>2.1</b> What is R?</a></li>
@@ -159,8 +161,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.1" data-path="r-rstudio.html"><a href="r-rstudio.html#open-rstudio"><i class="fa fa-check"></i><b>3.1</b> Open RStudio</a></li>
 <li class="chapter" data-level="3.2" data-path="r-rstudio.html"><a href="r-rstudio.html#r-studio-layout"><i class="fa fa-check"></i><b>3.2</b> R Studio Layout</a></li>
 <li class="chapter" data-level="3.3" data-path="r-rstudio.html"><a href="r-rstudio.html#installing-and-using-packages"><i class="fa fa-check"></i><b>3.3</b> Installing and Using Packages</a></li>
-<li class="chapter" data-level="3.4" data-path="r-rstudio.html"><a href="r-rstudio.html#running-code"><i class="fa fa-check"></i><b>3.4</b> Running Code</a></li>
-<li class="chapter" data-level="3.5" data-path="r-rstudio.html"><a href="r-rstudio.html#checkpoint---writing-your-first-r-code"><i class="fa fa-check"></i><b>3.5</b> Checkpoint - Writing your first R code</a></li>
+<li class="chapter" data-level="3.4" data-path="r-rstudio.html"><a href="r-rstudio.html#loading-the-installed-packages-into-r"><i class="fa fa-check"></i><b>3.4</b> Loading the installed packages into R</a></li>
+<li class="chapter" data-level="3.5" data-path="r-rstudio.html"><a href="r-rstudio.html#running-code"><i class="fa fa-check"></i><b>3.5</b> Running Code</a></li>
+<li class="chapter" data-level="3.6" data-path="r-rstudio.html"><a href="r-rstudio.html#checkpoint---writing-your-first-r-code"><i class="fa fa-check"></i><b>3.6</b> Checkpoint - Writing your first R code</a></li>
+<li class="chapter" data-level="3.7" data-path="r-rstudio.html"><a href="r-rstudio.html#explanation---writing-your-first-r-code"><i class="fa fa-check"></i><b>3.7</b> Explanation - Writing your first R code</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="technical-definitions-rules.html"><a href="technical-definitions-rules.html"><i class="fa fa-check"></i><b>4</b> Technical Definitions &amp; Rules</a><ul>
 <li class="chapter" data-level="4.1" data-path="technical-definitions-rules.html"><a href="technical-definitions-rules.html#important-r-programming-definitions"><i class="fa fa-check"></i><b>4.1</b> Important R Programming Definitions</a></li>
@@ -236,6 +240,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">4</span> Technical Definitions &amp; Rules</h1>
 <div id="important-r-programming-definitions" class="section level2">
 <h2><span class="header-section-number">4.1</span> Important R Programming Definitions</h2>
+<p>Read through these now to get familiar and refer back to these whenever you need a refresher. You’re not expected to have these memorized or even understood at this moment. These will make more sense as we progress through the course.</p>
 <table>
 <colgroup>
 <col width="15%" />
@@ -365,16 +370,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td>c(“a”, “b”, “c”)</td>
 <td>A quick utility for concatenating strings together</td>
 </tr>
+<tr class="even">
+<td>filepath</td>
+<td>“/Users/james/Downloads/”</td>
+<td>The location on your computer where a file is stored. A filepath with a leading slash (akak “/” ) is also referred to as root. Root is the furthest back you can go on your computer. Think of a filepath like this - “/Earth/UnitedStates/Pennsylvania/Lancaster/”</td>
+</tr>
 </tbody>
 </table>
 <p><a href="https://www.tutorialspoint.com/r/index.htm">Additional examples can be found here</a></p>
 </div>
 <div id="definitions-in-action---tv-data-example" class="section level2">
 <h2><span class="header-section-number">4.2</span> Definitions in Action - TV Data Example</h2>
-<p>Now that we’re comfortable with R Studio and have some definitions under our belt, let’s dive in a little into some R code and discuss it. Here is a script that loads a dataset about TV shows and examines their IMDb rating.</p>
+<p>Now that we’re comfortable with R Studio and have some definitions under our belt, let’s dive in a little into some R code and discuss it. Here is a script that loads a dataset about TV shows and examines their IMDb rating. We downloaded this dataset already and can likely be found in your Downloads folder. You’ll need to unzip <code>dataforge-master.zip</code>. The file will be stored in <code>dataforge-master/datasets/tv_shows.csv</code></p>
 <p><strong>First, let’s just show the script without running it.</strong></p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co"># Load in the dataset using the read.csv() function</span></a>
-<a class="sourceLine" id="cb5-2" data-line-number="2">tv_data =<span class="st"> </span><span class="kw">read.csv</span>(<span class="dt">file =</span> <span class="st">&quot;datasets/tv_shows.csv&quot;</span>, <span class="dt">header =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">tv_data =<span class="st"> </span><span class="kw">read.csv</span>(<span class="dt">file =</span> <span class="st">&quot;/Users/james/Downloads/dataforge-master/datasets/tv_shows.csv&quot;</span>, <span class="dt">header =</span> <span class="ot">FALSE</span>)</a>
 <a class="sourceLine" id="cb5-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb5-4" data-line-number="4"><span class="co"># have R tell us what class tv_data is</span></a>
 <a class="sourceLine" id="cb5-5" data-line-number="5"><span class="kw">class</span>(tv_data)</a>
@@ -415,7 +425,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">library</span>(ggplot2)</a>
 <a class="sourceLine" id="cb6-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb6-3" data-line-number="3"><span class="co"># Load in the dataset using the read.csv() function</span></a>
-<a class="sourceLine" id="cb6-4" data-line-number="4">tv_data =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;datasets/tv_shows.csv&quot;</span>)</a>
+<a class="sourceLine" id="cb6-4" data-line-number="4">tv_data =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;/Users/james/Downloads/dataforge-master/datasets/tv_shows.csv&quot;</span>)</a>
 <a class="sourceLine" id="cb6-5" data-line-number="5"></a>
 <a class="sourceLine" id="cb6-6" data-line-number="6"><span class="co"># have R tell us what class tv_data is</span></a>
 <a class="sourceLine" id="cb6-7" data-line-number="7"><span class="kw">class</span>(tv_data)</a></code></pre></div>
@@ -517,9 +527,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4129       0    1</code></pre>
 <div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1"><span class="co"># Barplot the first 16 rows of tv data </span></a>
 <a class="sourceLine" id="cb22-2" data-line-number="2"><span class="kw">ggplot</span>(<span class="dt">data =</span> sorted_tv_data[<span class="dv">1</span><span class="op">:</span><span class="dv">16</span>,], <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x=</span>Title, <span class="dt">y=</span>IMDb)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.text.x=</span><span class="kw">element_text</span>(<span class="dt">angle=</span><span class="dv">45</span>, <span class="dt">hjust=</span><span class="dv">1</span>))</a></code></pre></div>
-<p><img src="Tech-Trainings--R-for-Excel-Users_files/figure-html/unnamed-chunk-15-1.png" width="100%" style="display: block; margin: auto;" /></p>
+<p><img src="Tech-Trainings--R-for-Excel-Users_files/figure-html/unnamed-chunk-22-1.png" width="100%" style="display: block; margin: auto;" /></p>
 <div id="line-by-line-discussion" class="section level3">
 <h3><span class="header-section-number">4.2.1</span> Line by Line Discussion</h3>
+<p>Remember that you are not expected to understand this completely at this point - let’s run through this and familiarize ourselves with the code.</p>
 <table>
 <colgroup>
 <col width="43%" />
@@ -533,24 +544,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>tv_data = read.csv(file = &quot;datasets/tv_shows.csv&quot;)</code></td>
-<td>We open our dataset <code>tv_shows.csv</code> which is located in our “datasets/” folder. We open the file using the <code>read.csv()</code> function. Within the <code>read.csv()</code> function, we used the <code>file =</code> argument to state which file we wanted to open - note that within functions, arguments can <strong>only</strong> be specified via the <code>=</code> sign. We name our dataset as <code>tv_data</code>. Notice that we used the <code>=</code> operator to declare our dataset as <code>tv_data</code>, but we also could’ve used the traditional way of <code>&lt;-</code></td>
+<td><code>tv_data = read.csv(file = &quot;/Users/james/Downloads/dataforge-master/datasets/tv_shows.csv&quot;)</code></td>
+<td><code>tv_shows.csv</code> is our <code>filename</code>. <code>&quot;/Users/james/Downloads/dataforge-master/datasets/&quot;</code> is the <code>filepath</code> (the location on our computer where the file is stored). We open the file using the <code>read.csv()</code> function. Within the <code>read.csv()</code> function, we used the <code>file =</code> argument to state which file we wanted to open - note that within functions, arguments can <strong>only</strong> be specified via the <code>=</code> sign. We name our dataset as <code>tv_data</code>. Notice that we used the <code>=</code> operator to declare our dataset as <code>tv_data</code>, but we also could’ve used the traditional way of <code>&lt;-</code>. Note that if you’re ever confused about where your file is stored, you can enter read.csv(file = &quot;&quot;) into R and with your cursor between the quotations, hit the <strong>tab</strong> key on your keyboard. This will have R tell you the starting location of where it’s looking for the file. Once this is loaded, <strong>run this line of code</strong> - now <code>tv_data</code> is an R <code>data.frame</code></td>
 </tr>
 <tr class="even">
 <td><code>class(tv_data)</code></td>
-<td>have R tell us the class of our <code>tv_data</code></td>
+<td>We use the <code>class()</code> function to have R tell us the class of our <code>tv_data</code></td>
 </tr>
 <tr class="odd">
 <td><code>nrow(tv_data)</code></td>
-<td>have R tell us the number of rows in <code>tv_data</code></td>
+<td>we use the <code>nrow()</code> function have R tell us the number of rows in <code>tv_data</code></td>
 </tr>
 <tr class="even">
 <td><code>head(tv_data)</code></td>
 <td>The <code>head()</code> function prints out the first 5 rows of an R dataframe. This is the same as viewing the first 5 rows in Microsoft Excel</td>
 </tr>
 <tr class="odd">
-<td><code>print(tv_data[1:5, ])</code></td>
-<td>We use indexing to print out the first 5 rows of the <code>tv_data</code> dataframe <code>tv_data[row 1 to row 5, all columns]</code>. In R, the rows and columns are separated by a comma and the colon symbol can be interpreted as <code>to</code>. So, when we have <code>[1:5,]</code> we’re telling R to print row 1 to row 5. By leaving the column part blank (aka part after the comma), we’re telling R to print all columns from the specified rows.</td>
+<td><code>tv_data[1:5,]</code></td>
+<td>Here we use indexing (via the <code>[]</code> brackets) to print out the first 5 rows of the <code>tv_data</code> dataframe <code>tv_data[row 1 to row 5, all columns]</code>. In R, the rows and columns are separated by a comma and the colon symbol can be interpreted as <code>to</code>. So, when we have <code>[1:5,]</code> we’re telling R to print row 1 to row 5. By leaving the column part blank (aka part after the comma), we’re telling R to print all columns from the specified rows.</td>
 </tr>
 <tr class="even">
 <td><code>head(tv_data$Title)</code></td>

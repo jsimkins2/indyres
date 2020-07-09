@@ -24,7 +24,7 @@
 <meta name="author" content="James Simkins" />
 
 
-<meta name="date" content="2020-06-23" />
+<meta name="date" content="2020-07-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -148,7 +148,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="welcome.html"><a href="welcome.html"><i class="fa fa-check"></i><b>1</b> Welcome</a><ul>
 <li class="chapter" data-level="1.1" data-path="welcome.html"><a href="welcome.html#agenda"><i class="fa fa-check"></i><b>1.1</b> Agenda</a></li>
-<li class="chapter" data-level="1.2" data-path="welcome.html"><a href="welcome.html#prerequisites"><i class="fa fa-check"></i><b>1.2</b> Prerequisites</a></li>
+<li class="chapter" data-level="1.2" data-path="welcome.html"><a href="welcome.html#download-and-install-r"><i class="fa fa-check"></i><b>1.2</b> Download and Install R</a></li>
+<li class="chapter" data-level="1.3" data-path="welcome.html"><a href="welcome.html#download-and-install-rstudio"><i class="fa fa-check"></i><b>1.3</b> Download and Install RStudio</a></li>
+<li class="chapter" data-level="1.4" data-path="welcome.html"><a href="welcome.html#download-workshop-data"><i class="fa fa-check"></i><b>1.4</b> Download workshop data</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="overview.html"><a href="overview.html"><i class="fa fa-check"></i><b>2</b> Overview</a><ul>
 <li class="chapter" data-level="2.1" data-path="overview.html"><a href="overview.html#what-is-r"><i class="fa fa-check"></i><b>2.1</b> What is R?</a></li>
@@ -159,8 +161,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.1" data-path="r-rstudio.html"><a href="r-rstudio.html#open-rstudio"><i class="fa fa-check"></i><b>3.1</b> Open RStudio</a></li>
 <li class="chapter" data-level="3.2" data-path="r-rstudio.html"><a href="r-rstudio.html#r-studio-layout"><i class="fa fa-check"></i><b>3.2</b> R Studio Layout</a></li>
 <li class="chapter" data-level="3.3" data-path="r-rstudio.html"><a href="r-rstudio.html#installing-and-using-packages"><i class="fa fa-check"></i><b>3.3</b> Installing and Using Packages</a></li>
-<li class="chapter" data-level="3.4" data-path="r-rstudio.html"><a href="r-rstudio.html#running-code"><i class="fa fa-check"></i><b>3.4</b> Running Code</a></li>
-<li class="chapter" data-level="3.5" data-path="r-rstudio.html"><a href="r-rstudio.html#checkpoint---writing-your-first-r-code"><i class="fa fa-check"></i><b>3.5</b> Checkpoint - Writing your first R code</a></li>
+<li class="chapter" data-level="3.4" data-path="r-rstudio.html"><a href="r-rstudio.html#loading-the-installed-packages-into-r"><i class="fa fa-check"></i><b>3.4</b> Loading the installed packages into R</a></li>
+<li class="chapter" data-level="3.5" data-path="r-rstudio.html"><a href="r-rstudio.html#running-code"><i class="fa fa-check"></i><b>3.5</b> Running Code</a></li>
+<li class="chapter" data-level="3.6" data-path="r-rstudio.html"><a href="r-rstudio.html#checkpoint---writing-your-first-r-code"><i class="fa fa-check"></i><b>3.6</b> Checkpoint - Writing your first R code</a></li>
+<li class="chapter" data-level="3.7" data-path="r-rstudio.html"><a href="r-rstudio.html#explanation---writing-your-first-r-code"><i class="fa fa-check"></i><b>3.7</b> Explanation - Writing your first R code</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="technical-definitions-rules.html"><a href="technical-definitions-rules.html"><i class="fa fa-check"></i><b>4</b> Technical Definitions &amp; Rules</a><ul>
 <li class="chapter" data-level="4.1" data-path="technical-definitions-rules.html"><a href="technical-definitions-rules.html#important-r-programming-definitions"><i class="fa fa-check"></i><b>4.1</b> Important R Programming Definitions</a></li>
@@ -235,63 +239,85 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">Tech Trainings - From Excel to R</h1>
 <p class="author"><em>James Simkins</em></p>
-<p class="date"><em>2020-06-23</em></p>
+<p class="date"><em>2020-07-09</em></p>
 </div>
 <div id="welcome" class="section level1">
 <h1><span class="header-section-number">1</span> Welcome</h1>
 <p><img src="images/canoes.jpeg" width="100%" style="display: block; margin: auto;" /></p>
 <p>Hello! Welcome to Tech Trainings - From Excel to R. We’re here to enhance the productivity of your business by ditching Excel and employing R. Our tutorials are focused and designed for employees currently working. R is currently ranked as the <a href="http://pypl.github.io/PYPL.html">7th most popular language in the world</a> - and with good reason! We’ll dive into why R is ranked so high and how it can benefit you and your business.</p>
-<p>This intro to R course is designed to teach R to businesses and employees who frequently use Excel for day-to-day operations. Few businesses around the world leverage the amazing features of R and we’re here to teach these skills. This is a concentrated, fast-paced course designed to improve business efficiency, cut down tedious tasks, and increase the creative time spent by employees. Most online R tutorials are far too broad and can leave a student frustrated at the vast abilities of R. R can be used to accomplish a great deal, but instead of showing off what R can do, we discuss and teach select skills that can be used to improve day-to-day business efficiency immediately. We’re not here to waste your time and overwhelm our students like other R workshops.</p>
-<p>This concentrated course follows a design of specific problem solving. We present common business practices often handled using Excel and show an employee can use R to accomplish the same task at a faster pace. The workshop is split into 4 days with assignments due each day. This course was developed by James Simkins who has taught multiple programming courses at the University of Delaware.</p>
+<p>This intro to R course is designed to teach R to businesses and employees who frequently use Excel for day-to-day operations. Few businesses around the world leverage the amazing features of R and we’re here to teach these skills. To put it bluntly, R saves you and your employees a ton of time. We’ve seen users cut down daily 2-3 <em>hour</em> tasks in Excel into 2-3 <em>minutes</em> after some basic introduction to R. In this case, R saved this individual employee 750 hours per year - allowing employee time to be used towards more creative problem-solving endeavors.</p>
+<p>This is a concentrated, fast-paced course designed to improve business efficiency, cut down tedious tasks, and increase the creative time spent by employees. Most online R tutorials are far too broad and can leave a student frustrated at the vast abilities of R. R can be used to accomplish a great deal, but instead of showing off what R can do, we discuss and teach select skills that can be used to improve day-to-day business efficiency immediately. We’re not here to waste your time and overwhelm our students like other R workshops.</p>
+<p>This concentrated course follows a design of specific problem solving. We present common business practices often handled using Excel and show an employee can use R to accomplish the same task at a faster pace. The workshop is split into 5 days with assignments due each day. This course was developed by James Simkins who has taught multiple programming courses at the University of Delaware.</p>
 <div id="agenda" class="section level2">
 <h2><span class="header-section-number">1.1</span> Agenda</h2>
-<p>This course is designed to be a 5 day course intended to teach R to Excel Users.</p>
+<p>This course is designed to be a 5 day course intended to teach R to Excel Users. The intended time per day is 2-3 hours.</p>
 <table>
 <thead>
 <tr class="header">
-<th align="left">Day</th>
-<th align="right">Deliverable</th>
+<th>Day</th>
+<th>Focus</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">1</td>
-<td align="right"><a href="overview.html#overview">Overview</a></td>
+<td>1</td>
+<td><a href="overview.html#overview">Overview</a></td>
 </tr>
 <tr class="even">
-<td align="left">2</td>
-<td align="right"></td>
+<td>2</td>
+<td><a href="#04-Avacados">Avacado Tutorial 1</a></td>
 </tr>
 <tr class="odd">
-<td align="left">3</td>
-<td align="right"><a href="#filter-join">Filters &amp; joins</a> (AH)</td>
+<td>3</td>
+<td><a href="#05-Avacados2">Avacado Tutorial 2</a></td>
 </tr>
 <tr class="even">
-<td align="left">4</td>
-<td align="right"></td>
+<td>4</td>
+<td><a href="#06-visa">Visa Tutorial 1</a></td>
 </tr>
 <tr class="odd">
-<td align="left">5</td>
-<td align="right">Final Project</td>
+<td>5</td>
+<td><a href="#07-visa">Visa Tutorial 2</a></td>
 </tr>
 </tbody>
 </table>
+<p>Before the training, please do the following (10 minutes). All software is free and trusted.</p>
 </div>
-<div id="prerequisites" class="section level2">
-<h2><span class="header-section-number">1.2</span> Prerequisites</h2>
-<p>Before the training, please do the following (7 minutes). All software is free.</p>
+<div id="download-and-install-r" class="section level2">
+<h2><span class="header-section-number">1.2</span> Download and Install R</h2>
 <ol style="list-style-type: decimal">
-<li><strong>Download and install R and RStudio</strong>
-<ul>
-<li>R: <a href="https://cloud.r-project.org/" class="uri">https://cloud.r-project.org/</a></li>
-<li>RStudio: <a href="http://www.rstudio.com/download" class="uri">http://www.rstudio.com/download</a></li>
-<li>Follow your operating system’s normal installation process</li>
-</ul></li>
-<li><strong>Download workshop data</strong>
-<ul>
-<li>Data Folder here</li>
-</ul></li>
+<li><p>Navigate to the R website: <a href="https://cloud.r-project.org/" class="uri">https://cloud.r-project.org/</a></p></li>
+<li><p>Click Download for your Operating System (Windows, Mac OSx, or Linux - if you don’t have a MacBook, then you’re using Windows most likely)</p></li>
 </ol>
+<p><img src="images/os_image.png" width="70%" style="display: block; margin: auto;" /></p>
+<ol start="3" style="list-style-type: decimal">
+<li>Click the most recent R version to download. Install the downloaded application as you would with any other application on your computer.</li>
+</ol>
+<p><img src="images/download_r.png" width="70%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="download-and-install-rstudio" class="section level2">
+<h2><span class="header-section-number">1.3</span> Download and Install RStudio</h2>
+<ol style="list-style-type: decimal">
+<li><p>Navigate to the RStudio Website: <a href="http://www.rstudio.com/download" class="uri">http://www.rstudio.com/download</a></p></li>
+<li><p>Click Download under RStudio Desktop Free</p></li>
+</ol>
+<p><img src="images/rstudio_download1.png" width="70%" style="display: block; margin: auto;" /></p>
+<ol start="3" style="list-style-type: decimal">
+<li>This website detects your operating system, allowing you to just click download again. <em>Note that if it doesn’t automatically detect just select the download next to your operating system below this</em></li>
+</ol>
+<p><em>Note that you may be asked to install command line developer tools if you’re using a Mac - select Yes.</em></p>
+<p><img src="images/Rstudio_download2.png" width="70%" style="display: block; margin: auto;" /></p>
+<ol start="4" style="list-style-type: decimal">
+<li>Install the downloaded application as you normally would on your computer.</li>
+</ol>
+</div>
+<div id="download-workshop-data" class="section level2">
+<h2><span class="header-section-number">1.4</span> Download workshop data</h2>
+<ol style="list-style-type: decimal">
+<li><p>Navigate to the database - <a href="https://github.com/jsimkins2/dataforge" class="uri">https://github.com/jsimkins2/dataforge</a></p></li>
+<li><p>Click on <strong>Code</strong> - then click <strong>download as zip</strong></p></li>
+</ol>
+<p><img src="images/download_as_zip.png" width="70%" style="display: block; margin: auto;" /></p>
 
 </div>
 </div>
