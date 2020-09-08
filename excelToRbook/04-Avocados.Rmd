@@ -395,10 +395,10 @@ theme(plot.title=element_text(hjust=0.5), legend.position="bottom") + labs(title
 us = avocado_df[avocado_df$region == 'TotalUS',]
 
 ggplot(us, aes(x=Date,  y=Total.Volume)) + geom_point() + facet_wrap(~type) + 
-theme(plot.title=element_text(hjust=0.5), legend.position="bottom") + labs(title="Revenue by avocado Type")
+theme(plot.title=element_text(hjust=0.5), legend.position="bottom") + labs(title="Total Volume of Sales by Avocado Type")
 
 ggplot(us, aes(x=Date,  y=profit)) + geom_point() + facet_wrap(~type) + 
-theme(plot.title=element_text(hjust=0.5), legend.position="bottom") + labs(title="Profit by avocado Type")
+theme(plot.title=element_text(hjust=0.5), legend.position="bottom") + labs(title="Profit by Avocado Type")
 ```
 
 We'll explore these plots in more detail moving forward - we'll also clean them up a bit for a nice final product but for now this is great!
