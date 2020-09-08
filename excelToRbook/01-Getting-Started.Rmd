@@ -12,7 +12,7 @@ The purpose of this workshop is to teach working professionals how to use R for 
 | Attribute | Reason |
 |----|----------|
 | Speed | R is FAST. It can number crunch magnitudes faster than Microsoft Excel, for example. |
-| Capacity | R can handle millions of data records. Large datasets that crash in Microsoft Excel or ArcGIS won't crash in R. |
+| Capacity | R can handle millions of data records. Large datasets that crash in Microsoft Excel won't crash in R. |
 | Risk Reduction | After writing a single R Script, the process of your data science routine is auditable and reproducible within milliseconds. We can write 1 script and make alterations as we see fit. We don't have to replicate a process of pointing and clicking in Microsoft Excel or ArcGIS. For example, if you are working with a dataset that multiple people are using, you can load this dataset in R and perform the tasks that you need *without* making any changes to the original dataset. |
 | Visualizations | R is capable to create high quality visualizations and also has the capacity to create interactive visualizations that can easiliy be shared. Plots or images can easily be exported to PNG, JPEG, or even web-based interactive dashboards that can be hosted on a webpage |
 | Collaboration | R script sharing is safe and easy. As mentioned above, a team using the same data input file but performing different tasks on it can do so without editing the data input file for everyone else. Data output can also be shared without the concern of a colleague editing the file output. RStudio connect or Github are also popular free track all changes that take place between R script files.|
@@ -64,9 +64,9 @@ knitr::include_graphics("images/Rstudio_download2.png")
 4. Install the downloaded application as you normally would on your computer. 
 
 
-## Download Course Datasets
+## Download Workshop Datasets
 
-1. Navigate to the database - https://github.com/jsimkins2/geog473-673/tree/master/datasets
+1. Navigate to the database - https://github.com/jsimkins2/dataforge
 
 2. Click on **Code** - then click **download as zip**
   
