@@ -5,9 +5,10 @@ language:
     chapter_name: ""
 rmd_files: [
   "/Users/james/Documents/Github/pubforge/excelToRbook/Index.Rmd",
-  "/Users/james/Documents/Github/pubforge/excelToRbook/01-Overview.Rmd", 
-  "/Users/james/Documents/Github/pubforge/excelToRbook/02-Rstudio.Rmd", 
-  "/Users/james/Documents/Github/pubforge/excelToRbook/03-Technical.Rmd",
+  "/Users/james/Documents/Github/pubforge/excelToRbook/01-Getting-Started.Rmd", 
+  "/Users/james/Documents/Github/pubforge/excelToRbook/02-Definitions.Rmd", 
+  "/Users/james/Documents/Github/pubforge/excelToRbook/03-Fundamentals.Rmd",
+  "/Users/james/Documents/Github/pubforge/excelToRbook/04-R-Script-Template.Rmd",
   "/Users/james/Documents/Github/pubforge/excelToRbook/04-Avocados.Rmd",
   "/Users/james/Documents/Github/pubforge/excelToRbook/05-Avocados2.Rmd",
   "/Users/james/Documents/Github/pubforge/excelToRbook/06-visa.Rmd",

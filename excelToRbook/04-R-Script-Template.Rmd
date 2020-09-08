@@ -1,0 +1,122 @@
+# R Script Template
+
+In this example, we'll begin with data science question and answer it in R. We'll go through these scripts line by line to show how we can use R. To follow along, copy each of these lines and paste them in your R Script (top left quadrant). Once it's pasted there, we can run each line and view the output in the R Console (bottom left quadrant).
+
+## Cars - Motor Trends Magazine Data
+
+The data was extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973–74 models).
+
+Load the dataset - again this is a pre-loaded dataset, but let's call on it so we can bring it into our global environment.
+
+```{r}
+data('mtcars')
+head(mtcars)
+```
+
+The `head()` function is a quick function that prints out the first few rows of a dataset. 
+
+What's exactly is `mtcars`?
+
+```{r}
+class(mtcars)
+```
+
+It's a data.frame. Data Frames have a different storage than time series. You can also view this dataframe by clicking on the `mtcars` dataframe in your global environment. What are the dimensions of this dataframe? How many rows and columns does it have?
+
+
+```{r}
+dim(mtcars)
+nrow(mtcars)
+ncol(mtcars)
+```
+
+We have 32 rows and 11 columns within this dataframe. 
+
+What are our column names?
+
+```{r}
+colnames(mtcars)
+```
+
+What are our row names (aka the make of the car)?
+
+```{r}
+rownames(mtcars)
+```
+
+How do we extract individual columns/variables from this dataframe?
+
+```{r}
+mtcars["mpg"]
+```
+
+We can also extract the vector of data using the `$` operator.
+
+```{r}
+mtcars$mpg
+```
+
+What are the statistics like for each variable?
+
+```{r}
+summary(mtcars)
+```
+
+Notice that now the `summary()` function is printing out the summary statistics for each column (aka variable) within our dataframe (`mtcars`)
+
+Now that we're familiar with our dataset, let's plot the data to answer our question - what's the relationship between car weight and miles per gallon?
+
+```{r}
+plot(x = mtcars$mpg, y = mtcars$wt, xlab = "Miles per Gallon",  ylab = "Weight (tons)", main = "Cars Dataset")
+```
+
+Just as we suspected, the lighter the car, the higher the miles per gallon.
+
+### Entire Script
+
+```{r, eval=FALSE}
+# load the data - the mtcars dataset is pre-built 
+data('mtcars')
+
+# print out the first few rows of the dataset using the head() function
+head(mtcars)
+
+# print the class of the mtcars dataset
+class(mtcars)
+
+# dimensions of the mtcars dataframe
+dim(mtcars)
+
+# number of rows
+nrow(mtcars)
+
+# number of columns
+ncol(mtcars)
+
+# column names
+colnames(mtcars)
+
+# row names
+rownames(mtcars)
+
+# selecting the miles per gallon column
+mtcars["mpg"]
+
+# selecting the vector of the mpg column
+mtcars$mpg
+
+# printing a summary of the dataframe
+summary(mtcars)
+
+# plot weight of cars vs miles per gallon
+plot(x = mtcars$mpg, y = mtcars$wt, xlab = "Miles per Gallon",  ylab = "Weight (tons)", main = "Cars Dataset")
+```
+
+### Saving your plot
+
+We can save any plot from the R plot window. Simply navigate to the **Plots** tab and select **Export** then **Save As Image**. 
+
+```{r, echo=FALSE, fig.cap="Save As Image", out.width = '80%'}
+knitr::include_graphics("images/save_image.png")  
+```
+

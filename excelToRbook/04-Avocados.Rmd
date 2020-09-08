@@ -299,7 +299,7 @@ avocado_df$X4770 = NULL
 avocado_df$XLarge.Bags = NULL
 ```
 
-** Calculating Revenue and Profit **
+**Calculating Revenue and Profit**
 
   Revenue = TotalVolume * AveragePrice
   
@@ -373,7 +373,7 @@ Complete the following coding problems and submit the resulting plots and CSV fi
 
 2) Create a `geom_density() ggplot` of the California types of avocados vs. profit. Save this image. 
 
-3) Create a new dataframe subselecting the **'TotalUS'** region. First, plot a `geom_point` plot of x=Date, y=revenue, and with a facet wrap of the `type` of avocados. Second, plot a `geom_point` plot of x=Date, y=profit, and with a facet wrap of the `type` of avocados. Save these plots. 
+3) Create a new dataframe subselecting the **'TotalUS'** region. First, plot a `geom_point` plot of x=Date, y=Total.Volume, and with a facet wrap of the `type` of avocados. Second, plot a `geom_point` plot of x=Date, y=profit, and with a facet wrap of the `type` of avocados. Save these plots. 
 
 
 
@@ -394,7 +394,7 @@ theme(plot.title=element_text(hjust=0.5), legend.position="bottom") + labs(title
 
 us = avocado_df[avocado_df$region == 'TotalUS',]
 
-ggplot(us, aes(x=Date,  y=revenue)) + geom_point() + facet_wrap(~type) + 
+ggplot(us, aes(x=Date,  y=Total.Volume)) + geom_point() + facet_wrap(~type) + 
 theme(plot.title=element_text(hjust=0.5), legend.position="bottom") + labs(title="Revenue by avocado Type")
 
 ggplot(us, aes(x=Date,  y=profit)) + geom_point() + facet_wrap(~type) + 

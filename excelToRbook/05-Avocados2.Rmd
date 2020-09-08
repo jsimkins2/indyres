@@ -1,11 +1,12 @@
 ---
-title: "avocados Tutorial - Part 2"
+title: "Avocados Tutorial - Part 2"
 output:
   html_document:
     fig_height: 8
     fig_width: 12
     theme: cosmo
 ---
+
 # Avocados Tutorial - Part 2
 
 ```{r, echo=FALSE, out.width="100%", fig.align="center"}
@@ -266,7 +267,7 @@ conventional_volume <- ggplot(data = conventional, aes(x=Date, y=Total.Volume)) 
   geom_smooth(method="loess", color="red")
 
 # Let's create an organic average price chart
-organic_price = ggplot(data = organic, aes(x=Date, y=AveragePrice)) + geom_line(color="darkgreen") 
+organic_price = ggplot(data = organic, aes(x=Date, y=AveragePrice)) + geom_line(color="darkgreen") +
   labs(title="Organic Avocados") + geom_hline(yintercept=max(organic$AveragePrice), linetype="dashed", color = "red") + 
   geom_hline(yintercept=min(organic$AveragePrice), linetype="dashed", color = "blue")
 
@@ -301,9 +302,9 @@ avocado_df$Date[1]
 format(as.Date(avocado_df$Date[1]), "%Y-%m")
 
 # create the variables - notice the structure of the format
-seasonal_df$month_year <- format(as.Date(avocado_df$Date), "%Y-%m")
-seasonal_df$month <- format(as.Date(avocado_df$Date), "%m")
-seasonal_df$year <- format(as.Date(avocado_df$Date), "%Y")
+seasonal_df$year_month <- format(avocado_df$Date, "%Y-%m")
+seasonal_df$month <- format(avocado_df$Date, "%m")
+seasonal_df$year <- format(avocado_df$Date, "%Y")
 
 # print out the first 10 values
 seasonal_df$month[1:10]
@@ -330,7 +331,7 @@ Our dataset is now organized - let's plot it up to learn more about the avocados
 ** Distribution of Average Prices by year for both avocado types **
 
 ```{r}
-ggplot(seasonal_df, aes(x = AveragePrice, fill = as.factor(year))) + 
+ggplot(seasonal_df, aes(x = AveragePrice, fill = year)) + 
   geom_density(alpha = .5) + 
   facet_wrap(~year) + labs(title="Distribution of Prices by year", x = 'Average Price', y = 'Density') + 
   scale_fill_manual(values=c("blue", "green", "orange", "red"))
