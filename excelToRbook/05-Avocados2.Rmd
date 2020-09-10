@@ -328,7 +328,7 @@ seasonal_df$monthabb[1:10]
 
 Our dataset is now organized - let's plot it up to learn more about the avocados! First let's plot a density plot of the distribution of prices by year.
 
-** Distribution of Average Prices by year for both avocado types **
+**Distribution of Average Prices by year for both avocado types**
 
 ```{r}
 ggplot(seasonal_df, aes(x = AveragePrice, fill = year)) + 
@@ -340,7 +340,7 @@ ggplot(seasonal_df, aes(x = AveragePrice, fill = year)) +
 
 Notice that we used the `scale_fill_manual` argument here because the `geom_density` argument requires a `fill` value in the `ggplot` components `aes` function. 
 
-** Distribution of Average Prices by month for the Conventional Avocado **
+**Distribution of Average Prices by month for the Conventional Avocado**
 
 Let's select the conventional avocados using `select` and `filter` from `dplyr`.
 

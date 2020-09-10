@@ -187,6 +187,9 @@ library(lubridate)
 # now let's load in our dataset using read.csv
 avocado_df <- read.csv("datasets/avocado.csv")
 
+# if you have a windows machine it might look something like this...
+# avocado_df <- read.csv("C://Documents/dataforge-master/datasets/avocado.csv")
+
 ```
 
 ```{r include=FALSE}
@@ -226,7 +229,7 @@ sum(is.na(avocado_df$AveragePrice) == TRUE)
 
 To find out if there are any null data points we use the `is.na()` function. This prints out a `logical` (aka True or False) for each cell. It prints `FALSE` if there is data and `TRUE` if the data is `NA`. In the code above, we tell R to `sum()` the number of times the `is.na` reports `TRUE` for the `AveragePrice` variable. We see that the return is 0 here, thus telling us that there are no `NA` data points in this dataset. 
 
-** What are the various column names** 
+**What are the various column names** 
 
 With most things in R, there are multiple ways to answer the same question. 
 
@@ -253,7 +256,7 @@ unique(avocado_df$region)
 length(unique(avocado_df$region))
 ```
 
-** What types of avocados are in this dataset **
+**What types of avocados are in this dataset**
 
 ```{r}
 # Remember, we can query information about a variable using avocado_df$type or avocado_df['type']
@@ -340,7 +343,7 @@ avocado_df$profit = ifelse(test = avocado_df$type == 'conventional', yes = (avoc
 
 `ifelse()` takes 3 arguments - `test`, `yes` and `no`. Our test is whether the `avocado_df$type` is `conventional`. If it is indeed `conventional` we multiply our revenue by 0.15 to calculate the profit. Conversely if it is not `conventional`, then it must be organic and thus we multiply our revenue by 0.45 to calculate the profit. This is the beauty of R in motion. The `ifelse()` function is automatically rolling through **every row** and running the same test. Notice how fast this runs. Keep in mind that this dataset is ~18,000 rows long. 
 
-** Let's take a look at our updated dataframe **
+**Let's take a look at our updated dataframe**
 
 ```{r, echo=FALSE}
 datatable(head(avocado_df,30), style="default", class="table-condensed", options = list(dom = 'tp',scrollX = TRUE))
@@ -365,11 +368,11 @@ write.csv(x = avocado_df, file = "/Users/james/Downloads/updated_avocado.csv")
 
 Complete the following coding problems and submit the resulting plots and CSV file. 
 
+1) The profit for California avocados is 5% higher for **both** conventional and organic avocados. Make an adjustment to the `profit` variable of the dataframe that reflects the situation where if a rows region is `California`, the profit is 5% higher for those rows. Save this updated CSV. 
+
   HINT: Creating a separate Dataframe of the Albany region is done like so...
 
   `albany = avocado_df[avocado_df$region == 'Albany',]`
-
-1) The profit for California avocados is 5% higher for **both** conventional and organic avocados. Make an adjustment to the `profit` variable of the dataframe that reflects the situation where if a rows region is `California`, the profit is 10% higher for those rows. Save this updated CSV. 
 
 2) Create a `geom_density() ggplot` of the California types of avocados vs. profit. Save this image. 
 
