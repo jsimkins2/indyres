@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>1 DataFrames, For Loops, and Plotting | 03-DataFrames.utf8</title>
+  <meta name="description" content="" />
+  <meta name="generator" content="bookdown 0.20.6 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="1 DataFrames, For Loops, and Plotting | 03-DataFrames.utf8" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="1 DataFrames, For Loops, and Plotting | 03-DataFrames.utf8" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Tech Trainings: Introduction to R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path=""><a href="#dataframes-for-loops-and-plotting"><i class="fa fa-check"></i><b>1</b> DataFrames, For Loops, and Plotting</a><ul>
+<li class="chapter" data-level="1.1" data-path=""><a href="#data-frames"><i class="fa fa-check"></i><b>1.1</b> Data Frames</a></li>
+<li class="chapter" data-level="1.2" data-path=""><a href="#indexing-data-frames"><i class="fa fa-check"></i><b>1.2</b> Indexing Data Frames</a></li>
+<li class="chapter" data-level="1.3" data-path=""><a href="#for-loops"><i class="fa fa-check"></i><b>1.3</b> For Loops</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">James Simkins</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<!--bookdown:title:end-->
+<!--bookdown:title:start-->
+<div id="dataframes-for-loops-and-plotting" class="section level1">
+<h1><span class="header-section-number">1</span> DataFrames, For Loops, and Plotting</h1>
+<div id="data-frames" class="section level2">
+<h2><span class="header-section-number">1.1</span> Data Frames</h2>
+<p>Data frames are used to store tabular data in R. They are an important
+type of object in R and are used in a variety of applications. We’ll be working with many dataframes throughout these tutorials.</p>
+<p>Data frames are represented as a special type of list where every
+element of the list must have the same length. Each element of the
+list can be thought of as a column and the length of each element of
+the list is the number of rows.</p>
+<p>Data frames are similar to matrices but one key distinction is that data frames can store different classes of objects in
+each column. As a reminder, each element of a matrix must be of the same class (e.g. all integers or all numeric).</p>
+<p>In addition to column names, indicating the names of the variables or
+predictors, data frames have a special attribute called <code>row.names</code>
+which indicate information about each row of the data frame.</p>
+<p>Data frames are usually created by reading in a dataset using the
+<code>read.table()</code> or <code>read.csv()</code>. However, data frames can also be
+created explicitly with the <code>data.frame()</code> function or they can be
+coerced from other types of objects like lists.</p>
+<p>Let’s continue to use our fruits example but this time create a dataframe using the <code>data.frame()</code> function from the <code>base</code> package.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>apples =<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">3</span>) <span class="co"># apples consumed each day of the week</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>oranges =<span class="st"> </span><span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>) <span class="co"># oranges consumed each day of the week</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a></span>
+<span id="cb1-4"><a href="#cb1-4"></a>fruits_df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Apples =</span>  apples, <span class="dt">Oranges =</span> oranges)</span>
+<span id="cb1-5"><a href="#cb1-5"></a>fruits_df</span></code></pre></div>
+<pre><code>##   Apples Oranges
+## 1      2       4
+## 2      1       1
+## 3      3       5
+## 4      0       0
+## 5      5       2
+## 6      7       3
+## 7      3       2</code></pre>
+<p>Our Column names are reflected by our specification within the <code>data.frame()</code> function. Let’s adjust the rownames like we did before.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>weekday_vector =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Mon&quot;</span>, <span class="st">&quot;Tue&quot;</span>, <span class="st">&quot;Wed&quot;</span>, <span class="st">&quot;Thu&quot;</span>, <span class="st">&quot;Fri&quot;</span>, <span class="st">&quot;Sat&quot;</span>, <span class="st">&quot;Sun&quot;</span>)</span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="kw">rownames</span>(fruits_df) =<span class="st"> </span>weekday_vector</span>
+<span id="cb3-3"><a href="#cb3-3"></a>fruits_df</span></code></pre></div>
+<pre><code>##     Apples Oranges
+## Mon      2       4
+## Tue      1       1
+## Wed      3       5
+## Thu      0       0
+## Fri      5       2
+## Sat      7       3
+## Sun      3       2</code></pre>
+<p>At this point, <code>fruits_df</code> looks identical to our fruits matrix from the previous section. What’s the class?</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">class</span>(fruits_df)</span></code></pre></div>
+<pre><code>## [1] &quot;data.frame&quot;</code></pre>
+<p>Remember, the advantage of using a data.frame in R is that it can contain elements of different classes. For example, we could add an additional column to our <code>fruits_df</code> with a logical description of whether soccer practice took place.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>apples =<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">3</span>) <span class="co"># apples consumed each day of the week</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a>oranges =<span class="st"> </span><span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>) <span class="co"># oranges consumed each day of the week</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a>soccer_practice =<span class="st"> </span><span class="kw">c</span>(<span class="ot">FALSE</span>, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a>                    )</span>
+<span id="cb7-5"><a href="#cb7-5"></a>fruits_df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Apples =</span>  apples, <span class="dt">Oranges =</span> oranges, <span class="dt">Soccer_Practice =</span> soccer_practice)</span>
+<span id="cb7-6"><a href="#cb7-6"></a></span>
+<span id="cb7-7"><a href="#cb7-7"></a>weekday_vector =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Mon&quot;</span>, <span class="st">&quot;Tue&quot;</span>, <span class="st">&quot;Wed&quot;</span>, <span class="st">&quot;Thu&quot;</span>, <span class="st">&quot;Fri&quot;</span>, <span class="st">&quot;Sat&quot;</span>, <span class="st">&quot;Sun&quot;</span>)</span>
+<span id="cb7-8"><a href="#cb7-8"></a><span class="kw">rownames</span>(fruits_df) =<span class="st"> </span>weekday_vector</span>
+<span id="cb7-9"><a href="#cb7-9"></a>fruits_df</span></code></pre></div>
+<pre><code>##     Apples Oranges Soccer_Practice
+## Mon      2       4           FALSE
+## Tue      1       1            TRUE
+## Wed      3       5           FALSE
+## Thu      0       0            TRUE
+## Fri      5       2           FALSE
+## Sat      7       3           FALSE
+## Sun      3       2           FALSE</code></pre>
+<p>Data Frames are a powerful class in R. We can actually click on our <code>fruits_df</code> data.frame in the global environment and visualize it. This is only recommended if you are dealing with a smaller data frame as larger data frames can freeze your computer if you visualize the table.</p>
+</div>
+<div id="indexing-data-frames" class="section level2">
+<h2><span class="header-section-number">1.2</span> Indexing Data Frames</h2>
+<p>Indexing is a skill necessary for shrinking a dataset or extracting specific information. Through indexing, we can isolate a column, a row, or even replace data. For example, let’s say we only want to handle the <code>Apples</code> column within the <code>fruits_df</code> dataframe. This can be done via indexing like so…</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>fruits_df[<span class="st">&quot;Apples&quot;</span>]</span></code></pre></div>
+<pre><code>##     Apples
+## Mon      2
+## Tue      1
+## Wed      3
+## Thu      0
+## Fri      5
+## Sat      7
+## Sun      3</code></pre>
+<p>Using this notation of calling the data.frame, using square brackets <code>[]</code> with the appropriate column name inside (<code>"Apples"</code>), we were able to isolate only the <code>Apples</code> column within this dataframe.Let’s say, for example, that we only want to use the data within that column and don’t care for the data.frame of just that column.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>fruits_df[,<span class="st">&quot;Apples&quot;</span>]</span></code></pre></div>
+<pre><code>## [1] 2 1 3 0 5 7 3</code></pre>
+<p>What’s the difference? Notice the <strong>comma</strong> preceding the <code>"Apples"</code> name. Data is stored as <code>data[row, column]</code> in R. Therefore, when we use code like <code>fruits_df[,"Apples"]</code>, we’re telling R that we want to grab <em>all rows of data</em> and the <code>"Apples"</code> column. The same can be performed using numeric operation.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>fruits_df[,<span class="dv">1</span>]</span></code></pre></div>
+<pre><code>## [1] 2 1 3 0 5 7 3</code></pre>
+<p>We named our columns within our <code>fruits_df</code> Data Frame and that’s why we can use the column names to subset data. However, these rows and columns <em>also</em> have numbers associated with them. When we code <code>fruits_df[,1]</code>, we’re telling R that we want <em>all</em> rows and the <em>first</em> column. When we want <em>all</em> rows or columns, simply leave the space blank before/after a comma. We can subset even further by selecting the specific row that we want.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>fruits_df[<span class="dv">5</span>,<span class="dv">1</span>]</span></code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<p>Here we grab the <code>fruits_df</code> data point from the 5th row and 1st column within the <code>fruits_df</code>. <em>This is indexing/subsetting!</em> We’re taking a piece of our dataframe that we select using the square brackets <code>[]</code> . An important note is that this is <em>the same way matrixes can be indexed/subset</em>. One advantage that data frames has over matrices aside from the mixed class of elements it can hold is the use of the <code>$</code> operator.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>fruits_df<span class="op">$</span>Apples</span></code></pre></div>
+<pre><code>## [1] 2 1 3 0 5 7 3</code></pre>
+<p>When the <code>$</code> operator is used immediately following a data frame call, we can access the vector of data specified within that column of our dataframe. When we return a vector of data like we can with <code>fruits_df$Apples</code>, we’ve subsetted that specific column. Therefore, we no longer have the option to specify using <code>data[row,column]</code> since we only have 1 column. Instead, we can subset to only a specific row <em>within</em> that column.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a>fruits_df<span class="op">$</span>Apples[<span class="dv">5</span>]</span></code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<p>This returns the element within the 5th row of the <code>Apples</code> column of the <code>fruits_df</code> dataframe. Indexing will be very useful for dataframes and other classes of data moving forward.</p>
+</div>
+<div id="for-loops" class="section level2">
+<h2><span class="header-section-number">1.3</span> For Loops</h2>
+<p>For loops &amp; conditional statements are a key skill in programming. They allow you to automate a process and decrease the amount of manual work performed. They remove tedious procedures. For loops often contain the use of arithmetic <strong>and</strong> conditonal operators.</p>
+<p><br>
+<br></p>
+<table>
+<colgroup>
+<col width="15%" />
+<col width="34%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Operator Name</th>
+<th>Example</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>arithmetic operators</td>
+<td><code>+,-,*,/,^</code></td>
+<td>Math operators used for addition, subtraction, multiplication, division, exponent, respectively.</td>
+</tr>
+<tr class="even">
+<td>comparison operators</td>
+<td><code>==, &lt;, &gt;, &lt;=, &gt;=, !=</code></td>
+<td>Is equal to, less than, greater than, less than or equal to, greater than or equal to, is NOT equal to, respectively</td>
+</tr>
+<tr class="odd">
+<td>and/or operators</td>
+<td><code>&amp;, |</code></td>
+<td>AND, OR</td>
+</tr>
+</tbody>
+</table>
+<p><br>
+<br></p>
+<p>We’ve already discussed and even used some of these operators but they commonly occur within a for loop. The general structure of a for loop looks like…</p>
+<p><code>for (condition){</code><br />
+<code>perform action</code><br />
+<code>}</code></p>
+<p>Let’s loop through a sequence of numbers.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="co"># Generate sequence of numbers from 1 to 10 using the seq() function</span></span>
+<span id="cb21-2"><a href="#cb21-2"></a>numbersList =<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from=</span><span class="dv">1</span>,<span class="dt">to=</span><span class="dv">10</span>,<span class="dt">by=</span><span class="dv">1</span>)</span>
+<span id="cb21-3"><a href="#cb21-3"></a><span class="co"># print the value of i</span></span>
+<span id="cb21-4"><a href="#cb21-4"></a><span class="cf">for</span> (i <span class="cf">in</span> numbersList){</span>
+<span id="cb21-5"><a href="#cb21-5"></a>  <span class="kw">print</span>(i)</span>
+<span id="cb21-6"><a href="#cb21-6"></a>}</span></code></pre></div>
+<pre><code>## [1] 1
+## [1] 2
+## [1] 3
+## [1] 4
+## [1] 5
+## [1] 6
+## [1] 7
+## [1] 8
+## [1] 9
+## [1] 10</code></pre>
+<p>Here, our <em>condition</em> is to loop through each <em><code>i</code></em> value within numbersList. The value is <em><code>i</code></em> changes with each <em>iteration of the loop</em>. The action we perform is <em>printing <code>i</code></em>. <code>i</code> is arbitrary and can be called whatever temporary variable name we want. For example, let’s use <code>asdf</code> instead of <code>i</code>.</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="co"># Generate sequence of numbers from 1 to 10 using the seq() function</span></span>
+<span id="cb23-2"><a href="#cb23-2"></a>numbersList =<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from=</span><span class="dv">1</span>,<span class="dt">to=</span><span class="dv">10</span>,<span class="dt">by=</span><span class="dv">1</span>)</span>
+<span id="cb23-3"><a href="#cb23-3"></a><span class="co"># print the value of i</span></span>
+<span id="cb23-4"><a href="#cb23-4"></a><span class="cf">for</span> (asdf <span class="cf">in</span> numbersList){</span>
+<span id="cb23-5"><a href="#cb23-5"></a>  <span class="kw">print</span>(asdf)</span>
+<span id="cb23-6"><a href="#cb23-6"></a>}</span></code></pre></div>
+<pre><code>## [1] 1
+## [1] 2
+## [1] 3
+## [1] 4
+## [1] 5
+## [1] 6
+## [1] 7
+## [1] 8
+## [1] 9
+## [1] 10</code></pre>
+<p>The result is the same. The condition is always initiated by a <strong>for</strong> call and then placed <strong>inside parentheses</strong>. The action we perform is always follows the condition and is placed <strong>inside curly brackets</strong>. Always remember, <code>for(condition){perform action}</code></p>
+<p>Now let’s build of the above example and use some of our conditional.</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="co"># Generate sequence of numbers from 1 to 10 using the seq() function</span></span>
+<span id="cb25-2"><a href="#cb25-2"></a>numbersList =<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from=</span><span class="dv">1</span>,<span class="dt">to=</span><span class="dv">10</span>,<span class="dt">by=</span><span class="dv">1</span>)</span>
+<span id="cb25-3"><a href="#cb25-3"></a><span class="co"># print i if the number is greater than 4</span></span>
+<span id="cb25-4"><a href="#cb25-4"></a><span class="cf">for</span> (i <span class="cf">in</span> numbersList){</span>
+<span id="cb25-5"><a href="#cb25-5"></a>  <span class="cf">if</span> (i <span class="op">&gt;</span><span class="st"> </span><span class="dv">4</span>){</span>
+<span id="cb25-6"><a href="#cb25-6"></a>    <span class="kw">print</span>(i)</span>
+<span id="cb25-7"><a href="#cb25-7"></a>  }</span>
+<span id="cb25-8"><a href="#cb25-8"></a>}</span></code></pre></div>
+<pre><code>## [1] 5
+## [1] 6
+## [1] 7
+## [1] 8
+## [1] 9
+## [1] 10</code></pre>
+<p>This is referred to as a <strong>nested loop</strong> because we have an <strong>if statement</strong> within a <strong>for loop</strong>. The general structure is <code>for(condition){if(condition){perform action}}</code>. In this example, we only print <code>i</code> if <code>i</code> is greater than 4. What happens if we change the <code>numbersList</code>?</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="co"># Generate sequence of numbers from 70 to 80 using the seq() function</span></span>
+<span id="cb27-2"><a href="#cb27-2"></a>numbersList =<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from=</span><span class="dv">70</span>,<span class="dt">to=</span><span class="dv">80</span>,<span class="dt">by=</span><span class="dv">1</span>)</span>
+<span id="cb27-3"><a href="#cb27-3"></a><span class="co"># print i </span></span>
+<span id="cb27-4"><a href="#cb27-4"></a><span class="cf">for</span> (i <span class="cf">in</span> numbersList){</span>
+<span id="cb27-5"><a href="#cb27-5"></a>  <span class="kw">print</span>(i)</span>
+<span id="cb27-6"><a href="#cb27-6"></a>}</span></code></pre></div>
+<pre><code>## [1] 70
+## [1] 71
+## [1] 72
+## [1] 73
+## [1] 74
+## [1] 75
+## [1] 76
+## [1] 77
+## [1] 78
+## [1] 79
+## [1] 80</code></pre>
+<p>Now, let’s say there’s a scenario where we care more about the total number of values within <code>numbersList</code> as opposed to the actual <code>numbersList</code> value. We can use <code>1:length(numbersList)</code> to accomplish this.</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="co"># Generate sequence of numbers from 70 to 80 using the seq() function</span></span>
+<span id="cb29-2"><a href="#cb29-2"></a>numbersList =<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from=</span><span class="dv">70</span>,<span class="dt">to=</span><span class="dv">80</span>,<span class="dt">by=</span><span class="dv">1</span>)</span>
+<span id="cb29-3"><a href="#cb29-3"></a><span class="kw">length</span>(numbersList)</span></code></pre></div>
+<pre><code>## [1] 11</code></pre>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a><span class="co"># print i </span></span>
+<span id="cb31-2"><a href="#cb31-2"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(numbersList)){</span>
+<span id="cb31-3"><a href="#cb31-3"></a>  <span class="kw">print</span>(i)</span>
+<span id="cb31-4"><a href="#cb31-4"></a>}</span></code></pre></div>
+<pre><code>## [1] 1
+## [1] 2
+## [1] 3
+## [1] 4
+## [1] 5
+## [1] 6
+## [1] 7
+## [1] 8
+## [1] 9
+## [1] 10
+## [1] 11</code></pre>
+<p>Notice that the length of <code>numbersList</code> is 11 and that <code>i</code> is ranging from values of 1 to 11. The colon operator <code>:</code> acts as a sequence maker that automatically spans by 1 between two values.</p>
+<p>In the next scenario, let’s loop from 1 to the length of <code>numbersList</code> and then if our loop variable <code>i</code> is equal to 7, let’s multiple the 7th value of the <code>numbersList</code> by 8 and store it as <code>temNumber</code>.</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="co"># Generate sequence of numbers from 1 to 10 using the seq() function</span></span>
+<span id="cb33-2"><a href="#cb33-2"></a>numbersList =<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from=</span><span class="dv">70</span>,<span class="dt">to=</span><span class="dv">80</span>,<span class="dt">by=</span><span class="dv">1</span>)</span>
+<span id="cb33-3"><a href="#cb33-3"></a><span class="kw">print</span>(numbersList[<span class="dv">7</span>])</span></code></pre></div>
+<pre><code>## [1] 76</code></pre>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="co"># multiply numbersList[i] by 8 if i is equal to 7 </span></span>
+<span id="cb35-2"><a href="#cb35-2"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(numbersList)){</span>
+<span id="cb35-3"><a href="#cb35-3"></a>  <span class="cf">if</span> (i <span class="op">==</span><span class="st"> </span><span class="dv">7</span>){</span>
+<span id="cb35-4"><a href="#cb35-4"></a>    temNumber =<span class="st"> </span>numbersList[i] <span class="op">*</span><span class="st"> </span><span class="dv">8</span></span>
+<span id="cb35-5"><a href="#cb35-5"></a>  }</span>
+<span id="cb35-6"><a href="#cb35-6"></a>}</span>
+<span id="cb35-7"><a href="#cb35-7"></a></span>
+<span id="cb35-8"><a href="#cb35-8"></a><span class="kw">print</span>(i)</span></code></pre></div>
+<pre><code>## [1] 11</code></pre>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a><span class="kw">print</span>(temNumber)</span></code></pre></div>
+<pre><code>## [1] 608</code></pre>
+<p>The first condition specifies that to loop through each <code>i</code> <strong>between</strong> 1 <em>and</em> the length of <code>numbersList</code>. With our condition specified like this, are <em>still looping from 1 to 10</em>. The second condition specifies that <strong>if</strong> <code>i</code> is exactly equal to 7, multiply with 7th value in <code>numbersList</code> (aka <code>numbersList[7]</code>) by 8 and store it as <code>temNumber</code>. Afterwards, we print out <code>i</code> and <code>temNumber</code>. We notice that <code>i</code> is equal to 11, the length of our <code>numbersList</code>. Meanwhile, <code>temNumber</code> is equal to 608, since <code>i</code> was exactly equal to 7 and thus 76 (<code>numbersList[7]</code>) was multiplied by 8.</p>
+<p>For loops are very customizable as we can see above. Let’s explore one more example and this time use our <code>fruit_df</code> data frame to answer a question. <strong>How many Apples were consumed on days where there was no soccer practice?</strong></p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a><span class="cf">for</span> (d <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(fruits_df<span class="op">$</span>Apples)){</span>
+<span id="cb39-2"><a href="#cb39-2"></a>  <span class="cf">if</span> (fruits_df<span class="op">$</span>Soccer_Practice[d] <span class="op">==</span><span class="st"> </span><span class="ot">FALSE</span>){</span>
+<span id="cb39-3"><a href="#cb39-3"></a>    <span class="kw">print</span>(fruits_df<span class="op">$</span>Apples[d])</span>
+<span id="cb39-4"><a href="#cb39-4"></a>  }</span>
+<span id="cb39-5"><a href="#cb39-5"></a>}</span></code></pre></div>
+<pre><code>## [1] 2
+## [1] 3
+## [1] 5
+## [1] 7
+## [1] 3</code></pre>
+<p>This does well with our given conditions but doesn’t tell us the total number of apples that were consumed on days where there was no soccer practice. In order to crunch that number, we’ll need to introduce a new function called <code>append()</code>. <code>append()</code> literally appends values to the end of an existing vector. For example…</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a><span class="co"># create a new vector called numbers_vec</span></span>
+<span id="cb41-2"><a href="#cb41-2"></a>numbers_vec =<span class="st"> </span><span class="kw">c</span>(<span class="dv">19</span>)</span>
+<span id="cb41-3"><a href="#cb41-3"></a><span class="kw">print</span>(numbers_vec)</span></code></pre></div>
+<pre><code>## [1] 19</code></pre>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a><span class="co"># use the append function to add 24 to the end of our vector</span></span>
+<span id="cb43-2"><a href="#cb43-2"></a>numbers_vec =<span class="st"> </span><span class="kw">append</span>(<span class="dt">x =</span> numbers_vec, <span class="dt">values =</span> <span class="dv">24</span>)</span>
+<span id="cb43-3"><a href="#cb43-3"></a><span class="kw">print</span>(numbers_vec)</span></code></pre></div>
+<pre><code>## [1] 19 24</code></pre>
+<p>Notice that we are <strong>overwriting</strong> <code>numbers_vec</code>. Now, our <code>numbers_vec</code> vector <em>includes</em> the original 19 <em>and</em> 24. Now that we know how to use this, we can bring this into our for loop and create a new vector that only contains apples consumed on days where there was no soccer practice.</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a><span class="co"># create new_apples blank vector</span></span>
+<span id="cb45-2"><a href="#cb45-2"></a>new_apples =<span class="st"> </span><span class="kw">c</span>()</span>
+<span id="cb45-3"><a href="#cb45-3"></a><span class="cf">for</span> (d <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(fruits_df<span class="op">$</span>Apples)){</span>
+<span id="cb45-4"><a href="#cb45-4"></a>  <span class="cf">if</span> (fruits_df<span class="op">$</span>Soccer_Practice[d] <span class="op">==</span><span class="st"> </span><span class="ot">FALSE</span>){</span>
+<span id="cb45-5"><a href="#cb45-5"></a>    new_apples =<span class="st"> </span><span class="kw">append</span>(<span class="dt">x =</span> new_apples, fruits_df<span class="op">$</span>Apples[d])</span>
+<span id="cb45-6"><a href="#cb45-6"></a>  }</span>
+<span id="cb45-7"><a href="#cb45-7"></a>}</span>
+<span id="cb45-8"><a href="#cb45-8"></a></span>
+<span id="cb45-9"><a href="#cb45-9"></a><span class="co"># print the new_apples values</span></span>
+<span id="cb45-10"><a href="#cb45-10"></a>new_apples</span></code></pre></div>
+<pre><code>## [1] 2 3 5 7 3</code></pre>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a><span class="co"># sum the total number of apples consumed when there was no soccer practice</span></span>
+<span id="cb47-2"><a href="#cb47-2"></a><span class="kw">sum</span>(new_apples)</span></code></pre></div>
+<pre><code>## [1] 20</code></pre>
+<p>There were 20 apples consumed on days where there was no soccer practice.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+},
+"search": false
+});
+});
+</script>
+
+</body>
+
+</html>

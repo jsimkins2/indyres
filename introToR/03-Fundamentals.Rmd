@@ -1,0 +1,482 @@
+# R Coding Fundamentals
+
+Now that we're comfortable with R Studio and have some definitions under our belt, let's dive in a little into some R code and discuss it. These fundamentals can always be referred back to when we might be stuck coding later on. 
+
+## Entering Input
+
+In the R Script area, we write code. Whenever we want to assign a variable, we do so using the assignment operator. The `<-` symbol is the assignment operator. We can also use `=` which is a bit more intuitive. It is alright to interchange these when assigning variables. 
+
+```{r}
+val <- 1
+print(val)
+val
+msg <- "hello"
+```
+
+`val` and `msg` are both variables that we assigned. 
+
+We use the `#` character to write comments inside our code. Commented code is NOT executed by R. 
+
+```{r, eval=FALSE}
+x <-  ## Incomplete expression
+```
+
+Anything to the right of the # (including the # itself) is ignored. 
+
+## Running Code
+
+After placing the above code in your R Script area, we can run the code. Code execution is done in the R Console. We can "send" our code in the R Script to the R Console using the Run Button, ctrl + enter (Windows), or cmd + enter (Mac). We can select specific lines of code to run, larger chunks, or the entire R Script. 
+
+```{r, echo=FALSE, out.width="70%", fig.align="center"}
+knitr::include_graphics("images/runRcode.png")  
+```
+
+## Evaluation
+
+When a complete expression is entered at the prompt, it is evaluated
+and the result of the evaluated expression is returned. The result may
+be *auto-printed*.
+
+```{r}
+val <- 14   ## nothing printed
+val         ## auto-printing occurs
+print(val)  ## explicit printing
+```
+
+The `[1]` shown in the output indicates that `x` is a vector and `14`
+is its first element. Typically we do not explicitly print variables since auto-printing is easier. 
+
+When an R vector is printed you will notice that an index for the
+vector is printed in square brackets `[]` on the side. For example,
+see this integer sequence of length 10.
+
+```{r,echo=FALSE}
+old <- options(width = 40)
+```
+
+```{r}
+my_seq <- 10:20
+my_seq
+```
+
+```{r,echo=FALSE}
+options(old)
+```
+
+Notice the `[1]` that preceeds the sequence. The output inside the square bracket is not part of the vector itself, it's just part of the printed output that has additional information to be more user-friendly. This extra information is not part of the object itself. Also note that we used the `:` operator to create a sequence of integers from 10 to 20 (`10:20`). 
+
+Note that the `:` operator is used to create integer sequences.
+
+## Packages and Functions
+
+In R, a package is a collection of functions. A function is a tool you can use to do something. In other words, imagine a package as a toolbox and functions as the tools within the toolbox. If we want to *load* the *wrenches* toolbox, we can load it like so - `library(wrenches)`. Then, we can use different wrenches from that toolbox like - `small_wrench()`, `medium_wrench()`, `big_wrench()`. In R, a `base` package is automatically loaded in for you. Within the `base` package, we can find common functions such as `mean()`, `min()`, `max()`, etc. We can also find mathematical functions such as `log()`, `sin()`, `cos()`, etc. Even though it's redundant, let's load the `base` package.
+
+```{r}
+library(base)
+
+my_seq <- 10:20
+mean(my_seq)
+```
+
+The mean of our sequence of numbers (stored as the object `my_seq`) is 15. It printed this out automatically due to the fact that we didn't store it as an object.
+
+```{r}
+library(base)
+
+my_seq = 10:20
+my_mean = mean(my_seq)
+my_mean
+```
+
+Now, we stored the mean of our `my_seq` as `my_mean`. This object can now be found in our global environment (top right quadrant) and is recognized by R. Notice how I used the `=` assignment operator as opposed to `<-`. Either can be used when assigning an object in R. Also, how do we know something is a function in R? Because of the `()` parentheses following the function name `mean()`.
+
+## Arguments
+
+Functions have changeable parameters called `arguments`. These **arguments must be declared using the `=` operator** and they are **always separated by a comma**. Let's take a look at the sequence function  `seq()` by running the following `help()` (you can also run `?seq`.
+
+```{r, eval=FALSE}
+help(seq)
+```
+
+Notice that we have arguments `from`, `to`, `by`, `length.out`, and `along.with`. These arguments are **pre-definded**, meaning if you don't declare the values for the arguments, the function will automatically have arguments declared for you. 
+
+```{r}
+my_seq <- seq(from = 50, to = 100, by = 10)
+my_seq
+```
+
+We declared our `from`, `to`, and `by` arguments here to create this new sequence of numbers from 50 to 100 spaced by 10. We declared the arguments using the `=` operator and separated them via a comma. Let's try something different now...
+
+```{r}
+my_seq <- seq(50,100,10)
+my_seq
+```
+
+The same result. Even though I didn't explicitly declare the functions, R assumed I was declaring arguments `from`, `to`, and `by` with the numbers separated by commas. This is called shorthand argument declaration. **If you're going to use shorthand argument delcaration, the order of the arguments must match the order they are listed in the function**. However, if we explicitly declare our functions, we can use whatever order we want. 
+
+```{r}
+my_seq <- seq(by = 10, to = 100, from = 50)
+my_seq
+```
+
+
+## R Objects
+
+R has five basic classes of objects:
+
+-   character
+
+-   numeric (real numbers)
+
+-   integer
+
+-   complex
+
+-   logical (True/False)
+
+The most basic type of R object is a vector. Empty vectors can be
+created with the `vector()` function.  There is really only one rule
+about vectors in R, which is that **A vector can only contain objects
+of the same class**.
+
+But of course, like any good rule, there is an exception, which is a
+*list*, which we will get to a bit later. A list is represented as a
+vector but can contain objects of different classes. Indeed, that's
+usually why we use them.
+
+## Creating Vectors
+
+The `c()` function is referred to as the concatenate (combine) function. Using this, we can create vectors of objects by combining them together.
+
+```{r}
+x <- c(1.25, 2.50)       ## numeric
+x <- c(TRUE, FALSE)    ## logical
+x <- c(T, F)           ## logical
+x <- c("yes", "no", "maybe")  ## character
+x <- 25:44              ## integer
+x <- c(1+2i, 3+8i)     ## complex
+```
+
+Note that in the above example, `T` and `F` are short-hand ways to
+specify `TRUE` and `FALSE`. However, in general one should try to use
+the explicit `TRUE` and `FALSE` values when indicating logical
+values.
+
+
+## Mixing Objects
+
+There are occasions when different classes of R objects get mixed
+together. Sometimes this happens by accident but it can also happen on
+purpose. So what happens with the following code?
+
+```{r}
+y <- c(1.7, "a")   ## character
+y <- c(TRUE, 2)    ## numeric
+y <- c("a", TRUE)  ## character
+```
+
+In each case above, we are mixing objects of two different classes in
+a vector. But remember that the only rule about vectors says this is
+not allowed. When different objects are mixed in a vector, _coercion_
+occurs so that every element in the vector is of the same class.
+
+In the example above, we see the effect of *implicit coercion*. What R
+tries to do is find a way to represent all of the objects in the
+vector in a reasonable fashion. Sometimes this does exactly what you
+want and...sometimes not. For example, combining a numeric object with
+a character object will create a character vector, because numbers can
+usually be easily represented as strings.
+
+
+## Changing Classes
+
+Objects can be explicitly coerced from one class to another using the
+`as.*` functions. In other words, you can change the class of one thing to another
+via the `as.*` functions.
+
+```{r}
+x <- 0:10
+class(x)
+as.numeric(x)
+as.logical(x)
+as.character(x)
+```
+
+```{r}
+x <- c("a", "b", "c")
+as.numeric(x)
+as.logical(x)
+as.complex(x)
+```
+
+## Missing Values
+
+In certain datasets, you'll find values called `NA` or `NaN`. `NA` is short for `Not Available`, `NaN` is short for`Not a Number` .
+This is equivalent to a blank grid cell in Microsoft Excel. 
+
+- `is.na()` is used to test objects if they are `NA`
+
+- `is.nan()` is used to test for `NaN`
+
+- `NA` values have a class also, so there are integer `NA`, character
+  `NA`, etc.
+
+- A `NaN` value is also `NA` but the converse is not true
+
+```{r}
+x = c(1,2,NA,NaN,5)
+is.na(x)
+is.nan(x)
+mean(x)
+```
+
+Sometimes, R will return NA. This can mean we haven't given R every argument it needs to accomplish a task, we have used an incorrect function, we have given R an incomplete dataset, or we haven't removed NAs from a calculation like `mean()`. Note that if you run `help(mean)` or `?mean()`, you'll see a logical argument called `na.rm`. 
+
+```{r}
+mean(x, na.rm = TRUE)
+```
+
+## Attributes
+
+R objects can have attributes, which are like metadata for the
+object. These metadata can be very useful in that they help to
+describe the object. For example, column names on a data frame help to
+tell us what data are contained in each of the columns. Some examples
+of R object attributes are
+
+-   names, dimnames
+
+-   dimensions (e.g. matrices, arrays)
+
+-   class (e.g. integer, numeric)
+
+-   length
+
+-   other user-defined attributes/metadata
+
+Attributes of an object (if any) can be accessed using the
+`attributes()` function. Not all R objects contain attributes, in
+which case the `attributes()` function returns `NULL`.
+
+## Matrices
+
+Matrices are vectors with a _dimension_ attribute. The dimension
+attribute is itself an integer vector of length 2 (number of rows,
+number of columns)
+
+```{r}
+m <- matrix(nrow = 2, ncol = 3) 
+m
+dim(m)
+attributes(m)
+```
+
+Matrices are constructed _column-wise_, so entries can be thought of
+starting in the "upper left" corner and running down the columns.
+
+```{r}
+m <- matrix(1:6, nrow = 2, ncol = 3) 
+m
+```
+
+Matrices can also be created directly from vectors by adding a
+dimension attribute.
+
+```{r}
+m <- 1:10 
+m
+dim(m) <- c(2, 5)
+m
+```
+
+Matrices can be created by _column-binding_ or _row-binding_ with the
+`cbind()` and `rbind()` functions.
+
+```{r}
+x <- 1:3
+y <- 10:12
+cbind(x, y)
+rbind(x, y) 
+```
+
+## Lists
+
+Lists are a special type of vector that can contain elements of
+different classes. Lists are a very important data type in R and you
+should get to know them well. Lists, in combination with the various
+"apply" functions discussed later, make for a powerful combination.
+
+Lists can be explicitly created using the `list()` function, which
+takes an arbitrary number of arguments.
+
+```{r}
+x <- list(1, "a", TRUE) 
+x
+```
+
+We can also create an empty list of a prespecified length with the
+`vector()` function
+
+```{r}
+x <- vector("list", length = 5)
+x
+```
+
+## Factors
+
+Factors are used to represent categorical data and can be unordered or
+ordered. One can think of a factor as an integer vector where each
+integer has a _label_. 
+
+Using factors with labels is _better_ than using integers because
+factors are self-describing. Having a variable that has values "Male"
+and "Female" is better than a variable that has values 1 and 2.
+
+Factor objects can be created with the `factor()` function.
+
+```{r}
+x <- factor(c("yes", "yes", "no", "yes", "no")) 
+x
+table(x) 
+## See the underlying representation of factor
+unclass(x)  
+```
+
+Often factors will be automatically created for you when you read a
+dataset in using a function like `read.table()`. Those functions often
+default to creating factors when they encounter data that look like
+characters or strings.
+
+The order of the levels of a factor can be set using the `levels`
+argument to `factor()`. This can be important in linear modelling
+because the first level is used as the baseline level.
+
+```{r}
+x <- factor(c("yes", "yes", "no", "yes", "no"))
+x  ## Levels are put in alphabetical order
+x <- factor(c("yes", "yes", "no", "yes", "no"),
+            levels = c("yes", "no"))
+x
+```
+
+
+## Data Frames
+
+Data frames are used to store tabular data in R. They are an important
+type of object in R and are used in a variety of statistical modeling
+applications. We'll be working with many dataframes throughout these tutorials. 
+
+Data frames are represented as a special type of list where every
+element of the list has to have the same length. Each element of the
+list can be thought of as a column and the length of each element of
+the list is the number of rows.
+
+Unlike matrices, data frames can store different classes of objects in
+each column. Matrices must have every element be the same class
+(e.g. all integers or all numeric).
+
+In addition to column names, indicating the names of the variables or
+predictors, data frames have a special attribute called `row.names`
+which indicate information about each row of the data frame.
+
+Data frames are usually created by reading in a dataset using the
+`read.table()` or `read.csv()`. However, data frames can also be
+created explicitly with the `data.frame()` function or they can be
+coerced from other types of objects like lists.
+
+Data frames can be converted to a matrix by calling
+`data.matrix()`. While it might seem that the `as.matrix()` function
+should be used to coerce a data frame to a matrix, almost always, what
+you want is the result of `data.matrix()`.
+
+```{r}
+x <- data.frame(foo = 1:4, bar = c(T, T, F, F)) 
+x
+nrow(x)
+ncol(x)
+```
+
+## Names
+
+R objects can have names, which is very useful for writing readable
+code and self-describing objects. Here is an example of assigning
+names to an integer vector.
+
+```{r}
+x <- 1:3
+names(x)
+names(x) <- c("New York", "Seattle", "Los Angeles") 
+x
+names(x)
+```
+
+Lists can also have names, which is often very useful.
+
+```{r}
+x <- list("Los Angeles" = 1, Boston = 2, London = 3) 
+x
+names(x)
+```
+
+Matrices can have both column and row names.
+
+```{r}
+m <- matrix(1:4, nrow = 2, ncol = 2)
+dimnames(m) <- list(c("a", "b"), c("c", "d")) 
+m
+```
+
+Column names and row names can be set separately using the
+`colnames()` and `rownames()` functions.
+
+```{r}
+colnames(m) <- c("h", "f")
+rownames(m) <- c("x", "z")
+m
+```
+
+Note that for data frames, there is a separate function for setting
+the row names, the `row.names()` function. Also, data frames do not
+have column names, they just have names (like lists). So to set the
+column names of a data frame just use the `names()` function. Yes, I
+know its confusing. Here's a quick summary:
+
+| Object | Set column names | Set row names |
+| ------ | ---------------- | ------------- |
+| data frame | `names()` | `row.names()` |
+| matrix | `colnames()` | `rownames()` |
+
+
+## Summary
+
+There are a variety of different builtin-data types in R. In this
+chapter we have reviewed the following
+
+- object declaration
+
+- packages, functions, arguments
+
+- classes: numeric, logical, character, integer, complex
+
+- vectors, lists
+
+- missing values
+
+- factors
+
+- missing values
+
+- data frames and matrices
+
+All R objects can have attributes that help to describe what is in the
+object. Perhaps the most useful attribute is names, such as column and
+row names in a data frame, or simply names in a vector or
+list. Attributes like dimensions are also important as they can modify
+the behavior of objects, like turning a vector into a matrix.
+
+The content in this section was adapted from [Dr. Roger Peng](https://github.com/rdpeng)
+
+
+
+
+

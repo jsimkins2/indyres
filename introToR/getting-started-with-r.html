@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>1 Getting Started with R | 01-Getting-Started.utf8</title>
+  <meta name="description" content="" />
+  <meta name="generator" content="bookdown 0.20.6 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="1 Getting Started with R | 01-Getting-Started.utf8" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="1 Getting Started with R | 01-Getting-Started.utf8" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Tech Trainings: Introduction to R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path=""><a href="#getting-started-with-r"><i class="fa fa-check"></i><b>1</b> Getting Started with R</a><ul>
+<li class="chapter" data-level="1.1" data-path=""><a href="#why-is-r-so-popular"><i class="fa fa-check"></i><b>1.1</b> Why is R so popular?</a></li>
+<li class="chapter" data-level="1.2" data-path=""><a href="#installing-r"><i class="fa fa-check"></i><b>1.2</b> Installing R</a></li>
+<li class="chapter" data-level="1.3" data-path=""><a href="#installing-rstudio"><i class="fa fa-check"></i><b>1.3</b> Installing Rstudio</a></li>
+<li class="chapter" data-level="1.4" data-path=""><a href="#video-examples"><i class="fa fa-check"></i><b>1.4</b> Video Examples</a></li>
+<li class="chapter" data-level="1.5" data-path=""><a href="#getting-familiar-with-rstudio"><i class="fa fa-check"></i><b>1.5</b> Getting familiar with RStudio</a></li>
+<li class="chapter" data-level="1.6" data-path=""><a href="#open-rstudio"><i class="fa fa-check"></i><b>1.6</b> Open RStudio</a></li>
+<li class="chapter" data-level="1.7" data-path=""><a href="#r-studio-layout"><i class="fa fa-check"></i><b>1.7</b> R Studio Layout</a></li>
+<li class="chapter" data-level="1.8" data-path=""><a href="#writing-a-script-in-r"><i class="fa fa-check"></i><b>1.8</b> Writing a script in R</a><ul>
+<li class="chapter" data-level="1.8.1" data-path=""><a href="#input-evaluation"><i class="fa fa-check"></i><b>1.8.1</b> Input &amp; Evaluation</a></li>
+<li class="chapter" data-level="1.8.2" data-path=""><a href="#running-code"><i class="fa fa-check"></i><b>1.8.2</b> Running Code</a></li>
+<li class="chapter" data-level="1.8.3" data-path=""><a href="#errors"><i class="fa fa-check"></i><b>1.8.3</b> Errors</a></li>
+<li class="chapter" data-level="1.8.4" data-path=""><a href="#objects-variables"><i class="fa fa-check"></i><b>1.8.4</b> Objects &amp; Variables</a></li>
+<li class="chapter" data-level="1.8.5" data-path=""><a href="#variable-names"><i class="fa fa-check"></i><b>1.8.5</b> Variable Names</a></li>
+<li class="chapter" data-level="1.8.6" data-path=""><a href="#commenting-note-taking"><i class="fa fa-check"></i><b>1.8.6</b> Commenting &amp; Note Taking</a></li>
+<li class="chapter" data-level="1.8.7" data-path=""><a href="#saving-this-r-script"><i class="fa fa-check"></i><b>1.8.7</b> Saving this R script</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">James Simkins</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<!--bookdown:title:end-->
+<!--bookdown:title:start-->
+<div id="getting-started-with-r" class="section level1">
+<h1><span class="header-section-number">1</span> Getting Started with R</h1>
+<div id="why-is-r-so-popular" class="section level2">
+<h2><span class="header-section-number">1.1</span> Why is R so popular?</h2>
+<p>R is an open-source programming language used for data science, statistics, and data visualization. R is currently ranked as the <a href="http://pypl.github.io/PYPL.html">7th most popular language in the world</a>. Since R is open-source, anyone can contribute to or use R packages that contain pre-built functions/operations. This greatly accelerates our ability to share and collaborate.</p>
+<p>The purpose of this workshop is to teach working professionals how to use R for tasks they’d normally use Excel for. Excel is a powerful tool and is great for a variety of uses, but when it comes to crunching data, R will greatly improve the speed at which these tasks can be done. Furthermore, with R, mundane &amp; tedious tasks can be automated. When you write a script in R for a recurring task such as calculating a monthly budget, all one needs to do each month is provide the routine with a new dataset to crunch the numbers. Below are examples of why we use R.</p>
+<table>
+<colgroup>
+<col width="28%" />
+<col width="71%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Attribute</th>
+<th>Reason</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Speed</td>
+<td>R is FAST. It can number crunch magnitudes faster than Microsoft Excel, for example.</td>
+</tr>
+<tr class="even">
+<td>Capacity</td>
+<td>R can handle millions of data records. Large datasets that crash in Microsoft Excel won’t crash in R.</td>
+</tr>
+<tr class="odd">
+<td>Risk Reduction</td>
+<td>After writing a single R Script, the process of your data science routine is auditable and reproducible within milliseconds. We can write 1 script and make alterations as we see fit. We don’t have to replicate a process of pointing and clicking in Microsoft Excel or ArcGIS. For example, if you are working with a dataset that multiple people are using, you can load this dataset in R and perform the tasks that you need <em>without</em> making any changes to the original dataset.</td>
+</tr>
+<tr class="even">
+<td>Visualizations</td>
+<td>R is capable to create high quality visualizations and also has the capacity to create interactive visualizations that can easiliy be shared. Plots or images can easily be exported to PNG, JPEG, or even web-based interactive dashboards that can be hosted on a webpage</td>
+</tr>
+<tr class="odd">
+<td>Collaboration</td>
+<td>R script sharing is safe and easy. As mentioned above, a team using the same data input file but performing different tasks on it can do so without editing the data input file for everyone else. Data output can also be shared without the concern of a colleague editing the file output. RStudio connect or Github are also popular free track all changes that take place between R script files.</td>
+</tr>
+<tr class="even">
+<td>Price</td>
+<td>R is completely free! Yes…every bit of it!</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="installing-r" class="section level2">
+<h2><span class="header-section-number">1.2</span> Installing R</h2>
+<ol style="list-style-type: decimal">
+<li><p>Navigate to the R website: <a href="https://cloud.r-project.org/" class="uri">https://cloud.r-project.org/</a></p></li>
+<li><p>Click Download for your Operating System (Windows, Mac OSx, or Linux - if you don’t have a MacBook, then you’re using Windows most likely)</p></li>
+</ol>
+<p><img src="images/os_image.png" width="60%" style="display: block; margin: auto;" /></p>
+<ol start="3" style="list-style-type: decimal">
+<li>Click the most recent R version to download. Install the downloaded application as you would with any other application on your computer.</li>
+</ol>
+<p><img src="images/download_r.png" width="60%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="installing-rstudio" class="section level2">
+<h2><span class="header-section-number">1.3</span> Installing Rstudio</h2>
+<p>While R is the language, RStudio is the application we use to run R. Technically speaking, RStudio is an integrated development environment for R. RStudio makes coding in R easier by highlighting syntax, autocompleting symbols and names, and visualizing our R environment. These aspects are explained in further detail in the [R Coding Fundamentals] section. For now, let’s download RStudio.</p>
+<ol style="list-style-type: decimal">
+<li><p>Navigate to the RStudio Website: <a href="http://www.rstudio.com/download" class="uri">http://www.rstudio.com/download</a></p></li>
+<li><p>Click Download under RStudio Desktop Free</p></li>
+</ol>
+<p><img src="images/rstudio_download1.png" width="60%" style="display: block; margin: auto;" /></p>
+<ol start="3" style="list-style-type: decimal">
+<li>This website detects your operating system, allowing you to just click download again. <em>Note that if it doesn’t automatically detect just select the download next to your operating system below this</em></li>
+</ol>
+<p><em>Note that you may be asked to install command line developer tools if you’re using a Mac - select Yes.</em></p>
+<p><img src="images/Rstudio_download2.png" width="60%" style="display: block; margin: auto;" /></p>
+<ol start="4" style="list-style-type: decimal">
+<li>Install the downloaded application as you normally would on your computer.</li>
+</ol>
+</div>
+<div id="video-examples" class="section level2">
+<h2><span class="header-section-number">1.4</span> Video Examples</h2>
+<p>If you want to watch a step-by-step tutorial on how to install
+R for Mac or Windows, you can watch these videos courtest of Dr. Roger Peng</p>
+<ul>
+<li><p><a href="http://youtu.be/Ohnk9hcxf9M">Installing R on Windows</a></p></li>
+<li><p><a href="https://youtu.be/uxuuWXU-7UQ">Installing R on the Mac</a></p></li>
+<li><p><a href="https://youtu.be/bM7Sfz-LADM">Installing RStudio</a></p></li>
+</ul>
+</div>
+<div id="getting-familiar-with-rstudio" class="section level2">
+<h2><span class="header-section-number">1.5</span> Getting familiar with RStudio</h2>
+<p>By now you’ve downloaded R and RStudio and you’re probably wondering, why do I need to download both? R is that programming language that is running on your computer. RStudio is what we call an Indegrated Development Environment (IDE) - this is a technical term for a pretty application that’s all dressed up on the surface but underneath is really crunching some numbers (using R) at serious speeds. RStudio is the application we’ll be using. Let’s open RStudio and get familiar with it.</p>
+</div>
+<div id="open-rstudio" class="section level2">
+<h2><span class="header-section-number">1.6</span> Open RStudio</h2>
+<p>Navigate to your applications folder on your computer. Launch RStudio. When you open it for the first time, you should see this.</p>
+<p><img src="images/openR_1.png" width="40%" style="display: block; margin: auto;" /></p>
+<p>This is RStudio. When you open it for the first time, we’ll need to open a new RScript to begin coding.</p>
+<p><strong>Open new R Script</strong></p>
+<p>To open a new R Script, we select the blankpage with green plus icon and select R Script from the menu.</p>
+<p><img src="images/new_script2.png" width="40%" style="display: block; margin: auto;" /></p>
+<p>This opens up the new R script and we can begin coding in R. Now that we have the R Script open, you’ll notice 4 quadrants. Let’s run through what those quadrants are.</p>
+</div>
+<div id="r-studio-layout" class="section level2">
+<h2><span class="header-section-number">1.7</span> R Studio Layout</h2>
+<p><img src="images/Full_image_3.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>Now let’s describe what’s going on here in a little more detail.</p>
+<p><strong>R Script</strong> - This is your canvas. This is where we write and edit our code. A lot of trial and error goes on here.</p>
+<p><img src="images/script4.png" width="40%" style="display: block; margin: auto;" /></p>
+<p><strong>R Console</strong> - This is where you run your code. When we talk about running code, we mean we’re telling R to execute the code we’ve written in the R Script. R Console is the place inside RStudio where we are using the R programming language.</p>
+<p><img src="images/console5.png" width="40%" style="display: block; margin: auto;" /></p>
+<p><strong>Variable Environment</strong> - This area keeps track of your variables, data tables, filenames, etc. Anything that you run in R that has a name will be stored here. Imagine the Variable Environment to be your closet - every time you make/buy a new sweater, the sweater goes in the closet. We can select data tables to view from this list here.</p>
+<p><img src="images/environment6.png" width="40%" style="display: block; margin: auto;" /></p>
+<p><strong>Files/Plots/Help</strong> - In this quadrant, we can toggle through files on our computer (we can view where your files are stored), view plots/visualizations that we’re creating in R (whenever you create a plot in R it is output here first), search for help and descriptions of R functions (there’s descriptions on every function you’ll use in R - they can all be loaded here in the help tab), and more.</p>
+<p><img src="images/files7.png" width="40%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="writing-a-script-in-r" class="section level2">
+<h2><span class="header-section-number">1.8</span> Writing a script in R</h2>
+<p>An R script (also referred to as “code”) is the file we create that uses the R programming language to accomplish a task. R scripts are saved R routines that we can load up at any time to perform an action with R. Every R script is written in the R Script area but <strong>executed</strong> below in the console area.</p>
+<div id="input-evaluation" class="section level3">
+<h3><span class="header-section-number">1.8.1</span> Input &amp; Evaluation</h3>
+<p>In the R Script area, we write code. Whenever we want to assign a variable, we do so using the assignment operator. The <code>&lt;-</code> symbol is the assignment operator. We can also use <code>=</code> which is a bit more intuitive. It is alright to interchange these when assigning variables.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>val &lt;-<span class="st"> </span><span class="dv">1</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>number =<span class="st"> </span><span class="dv">5</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a>my_text =<span class="st"> &quot;hello&quot;</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a>my_math &lt;-<span class="st"> </span><span class="dv">9</span><span class="op">*</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">5</span> <span class="op">-</span><span class="st"> </span><span class="dv">10</span></span></code></pre></div>
+<p>We write the above code in the R script area. When we are finished writing, we need to test the code to see if it works. When we test the code, we’re running the code (also referred to as executing the code). R code is executed in the console area. In order to run our R code, we have a few options to do so…</p>
+</div>
+<div id="running-code" class="section level3">
+<h3><span class="header-section-number">1.8.2</span> Running Code</h3>
+<p>The following are ways we can run our R code.</p>
+<ol style="list-style-type: decimal">
+<li>Highlight the code we wish to run and <strong>click ctrl + enter</strong> (Windows) or <strong>cmd + enter</strong> (Mac OSX)</li>
+<li>We can “send” our code in the R Script to the R Console using the Run Button (located in the top right corner of the R Script area). Notice there are various options for what lines to run (selected lines, next chunk, current chunk, etc.)</li>
+<li>We can copy the lines we wish to run from the R Script area and paste them into the R Console.</li>
+</ol>
+<p>Each of these methods are useful for running R code, although perhaps the easiest method is #1.</p>
+<p><img src="images/runRcode.png" width="40%" style="display: block; margin: auto;" /></p>
+<p>Let’s run the code we wrote above…</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>val &lt;-<span class="st"> </span><span class="dv">1</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a>number =<span class="st"> </span><span class="dv">5</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a>my_text =<span class="st"> &quot;hello&quot;</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a>my_math &lt;-<span class="st"> </span><span class="dv">9</span> <span class="op">-</span><span class="st"> </span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">5</span> <span class="op">-</span><span class="st"> </span><span class="dv">10</span></span></code></pre></div>
+<p>After we run these lines of code successfully, these values are now saved as variables in the R Global Environment area (top right quadrant). After running, we should see a blinking cursor next to a <code>&gt;</code> symbol in the console. This means we successfully ran this code and the R console is ready for more. What if we don’t see this?</p>
+</div>
+<div id="errors" class="section level3">
+<h3><span class="header-section-number">1.8.3</span> Errors</h3>
+<p>When we code in any programming language, we are practicing trial and error. The reality is that most of the code we write will have errors in it and that’s ok! Even experienced programmers have plenty of errors, or bugs, in their code. One can measure their programming ability through how quickly one can diagnose a bug and fix it.</p>
+<p>Let’s practice diagnosing and fixing some errors.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>x <span class="op">-</span><span class="er">&lt;</span><span class="st"> </span><span class="dv">55</span></span></code></pre></div>
+<p>When we run the line above, the console returns with a message that says: <strong>Error: unexpected ‘&lt;’ in “x -&lt;”</strong>. What did we do wrong? When we assign a variable, the assignment operator must be either <code>=</code> or <code>&lt;-</code>. Notice that we coded our assignment operator incorrectly like so; <code>-&lt;</code>. We simply need to edit this like so…</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>x &lt;-<span class="st"> </span><span class="dv">55</span></span></code></pre></div>
+<p>Often our errors come down to something as simple as this. Let’s look at another example…</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>val &lt;-<span class="st"> </span><span class="dv">1</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a>number =<span class="st"> </span><span class="dv">5</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a>my_text =<span class="st"> </span>hello<span class="st">&quot;&quot;</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a>my_math &lt;-<span class="st"> </span><span class="dv">9</span> <span class="op">-</span><span class="st"> </span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">5</span> <span class="op">-</span><span class="st"> </span><span class="dv">10</span></span></code></pre></div>
+<p><code>Error: unexpected string constant in "my_text = hello"""</code>. Any character strings (aka text) that we write in R must be <strong>enclosed</strong> in quotations. Our text message, <code>hello</code>, is not <strong>enclosed within</strong> these quotation marks. Simply enclose <code>hello</code> between two quotation marks and re-run the line. As a quick aside, notice that R <em>still</em> successfully ran the other lines of code - this is because R is an iterative language.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>val &lt;-<span class="st"> </span><span class="dv">1</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a>number =<span class="st"> </span><span class="dv">5</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a>my_text =<span class="st"> &quot;hello&quot;</span></span>
+<span id="cb6-4"><a href="#cb6-4"></a>my_math &lt;-<span class="st"> </span><span class="dv">9</span> <span class="op">-</span><span class="st"> </span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">5</span> <span class="op">-</span><span class="st"> </span><span class="dv">10</span></span></code></pre></div>
+</div>
+<div id="objects-variables" class="section level3">
+<h3><span class="header-section-number">1.8.4</span> Objects &amp; Variables</h3>
+<p>As mentioned above, when we execute the code above the objects/variables are stored locally in R and are displayed in the global environment in the top right quadrant. These objects/variables can now be called at any point. For example, if we head down to the console and type;</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">print</span>(val)</span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<p>R returns <code>1</code>, as this is the value we declared for the <code>val</code> variable/object above. We just introduced something new - the <code>print()</code> function. We’ll get into functions later, but the print function is pretty intuitive - it just prints out values that are stored in R. What happens if we print <code>my_math</code> ?</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">print</span>(my_math)</span></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<p>R solved the equation we wrote above for us. Now, the <code>my_math</code> variable/object has a stored value of <code>2</code>. From this point forward, we will use the term variable/object interchangeably as they mean the same thing.</p>
+</div>
+<div id="variable-names" class="section level3">
+<h3><span class="header-section-number">1.8.5</span> Variable Names</h3>
+<p>There are rules associated with naming a variable.</p>
+<ol style="list-style-type: decimal">
+<li>Names are Case Sensitive.</li>
+<li>No spaces allowed within the name (i.e. <strong>NO</strong> naming like so <code>my math = 10</code>)</li>
+<li>Variable names <strong>cannot begin</strong> with a number (i.e. <strong>NO</strong> naming like so <code>1math = 10</code>)</li>
+</ol>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="co"># The following are all acceptable variable names</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a>a =<span class="st"> </span><span class="dv">1</span></span>
+<span id="cb11-3"><a href="#cb11-3"></a>A =<span class="st"> </span><span class="dv">55</span></span>
+<span id="cb11-4"><a href="#cb11-4"></a></span>
+<span id="cb11-5"><a href="#cb11-5"></a><span class="co"># We can use underscores _ and periods . within our names as long as there are no spaces</span></span>
+<span id="cb11-6"><a href="#cb11-6"></a>a1 &lt;-<span class="st"> </span><span class="dv">11</span></span>
+<span id="cb11-7"><a href="#cb11-7"></a>a_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="dv">11</span></span>
+<span id="cb11-8"><a href="#cb11-8"></a>a<span class="fl">.1</span> &lt;-<span class="st"> </span><span class="dv">11</span></span></code></pre></div>
+</div>
+<div id="commenting-note-taking" class="section level3">
+<h3><span class="header-section-number">1.8.6</span> Commenting &amp; Note Taking</h3>
+<p>Commenting is the R term for note taking within our code. We can describe what is occurring within our code at any line using the comment symbol <code>#</code>. R will ignore anything on a line of code after the comment symbol <code>#</code>. Run the following…</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># set val variable equal to 1</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a>val &lt;-<span class="st"> </span><span class="dv">1</span> <span class="co"># see how R doesn&#39;t run anything on the line beyond the # symbol</span></span>
+<span id="cb12-3"><a href="#cb12-3"></a>num <span class="co"># = 180</span></span></code></pre></div>
+<p><code>Error: object 'num' not found</code>. We placed the <code>#</code> symbol before we declared the <code>num</code> variable. Since R doesn’t have a value stored for <code>num</code> and since we ignored our definition, R will return an error.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="co"># set val variable equal to 1</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a>val &lt;-<span class="st"> </span><span class="dv">1</span> <span class="co"># see how R doesn&#39;t run anything on the line beyond the # symbol</span></span>
+<span id="cb13-3"><a href="#cb13-3"></a>num =<span class="st"> </span><span class="dv">180</span> <span class="co"># much better</span></span></code></pre></div>
+<p>Commenting is always a good idea for future users of the code (including yourself!). It is not necessary to comment/take notes on each line, but it is useful for broader chunks of code as we’ll see when we write longer scripts.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="co"># Print out num</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a><span class="kw">print</span>(num)</span></code></pre></div>
+<pre><code>## [1] 180</code></pre>
+<p>The output above beginning with the <code>##</code> is <strong>output from the tutorials R console</strong>. This is RStudio’s way of discerning between written code and console output. You will see this more frequently as we go further in this tutorial and your output should look identical.</p>
+</div>
+<div id="saving-this-r-script" class="section level3">
+<h3><span class="header-section-number">1.8.7</span> Saving this R script</h3>
+<p>When we are finished using R for a day, we can save multiple things. First and foremost, it is <strong>always</strong> a good idea to save your R script. When we save an R script, we can re-load it and re-run it at any point in the future. When we write more advanced code, we might need to run an R script once a month when a new batch of data comes in. We can reload the R script, plug in the new dataset, and click run - it’s as simple as that!</p>
+<p>To save an R script…</p>
+<ol style="list-style-type: decimal">
+<li>Click <code>File &gt; Save</code></li>
+<li>Choose a folder on your computer to save to.</li>
+<li>Create a unique file name with the extension <code>.R</code> (such as <code>my_first_script.R</code>)</li>
+<li>Click <code>Save</code></li>
+</ol>
+<p>Note that it is <strong>always a good idea</strong> to use underscores (<code>_</code>) or dashes (<code>-</code>) instead of spaces in a file name. This is because computing systems have trouble with spaces from time to time.</p>
+<p>When you’re ready to close RStudio…</p>
+<ol style="list-style-type: decimal">
+<li>Make sure all scripts you’ve edited are saved.</li>
+<li>Click <code>x</code> in the upper corner of your RStudio</li>
+<li>You will be prompted with the question of <strong>Save workspace image to ~/.RData ?</strong>. What this means is, do you want to save your global environment with all the variables currently in there? This can save time in the future if you don’t wish to re-run code. Most of the time, it’s not a big deal to re-run code and start with a fresh RStudio workspace. Typically we select <strong>No</strong> and then are able to close RStudio.</li>
+</ol>
+<p><strong>This concludes Day 1 of our Introduction to R Course. Please complete the Checkpoint Assignments</strong></p>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+},
+"search": false
+});
+});
+</script>
+
+</body>
+
+</html>

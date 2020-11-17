@@ -1,0 +1,16 @@
+  
+book_filename: "Introduction to R"
+language:
+  ui:
+    chapter_name: ""
+rmd_files: [
+  "Index.Rmd",
+  "01-Getting-Started.Rmd", 
+  "02-Definitions.Rmd", 
+  "03-Fundamentals.Rmd"
+ ]
+delete_merged_file: true
+output_dir: "docs"
+# always_allow_html: true # added after build error suggested this for kable() ---but unsuccessful
+
+
