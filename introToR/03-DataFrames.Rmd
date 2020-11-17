@@ -217,7 +217,7 @@ for (d in 1:length(fruits_df$Apples)){
 }
 ```
 
-This does well with our given conditions but doesn't tell us the total number of apples that were consumed on days where there was no soccer practice. In order to crunch that number, we'll need to introduce a new function called `append()`. `append()` literally appends values to the end of an existing vector. For example...
+This lists all of the apples consumed on days where there was no soccer practice. Now, we could manually add up these values to find the total number of apples consumed. However, we're here to learn how R can crunch that number for us. In order to crunch that number, we'll need to introduce a new function called `append()`. `append()` literally appends values to the end of an existing vector. For example...
 
 ```{r}
 # create a new vector called numbers_vec
