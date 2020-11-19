@@ -1,54 +1,169 @@
 # Dataset Ingest and Plotting
 
-Reading data into R is a regular practice. R can ingest almost any type of file including CSV, Excel, Binary, XML, JSON, and many more. Today, we're going to read in a Microsoft Excel file into R. This file contains data on best-selling books from Amazon between 2009 and 2019. Before we begin, we will need to download the `amazon_bestsellers.xlsx` file from the course datasets folder. 
+Reading data into R is a regular practice. R can ingest almost any type of file including CSV, Excel, Binary, XML, JSON, and many more. Today, we're going to read in a Microsoft Excel file into R. This file contains data on best-selling books from Amazon between 2009 and 2019. Before we begin, we will need to download the `amazon_bestsellers.xlxs` file from the course datasets folder. 
 
 # Installing a Package
 
-So far, we've only been using functions that are part of the `base` package and are automatically loaded into each session by RStudio. There are over 10,000 R packages available for download from R's package repository. All of these packages are free and contain pre-written functions for just about any computing purpose. Today, we're going to use the `xlsx` package. This package helps us read Microsoft Excel files in R. Let's load in this package.
+So far, we've only been using functions that are part of the `base` package and are automatically loaded into each session by RStudio. There are over 10,000 R packages available for download from R's package repository. All of these packages are free and contain pre-written functions for just about any computing purpose. Today, we're going to use the `readxl` package. This package helps us read Microsoft Excel files in R. Let's load in this package.
 
 ```{r, eval=FALSE}
-library(xlsx)
+library(readxl)
 ```
 
-`Error in library(xlsx) : there is no package called ‘xlsx’`. This package is not currently installed. We can install the function now using the `install.packages()` function from the pre-loaded `base` package.
+`Error in library(readxl) : there is no package called ‘readxl’`. This package is not currently installed. We can install the function now using the `install.packages()` function from the pre-loaded `base` package.
 
 
 ```{r, eval=FALSE}
-install.packages("xlsx")
+install.packages("readxl")
 ```
 
 You may need to select a **CRAN Mirror** before installing. CRAN stands for Comprehensive R Archive Network and it is a repository for R packages that is a replica of the primary R package database. You can select any of these mirrors, but it is recommended that you choose a mirror located in the United States if RStudio asks you to choose one.
 
 **Only use the** `install.packages()` **function in the console**. Why? We only need to install a package once. After the package is installed, we will need to *load the package into each R session* but we will not need to install it again.  
 
-After `xlsx` is installed correctly, you'll see a message that looks like this;
+After `readxl` is installed correctly, you'll see a message that looks like this;
 
 `The downloaded binary packages are in /var/folders/6m/1b7gn_m93g9380p1jxvm2_700000gr/T//Rtmpcuw03I/downloaded_packages`
 
-This is the location on your computer where the package and all it's functions are stored. We don't need to worry about the location as R handles this information for us. We also don't need to worry about packages taking up significant space on our hard drives. R packages are small in size. Now that `xlsx` is installed, we can load it in via the `library()` function like we did above. This time, however, it should load in without any errors. 
+This is the location on your computer where the package and all it's functions are stored. We don't need to worry about the location as R handles this information for us. We also don't need to worry about packages taking up significant space on our hard drives. R packages are small in size. Now that `readxl` is installed, we can load it in via the `library()` function like we did above. This time, however, it should load in without any errors. 
 
 ```{r, eval=FALSE}
-library(xlsx)
+library(readxl)
 ```
 
-Wonderful, now we can use functions from the `xlsx` package. What happens if we try and use a function from `xlsx` without first loading the package? R will not understand what you mean and return an error. We must always load in package with each R session and **before** we use a function in a script. This is why we load in packages that we need at the top of every R script - so they're run first. 
+Wonderful, now we can use functions from the `readxl` package. What happens if we try and use a function from `readxl` without first loading the package? R will not understand what you mean and return an error. We must always load in package with each R session and **before** we use a function in a script. This is why we load in packages that we need at the top of every R script - so they're run first. 
 
 # Reading Data
 
-We're ready to use the `xlsx` package. What function can we use from this package to load in our dataset? Remember the `help()` function where we can find our more information on functions? We can use `??xlsx` in the R console to find out more information on functions within this package. 
+We're ready to use the `readxl` package. What function can we use from this package to load in our dataset? Remember the `help()` function where we can find our more information on functions? We can use `??readxl` in the R console to find out more information on functions within this package. 
 
 ```{r, eval=FALSE}
-??xlsx
+??readxl
 ```
 
-The `??` function runs a search on every function/package we have in R and looks for functions/packages containing `xlsx`. Look for examples that begin with `xlsx::`. This notation is used to inform us of packages and functions, i.e. `package::function`. Technically speaking, we *don't have to* load in a package if we use this notation...but it's a lot easier to just load in the package than to code every function as `package::function`. The notation of `package::function` is primarily used by certain software developers. For our purposes, loading in a package at the top of the script is perfectly acceptable and recommended. Remember, our goal is just to tell R where to find a function so we can use it.
+The `??` function runs a search on every function/package we have in R and looks for functions/packages containing `readxl`. Look for examples that begin with `readxl::`. This notation is used to inform us of packages and functions, i.e. `package::function`. Technically speaking, we *don't have to* load in a package if we use this notation...but it's a lot easier to just load in the package than to code every function as `package::function`. The notation of `package::function` is primarily used by certain software developers. For our purposes, loading in a package at the top of the script is perfectly acceptable and recommended. Remember, our goal is just to tell R where to find a function so we can use it.
 
-Now that we have searched, we can see a line that reads as: `xlsx::read.xlsx   Read the contents of a worksheet into an R 'data.frame'.` The function that we want to use here is `read.xlsx`. What does this 
+Now that we have searched, we can see a line that reads as: `readxl::read_excel   Read xls and xlsx files`. We will use this function, `read_excel`, to read our `amazon_bestsellers.xlxs`. What arguments does the `read_excel`function take? We can use our `help()` function to find out.
 
+```{r, eval=FALSE}
+help(read_excel)
+```
 
+A shortcut for the `help` function is a single `?` and is used like so...
 
+```{r, eval=FALSE}
+?read_excel
+```
 
+There are many arguments we can tinker with here if we needed to, but we only need to be concerned with the `path` argument that defines the "Path to the xls/xlsx file". 
 
+## Paths
+
+A path is a series of folder names that directs the computer to the location of a file. For example, if we download a file called `amazon_bestsellers.xlsx`, it is likely residing in our downloads folder. Our job is to find the path to that file. It *might* look like `/Users/your_name/Downloads/amazon_bestsellers.xlsx` on Mac or `C:\your_name\Downloads\amazon_bestsellers.xlsx`, but is there a way to check for it exactly? Let's introduce the `getwd()`, or get working directory, function.
+
+```{r, eval=FALSE}
+getwd()
+```
+
+My current directory (aka path) is `/Users/james`. This is where the "Home" direcoty is located in the files pane of our bottom right hand quadrant. Thus, in order for me to navigate to the Downloads folder, I simply need to type `"Downloads/amazon_bestsellers.xlsx"`. Additionally, if I wanted to, I could *change* the current path of the working directory with the `setwd()` function (aka set working directory).
+
+```{r, eval=FALSE}
+setwd("Downloads")
+```
+
+Now, if I use `getwd()` again...
+
+```{r, eval=FALSE}
+getwd()
+```
+
+I find that my new working directory is `/Users/james/Downloads`. Thus, my full path to the `amazon_bestsellers.xlsx` file is `/Users/james/Downloads/amazon_bestsellers.xls`. 
+
+## Path Navigation Trick
+
+The `tab` key on our keyboard is a shortcut key for autocompletion. We can hit the `tab` key within a set of quotes `""` and a visualization of the files and folders of the current working directory will appear. From this point, we can actually click our way to a file and R Studio will automatically fill out the file path to the file for us. This keyboard shortcut can also be used to autocomplete functions, variables/objects, and packages. For example, if I have one really long variable name...
+
+```{r}
+onereaaaaaaalllllllyyyyylonnnngggggggvarrriabbblleeeeennnnaaammmeee = "use tab for a shortcut to this"
+```
+
+I can start typing the first few letters or so and click the `tab` key for an autocomplete menu to appear. If the top result is indeed what we want, we can hit the `tab` key *again* and the full name of the variable will autocomplete for us. This *can also be used* to list argument names within a function. The `tab` key is a great tool and can save us time and headache from mistyping paths or names.
+
+## Reading in the File
+
+Now that we have the path, we can finally use our `read_excel` function.
+
+```{r, eval=FALSE}
+# open our amazon bestsellers file using read_excel from the readxl package
+amzn = read_excel(path = "/Users/james/Downloads/amazon_bestsellers.xlsx")
+```
+
+```{r, include=FALSE}
+amzn = read_excel(path = "datasets/amazon_bestsellers.xlsx")
+```
+
+```{r}
+class(amzn)
+```
+We read in our file succesfully but it was read in as a tibble dataframe by the `read_excel` function. This is a more advanced form of a dataframe that goes beyond the scope of this course. Let's convert it to just a standard data frame using our `data.frame()` function. 
+
+```{r}
+# overwrite our amzn tibble dataframe and convert it to a standard dataframe 
+amzn = data.frame(amzn)
+class(amzn)
+```
+
+Much better. Now let's print out the first few rows of the `amzn` dataframe using the `head()` function to get a feel for the dataset...
+
+```{r}
+head(amzn)
+```
+
+Here is a description of what this file contains.
+
+| Variable Name | Definition |
+|--------|--------|
+| Name | Book Title |
+| Author | Author of the Book | 
+| User Raiting  | Amazon book rating as of 10/13/2020 |
+| Reviews | Total number of book reviews |
+| Price | Book price as of 10/13/2020 |
+| Year | Year it was in the top 50 bestsellers on Amazon |
+| Genre | Book Genre |
+
+We can actually sort the data by any of the variables we want using the `order()` function. Let's order the dataframe based on the User Rating.
+
+```{r, eval=FALSE}
+order(amzn$User Rating, decreasing=TRUE)
+```
+
+`Error: unexpected symbol in "order(amzn$User Rating"`. This is an example of how spaces are bad. R is unable to get around the space between User and Rating in thr variable name. Thus, we will need to rename this variable name to get rid of this.
+
+```{r}
+# use indexing to configure which column User Rating is. We know it is the 3rd column
+amzn[,3]
+# create new column named User_Rating that doesn't contain spaces and give it the values of the original User Rating variable name 
+amzn['User_Rating'] = amzn[,3]
+
+# print the first few lines of amzn
+head(amzn)
+```
+
+Now we have a properly named `User_Rating` variable and we can delete the faulty variable name from earlier.
+
+```{r}
+# remove the 3rd column which is currently User Rating with a space
+amzn[,3] = NULL
+```
+
+Using the code `amzn[,3] = NULL`, we effectively removed the 3rd column of the `amzn` dataframe. We need to be very careful **not to run this line again** as it will remove the 3rd column each time you run it. So, if we were to accidentally run this again, we would remove the `Reviews` variable within this dataframe which is not what we want to do. 
+
+```{r}
+# print the variable names of the amzn dataframe
+names(amzn)
+```
+
+Our new column name 
 
 # Plotting the Data
 
