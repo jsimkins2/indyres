@@ -1,0 +1,65 @@
+# Dataset Ingest and Plotting
+
+Reading data into R is a regular practice. R can ingest almost any type of file including CSV, Excel, Binary, XML, JSON, and many more. Today, we're going to read in a Microsoft Excel file into R. This file contains data on best-selling books from Amazon between 2009 and 2019. Before we begin, we will need to download the `amazon_bestsellers.xlsx` file from the course datasets folder. 
+
+# Installing a Package
+
+So far, we've only been using functions that are part of the `base` package and are automatically loaded into each session by RStudio. There are over 10,000 R packages available for download from R's package repository. All of these packages are free and contain pre-written functions for just about any computing purpose. Today, we're going to use the `xlsx` package. This package helps us read Microsoft Excel files in R. Let's load in this package.
+
+```{r, eval=FALSE}
+library(xlsx)
+```
+
+`Error in library(xlsx) : there is no package called ‘xlsx’`. This package is not currently installed. We can install the function now using the `install.packages()` function from the pre-loaded `base` package.
+
+
+```{r, eval=FALSE}
+install.packages("xlsx")
+```
+
+You may need to select a **CRAN Mirror** before installing. CRAN stands for Comprehensive R Archive Network and it is a repository for R packages that is a replica of the primary R package database. You can select any of these mirrors, but it is recommended that you choose a mirror located in the United States if RStudio asks you to choose one.
+
+**Only use the** `install.packages()` **function in the console**. Why? We only need to install a package once. After the package is installed, we will need to *load the package into each R session* but we will not need to install it again.  
+
+After `xlsx` is installed correctly, you'll see a message that looks like this;
+
+`The downloaded binary packages are in /var/folders/6m/1b7gn_m93g9380p1jxvm2_700000gr/T//Rtmpcuw03I/downloaded_packages`
+
+This is the location on your computer where the package and all it's functions are stored. We don't need to worry about the location as R handles this information for us. We also don't need to worry about packages taking up significant space on our hard drives. R packages are small in size. Now that `xlsx` is installed, we can load it in via the `library()` function like we did above. This time, however, it should load in without any errors. 
+
+```{r, eval=FALSE}
+library(xlsx)
+```
+
+Wonderful, now we can use functions from the `xlsx` package. What happens if we try and use a function from `xlsx` without first loading the package? R will not understand what you mean and return an error. We must always load in package with each R session and **before** we use a function in a script. This is why we load in packages that we need at the top of every R script - so they're run first. 
+
+# Reading Data
+
+We're ready to use the `xlsx` package. What function can we use from this package to load in our dataset? Remember the `help()` function where we can find our more information on functions? We can use `??xlsx` in the R console to find out more information on functions within this package. 
+
+```{r, eval=FALSE}
+??xlsx
+```
+
+The `??` function runs a search on every function/package we have in R and looks for functions/packages containing `xlsx`. Look for examples that begin with `xlsx::`. This notation is used to inform us of packages and functions, i.e. `package::function`. Technically speaking, we *don't have to* load in a package if we use this notation...but it's a lot easier to just load in the package than to code every function as `package::function`. The notation of `package::function` is primarily used by certain software developers. For our purposes, loading in a package at the top of the script is perfectly acceptable and recommended. Remember, our goal is just to tell R where to find a function so we can use it.
+
+Now that we have searched, we can see a line that reads as: `xlsx::read.xlsx   Read the contents of a worksheet into an R 'data.frame'.` The function that we want to use here is `read.xlsx`. What does this 
+
+
+
+
+
+
+# Plotting the Data
+
+
+
+
+
+
+
+
+
+
+
+
