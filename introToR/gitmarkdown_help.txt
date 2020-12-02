@@ -1,0 +1,3 @@
+rmarkdown::render("05-world-cup.Rmd", "github_document")
+
+

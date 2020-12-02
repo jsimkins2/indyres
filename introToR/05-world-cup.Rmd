@@ -1,9 +1,4 @@
----
-title: "Habits"
-author: John Doe
-date: March 22, 2005
-output: md_document
----
+
 # Final Project: World Cup Data
 <br>
 <br>
