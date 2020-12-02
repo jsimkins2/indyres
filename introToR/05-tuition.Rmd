@@ -1,0 +1,6 @@
+# Final Project: Beer
+
+Today we'll utilize skills we've learned over the past 4 days to answer a few questions regarding Beers. 
+
+
+# create table here of excel file columns with details about them

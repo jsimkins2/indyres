@@ -1,4 +1,11 @@
 # DataFrames, Indexing, and For Loops
+<br>
+<br>
+```{r, echo=FALSE, out.width="70%", fig.align="center"}
+knitr::include_graphics("images/dataframe.png")  
+```
+<br>
+<br>
 
 ## Data Frames
 

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Habits</title>
+  <meta name="description" content="Habits" />
+  <meta name="generator" content="bookdown 0.20.6 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Habits" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Habits" />
+  
+  
+  
+
+<meta name="author" content="John Doe" />
+
+
+<meta name="date" content="2005-03-22" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Tech Trainings: Introduction to R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path=""><a href="#final-project-world-cup-data"><i class="fa fa-check"></i><b>1</b> Final Project: World Cup Data</a><ul>
+<li class="chapter" data-level="1.1" data-path=""><a href="#about-the-data"><i class="fa fa-check"></i><b>1.1</b> About the Data</a></li>
+<li class="chapter" data-level="1.2" data-path=""><a href="#assessment"><i class="fa fa-check"></i><b>1.2</b> Assessment</a><ul>
+<li class="chapter" data-level="1.2.1" data-path=""><a href="#coding-tasks"><i class="fa fa-check"></i><b>1.2.1</b> Coding Tasks</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">James Simkins</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Habits</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">Habits</h1>
+<p class="author"><em>John Doe</em></p>
+<p class="date"><em>March 22, 2005</em></p>
+</div>
+<div id="final-project-world-cup-data" class="section level1">
+<h1><span class="header-section-number">1</span> Final Project: World Cup Data</h1>
+<p><br>
+<br>
+<img src="images/soccer.jpg" width="70%" style="display: block; margin: auto;" />
+<br>
+<br></p>
+<p>In this final comprehension check, we’ll utilize skills we’ve learned over the past 4 days to investigate FIFA World Cup data. The World Cup is the most popular single-sport contest in the world, watched by over 3.5 billion people around the world. Every 4 years, the top 32 countries join to compete in this exciting soccer tournament. The best players on the planet show off their skills and teamwork in an attempt to capture the most sought after prize in sport - the FIFA World Cup Trophy.</p>
+<div id="about-the-data" class="section level2">
+<h2><span class="header-section-number">1.1</span> About the Data</h2>
+<p>This dataset contains information regarding the total television audience for the 2010 World cup. Before proceeding, download the <code>fifa_audience_2010.xlxs</code> file from the course datasets folder.</p>
+<table>
+<colgroup>
+<col width="32%" />
+<col width="67%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Variable</th>
+<th align="left">Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">country</td>
+<td align="left">The name of the country audience</td>
+</tr>
+<tr class="even">
+<td align="left">confederation</td>
+<td align="left">Each country is a member of a regional soccer organization called a confederation. For example, the United States are part of CONCACAF, which is comprised of North American countries such as Mexico, Canada, Honduras, etc.</td>
+</tr>
+<tr class="odd">
+<td align="left">population_share</td>
+<td align="left">The relative percentage of world population share</td>
+</tr>
+<tr class="even">
+<td align="left">tv_audience_share</td>
+<td align="left">The relative percentage of television audience</td>
+</tr>
+<tr class="odd">
+<td align="left">gdp_weighted_share</td>
+<td align="left">The relative percentage of gross domestic product (purchasing power) per country</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="assessment" class="section level2">
+<h2><span class="header-section-number">1.2</span> Assessment</h2>
+<p>The final assessment requires the submission of an R script. It is worth 25 points. Your script will be graded based on the following:
+<br></p>
+<table>
+<colgroup>
+<col width="28%" />
+<col width="71%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Value</th>
+<th align="left">Grading Metric</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">15 points</td>
+<td align="left">Ability to accomplish 5 coding tasks listed below</td>
+</tr>
+<tr class="even">
+<td align="left">5 points</td>
+<td align="left">Methodology and discussion of what’s being attempted in each coding task</td>
+</tr>
+<tr class="odd">
+<td align="left">5 points</td>
+<td align="left">Organization of R script (where packages are loaded, where data is read in, commenting, etc.)</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<div id="coding-tasks" class="section level3">
+<h3><span class="header-section-number">1.2.1</span> Coding Tasks</h3>
+<ol style="list-style-type: decimal">
+<li>Load appropriate packages, then load in the <code>fifa_audience_2010.xlxs</code> file. Answer the following via coding.
+<ul>
+<li>Convert this from a tibble dataframe to a standard dataframe.</li>
+<li>What are the dimensions of the dataframe?</li>
+<li>What are the column names?</li>
+<li>What is the class of the country variable?</li>
+<li>What country is located in the 15th row?</li>
+<li>What is the class of the 15th country? (just the country itself)
+<br>
+<br></li>
+</ul></li>
+<li>Sort the dataframe based on the population_share (from highest share to lowest share). Answer the following via coding.
+<ul>
+<li>What country is 10th in popoulation share?</li>
+<li>How many countries have a rounded relative population_share of 0.0%?</li>
+<li>The <code>cor()</code> function calculates the correlation between two vectors. A perfect match has a correlation of 1 and complete opposites have a correlation value of 0. What is the correlation between <code>gdp_weighted_share</code> and <code>population_share</code>. Does it make sense?
+<br>
+<br></li>
+</ul></li>
+<li>Create a scatter plot of <code>gdp_weighted_share</code> and <code>population_share</code>. Include the following
+<ul>
+<li>Colors, x label, y label, and a <code>pch</code> value of 21</li>
+<li>Include the correlation value calculated above in your title
+<br>
+<br></li>
+</ul></li>
+<li>Create a bar plot of the <code>population share</code> of <em>the top 10 countries</em> based on this variable.
+<ul>
+<li>Use the <code>barplot()</code> function. (hint:use <code>help(barplot)</code> if you’re stuck)</li>
+<li>Include colors, x label, y label, title
+<br>
+<br></li>
+</ul></li>
+<li>Create a pie chart of the various confederations.
+<ul>
+<li>Include percentages and percentage symbol</li>
+<li>Include unique colors, title, and labels</li>
+</ul></li>
+</ol>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+},
+"search": false
+});
+});
+</script>
+
+</body>
+
+</html>

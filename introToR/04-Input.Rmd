@@ -1,8 +1,14 @@
 # Dataset Ingest and Plotting
-
+<br>
+<br>
+```{r, echo=FALSE, out.width="70%", fig.align="center"}
+knitr::include_graphics("images/input.jpeg")  
+```
+<br>
+<br>
 Reading data into R is a regular practice. R can ingest almost any type of file including CSV, Excel, Binary, XML, JSON, and many more. Today, we're going to read in a Microsoft Excel file into R. This file contains data on best-selling books from Amazon between 2009 and 2019. Before we begin, we will need to download the `amazon_bestsellers.xlxs` file from the course datasets folder. 
 
-# Installing a Package
+## Installing a Package
 
 So far, we've only been using functions that are part of the `base` package and are automatically loaded into each session by RStudio. There are over 10,000 R packages available for download from R's package repository. All of these packages are free and contain pre-written functions for just about any computing purpose. Today, we're going to use the `readxl` package. This package helps us read Microsoft Excel files in R. Let's load in this package.
 
@@ -27,13 +33,13 @@ After `readxl` is installed correctly, you'll see a message that looks like this
 
 This is the location on your computer where the package and all it's functions are stored. We don't need to worry about the location as R handles this information for us. We also don't need to worry about packages taking up significant space on our hard drives. R packages are small in size. Now that `readxl` is installed, we can load it in via the `library()` function like we did above. This time, however, it should load in without any errors. 
 
-```{r, eval=FALSE}
+```{r}
 library(readxl)
 ```
 
 Wonderful, now we can use functions from the `readxl` package. What happens if we try and use a function from `readxl` without first loading the package? R will not understand what you mean and return an error. We must always load in package with each R session and **before** we use a function in a script. This is why we load in packages that we need at the top of every R script - so they're run first. 
 
-# Reading Data
+## Reading Data
 
 We're ready to use the `readxl` package. What function can we use from this package to load in our dataset? Remember the `help()` function where we can find our more information on functions? We can use `??readxl` in the R console to find out more information on functions within this package. 
 
@@ -79,7 +85,7 @@ getwd()
 
 I find that my new working directory is `/Users/james/Downloads`. Thus, my full path to the `amazon_bestsellers.xlsx` file is `/Users/james/Downloads/amazon_bestsellers.xls`. 
 
-## Path Navigation Trick
+### Path Navigation Trick
 
 The `tab` key on our keyboard is a shortcut key for autocompletion. We can hit the `tab` key within a set of quotes `""` and a visualization of the files and folders of the current working directory will appear. From this point, we can actually click our way to a file and R Studio will automatically fill out the file path to the file for us. This keyboard shortcut can also be used to autocomplete functions, variables/objects, and packages. For example, if I have one really long variable name...
 
@@ -89,7 +95,7 @@ onereaaaaaaalllllllyyyyylonnnngggggggvarrriabbblleeeeennnnaaammmeee = "use tab f
 
 I can start typing the first few letters or so and click the `tab` key for an autocomplete menu to appear. If the top result is indeed what we want, we can hit the `tab` key *again* and the full name of the variable will autocomplete for us. This *can also be used* to list argument names within a function. The `tab` key is a great tool and can save us time and headache from mistyping paths or names.
 
-## Reading in the File
+### Reading in the File
 
 Now that we have the path, we can finally use our `read_excel` function.
 
@@ -125,7 +131,7 @@ Here is a description of what this file contains.
 |--------|--------|
 | Name | Book Title |
 | Author | Author of the Book | 
-| User Raiting  | Amazon book rating as of 10/13/2020 |
+| User Rating  | Amazon book rating as of 10/13/2020 |
 | Reviews | Total number of book reviews |
 | Price | Book price as of 10/13/2020 |
 | Year | Year it was in the top 50 bestsellers on Amazon |
@@ -163,18 +169,211 @@ Using the code `amzn[,3] = NULL`, we effectively removed the 3rd column of the `
 names(amzn)
 ```
 
+Now that our names have been fixed, we can look at an order of the highest rated books using the `order()` function on the `User_Rating` variable.
+
+```{r}
+# print the order of the user ratings
+order(amzn$User_Rating, decreasing=TRUE)
+```
+
+This returns the the relative order of each book's rating (remember, each book has it's own **row**). As we can see, the 1st book has the 41st ranked rating. How can we actually re-order our dataframe so that we are sorted from the highest rated to the lowest rated?
+
+```{r}
+# reorder our rows based on the user rating column
+amzn = amzn[order(amzn$User_Rating, decreasing=TRUE),]
+```
+
+In the line above, re-order each row for all columns **based** on the `User_Rating` column. We use our handy index brackets `[]` that take a `row` and `column` argument to sort each row based on the relative index order of the `User_Rating`. The `column` space (aka after the comma that is *outside* of the `order()` function) is left blank so we include *all* columns with this sorting measure. In short, this keeps each row set to the exact same but orders them based on their User Ratings.
+
+```{r}
+# print the top few rows
+head(amzn)
+```
+
+```{r}
+# print the last few rows
+tail(amzn)
+```
+
 Our new column name 
 
-# Plotting the Data
+## Plotting the Data
+
+We use plotting as a data visualization method. Plotting the data is a way to tell a story about the data. R has some fantastic plotting packages such as `ggplot2`, `Lattice`, and `leaflet` that are covered in other courses. Today, let's introduce the R `base` plotting functions that offer basic, yet very customizable, visualizations. 
+
+### Base Plotting
+
+Base plotting in R comes with an ability to create scatter plots, bar plots, pie charts, histograms, line charts, etc. These are very customizable and offer a solid foundation when transitioning to more advanced plotting packages. While many programmers prefer plotting packages mentioned above, we can still use the `base` plotting functions from R to create aesthetically pleasing plots. When we are plotting, arguments become very important and these plotting functions can take many arguments. 
+
+### Histograms
+
+Histograms are visual representations of a spread of data. We can use these to quantify where the most frequent values are binned. Let's create a histogram of the User Ratings. 
+
+```{r}
+# histogram of the user rating vector from the amzn dataframe
+hist(x = amzn$User_Rating)
+```
+
+The breaks, or bin width, of this histogram is pretty wide. Let's create finer break areas by listing each rating in a sequence function. 
+
+```{r}
+# histogram of the user rating from the amzn dataframe with breaks from 3.3 to 5 spaced by 0.1
+hist(x = amzn$User_Rating, breaks = seq(from = 3.3, to= 5.0, by=0.1))
+```
+
+A user rating of 4.8 is the most popular rating for this best seller colleciton of books. From here, we can customize the title, color, x label, y label, etc. Unsure of which arguments you can set? Don't forget about the help function `?hist` . 
+
+```{r}
+# histogram of the user rating from the amzn dataframe with breaks from 3.3 to 5 spaced by 0.1
+hist(x = amzn$User_Rating, breaks = seq(from = 3.3, to= 5.0, by=0.1),
+     main = "Amazon Bestseller User Ratings", col = "lightblue", xlab = "User Ratings",
+     ylab = "Number of Occurences")
+```
+
+From the help function we found out the that these arguments dictate the following parameters:
+
+| Argument Name | Definition |
+|--------|--------|
+| `main` | Plot Title |
+| `col` | Color of the histogram | 
+| `xlab`  | X label name |
+| `ylab` | Y label name |
+
+Each plotting function *generally* follows the same argument naming scheme. However, they can vary, and this is why it's important to use the `help()` function for a plotting function. Additionally, a useful link to bookmark is the [R Color Naming Guide](http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf). This contains the names of preloaded color names in R. This is where I found `lightblue`. 
+
+### Pie Chart
+
+Pie charts are useful plots when comparing the number of occurrences for categorical information. For example, one might use a pie chart for wins/losses of a sports team. One of the variables from the Amazon BestSellers dataset is Book Genre. Let's create a pie chart that shows a pie chart of the genres. First, we'll need to know which genres are part of the Amazon Book Genre dataset.
+
+```{r}
+# use the unique function to print the genres 
+unique(amzn$Genre)
+```
+
+So there are only two broad genres within this dataset. Nonetheless, let's create a pie chart of these. Let's count the total number of occurrences for each genre. 
+
+```{r}
+# count the total number of occurrences for each genre.
+fic = sum(amzn$Genre == 'Fiction')
+nonfic = sum(amzn$Genre == 'Non Fiction')
+```
+
+Now, we can use these total numbers to create our piechart.
+
+```{r}
+# create a vector called slices that contain total number of fiction and nonfiction books
+slices <- c(fic, nonfic)
+# create a vector called lbls that contain labels for the respective total number of fiction and nonfiction books
+lbls <- c("Fiction", "Non-Fiction")
+# plot using the pie function
+pie(x = slices, labels = lbls, main="Pie Chart of Amazon Bestseller Book Genres")
+```
+
+This is a good start. Let's customize this more by adding colors and percentage values.
+
+```{r}
+# create a pct vector that calculates the percentages of each value 
+pct <- round(slices/sum(slices)*100)
+lbls <- paste(lbls, pct) # add percents to labels
+lbls
+```
+
+Notice here we introduced the `paste` function that pasted the `pct` vector values to the end of the `lbls` values. The `paste` function and it's cousin, `paste0`, are very useful when dealing with character string combinations. This is a heavily used function for many developers. To expand or `lbls` further, we can add the `%` sign to the end of each value with the same `paste` function.
+
+```{r}
+lbls <- paste(lbls,"%",sep="") # ad % to labels
+lbls
+```
+
+
+```{r}
+# create color vector that matches a color for each genre
+cols = c("dodgerblue4", "seagreen1")
+pie(x = slices,labels = lbls, col=cols,main="Pie Chart of Amazon Bestseller Book Genres")
+```
+
+### Scatter Plot
+
+Another useful plot that can help describe a dataset is a scatter plot. Scatter plots are often used to evaluate a relationship between two variables. In our case, let's investigate the relationship between number of reviews and user rating. 
+
+```{r}
+# create scatterplot between number of reviews and user rating
+plot(x = amzn$Reviews, y = amzn$User_Rating)
+```
+
+
+As we can see, there's not a distinct correlation between number of reviews and user rating. In other words, more reviews does not necessarily indicate a higher or lower user rating **for this dataset**. Remember, this dataset only contains the **Best Sellers**, so our data is limited to the best of the best. We'd likely see a different trend if we had all of the data available. Anyway, even plots that show us no correlation are useful. Let's spice this up a bit.
+
+
+```{r}
+# create scatterplot between number of reviews and user rating
+plot(x = amzn$Reviews, y = amzn$User_Rating, xlab = "Total Reviews", ylab = "Average User Rating", main="Amazon Bestsellers 2009-2019")
+```
+
+We can actually go even further here and change our points using the `pch` argument which is short for plotting character. Then, we can adjust the background color of the points with the `bg` argument. To go even further, we can also change the size of the point with teh `cex` argument. 
+
+```{r}
+# create scatterplot between number of reviews and user rating
+plot(x = amzn$Reviews, y = amzn$User_Rating, xlab = "Total Reviews", ylab = "Average User Rating", main="Amazon Bestsellers 2009-2019",
+     pch = 23, bg = 'coral', cex = 2.0, col = "dodgerblue4")
+```
+
+With a few additional arguments, we're given the ability to customize any plot in R. Altogether, the script we created looks like this.
+
+
+```{r, eval=FALSE}
+# this script evaluates the Amazon Bestseller Books dataset
+# James
+
+### begin script ###
+
+# load necessary packages
+library(readxl)
+
+# open our amazon bestsellers file using read_excel from the readxl package
+amzn = read_excel(path = "/Users/james/Downloads/amazon_bestsellers.xlsx")
 
 
 
+# DATA MANAGEMENT
+# overwrite our amzn tibble dataframe and convert it to a standard dataframe 
+amzn = data.frame(amzn)
+# create new column named User_Rating that doesn't contain spaces and give it the values of the original User Rating variable name 
+amzn['User_Rating'] = amzn[,3]
+# remove the 3rd column which is currently User Rating with a space
+amzn[,3] = NULL
+# reorder our rows based on the user rating column
+amzn = amzn[order(amzn$User_Rating, decreasing=TRUE),]
 
 
+# HISTOGRAM PLOT
+# histogram of the user rating from the amzn dataframe with breaks from 3.3 to 5 spaced by 0.1
+hist(x = amzn$User_Rating, breaks = seq(from = 3.3, to= 5.0, by=0.1),
+     main = "Amazon Bestseller User Ratings", col = "lightblue", xlab = "User Ratings",
+     ylab = "Number of Occurences")
 
 
+# PIE CHART PLOT
+# count the total number of occurrences for each genre.
+fic = sum(amzn$Genre == 'Fiction')
+nonfic = sum(amzn$Genre == 'Non Fiction')
+# create a vector called slices that contain total number of fiction and nonfiction books
+slices <- c(fic, nonfic)
+# create a vector called lbls that contain labels for the respective total number of fiction and nonfiction books
+lbls <- c("Fiction", "Non-Fiction")
+pct <- round(slices/sum(slices)*100) # create a pct vector that calculates the percentages of each value 
+lbls <- paste(lbls, pct) # add percents to labels
+lbls <- paste(lbls,"%",sep="") # ad % to labels
+cols = c("dodgerblue4", "seagreen1") # create color vector that matches a color for each genre
+pie(x = slices,labels = lbls, col=cols,main="Pie Chart of Amazon Bestseller Book Genres")
 
 
+# SCATTERPLOT
+# create scatterplot between number of reviews and user rating
+plot(x = amzn$Reviews, y = amzn$User_Rating, xlab = "Total Reviews", ylab = "Average User Rating", main="Amazon Bestsellers 2009-2019",
+     pch = 23, bg = 'coral', cex = 2.0, col = "dodgerblue4")
+```
+```
 
 
 

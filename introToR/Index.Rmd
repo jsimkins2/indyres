@@ -37,4 +37,4 @@ This course is designed to be a 5 day course intended to provide students with a
 |2 | [Functions and Classes](#02-Functions)| 
 |3 | [DataFrames, Indexing, and For Loops](#03-DataFrames)| 
 |4 | [Dataset Ingest and Plotting](#04-Input)| |
-|5 | [Volcanoes or Beer Example](#05-Tidyverse-ggplot2)| |
+|5 | [Final Project: World Cup Data](#05-world-cup)| |
