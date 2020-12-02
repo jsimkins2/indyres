@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Introduction to R</title>
+  <title>6 Final Project: World Cup Data | Introduction to R</title>
   <meta name="description" content="Tutorials for the PubForge Tech Trainings Introduction to R Course" />
   <meta name="generator" content="bookdown 0.20.6 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Introduction to R" />
+  <meta property="og:title" content="6 Final Project: World Cup Data | Introduction to R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Introduction to R" />
+  <meta name="twitter:title" content="6 Final Project: World Cup Data | Introduction to R" />
   
   <meta name="twitter:description" content="Tutorials for the PubForge Tech Trainings Introduction to R Course" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
+<link rel="prev" href="dataset-ingest-and-plotting.html"/>
 
-<link rel="next" href="getting-started-with-r.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -211,52 +211,127 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Introduction to R</h1>
-<p class="author"><em>James Simkins</em></p>
-<p class="date"><em>2020-12-02</em></p>
-</div>
-<div id="introduction-to-r" class="section level1">
-<h1><span class="header-section-number">1</span> Introduction To R</h1>
-<p><img src="images/canoes.jpeg" width="100%" style="display: block; margin: auto;" /></p>
-<p>Hello! Welcome to Tech Trainings - From Excel to R. We’re here to enhance the productivity of your business by ditching Excel and employing R. Our tutorials are focused and designed for employees currently working. R is currently ranked as the <a href="http://pypl.github.io/PYPL.html">7th most popular language in the world</a> - and with good reason! We’ll dive into why R is ranked so high and how it can benefit you and your business.</p>
-<p>This intro to R course is designed to teach R to businesses and employees who frequently use Excel for day-to-day operations. Few businesses around the world leverage the amazing features of R and we’re here to teach these skills. To put it bluntly, R saves you and your employees a ton of time. We’ve seen users cut down daily 2-3 <em>hour</em> tasks in Excel into 2-3 <em>minutes</em> after some basic introduction to R. In this case, R saved this individual employee 750 hours per year - allowing employee time to be used towards more creative problem-solving endeavors.</p>
-<p>This is a concentrated, fast-paced course designed to improve business efficiency, cut down tedious tasks, and increase the creative time spent by employees. Most online R tutorials are far too broad and can leave a student frustrated at the vast abilities of R. R can be used to accomplish a great deal, but instead of showing off what R can do, we discuss and teach select skills that can be used to improve day-to-day business efficiency immediately. We’re not here to waste your time and overwhelm our students like other R workshops.</p>
-<p>This concentrated course follows a design of specific problem solving. We present common business practices often handled using Excel and show an employee can use R to accomplish the same task at a faster pace. The workshop is split into 5 days with assignments due each day. This course was developed by James Simkins who has developed and taught multiple programming courses at the University of Delaware.</p>
-<div id="agenda" class="section level2">
-<h2><span class="header-section-number">1.1</span> Agenda</h2>
-<p>This course is designed to be a 5 day course intended to provide students with a strong foundation in R concepts and fundamentals. The intended time per day is 2-3 hours.</p>
+<div id="final-project-world-cup-data" class="section level1">
+<h1><span class="header-section-number">6</span> Final Project: World Cup Data</h1>
+<p><br>
+<br>
+<img src="images/soccer.jpg" width="70%" style="display: block; margin: auto;" />
+<br>
+<br></p>
+<p>In this final comprehension check, we’ll utilize skills we’ve learned over the past 4 days to investigate FIFA World Cup data. The World Cup is the most popular single-sport contest in the world, watched by over 3.5 billion people around the world. Every 4 years, the top 32 countries join to compete in this exciting soccer tournament. The best players on the planet show off their skills and teamwork in an attempt to capture the most sought after prize in sport - the FIFA World Cup Trophy.</p>
+<div id="about-the-data" class="section level2">
+<h2><span class="header-section-number">6.1</span> About the Data</h2>
+<p>This dataset contains information regarding the total television audience for the 2010 World cup. Before proceeding, download the <code>fifa_audience_2010.xlxs</code> file from the course datasets folder.</p>
 <table>
+<colgroup>
+<col width="32%" />
+<col width="67%" />
+</colgroup>
 <thead>
 <tr class="header">
-<th>Day</th>
-<th>Focus</th>
+<th align="left">Variable</th>
+<th align="left">Definition</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>1</td>
-<td><a href="#01-Getting-Started">R/RStudio Installation &amp; Overview</a></td>
+<td align="left">country</td>
+<td align="left">The name of the country audience</td>
 </tr>
 <tr class="even">
-<td>2</td>
-<td><a href="#02-Functions">Functions and Classes</a></td>
+<td align="left">confederation</td>
+<td align="left">Each country is a member of a regional soccer organization called a confederation. For example, the United States are part of CONCACAF, which is comprised of North American countries such as Mexico, Canada, Honduras, etc.</td>
 </tr>
 <tr class="odd">
-<td>3</td>
-<td><a href="#03-DataFrames">DataFrames, Indexing, and For Loops</a></td>
+<td align="left">population_share</td>
+<td align="left">The relative percentage of world population share</td>
 </tr>
 <tr class="even">
-<td>4</td>
-<td><a href="#04-Input">Dataset Ingest and Plotting</a></td>
+<td align="left">tv_audience_share</td>
+<td align="left">The relative percentage of television audience</td>
 </tr>
 <tr class="odd">
-<td>5</td>
-<td><a href="#05-world-cup">Final Project: World Cup Data</a></td>
+<td align="left">gdp_weighted_share</td>
+<td align="left">The relative percentage of gross domestic product (purchasing power) per country</td>
 </tr>
 </tbody>
 </table>
+</div>
+<div id="assessment" class="section level2">
+<h2><span class="header-section-number">6.2</span> Assessment</h2>
+<p>The final assessment requires the submission of an R script. It is worth 25 points. Your script will be graded based on the following:
+<br></p>
+<table>
+<colgroup>
+<col width="28%" />
+<col width="71%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Value</th>
+<th align="left">Grading Metric</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">15 points</td>
+<td align="left">Ability to accomplish 5 coding tasks listed below</td>
+</tr>
+<tr class="even">
+<td align="left">5 points</td>
+<td align="left">Methodology and discussion of what’s being attempted in each coding task</td>
+</tr>
+<tr class="odd">
+<td align="left">5 points</td>
+<td align="left">Organization of R script (where packages are loaded, where data is read in, commenting, etc.)</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<div id="coding-tasks" class="section level3">
+<h3><span class="header-section-number">6.2.1</span> Coding Tasks</h3>
+<ol style="list-style-type: decimal">
+<li>Load appropriate packages, then load in the <code>fifa_audience_2010.xlxs</code> file. Answer the following via coding.
+<ul>
+<li>Convert this from a tibble dataframe to a standard dataframe.</li>
+<li>What are the dimensions of the dataframe?</li>
+<li>What are the column names?</li>
+<li>What is the class of the country variable?</li>
+<li>What country is located in the 15th row?</li>
+<li>What is the class of the 15th country? (just the country itself)
+<br>
+<br></li>
+</ul></li>
+<li>Sort the dataframe based on the population_share (from highest share to lowest share). Answer the following via coding.
+<ul>
+<li>What country is 10th in popoulation share?</li>
+<li>How many countries have a rounded relative population_share of 0.0%?</li>
+<li>The <code>cor()</code> function calculates the correlation between two vectors. A perfect match has a correlation of 1 and complete opposites have a correlation value of 0. What is the correlation between <code>gdp_weighted_share</code> and <code>population_share</code>. Does it make sense?
+<br>
+<br></li>
+</ul></li>
+<li>Create a scatter plot of <code>gdp_weighted_share</code> and <code>population_share</code>. Include the following
+<ul>
+<li>Colors, x label, y label, and a <code>pch</code> value of 21</li>
+<li>Include the correlation value calculated above in your title
+<br>
+<br></li>
+</ul></li>
+<li>Create a bar plot of the <code>population share</code> of <em>the top 10 countries</em> based on this variable.
+<ul>
+<li>Use the <code>barplot()</code> function. (hint:use <code>help(barplot)</code> if you’re stuck)</li>
+<li>Include colors, x label, y label, title
+<br>
+<br></li>
+</ul></li>
+<li>Create a pie chart of the various confederations.
+<ul>
+<li>Include percentages and percentage symbol</li>
+<li>Include unique colors, title, and labels</li>
+</ul></li>
+</ol>
 
+</div>
 </div>
 </div>
             </section>
@@ -264,8 +339,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
+<a href="dataset-ingest-and-plotting.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="getting-started-with-r.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>3 Functions &amp; Classes | Introduction to R</title>
+  <meta name="description" content="Tutorials for the PubForge Tech Trainings Introduction to R Course" />
+  <meta name="generator" content="bookdown 0.20.6 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="3 Functions &amp; Classes | Introduction to R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Tutorials for the PubForge Tech Trainings Introduction to R Course" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3 Functions &amp; Classes | Introduction to R" />
+  
+  <meta name="twitter:description" content="Tutorials for the PubForge Tech Trainings Introduction to R Course" />
+  
+
+<meta name="author" content="James Simkins" />
+
+
+<meta name="date" content="2020-12-02" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="getting-started-with-r.html"/>
+<link rel="next" href="dataframes-indexing-and-for-loops.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Tech Trainings: Introduction to R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="introduction-to-r.html"><a href="introduction-to-r.html"><i class="fa fa-check"></i><b>1</b> Introduction To R</a><ul>
+<li class="chapter" data-level="1.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#agenda"><i class="fa fa-check"></i><b>1.1</b> Agenda</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html"><i class="fa fa-check"></i><b>2</b> Getting Started with R</a><ul>
+<li class="chapter" data-level="2.1" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#why-is-r-so-popular"><i class="fa fa-check"></i><b>2.1</b> Why is R so popular?</a></li>
+<li class="chapter" data-level="2.2" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#installing-r"><i class="fa fa-check"></i><b>2.2</b> Installing R</a></li>
+<li class="chapter" data-level="2.3" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#installing-rstudio"><i class="fa fa-check"></i><b>2.3</b> Installing Rstudio</a></li>
+<li class="chapter" data-level="2.4" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#video-examples"><i class="fa fa-check"></i><b>2.4</b> Video Examples</a></li>
+<li class="chapter" data-level="2.5" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#getting-familiar-with-rstudio"><i class="fa fa-check"></i><b>2.5</b> Getting familiar with RStudio</a></li>
+<li class="chapter" data-level="2.6" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#open-rstudio"><i class="fa fa-check"></i><b>2.6</b> Open RStudio</a></li>
+<li class="chapter" data-level="2.7" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#r-studio-layout"><i class="fa fa-check"></i><b>2.7</b> R Studio Layout</a></li>
+<li class="chapter" data-level="2.8" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#writing-a-script-in-r"><i class="fa fa-check"></i><b>2.8</b> Writing a script in R</a><ul>
+<li class="chapter" data-level="2.8.1" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#input-evaluation"><i class="fa fa-check"></i><b>2.8.1</b> Input &amp; Evaluation</a></li>
+<li class="chapter" data-level="2.8.2" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#running-code"><i class="fa fa-check"></i><b>2.8.2</b> Running Code</a></li>
+<li class="chapter" data-level="2.8.3" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#errors"><i class="fa fa-check"></i><b>2.8.3</b> Errors</a></li>
+<li class="chapter" data-level="2.8.4" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#objects-variables"><i class="fa fa-check"></i><b>2.8.4</b> Objects &amp; Variables</a></li>
+<li class="chapter" data-level="2.8.5" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#variable-names"><i class="fa fa-check"></i><b>2.8.5</b> Variable Names</a></li>
+<li class="chapter" data-level="2.8.6" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#commenting-note-taking"><i class="fa fa-check"></i><b>2.8.6</b> Commenting &amp; Note Taking</a></li>
+<li class="chapter" data-level="2.8.7" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#saving-this-r-script"><i class="fa fa-check"></i><b>2.8.7</b> Saving this R script</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="functions-classes.html"><a href="functions-classes.html"><i class="fa fa-check"></i><b>3</b> Functions &amp; Classes</a><ul>
+<li class="chapter" data-level="3.1" data-path="functions-classes.html"><a href="functions-classes.html#packages-and-functions"><i class="fa fa-check"></i><b>3.1</b> Packages and Functions</a></li>
+<li class="chapter" data-level="3.2" data-path="functions-classes.html"><a href="functions-classes.html#arguments"><i class="fa fa-check"></i><b>3.2</b> Arguments</a></li>
+<li class="chapter" data-level="3.3" data-path="functions-classes.html"><a href="functions-classes.html#r-objects"><i class="fa fa-check"></i><b>3.3</b> R Objects</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="functions-classes.html"><a href="functions-classes.html#characters"><i class="fa fa-check"></i><b>3.3.1</b> Characters</a></li>
+<li class="chapter" data-level="3.3.2" data-path="functions-classes.html"><a href="functions-classes.html#numeric"><i class="fa fa-check"></i><b>3.3.2</b> Numeric</a></li>
+<li class="chapter" data-level="3.3.3" data-path="functions-classes.html"><a href="functions-classes.html#integers"><i class="fa fa-check"></i><b>3.3.3</b> Integers</a></li>
+<li class="chapter" data-level="3.3.4" data-path="functions-classes.html"><a href="functions-classes.html#logicals"><i class="fa fa-check"></i><b>3.3.4</b> Logicals</a></li>
+<li class="chapter" data-level="3.3.5" data-path="functions-classes.html"><a href="functions-classes.html#complex-values"><i class="fa fa-check"></i><b>3.3.5</b> Complex values</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="functions-classes.html"><a href="functions-classes.html#lists"><i class="fa fa-check"></i><b>3.4</b> Lists</a></li>
+<li class="chapter" data-level="3.5" data-path="functions-classes.html"><a href="functions-classes.html#factors"><i class="fa fa-check"></i><b>3.5</b> Factors</a></li>
+<li class="chapter" data-level="3.6" data-path="functions-classes.html"><a href="functions-classes.html#matrices"><i class="fa fa-check"></i><b>3.6</b> Matrices</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="dataframes-indexing-and-for-loops.html"><a href="dataframes-indexing-and-for-loops.html"><i class="fa fa-check"></i><b>4</b> DataFrames, Indexing, and For Loops</a><ul>
+<li class="chapter" data-level="4.1" data-path="dataframes-indexing-and-for-loops.html"><a href="dataframes-indexing-and-for-loops.html#data-frames"><i class="fa fa-check"></i><b>4.1</b> Data Frames</a></li>
+<li class="chapter" data-level="4.2" data-path="dataframes-indexing-and-for-loops.html"><a href="dataframes-indexing-and-for-loops.html#indexing-data-frames"><i class="fa fa-check"></i><b>4.2</b> Indexing Data Frames</a></li>
+<li class="chapter" data-level="4.3" data-path="dataframes-indexing-and-for-loops.html"><a href="dataframes-indexing-and-for-loops.html#for-loops"><i class="fa fa-check"></i><b>4.3</b> For Loops</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="dataset-ingest-and-plotting.html"><a href="dataset-ingest-and-plotting.html"><i class="fa fa-check"></i><b>5</b> Dataset Ingest and Plotting</a><ul>
+<li class="chapter" data-level="5.1" data-path="dataset-ingest-and-plotting.html"><a href="dataset-ingest-and-plotting.html#installing-a-package"><i class="fa fa-check"></i><b>5.1</b> Installing a Package</a></li>
+<li class="chapter" data-level="5.2" data-path="dataset-ingest-and-plotting.html"><a href="dataset-ingest-and-plotting.html#reading-data"><i class="fa fa-check"></i><b>5.2</b> Reading Data</a></li>
+<li class="chapter" data-level="5.3" data-path="dataset-ingest-and-plotting.html"><a href="dataset-ingest-and-plotting.html#paths"><i class="fa fa-check"></i><b>5.3</b> Paths</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="dataset-ingest-and-plotting.html"><a href="dataset-ingest-and-plotting.html#path-navigation-trick"><i class="fa fa-check"></i><b>5.3.1</b> Path Navigation Trick</a></li>
+<li class="chapter" data-level="5.3.2" data-path="dataset-ingest-and-plotting.html"><a href="dataset-ingest-and-plotting.html#reading-in-the-file"><i class="fa fa-check"></i><b>5.3.2</b> Reading in the File</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="dataset-ingest-and-plotting.html"><a href="dataset-ingest-and-plotting.html#plotting-the-data"><i class="fa fa-check"></i><b>5.4</b> Plotting the Data</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="dataset-ingest-and-plotting.html"><a href="dataset-ingest-and-plotting.html#base-plotting"><i class="fa fa-check"></i><b>5.4.1</b> Base Plotting</a></li>
+<li class="chapter" data-level="5.4.2" data-path="dataset-ingest-and-plotting.html"><a href="dataset-ingest-and-plotting.html#histograms"><i class="fa fa-check"></i><b>5.4.2</b> Histograms</a></li>
+<li class="chapter" data-level="5.4.3" data-path="dataset-ingest-and-plotting.html"><a href="dataset-ingest-and-plotting.html#pie-chart"><i class="fa fa-check"></i><b>5.4.3</b> Pie Chart</a></li>
+<li class="chapter" data-level="5.4.4" data-path="dataset-ingest-and-plotting.html"><a href="dataset-ingest-and-plotting.html#scatter-plot"><i class="fa fa-check"></i><b>5.4.4</b> Scatter Plot</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="final-project-world-cup-data.html"><a href="final-project-world-cup-data.html"><i class="fa fa-check"></i><b>6</b> Final Project: World Cup Data</a><ul>
+<li class="chapter" data-level="6.1" data-path="final-project-world-cup-data.html"><a href="final-project-world-cup-data.html#about-the-data"><i class="fa fa-check"></i><b>6.1</b> About the Data</a></li>
+<li class="chapter" data-level="6.2" data-path="final-project-world-cup-data.html"><a href="final-project-world-cup-data.html#assessment"><i class="fa fa-check"></i><b>6.2</b> Assessment</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="final-project-world-cup-data.html"><a href="final-project-world-cup-data.html#coding-tasks"><i class="fa fa-check"></i><b>6.2.1</b> Coding Tasks</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">James Simkins</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="functions-classes" class="section level1">
+<h1><span class="header-section-number">3</span> Functions &amp; Classes</h1>
+<p><img src="images/toolbox.jpeg" width="50%" /><img src="images/ratchet.jpeg" width="50%" /></p>
+<p><img src="images/socket.jpeg" width="50%" style="display: block; margin: auto;" /></p>
+<p>In R, a package is a collection of functions. Imagine a package as a toolbox and functions as the tools within the toolbox. If we want to <strong>load</strong> the <strong>wrenches</strong> toolbox, we can load it like so - <code>library(wrenches)</code>. Then, we can use different wrenches from that toolbox like - <code>rachet_wrench()</code>, <code>small_wrench()</code>, <code>big_wrench()</code>. These would be called functions. Functions are pre-written chunks of code that perform an action in R. When we use something like a <code>rachet_wrench()</code>, we’ll need to select a <code>socket</code> to put on. In this example, the <code>socket</code> we put on the <code>rachet_wrench</code> is called an argument. Arguments are interchangeable parameters that are needed to run the function.</p>
+<div id="packages-and-functions" class="section level2">
+<h2><span class="header-section-number">3.1</span> Packages and Functions</h2>
+<p>In R, a <code>base</code> package is automatically loaded in for you. Most of the time, we will need to install packages as RStudio only comes with a few pre-installed packages. When we do need to install packages, we only need to install it one time for it to be downloaded to our machine. All packages in R are FREE. Now, let’s check back in on our pre-installed packages. One of these pre-installed packages is called <code>base</code>. Within the <code>base</code> package, we can find common functions such as <code>mean()</code>, <code>min()</code>, <code>max()</code>,<code>print()</code>, <code>seq()</code>, etc. Even though it’s redundant, let’s load the <code>base</code> package. Next, let’s write create a variable named <code>my_val</code>, and print out the value using the <code>print()</code> function.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="kw">library</span>(base)</a>
+<a class="sourceLine" id="cb14-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb14-3" data-line-number="3">my_val =<span class="st"> </span><span class="dv">77</span></a>
+<a class="sourceLine" id="cb14-4" data-line-number="4"><span class="kw">print</span>(my_val)</a></code></pre></div>
+<pre><code>## [1] 77</code></pre>
+<p>The <code>base</code> package was opened to use the <code>print</code> function which had an argument of <code>my_val</code>. <strong>After you load in an argument in an R session, you do not need to reload it again</strong>.</p>
+<p>Now let’s look at an example where we create a sequence of numbers using the <code>seq()</code> function.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="kw">library</span>(base)</a>
+<a class="sourceLine" id="cb16-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb16-3" data-line-number="3">my_seq =<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">10</span>, <span class="dt">to =</span> <span class="dv">20</span>, <span class="dt">by =</span> <span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb16-4" data-line-number="4"><span class="kw">print</span>(my_seq)</a></code></pre></div>
+<pre><code>##  [1] 10 11 12 13 14 15 16 17 18 19 20</code></pre>
+<p>The <code>base</code> package was opened to use the <code>seq</code> function which had 3 arguments; <code>from</code>, <code>to</code>, and <code>by</code>.</p>
+</div>
+<div id="arguments" class="section level2">
+<h2><span class="header-section-number">3.2</span> Arguments</h2>
+<p>Arguments must be declared using the <code>=</code> operator and are <strong>always separated by a comma</strong>. In the last example, we used the <code>seq()</code> function which had arguments of <code>from</code>, <code>to</code>, and <code>by</code>. How do we know the argument names?</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="kw">help</span>(seq)</a></code></pre></div>
+<p>The <code>help()</code> function is automatically loaded for you and has detailed information and examples of functions you may want to use. Notice that we have arguments <code>from</code>, <code>to</code>, <code>by</code>, <code>length.out</code>, and <code>along.with</code>. These arguments are <strong>pre-definded</strong>, meaning if you don’t declare the values for the arguments, the function will automatically have arguments declared for you. Lets see what happens if we don’t declare any arguments for this function…</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="kw">seq</span>()</a></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<p>Now try the same with the <code>print()</code> function</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="kw">print</span>()</a></code></pre></div>
+<p><code>Error in print.default() : argument &quot;x&quot; is missing, with no default</code>. There is no pre-defined value of x for <code>print()</code> to use. <strong>But, wait a second, when we coded <code>print(my_seq)</code>, we didn’t declare the <code>x</code> argument?</strong>. That’s right, you don’t <em>have to</em> declare the arguments by name <em>if</em> you follow the <em>prescribed order</em> of the arguments in the function. For example, the prescribed order of the <code>seq()</code> function is <code>from</code>, <code>to</code>, and <code>by</code>. Let’s remove our argument names and see what happens…</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1">my_seq =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb22-2" data-line-number="2"><span class="kw">print</span>(my_seq)</a></code></pre></div>
+<pre><code>##  [1] 10 11 12 13 14 15 16 17 18 19 20</code></pre>
+<p>The result is the same because we kept the same order. This notation is sometimes called shorthand argument declaration. Pay attention to the commas as they are absolutely necessary for separating the arguments. Now, let’s see what happens if we have the same <code>from</code>, <code>to</code> and <code>by</code> values but formally declare them out of order.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1">my_seq =<span class="st"> </span><span class="kw">seq</span>(<span class="dt">by =</span> <span class="dv">1</span>, <span class="dt">from =</span> <span class="dv">10</span>, <span class="dt">to =</span> <span class="dv">20</span>)</a>
+<a class="sourceLine" id="cb24-2" data-line-number="2"><span class="kw">print</span>(my_seq)</a></code></pre></div>
+<pre><code>##  [1] 10 11 12 13 14 15 16 17 18 19 20</code></pre>
+<p>Once again, the result is the same. Although we can get away with shorthand argument declaration, it’s always a good idea to formally declare them for future users of the code (including yourself!).</p>
+</div>
+<div id="r-objects" class="section level2">
+<h2><span class="header-section-number">3.3</span> R Objects</h2>
+<p>R has five basic classes of objects:</p>
+<ul>
+<li><p>character</p></li>
+<li><p>numeric (real numbers)</p></li>
+<li><p>integer</p></li>
+<li><p>logical (True/False)</p></li>
+<li><p>complex</p></li>
+</ul>
+<p>Use the <code>class()</code> function (from the base package, so we don’t need to load anything) to figure out what class an object/variable is. Let’s take a look at the example above.</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" data-line-number="1">val &lt;-<span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb26-2" data-line-number="2"><span class="kw">class</span>(val)</a></code></pre></div>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" data-line-number="1">a =<span class="st"> </span><span class="fl">7.779</span></a>
+<a class="sourceLine" id="cb28-2" data-line-number="2"><span class="kw">class</span>(a)</a></code></pre></div>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" data-line-number="1">my_text =<span class="st"> &quot;hello&quot;</span></a>
+<a class="sourceLine" id="cb30-2" data-line-number="2"><span class="kw">class</span>(my_text)</a></code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<p>R recognizes each of these objects as different classes.</p>
+<div id="characters" class="section level3">
+<h3><span class="header-section-number">3.3.1</span> Characters</h3>
+<p>Characters are text that are declared within quotations (or apostrophes). They can be single phrases OR can be a collection of words. When we have multiple words within quotations we refer to this as a <strong>character string</strong>.</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" data-line-number="1">my_text =<span class="st"> &#39;hello&#39;</span></a>
+<a class="sourceLine" id="cb32-2" data-line-number="2">snacks =<span class="st"> &quot;Chips and Pretzels are my favorite snacks&quot;</span></a>
+<a class="sourceLine" id="cb32-3" data-line-number="3"><span class="kw">class</span>(snacks)</a></code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" data-line-number="1">my_name =<span class="st"> &#39;Winston Churchill&#39;</span></a>
+<a class="sourceLine" id="cb34-2" data-line-number="2"><span class="kw">class</span>(snacks)</a></code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+</div>
+<div id="numeric" class="section level3">
+<h3><span class="header-section-number">3.3.2</span> Numeric</h3>
+<p>Often times our data contains numbers that carry digits after a decimal place. In R, these are referred to as <strong>numeric values</strong>.</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" data-line-number="1">a =<span class="st"> </span><span class="fl">7.71</span></a>
+<a class="sourceLine" id="cb36-2" data-line-number="2">b =<span class="st"> </span><span class="fl">123451.890803843</span></a></code></pre></div>
+<p>If we have a larger dataset, we may have more than 1 value per object. Objects can also represent a <em>vector</em> of numeric values. Vectors are a collection of values of the same class. In other words, it can be a collection of numeric values, a collection of character strings, etc. We can create vectors using the concatenate (aka combine) function. Let’s use the combine function <code>c()</code> to create a vector of numeric values.</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" data-line-number="1">num_vect =<span class="st"> </span><span class="kw">c</span>(<span class="fl">7.71</span>, <span class="fl">8.65</span>, <span class="fl">9.34</span>, <span class="fl">10.89</span>, <span class="fl">19.55</span>)</a>
+<a class="sourceLine" id="cb37-2" data-line-number="2"><span class="kw">print</span>(num_vect)</a></code></pre></div>
+<pre><code>## [1]  7.71  8.65  9.34 10.89 19.55</code></pre>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" data-line-number="1"><span class="kw">class</span>(num_vect)</a></code></pre></div>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<p>Notice that <code>num_vect</code> represents this collection, yet the class of the collection is numeric. As stated above, vectors must be a collection of the same class.</p>
+</div>
+<div id="integers" class="section level3">
+<h3><span class="header-section-number">3.3.3</span> Integers</h3>
+<p>If we specify a number value in R, it is automatically classified as a numeric even if that value looks like an integer to us. In order to create an integer, we can use the <code>as.integer()</code> function.</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb41-1" data-line-number="1">i =<span class="st"> </span><span class="kw">as.integer</span>(<span class="dv">9</span>)</a>
+<a class="sourceLine" id="cb41-2" data-line-number="2"><span class="kw">class</span>(i)</a></code></pre></div>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
+<p>We can use the <code>as.integer()</code> function to <strong>convert</strong> numeric values to integer values.</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb43-1" data-line-number="1">x =<span class="st"> </span><span class="fl">3.14</span></a>
+<a class="sourceLine" id="cb43-2" data-line-number="2">i =<span class="st"> </span><span class="kw">as.integer</span>(x)</a>
+<a class="sourceLine" id="cb43-3" data-line-number="3"><span class="kw">print</span>(i)</a></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb45-1" data-line-number="1"><span class="kw">class</span>(i)</a></code></pre></div>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
+<p>There are also similar functions for the other classes such as <code>as.character()</code> and <code>as.numeric()</code>.</p>
+</div>
+<div id="logicals" class="section level3">
+<h3><span class="header-section-number">3.3.4</span> Logicals</h3>
+<p>A logical is a special value in R that details a comparison. Some logical values you may use include <code>TRUE</code>, <code>FALSE</code>, <code>&amp;</code> (and), <code>|</code> (or), and <code>!</code> (negate).</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb47-1" data-line-number="1">b =<span class="st"> </span><span class="ot">TRUE</span></a>
+<a class="sourceLine" id="cb47-2" data-line-number="2">y =<span class="st"> </span><span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb47-3" data-line-number="3"><span class="kw">class</span>(y)</a></code></pre></div>
+<pre><code>## [1] &quot;logical&quot;</code></pre>
+<p>The latter logical values - <code>&amp;</code> (and), <code>|</code> (or), and <code>!</code> (negate) - are usually found in for loops which we’ll cover later on. Here’s a brief example of how they work.</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb49-1" data-line-number="1">a =<span class="st"> </span><span class="ot">TRUE</span></a>
+<a class="sourceLine" id="cb49-2" data-line-number="2">b =<span class="st"> </span><span class="ot">FALSE</span></a>
+<a class="sourceLine" id="cb49-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb49-4" data-line-number="4">a <span class="op">&amp;</span><span class="st"> </span>b</a></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb51-1" data-line-number="1">a <span class="op">|</span><span class="st"> </span>b </a></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb53-1" data-line-number="1"><span class="op">!</span>a</a></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+</div>
+<div id="complex-values" class="section level3">
+<h3><span class="header-section-number">3.3.5</span> Complex values</h3>
+<p>We won’t be using many complex values in R, but R does support them. Complex values use the letter <code>i</code> <strong>immediately following a number</strong>.</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb55-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span><span class="op">+</span>2i, <span class="dv">3</span><span class="op">+</span>8i) <span class="co"># complex</span></a>
+<a class="sourceLine" id="cb55-2" data-line-number="2"><span class="kw">class</span>(x)</a></code></pre></div>
+<pre><code>## [1] &quot;complex&quot;</code></pre>
+</div>
+</div>
+<div id="lists" class="section level2">
+<h2><span class="header-section-number">3.4</span> Lists</h2>
+<p>Lists are a special type of vector that can contain elements of
+different classes. Lists are a very important data type in R and you
+should get to know them well. Lists, in combination with the various
+“apply” functions discussed later, make for a powerful combination.</p>
+<p>Lists can be explicitly created using the <code>list()</code> function, which
+takes an arbitrary number of arguments.</p>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb57-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dv">1</span>, <span class="st">&quot;a&quot;</span>, <span class="ot">TRUE</span>, <span class="fl">7.65334</span>) </a>
+<a class="sourceLine" id="cb57-2" data-line-number="2">x</a></code></pre></div>
+<pre><code>## [[1]]
+## [1] 1
+## 
+## [[2]]
+## [1] &quot;a&quot;
+## 
+## [[3]]
+## [1] TRUE
+## 
+## [[4]]
+## [1] 7.65334</code></pre>
+</div>
+<div id="factors" class="section level2">
+<h2><span class="header-section-number">3.5</span> Factors</h2>
+<p>Factors are used to represent categorical data and can be unordered or
+ordered. One can think of a factor as an integer vector where each
+integer has a <em>label</em>.</p>
+<p>Using factors with labels is <em>better</em> than using integers because
+factors are self-describing. Having a variable that has values “Male”
+and “Female” is better than a variable that has values 1 and 2.</p>
+<p>Factor objects can be created with the <code>factor()</code> function.</p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb59-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;yes&quot;</span>, <span class="st">&quot;yes&quot;</span>, <span class="st">&quot;no&quot;</span>, <span class="st">&quot;yes&quot;</span>, <span class="st">&quot;no&quot;</span>)) </a>
+<a class="sourceLine" id="cb59-2" data-line-number="2">x</a></code></pre></div>
+<pre><code>## [1] yes yes no  yes no 
+## Levels: no yes</code></pre>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb61-1" data-line-number="1"><span class="kw">table</span>(x) </a></code></pre></div>
+<pre><code>## x
+##  no yes 
+##   2   3</code></pre>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb63-1" data-line-number="1"><span class="co"># See the underlying representation of factor</span></a>
+<a class="sourceLine" id="cb63-2" data-line-number="2"><span class="kw">unclass</span>(x)  </a></code></pre></div>
+<pre><code>## [1] 2 2 1 2 1
+## attr(,&quot;levels&quot;)
+## [1] &quot;no&quot;  &quot;yes&quot;</code></pre>
+<p>Often factors will be automatically created for you when you read a
+dataset in using a function like <code>read.table()</code>. Those functions often
+default to creating factors when they encounter data that look like
+characters or strings.</p>
+<p>The order of the levels of a factor can be set using the <code>levels</code>
+argument to <code>factor()</code>.</p>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb65-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;yes&quot;</span>, <span class="st">&quot;yes&quot;</span>, <span class="st">&quot;no&quot;</span>, <span class="st">&quot;yes&quot;</span>, <span class="st">&quot;no&quot;</span>))</a>
+<a class="sourceLine" id="cb65-2" data-line-number="2">x  <span class="co">## Levels are put in alphabetical order</span></a></code></pre></div>
+<pre><code>## [1] yes yes no  yes no 
+## Levels: no yes</code></pre>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb67-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;yes&quot;</span>, <span class="st">&quot;yes&quot;</span>, <span class="st">&quot;no&quot;</span>, <span class="st">&quot;yes&quot;</span>, <span class="st">&quot;no&quot;</span>),</a>
+<a class="sourceLine" id="cb67-2" data-line-number="2">            <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;yes&quot;</span>, <span class="st">&quot;no&quot;</span>))</a>
+<a class="sourceLine" id="cb67-3" data-line-number="3">x</a></code></pre></div>
+<pre><code>## [1] yes yes no  yes no 
+## Levels: yes no</code></pre>
+</div>
+<div id="matrices" class="section level2">
+<h2><span class="header-section-number">3.6</span> Matrices</h2>
+<p>A matrix is a collection of data elements arranged in a two-dimensional rectangular layout. As you learn more about R, you’ll find that Matrices are very popular. A matrix is one way to store a table of data, such as an excel spreadsheet. For example, let’s create a matrix of fruits consumed by a family for each day of the week. We have apples and oranges as our fruits and 7 days in the week. A matrix might look like this. matrix of fruits consumed by day might look like this.</p>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb69-1" data-line-number="1">apples =<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">3</span>) <span class="co"># apples consumed each day of the week</span></a>
+<a class="sourceLine" id="cb69-2" data-line-number="2">oranges =<span class="st"> </span><span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>) <span class="co"># oranges consumed each day of the week</span></a>
+<a class="sourceLine" id="cb69-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb69-4" data-line-number="4">fruits =<span class="st"> </span><span class="kw">matrix</span>( </a>
+<a class="sourceLine" id="cb69-5" data-line-number="5"><span class="dt">data=</span><span class="kw">c</span>(apples, oranges),   <span class="co"># the data elements </span></a>
+<a class="sourceLine" id="cb69-6" data-line-number="6"><span class="dt">nrow=</span><span class="dv">7</span>,                    <span class="co"># number of rows </span></a>
+<a class="sourceLine" id="cb69-7" data-line-number="7"><span class="dt">ncol=</span><span class="dv">2</span>,                    <span class="co"># number of columns </span></a>
+<a class="sourceLine" id="cb69-8" data-line-number="8"><span class="dt">byrow =</span> <span class="ot">FALSE</span>)             <span class="co"># fill matrix by columns instead of rows</span></a></code></pre></div>
+<p>Notice that the matrix function takes multiple arguments including <code>data</code>, <code>nrow</code>, <code>ncol</code>, and <code>byrow</code>. The <code>byrow</code> argument takes a logical value. This is a new way to code as we are placing each argument on it’s own line so we can detail what’s happening with the <code>#</code> symbol. R doesn’t care what happens on each line <strong>as long as arguments are specified, separated by commas, and enclosed by the proper parentheses</strong>. Let’s take a look at our fruits matrix…</p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb70-1" data-line-number="1">fruits</a></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]    2    4
+## [2,]    4    3
+## [3,]    3    5
+## [4,]    1    1
+## [5,]    5    2
+## [6,]    7    3
+## [7,]    3    2</code></pre>
+<p>Notice that we didn’t use the <code>print()</code> function above, we just keyed in <code>fruits</code>. This is referred to as <em>auto-printing</em>. We don’t actually need to use the <code>print()</code> function any longer as we can use the <em>auto-print</em> help here instead. We have 2 columns which are comprised of the apples and oranges consumed each day, respectively. We have 7 rows for each day of the week. If we want to, we can <em>rename</em> our values in fruits to reflect our row and column names using <code>rownames()</code> and <code>colnames()</code> functions respectively.</p>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb72-1" data-line-number="1">weekday_vector =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Mon&quot;</span>, <span class="st">&quot;Tue&quot;</span>, <span class="st">&quot;Wed&quot;</span>, <span class="st">&quot;Thu&quot;</span>, <span class="st">&quot;Fri&quot;</span>, <span class="st">&quot;Sat&quot;</span>, <span class="st">&quot;Sun&quot;</span>)</a>
+<a class="sourceLine" id="cb72-2" data-line-number="2">fruit_vector =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Apples&quot;</span>, <span class="st">&quot;Oranges&quot;</span>)</a>
+<a class="sourceLine" id="cb72-3" data-line-number="3"><span class="kw">rownames</span>(fruits) &lt;-<span class="st"> </span>weekday_vector</a>
+<a class="sourceLine" id="cb72-4" data-line-number="4"><span class="kw">colnames</span>(fruits) &lt;-<span class="st"> </span>fruit_vector</a>
+<a class="sourceLine" id="cb72-5" data-line-number="5">fruits</a></code></pre></div>
+<pre><code>##     Apples Oranges
+## Mon      2       4
+## Tue      4       3
+## Wed      3       5
+## Thu      1       1
+## Fri      5       2
+## Sat      7       3
+## Sun      3       2</code></pre>
+<p>Our rows and columns have been renamed based on the <code>weekday_vector</code> and <code>fruit_vector</code> that we created above using the combine function <code>c()</code>. Let’s double check the class here…</p>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb74-1" data-line-number="1"><span class="kw">class</span>(fruits)</a></code></pre></div>
+<pre><code>## [1] &quot;matrix&quot; &quot;array&quot;</code></pre>
+<p><code>fruits</code> is indeed a matrix class. It is also an array class. While a matrix is a 2 dimensional set of data like one with rows and columns, an array is a multi-dimensional dataset. An array can have unlimited dimensions. Technically speaking, a matrix is a 2 dimensional array which is why <code>fruits</code> is a matrix class <em>and</em> an array class. More often than not, we’ll stick with matrices and dataframes (introduced next) as opposed to arrays. An important note is that like vectors, the data (apples and orange vectors) within a matrix must be of the same class. For example, both the apples and oranges vectors are of a numeric class which allowed the matrix to be built without any errors.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="getting-started-with-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="dataframes-indexing-and-for-loops.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

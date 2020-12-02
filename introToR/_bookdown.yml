@@ -6,8 +6,10 @@ language:
 rmd_files: [
   "Index.Rmd",
   "01-Getting-Started.Rmd", 
-  "02-Definitions.Rmd", 
-  "03-Fundamentals.Rmd"
+  "02-Functions.Rmd", 
+  "03-DataFrames.Rmd",
+  "04-Input.Rmd",
+  "05-world-cup.Rmd"
  ]
 delete_merged_file: true
 output_dir: "docs"

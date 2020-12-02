@@ -5,26 +5,26 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2 Getting Started with R | Introduction to R</title>
-  <meta name="description" content="Tutorials for the PUBForge Tech Trainings Introduction to R Course" />
+  <meta name="description" content="Tutorials for the PubForge Tech Trainings Introduction to R Course" />
   <meta name="generator" content="bookdown 0.20.6 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2 Getting Started with R | Introduction to R" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="Tutorials for the PUBForge Tech Trainings Introduction to R Course" />
+  <meta property="og:description" content="Tutorials for the PubForge Tech Trainings Introduction to R Course" />
   
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="2 Getting Started with R | Introduction to R" />
   
-  <meta name="twitter:description" content="Tutorials for the PUBForge Tech Trainings Introduction to R Course" />
+  <meta name="twitter:description" content="Tutorials for the PubForge Tech Trainings Introduction to R Course" />
   
 
 <meta name="author" content="James Simkins" />
 
 
-<meta name="date" content="2020-11-11" />
+<meta name="date" content="2020-12-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,8 +32,7 @@
   
   
 <link rel="prev" href="introduction-to-r.html"/>
-<link rel="next" href="definitions-rules.html"/>
-<script src="libs/header-attrs-2.3.8/header-attrs.js"></script>
+<link rel="next" href="functions-classes.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -51,30 +50,28 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
 <style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -83,9 +80,9 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {   }
+  {  }
 @media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+a.sourceLine::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -134,47 +131,65 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Tech Trainings: Introduction to R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="introduction-to-r.html"><a href="introduction-to-r.html"><i class="fa fa-check"></i><b>1</b> Introduction To R</a>
-<ul>
+<li class="chapter" data-level="1" data-path="introduction-to-r.html"><a href="introduction-to-r.html"><i class="fa fa-check"></i><b>1</b> Introduction To R</a><ul>
 <li class="chapter" data-level="1.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#agenda"><i class="fa fa-check"></i><b>1.1</b> Agenda</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html"><i class="fa fa-check"></i><b>2</b> Getting Started with R</a>
-<ul>
-<li class="chapter" data-level="2.1" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#why-is-there-such-a-buzz-around-r"><i class="fa fa-check"></i><b>2.1</b> Why is there such a buzz around R?</a></li>
-<li class="chapter" data-level="2.2" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#reasons-to-love-r"><i class="fa fa-check"></i><b>2.2</b> Reasons to love R</a></li>
-<li class="chapter" data-level="2.3" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#downloading-guide"><i class="fa fa-check"></i><b>2.3</b> Downloading Guide</a></li>
-<li class="chapter" data-level="2.4" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#rstudio"><i class="fa fa-check"></i><b>2.4</b> Rstudio</a></li>
-<li class="chapter" data-level="2.5" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#download-workshop-datasets"><i class="fa fa-check"></i><b>2.5</b> Download Workshop Datasets</a></li>
-<li class="chapter" data-level="2.6" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#video-examples"><i class="fa fa-check"></i><b>2.6</b> Video Examples</a></li>
-<li class="chapter" data-level="2.7" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#getting-familiar-with-rstudio"><i class="fa fa-check"></i><b>2.7</b> Getting familiar with RStudio</a></li>
-<li class="chapter" data-level="2.8" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#open-rstudio"><i class="fa fa-check"></i><b>2.8</b> Open RStudio</a></li>
-<li class="chapter" data-level="2.9" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#r-studio-layout"><i class="fa fa-check"></i><b>2.9</b> R Studio Layout</a></li>
+<li class="chapter" data-level="2" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html"><i class="fa fa-check"></i><b>2</b> Getting Started with R</a><ul>
+<li class="chapter" data-level="2.1" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#why-is-r-so-popular"><i class="fa fa-check"></i><b>2.1</b> Why is R so popular?</a></li>
+<li class="chapter" data-level="2.2" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#installing-r"><i class="fa fa-check"></i><b>2.2</b> Installing R</a></li>
+<li class="chapter" data-level="2.3" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#installing-rstudio"><i class="fa fa-check"></i><b>2.3</b> Installing Rstudio</a></li>
+<li class="chapter" data-level="2.4" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#video-examples"><i class="fa fa-check"></i><b>2.4</b> Video Examples</a></li>
+<li class="chapter" data-level="2.5" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#getting-familiar-with-rstudio"><i class="fa fa-check"></i><b>2.5</b> Getting familiar with RStudio</a></li>
+<li class="chapter" data-level="2.6" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#open-rstudio"><i class="fa fa-check"></i><b>2.6</b> Open RStudio</a></li>
+<li class="chapter" data-level="2.7" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#r-studio-layout"><i class="fa fa-check"></i><b>2.7</b> R Studio Layout</a></li>
+<li class="chapter" data-level="2.8" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#writing-a-script-in-r"><i class="fa fa-check"></i><b>2.8</b> Writing a script in R</a><ul>
+<li class="chapter" data-level="2.8.1" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#input-evaluation"><i class="fa fa-check"></i><b>2.8.1</b> Input &amp; Evaluation</a></li>
+<li class="chapter" data-level="2.8.2" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#running-code"><i class="fa fa-check"></i><b>2.8.2</b> Running Code</a></li>
+<li class="chapter" data-level="2.8.3" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#errors"><i class="fa fa-check"></i><b>2.8.3</b> Errors</a></li>
+<li class="chapter" data-level="2.8.4" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#objects-variables"><i class="fa fa-check"></i><b>2.8.4</b> Objects &amp; Variables</a></li>
+<li class="chapter" data-level="2.8.5" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#variable-names"><i class="fa fa-check"></i><b>2.8.5</b> Variable Names</a></li>
+<li class="chapter" data-level="2.8.6" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#commenting-note-taking"><i class="fa fa-check"></i><b>2.8.6</b> Commenting &amp; Note Taking</a></li>
+<li class="chapter" data-level="2.8.7" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#saving-this-r-script"><i class="fa fa-check"></i><b>2.8.7</b> Saving this R script</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="definitions-rules.html"><a href="definitions-rules.html"><i class="fa fa-check"></i><b>3</b> Definitions &amp; Rules</a>
-<ul>
-<li class="chapter" data-level="3.1" data-path="definitions-rules.html"><a href="definitions-rules.html#important-r-programming-definitions"><i class="fa fa-check"></i><b>3.1</b> Important R Programming Definitions</a></li>
-<li class="chapter" data-level="3.2" data-path="definitions-rules.html"><a href="definitions-rules.html#rules"><i class="fa fa-check"></i><b>3.2</b> Rules</a></li>
-<li class="chapter" data-level="3.3" data-path="definitions-rules.html"><a href="definitions-rules.html#general-recommendations"><i class="fa fa-check"></i><b>3.3</b> General Recommendations</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="r-coding-fundamentals.html"><a href="r-coding-fundamentals.html"><i class="fa fa-check"></i><b>4</b> R Coding Fundamentals</a>
-<ul>
-<li class="chapter" data-level="4.1" data-path="r-coding-fundamentals.html"><a href="r-coding-fundamentals.html#entering-input"><i class="fa fa-check"></i><b>4.1</b> Entering Input</a></li>
-<li class="chapter" data-level="4.2" data-path="r-coding-fundamentals.html"><a href="r-coding-fundamentals.html#running-code"><i class="fa fa-check"></i><b>4.2</b> Running Code</a></li>
-<li class="chapter" data-level="4.3" data-path="r-coding-fundamentals.html"><a href="r-coding-fundamentals.html#evaluation"><i class="fa fa-check"></i><b>4.3</b> Evaluation</a></li>
-<li class="chapter" data-level="4.4" data-path="r-coding-fundamentals.html"><a href="r-coding-fundamentals.html#packages-and-functions"><i class="fa fa-check"></i><b>4.4</b> Packages and Functions</a></li>
-<li class="chapter" data-level="4.5" data-path="r-coding-fundamentals.html"><a href="r-coding-fundamentals.html#arguments"><i class="fa fa-check"></i><b>4.5</b> Arguments</a></li>
-<li class="chapter" data-level="4.6" data-path="r-coding-fundamentals.html"><a href="r-coding-fundamentals.html#r-objects"><i class="fa fa-check"></i><b>4.6</b> R Objects</a></li>
-<li class="chapter" data-level="4.7" data-path="r-coding-fundamentals.html"><a href="r-coding-fundamentals.html#creating-vectors"><i class="fa fa-check"></i><b>4.7</b> Creating Vectors</a></li>
-<li class="chapter" data-level="4.8" data-path="r-coding-fundamentals.html"><a href="r-coding-fundamentals.html#mixing-objects"><i class="fa fa-check"></i><b>4.8</b> Mixing Objects</a></li>
-<li class="chapter" data-level="4.9" data-path="r-coding-fundamentals.html"><a href="r-coding-fundamentals.html#changing-classes"><i class="fa fa-check"></i><b>4.9</b> Changing Classes</a></li>
-<li class="chapter" data-level="4.10" data-path="r-coding-fundamentals.html"><a href="r-coding-fundamentals.html#missing-values"><i class="fa fa-check"></i><b>4.10</b> Missing Values</a></li>
-<li class="chapter" data-level="4.11" data-path="r-coding-fundamentals.html"><a href="r-coding-fundamentals.html#attributes"><i class="fa fa-check"></i><b>4.11</b> Attributes</a></li>
-<li class="chapter" data-level="4.12" data-path="r-coding-fundamentals.html"><a href="r-coding-fundamentals.html#matrices"><i class="fa fa-check"></i><b>4.12</b> Matrices</a></li>
-<li class="chapter" data-level="4.13" data-path="r-coding-fundamentals.html"><a href="r-coding-fundamentals.html#lists"><i class="fa fa-check"></i><b>4.13</b> Lists</a></li>
-<li class="chapter" data-level="4.14" data-path="r-coding-fundamentals.html"><a href="r-coding-fundamentals.html#factors"><i class="fa fa-check"></i><b>4.14</b> Factors</a></li>
-<li class="chapter" data-level="4.15" data-path="r-coding-fundamentals.html"><a href="r-coding-fundamentals.html#data-frames"><i class="fa fa-check"></i><b>4.15</b> Data Frames</a></li>
-<li class="chapter" data-level="4.16" data-path="r-coding-fundamentals.html"><a href="r-coding-fundamentals.html#names"><i class="fa fa-check"></i><b>4.16</b> Names</a></li>
-<li class="chapter" data-level="4.17" data-path="r-coding-fundamentals.html"><a href="r-coding-fundamentals.html#summary"><i class="fa fa-check"></i><b>4.17</b> Summary</a></li>
+<li class="chapter" data-level="3" data-path="functions-classes.html"><a href="functions-classes.html"><i class="fa fa-check"></i><b>3</b> Functions &amp; Classes</a><ul>
+<li class="chapter" data-level="3.1" data-path="functions-classes.html"><a href="functions-classes.html#packages-and-functions"><i class="fa fa-check"></i><b>3.1</b> Packages and Functions</a></li>
+<li class="chapter" data-level="3.2" data-path="functions-classes.html"><a href="functions-classes.html#arguments"><i class="fa fa-check"></i><b>3.2</b> Arguments</a></li>
+<li class="chapter" data-level="3.3" data-path="functions-classes.html"><a href="functions-classes.html#r-objects"><i class="fa fa-check"></i><b>3.3</b> R Objects</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="functions-classes.html"><a href="functions-classes.html#characters"><i class="fa fa-check"></i><b>3.3.1</b> Characters</a></li>
+<li class="chapter" data-level="3.3.2" data-path="functions-classes.html"><a href="functions-classes.html#numeric"><i class="fa fa-check"></i><b>3.3.2</b> Numeric</a></li>
+<li class="chapter" data-level="3.3.3" data-path="functions-classes.html"><a href="functions-classes.html#integers"><i class="fa fa-check"></i><b>3.3.3</b> Integers</a></li>
+<li class="chapter" data-level="3.3.4" data-path="functions-classes.html"><a href="functions-classes.html#logicals"><i class="fa fa-check"></i><b>3.3.4</b> Logicals</a></li>
+<li class="chapter" data-level="3.3.5" data-path="functions-classes.html"><a href="functions-classes.html#complex-values"><i class="fa fa-check"></i><b>3.3.5</b> Complex values</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="functions-classes.html"><a href="functions-classes.html#lists"><i class="fa fa-check"></i><b>3.4</b> Lists</a></li>
+<li class="chapter" data-level="3.5" data-path="functions-classes.html"><a href="functions-classes.html#factors"><i class="fa fa-check"></i><b>3.5</b> Factors</a></li>
+<li class="chapter" data-level="3.6" data-path="functions-classes.html"><a href="functions-classes.html#matrices"><i class="fa fa-check"></i><b>3.6</b> Matrices</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="dataframes-indexing-and-for-loops.html"><a href="dataframes-indexing-and-for-loops.html"><i class="fa fa-check"></i><b>4</b> DataFrames, Indexing, and For Loops</a><ul>
+<li class="chapter" data-level="4.1" data-path="dataframes-indexing-and-for-loops.html"><a href="dataframes-indexing-and-for-loops.html#data-frames"><i class="fa fa-check"></i><b>4.1</b> Data Frames</a></li>
+<li class="chapter" data-level="4.2" data-path="dataframes-indexing-and-for-loops.html"><a href="dataframes-indexing-and-for-loops.html#indexing-data-frames"><i class="fa fa-check"></i><b>4.2</b> Indexing Data Frames</a></li>
+<li class="chapter" data-level="4.3" data-path="dataframes-indexing-and-for-loops.html"><a href="dataframes-indexing-and-for-loops.html#for-loops"><i class="fa fa-check"></i><b>4.3</b> For Loops</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="dataset-ingest-and-plotting.html"><a href="dataset-ingest-and-plotting.html"><i class="fa fa-check"></i><b>5</b> Dataset Ingest and Plotting</a><ul>
+<li class="chapter" data-level="5.1" data-path="dataset-ingest-and-plotting.html"><a href="dataset-ingest-and-plotting.html#installing-a-package"><i class="fa fa-check"></i><b>5.1</b> Installing a Package</a></li>
+<li class="chapter" data-level="5.2" data-path="dataset-ingest-and-plotting.html"><a href="dataset-ingest-and-plotting.html#reading-data"><i class="fa fa-check"></i><b>5.2</b> Reading Data</a></li>
+<li class="chapter" data-level="5.3" data-path="dataset-ingest-and-plotting.html"><a href="dataset-ingest-and-plotting.html#paths"><i class="fa fa-check"></i><b>5.3</b> Paths</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="dataset-ingest-and-plotting.html"><a href="dataset-ingest-and-plotting.html#path-navigation-trick"><i class="fa fa-check"></i><b>5.3.1</b> Path Navigation Trick</a></li>
+<li class="chapter" data-level="5.3.2" data-path="dataset-ingest-and-plotting.html"><a href="dataset-ingest-and-plotting.html#reading-in-the-file"><i class="fa fa-check"></i><b>5.3.2</b> Reading in the File</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="dataset-ingest-and-plotting.html"><a href="dataset-ingest-and-plotting.html#plotting-the-data"><i class="fa fa-check"></i><b>5.4</b> Plotting the Data</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="dataset-ingest-and-plotting.html"><a href="dataset-ingest-and-plotting.html#base-plotting"><i class="fa fa-check"></i><b>5.4.1</b> Base Plotting</a></li>
+<li class="chapter" data-level="5.4.2" data-path="dataset-ingest-and-plotting.html"><a href="dataset-ingest-and-plotting.html#histograms"><i class="fa fa-check"></i><b>5.4.2</b> Histograms</a></li>
+<li class="chapter" data-level="5.4.3" data-path="dataset-ingest-and-plotting.html"><a href="dataset-ingest-and-plotting.html#pie-chart"><i class="fa fa-check"></i><b>5.4.3</b> Pie Chart</a></li>
+<li class="chapter" data-level="5.4.4" data-path="dataset-ingest-and-plotting.html"><a href="dataset-ingest-and-plotting.html#scatter-plot"><i class="fa fa-check"></i><b>5.4.4</b> Scatter Plot</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="final-project-world-cup-data.html"><a href="final-project-world-cup-data.html"><i class="fa fa-check"></i><b>6</b> Final Project: World Cup Data</a><ul>
+<li class="chapter" data-level="6.1" data-path="final-project-world-cup-data.html"><a href="final-project-world-cup-data.html#about-the-data"><i class="fa fa-check"></i><b>6.1</b> About the Data</a></li>
+<li class="chapter" data-level="6.2" data-path="final-project-world-cup-data.html"><a href="final-project-world-cup-data.html#assessment"><i class="fa fa-check"></i><b>6.2</b> Assessment</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="final-project-world-cup-data.html"><a href="final-project-world-cup-data.html#coding-tasks"><i class="fa fa-check"></i><b>6.2.1</b> Coding Tasks</a></li>
+</ul></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">James Simkins</a></li>
@@ -196,15 +211,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="getting-started-with-r" class="section level1" number="2">
+<div id="getting-started-with-r" class="section level1">
 <h1><span class="header-section-number">2</span> Getting Started with R</h1>
-<div id="why-is-there-such-a-buzz-around-r" class="section level2" number="2.1">
-<h2><span class="header-section-number">2.1</span> Why is there such a buzz around R?</h2>
+<div id="why-is-r-so-popular" class="section level2">
+<h2><span class="header-section-number">2.1</span> Why is R so popular?</h2>
 <p>R is an open-source programming language used for data science, statistics, and data visualization. R is currently ranked as the <a href="http://pypl.github.io/PYPL.html">7th most popular language in the world</a>. Since R is open-source, anyone can contribute to or use R packages that contain pre-built functions/operations. This greatly accelerates our ability to share and collaborate.</p>
 <p>The purpose of this workshop is to teach working professionals how to use R for tasks they’d normally use Excel for. Excel is a powerful tool and is great for a variety of uses, but when it comes to crunching data, R will greatly improve the speed at which these tasks can be done. Furthermore, with R, mundane &amp; tedious tasks can be automated. When you write a script in R for a recurring task such as calculating a monthly budget, all one needs to do each month is provide the routine with a new dataset to crunch the numbers. Below are examples of why we use R.</p>
-</div>
-<div id="reasons-to-love-r" class="section level2" number="2.2">
-<h2><span class="header-section-number">2.2</span> Reasons to love R</h2>
 <table>
 <colgroup>
 <col width="28%" />
@@ -244,45 +256,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 </div>
-<div id="downloading-guide" class="section level2" number="2.3">
-<h2><span class="header-section-number">2.3</span> Downloading Guide</h2>
+<div id="installing-r" class="section level2">
+<h2><span class="header-section-number">2.2</span> Installing R</h2>
 <ol style="list-style-type: decimal">
 <li><p>Navigate to the R website: <a href="https://cloud.r-project.org/" class="uri">https://cloud.r-project.org/</a></p></li>
 <li><p>Click Download for your Operating System (Windows, Mac OSx, or Linux - if you don’t have a MacBook, then you’re using Windows most likely)</p></li>
 </ol>
-<p><img src="images/os_image.png" width="70%" style="display: block; margin: auto;" /></p>
+<p><img src="images/os_image.png" width="60%" style="display: block; margin: auto;" /></p>
 <ol start="3" style="list-style-type: decimal">
 <li>Click the most recent R version to download. Install the downloaded application as you would with any other application on your computer.</li>
 </ol>
-<p><img src="images/download_r.png" width="70%" style="display: block; margin: auto;" /></p>
+<p><img src="images/download_r.png" width="60%" style="display: block; margin: auto;" /></p>
 </div>
-<div id="rstudio" class="section level2" number="2.4">
-<h2><span class="header-section-number">2.4</span> Rstudio</h2>
-<p>While R is the language, RStudio is the application we use to run R. Technically speaking, RStudio is an integrated development environment for R. RStudio makes coding in R easier by highlighting syntax, autocompleting symbols and names, and visualizing our R environment. These aspects are explained in further detail in the <a href="r-coding-fundamentals.html#r-coding-fundamentals">R Coding Fundamentals</a> section. For now, let’s download RStudio.</p>
+<div id="installing-rstudio" class="section level2">
+<h2><span class="header-section-number">2.3</span> Installing Rstudio</h2>
+<p>While R is the language, RStudio is the application we use to run R. Technically speaking, RStudio is an integrated development environment for R. RStudio makes coding in R easier by highlighting syntax, autocompleting symbols and names, and visualizing our R environment. These aspects are explained in further detail in the [R Coding Fundamentals] section. For now, let’s download RStudio.</p>
 <ol style="list-style-type: decimal">
 <li><p>Navigate to the RStudio Website: <a href="http://www.rstudio.com/download" class="uri">http://www.rstudio.com/download</a></p></li>
 <li><p>Click Download under RStudio Desktop Free</p></li>
 </ol>
-<p><img src="images/rstudio_download1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p><img src="images/rstudio_download1.png" width="60%" style="display: block; margin: auto;" /></p>
 <ol start="3" style="list-style-type: decimal">
 <li>This website detects your operating system, allowing you to just click download again. <em>Note that if it doesn’t automatically detect just select the download next to your operating system below this</em></li>
 </ol>
 <p><em>Note that you may be asked to install command line developer tools if you’re using a Mac - select Yes.</em></p>
-<p><img src="images/Rstudio_download2.png" width="70%" style="display: block; margin: auto;" /></p>
+<p><img src="images/Rstudio_download2.png" width="60%" style="display: block; margin: auto;" /></p>
 <ol start="4" style="list-style-type: decimal">
 <li>Install the downloaded application as you normally would on your computer.</li>
 </ol>
 </div>
-<div id="download-workshop-datasets" class="section level2" number="2.5">
-<h2><span class="header-section-number">2.5</span> Download Workshop Datasets</h2>
-<ol style="list-style-type: decimal">
-<li><p>Navigate to the database - <a href="https://github.com/jsimkins2/dataforge" class="uri">https://github.com/jsimkins2/dataforge</a></p></li>
-<li><p>Click on <strong>Code</strong> - then click <strong>download as zip</strong></p></li>
-</ol>
-<p><img src="images/download_as_zip.png" width="70%" style="display: block; margin: auto;" /></p>
-</div>
-<div id="video-examples" class="section level2" number="2.6">
-<h2><span class="header-section-number">2.6</span> Video Examples</h2>
+<div id="video-examples" class="section level2">
+<h2><span class="header-section-number">2.4</span> Video Examples</h2>
 <p>If you want to watch a step-by-step tutorial on how to install
 R for Mac or Windows, you can watch these videos courtest of Dr. Roger Peng</p>
 <ul>
@@ -291,33 +295,141 @@ R for Mac or Windows, you can watch these videos courtest of Dr. Roger Peng</p>
 <li><p><a href="https://youtu.be/bM7Sfz-LADM">Installing RStudio</a></p></li>
 </ul>
 </div>
-<div id="getting-familiar-with-rstudio" class="section level2" number="2.7">
-<h2><span class="header-section-number">2.7</span> Getting familiar with RStudio</h2>
+<div id="getting-familiar-with-rstudio" class="section level2">
+<h2><span class="header-section-number">2.5</span> Getting familiar with RStudio</h2>
 <p>By now you’ve downloaded R and RStudio and you’re probably wondering, why do I need to download both? R is that programming language that is running on your computer. RStudio is what we call an Indegrated Development Environment (IDE) - this is a technical term for a pretty application that’s all dressed up on the surface but underneath is really crunching some numbers (using R) at serious speeds. RStudio is the application we’ll be using. Let’s open RStudio and get familiar with it.</p>
 </div>
-<div id="open-rstudio" class="section level2" number="2.8">
-<h2><span class="header-section-number">2.8</span> Open RStudio</h2>
+<div id="open-rstudio" class="section level2">
+<h2><span class="header-section-number">2.6</span> Open RStudio</h2>
 <p>Navigate to your applications folder on your computer. Launch RStudio. When you open it for the first time, you should see this.</p>
-<p><img src="images/openR_1.png" width="100%" style="display: block; margin: auto;" /></p>
+<p><img src="images/openR_1.png" width="40%" style="display: block; margin: auto;" /></p>
 <p>This is RStudio. When you open it for the first time, we’ll need to open a new RScript to begin coding.</p>
 <p><strong>Open new R Script</strong></p>
 <p>To open a new R Script, we select the blankpage with green plus icon and select R Script from the menu.</p>
-<p><img src="images/new_script2.png" width="100%" style="display: block; margin: auto;" /></p>
+<p><img src="images/new_script2.png" width="40%" style="display: block; margin: auto;" /></p>
 <p>This opens up the new R script and we can begin coding in R. Now that we have the R Script open, you’ll notice 4 quadrants. Let’s run through what those quadrants are.</p>
 </div>
-<div id="r-studio-layout" class="section level2" number="2.9">
-<h2><span class="header-section-number">2.9</span> R Studio Layout</h2>
-<p><img src="images/Full_image_3.png" width="100%" style="display: block; margin: auto;" /></p>
+<div id="r-studio-layout" class="section level2">
+<h2><span class="header-section-number">2.7</span> R Studio Layout</h2>
+<p><img src="images/Full_image_3.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>Now let’s describe what’s going on here in a little more detail.</p>
 <p><strong>R Script</strong> - This is your canvas. This is where we write and edit our code. A lot of trial and error goes on here.</p>
-<p><img src="images/script4.png" width="100%" style="display: block; margin: auto;" /></p>
+<p><img src="images/script4.png" width="40%" style="display: block; margin: auto;" /></p>
 <p><strong>R Console</strong> - This is where you run your code. When we talk about running code, we mean we’re telling R to execute the code we’ve written in the R Script. R Console is the place inside RStudio where we are using the R programming language.</p>
-<p><img src="images/console5.png" width="100%" style="display: block; margin: auto;" /></p>
+<p><img src="images/console5.png" width="40%" style="display: block; margin: auto;" /></p>
 <p><strong>Variable Environment</strong> - This area keeps track of your variables, data tables, filenames, etc. Anything that you run in R that has a name will be stored here. Imagine the Variable Environment to be your closet - every time you make/buy a new sweater, the sweater goes in the closet. We can select data tables to view from this list here.</p>
-<p><img src="images/environment6.png" width="100%" style="display: block; margin: auto;" /></p>
+<p><img src="images/environment6.png" width="40%" style="display: block; margin: auto;" /></p>
 <p><strong>Files/Plots/Help</strong> - In this quadrant, we can toggle through files on our computer (we can view where your files are stored), view plots/visualizations that we’re creating in R (whenever you create a plot in R it is output here first), search for help and descriptions of R functions (there’s descriptions on every function you’ll use in R - they can all be loaded here in the help tab), and more.</p>
-<p><img src="images/files7.png" width="100%" style="display: block; margin: auto;" /></p>
+<p><img src="images/files7.png" width="40%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="writing-a-script-in-r" class="section level2">
+<h2><span class="header-section-number">2.8</span> Writing a script in R</h2>
+<p>An R script (also referred to as “code”) is the file we create that uses the R programming language to accomplish a task. R scripts are saved R routines that we can load up at any time to perform an action with R. Every R script is written in the R Script area but <strong>executed</strong> below in the console area.</p>
+<div id="input-evaluation" class="section level3">
+<h3><span class="header-section-number">2.8.1</span> Input &amp; Evaluation</h3>
+<p>In the R Script area, we write code. Whenever we want to assign a variable, we do so using the assignment operator. The <code>&lt;-</code> symbol is the assignment operator. We can also use <code>=</code> which is a bit more intuitive. It is alright to interchange these when assigning variables.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1">val &lt;-<span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">number =<span class="st"> </span><span class="dv">5</span></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">my_text =<span class="st"> &quot;hello&quot;</span></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">my_math &lt;-<span class="st"> </span><span class="dv">9</span><span class="op">*</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">5</span> <span class="op">-</span><span class="st"> </span><span class="dv">10</span></a></code></pre></div>
+<p>We write the above code in the R script area. When we are finished writing, we need to test the code to see if it works. When we test the code, we’re running the code (also referred to as executing the code). R code is executed in the console area. In order to run our R code, we have a few options to do so…</p>
+</div>
+<div id="running-code" class="section level3">
+<h3><span class="header-section-number">2.8.2</span> Running Code</h3>
+<p>The following are ways we can run our R code.</p>
+<ol style="list-style-type: decimal">
+<li>Highlight the code we wish to run and <strong>click ctrl + enter</strong> (Windows) or <strong>cmd + enter</strong> (Mac OSX)</li>
+<li>We can “send” our code in the R Script to the R Console using the Run Button (located in the top right corner of the R Script area). Notice there are various options for what lines to run (selected lines, next chunk, current chunk, etc.)</li>
+<li>We can copy the lines we wish to run from the R Script area and paste them into the R Console.</li>
+</ol>
+<p>Each of these methods are useful for running R code, although perhaps the easiest method is #1.</p>
+<p><img src="images/runRcode.png" width="40%" style="display: block; margin: auto;" /></p>
+<p>Let’s run the code we wrote above…</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">val &lt;-<span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">number =<span class="st"> </span><span class="fl">7.779</span></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3">my_text =<span class="st"> &quot;hello&quot;</span></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4">my_math &lt;-<span class="st"> </span><span class="dv">9</span> <span class="op">-</span><span class="st"> </span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">5</span> <span class="op">-</span><span class="st"> </span><span class="dv">10</span></a></code></pre></div>
+<p>After we run these lines of code successfully, these values are now saved as variables in the R Global Environment area (top right quadrant). After running, we should see a blinking cursor next to a <code>&gt;</code> symbol in the console. This means we successfully ran this code and the R console is ready for more. What if we don’t see this?</p>
+</div>
+<div id="errors" class="section level3">
+<h3><span class="header-section-number">2.8.3</span> Errors</h3>
+<p>When we code in any programming language, we are practicing trial and error. The reality is that most of the code we write will have errors in it and that’s ok! Even experienced programmers have plenty of errors, or bugs, in their code. One can measure their programming ability through how quickly one can diagnose a bug and fix it.</p>
+<p>Let’s practice diagnosing and fixing some errors.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">x <span class="op">-</span><span class="er">&lt;</span><span class="st"> </span><span class="dv">55</span></a></code></pre></div>
+<p>When we run the line above, the console returns with a message that says: <strong>Error: unexpected ‘&lt;’ in “x -&lt;”</strong>. What did we do wrong? When we assign a variable, the assignment operator must be either <code>=</code> or <code>&lt;-</code>. Notice that we coded our assignment operator incorrectly like so; <code>-&lt;</code>. We simply need to edit this like so…</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="dv">55</span></a></code></pre></div>
+<p>Often our errors come down to something as simple as this. Let’s look at another example…</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">val &lt;-<span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">number =<span class="st"> </span><span class="fl">7.779</span></a>
+<a class="sourceLine" id="cb5-3" data-line-number="3">my_text =<span class="st"> </span>hello<span class="st">&quot;&quot;</span></a>
+<a class="sourceLine" id="cb5-4" data-line-number="4">my_math &lt;-<span class="st"> </span><span class="dv">9</span> <span class="op">-</span><span class="st"> </span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">5</span> <span class="op">-</span><span class="st"> </span><span class="dv">10</span></a></code></pre></div>
+<p><code>Error: unexpected string constant in &quot;my_text = hello&quot;&quot;&quot;</code>. Any character strings (aka text) that we write in R must be <strong>enclosed</strong> in quotations. Our text message, <code>hello</code>, is not <strong>enclosed within</strong> these quotation marks. Simply enclose <code>hello</code> between two quotation marks and re-run the line. As a quick aside, notice that R <em>still</em> successfully ran the other lines of code - this is because R is an iterative language.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">val &lt;-<span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb6-2" data-line-number="2">number =<span class="st"> </span><span class="fl">7.779</span></a>
+<a class="sourceLine" id="cb6-3" data-line-number="3">my_text =<span class="st"> &quot;hello&quot;</span></a>
+<a class="sourceLine" id="cb6-4" data-line-number="4">my_math &lt;-<span class="st"> </span><span class="dv">9</span> <span class="op">-</span><span class="st"> </span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">5</span> <span class="op">-</span><span class="st"> </span><span class="dv">10</span></a></code></pre></div>
+</div>
+<div id="objects-variables" class="section level3">
+<h3><span class="header-section-number">2.8.4</span> Objects &amp; Variables</h3>
+<p>As mentioned above, when we execute the code above the objects/variables are stored locally in R and are displayed in the global environment in the top right quadrant. These objects/variables can now be called at any point. For example, if we head down to the console and type;</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">print</span>(val)</a></code></pre></div>
+<p>R returns <code>1</code>, as this is the value we declared for the <code>val</code> variable/object above. We just introduced something new - the <code>print()</code> function. We’ll get into functions later, but the print function is pretty intuitive - it just prints out values that are stored in R. What happens if we print <code>my_math</code> ?</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">print</span>(my_math)</a></code></pre></div>
+<p>R solved the equation we wrote above for us. Now, the <code>my_math</code> variable/object has a stored value of <code>2</code>. From this point forward, we will use the term variable/object interchangeably as they mean the same thing.</p>
+</div>
+<div id="variable-names" class="section level3">
+<h3><span class="header-section-number">2.8.5</span> Variable Names</h3>
+<p>There are rules associated with naming a variable.</p>
+<ol style="list-style-type: decimal">
+<li>Names are Case Sensitive.</li>
+<li>No spaces allowed within the name (i.e. <strong>NO</strong> naming like so <code>a 1 = 11</code>)</li>
+<li>Variable names <strong>cannot begin</strong> with a number (i.e. <strong>NO</strong> naming like so <code>1a = 11</code>)</li>
+</ol>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="co"># The following are all acceptable variable names</span></a>
+<a class="sourceLine" id="cb9-2" data-line-number="2">a =<span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb9-3" data-line-number="3">A =<span class="st"> </span><span class="dv">55</span></a>
+<a class="sourceLine" id="cb9-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb9-5" data-line-number="5"><span class="co"># We can use underscores _ and periods . within our names as long as there are no spaces</span></a>
+<a class="sourceLine" id="cb9-6" data-line-number="6">a1 &lt;-<span class="st"> </span><span class="dv">11</span></a>
+<a class="sourceLine" id="cb9-7" data-line-number="7">a_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="dv">11</span></a>
+<a class="sourceLine" id="cb9-8" data-line-number="8">a<span class="fl">.1</span> &lt;-<span class="st"> </span><span class="dv">11</span></a></code></pre></div>
+</div>
+<div id="commenting-note-taking" class="section level3">
+<h3><span class="header-section-number">2.8.6</span> Commenting &amp; Note Taking</h3>
+<p>Commenting is the R term for note taking within our code. We can describe what is occurring within our code at any line using the comment symbol <code>#</code>. R will ignore anything on a line of code after the comment symbol <code>#</code>. Run the following…</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="co"># set val variable equal to 1</span></a>
+<a class="sourceLine" id="cb10-2" data-line-number="2">val &lt;-<span class="st"> </span><span class="dv">1</span> <span class="co"># see how R doesn&#39;t run anything on the line beyond the # symbol</span></a>
+<a class="sourceLine" id="cb10-3" data-line-number="3">num <span class="co"># = 180</span></a></code></pre></div>
+<p><code>Error: object 'num' not found</code>. We placed the <code>#</code> symbol before we declared the <code>num</code> variable. Since R doesn’t have a value stored for <code>num</code> and since we ignored our definition, R will return an error.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="co"># set val variable equal to 1</span></a>
+<a class="sourceLine" id="cb11-2" data-line-number="2">val &lt;-<span class="st"> </span><span class="dv">1</span> <span class="co"># see how R doesn&#39;t run anything on the line beyond the # symbol</span></a>
+<a class="sourceLine" id="cb11-3" data-line-number="3">num =<span class="st"> </span><span class="dv">180</span> <span class="co"># much better</span></a></code></pre></div>
+<p>Commenting is always a good idea for future users of the code (including yourself!). It is not necessary to comment/take notes on each line, but it is useful for broader chunks of code as we’ll see when we write longer scripts.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="co"># Print out num</span></a>
+<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="kw">print</span>(num)</a></code></pre></div>
+<pre><code>## [1] 180</code></pre>
+<p>The output above beginning with the <code>## [1]</code> is <strong>output from the tutorials R console</strong>. Technically, it is the <em>first line</em> (hence the [1]) of R console output. This is RStudio’s way of discerning between written code and console output. You will see this more frequently as we go further in this tutorial and your output should look identical.</p>
+</div>
+<div id="saving-this-r-script" class="section level3">
+<h3><span class="header-section-number">2.8.7</span> Saving this R script</h3>
+<p>When we are finished using R for a day, we can save multiple things. First and foremost, it is <strong>always</strong> a good idea to save your R script. When we save an R script, we can re-load it and re-run it at any point in the future. When we write more advanced code, we might need to run an R script once a month when a new batch of data comes in. We can reload the R script, plug in the new dataset, and click run - it’s as simple as that!</p>
+<p>To save an R script…</p>
+<ol style="list-style-type: decimal">
+<li>Click <code>File &gt; Save</code></li>
+<li>Choose a folder on your computer to save to.</li>
+<li>Create a unique file name with the extension <code>.R</code> (such as <code>my_first_script.R</code>)</li>
+<li>Click <code>Save</code></li>
+</ol>
+<p>Note that it is <strong>always a good idea</strong> to use underscores (<code>_</code>) or dashes (<code>-</code>) instead of spaces in a file name. This is because computing systems have trouble with spaces from time to time.</p>
+<p>When you’re ready to close RStudio…</p>
+<ol style="list-style-type: decimal">
+<li>Make sure all scripts you’ve edited are saved.</li>
+<li>Click <code>x</code> in the upper corner of your RStudio</li>
+<li>You will be prompted with the question of <strong>Save workspace image to ~/.RData ?</strong>. What this means is, do you want to save your global environment with all the variables currently in there? This can save time in the future if you don’t wish to re-run code. Most of the time, it’s not a big deal to re-run code and start with a fresh RStudio workspace. Typically we select <strong>No</strong> and then are able to close RStudio.</li>
+</ol>
+<p><strong>This concludes Day 1 of our Introduction to R Course. Please complete the Checkpoint Assignments</strong></p>
 
+</div>
 </div>
 </div>
             </section>
@@ -326,7 +438,7 @@ R for Mac or Windows, you can watch these videos courtest of Dr. Roger Peng</p>
         </div>
       </div>
 <a href="introduction-to-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="definitions-rules.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="functions-classes.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
